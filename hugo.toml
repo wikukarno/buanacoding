@@ -1,6 +1,6 @@
 baseURL = "http://localhost:1313/"
-languageCode = "id"
-title = "Buanacoding"
+languageCode = "en"
+title = "Buana Coding"
 theme = ""
 
 [taxonomies]
