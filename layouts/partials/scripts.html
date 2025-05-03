@@ -55,4 +55,37 @@
   document.getElementById("menu-toggle")?.addEventListener("click", () => {
     document.getElementById("mobile-menu")?.classList.toggle("hidden");
   });
+
+  // Copy code button
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre').forEach((pre) => {
+      const button = document.createElement('button');
+      button.innerHTML = `
+        <span>Copy</span>
+      `;
+      button.className = `
+      copy-btn absolute top-2 right-2
+      text-xs px-2 py-1 rounded flex items-center gap-1
+      transition-colors duration-200
+      bg-gray-200 text-gray-800 hover:bg-gray-300
+      dark:bg-white/10 dark:text-white dark:hover:bg-white/20
+    `.trim();
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'relative';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      wrapper.appendChild(button);
+
+      button.addEventListener('click', () => {
+        const code = pre.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          button.querySelector('span').innerText = 'Copied!';
+          setTimeout(() => {
+            button.querySelector('span').innerText = 'Copy';
+          }, 2000);
+        });
+      });
+    });
+  });
 </script>

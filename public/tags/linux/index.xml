@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on Buanacoding</title>
+    <title>Linux on Buana Coding</title>
     <link>http://localhost:1313/tags/linux/</link>
-    <description>Recent content in Linux on Buanacoding</description>
+    <description>Recent content in Linux on Buana Coding</description>
     <generator>Hugo</generator>
-    <language>id</language>
-    <lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 Nov 2023 12:47:00 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Belajar Syntax Linux untuk Pemula</title>
-      <link>http://localhost:1313/blog/syntax-linux/</link>
-      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/syntax-linux/</guid>
-      <description>Pelajari dasar-dasar syntax Linux untuk developer pemula. Cocok untuk yang baru mulai belajar pemrograman.</description>
-    </item>
-    <item>
-      <title>Dasar-Dasar Linux untuk Developer</title>
-      <link>http://localhost:1313/blog/linux-dasar/</link>
-      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/linux-dasar/</guid>
-      <description>Pelajari dasar-dasar penggunaan Linux, command line, dan file system yang wajib dikuasai developer.</description>
+      <title>How to fix broken update error in linux (Terminal)</title>
+      <link>http://localhost:1313/2023/11/how-to-fix-broken-update-error-in-linux.html</link>
+      <pubDate>Sat, 11 Nov 2023 12:47:00 +0700</pubDate>
+      <guid>http://localhost:1313/2023/11/how-to-fix-broken-update-error-in-linux.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9IKOdPtdkupcRG0rD-b0wBnU8qCsn-vR17UUCQncDVrw_Ou8Q-WmnKBfCWyBK858FI9p7XlBRQao-7VqxQ-xnuZEh3W8StSNd9GUAXFC4hAoL79XkjyOyGkXXobulxn7rYy-AMBD09ob9a65-5OnD7y-4UO5N7tehx8lCB4gZd-T5PV7o1RGLUk1qEXtM/s4770/jake-walker-MPKQiDpMyqU-unsplash.jpg&#34;&gt;&lt;img src=&#34;https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9IKOdPtdkupcRG0rD-b0wBnU8qCsn-vR17UUCQncDVrw_Ou8Q-WmnKBfCWyBK858FI9p7XlBRQao-7VqxQ-xnuZEh3W8StSNd9GUAXFC4hAoL79XkjyOyGkXXobulxn7rYy-AMBD09ob9a65-5OnD7y-4UO5N7tehx8lCB4gZd-T5PV7o1RGLUk1qEXtM/w640-h426/jake-walker-MPKQiDpMyqU-unsplash.jpg&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Linux is a robust operating system, but occasionally you might encounter a &amp;lsquo;broken update error&amp;rsquo; when trying to update your system through the terminal. This issue can halt your system updates and potentially affect system stability. Here’s a comprehensive guide on how to resolve this error, ensuring your Linux system remains up-to-date and secure.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Understanding the Error&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;A broken update error in Linux typically occurs when package dependencies are unsatisfied, when there are conflicts between packages, or when the package repositories are not correctly configured. This can lead to a partial or failed update, rendering your system&amp;rsquo;s package manager unable to proceed with updates.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

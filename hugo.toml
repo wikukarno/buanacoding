@@ -1,9 +1,34 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://www.buanacoding.com/"
 languageCode = "en"
 title = "Buana Coding"
-theme = ""
 
+# Theme settings
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = "dracula"
+
+# Tags taxonomy
 [taxonomies]
   tag = "tags"
+
+# Pagination config
 [pagination]
   pagerSize = 6
+
+# Sitemap settings
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# Enable robots.txt and sitemap output
+[outputs]
+  home = ["HTML", "RSS", "JSON", "SITEMAP", "ROBOTS"]
+
+# Enable metaData for SEO
+[params]
+  author = "Wiku Karno"
+  description = "Buana Coding is your go-to resource for practical programming tutorials, tips, and tools. Learn web and app development, improve your coding skills, and boost your productivity as a developer."
+  keywords = ["coding", "programming", "web development", "app development", "tutorial", "developer tips"]
+  defaultImage = "https://www.buanacoding.com/images/og-image.jpg"

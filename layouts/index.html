@@ -7,24 +7,24 @@
     <div class="lg:col-span-2">
 
       <!-- FEATURED POST -->
-      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">🔥 Featured Post</h2>
-      {{ $featured := index (where .Site.RegularPages "Type" "blog") 0 }}
-      {{ with $featured }}
+      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Featured Post</h2>
+      {{ $featured := first 1 (where .Site.RegularPages "Params.featured" true) }}
+      {{ with index $featured 0 }}
         <a href="{{ .RelPermalink }}" class="block bg-white dark:bg-gray-800 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition mb-8 overflow-hidden">
-          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-64 object-cover">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-64 object-cover block" />
           <div class="p-6">
             <h3 class="text-2xl font-bold text-[#0f7ea9] mb-2">{{ .Title }}</h3>
             <p class="text-gray-600 dark:text-gray-300 text-base mb-3">
               {{ .Summary | truncate 150 }}
             </p>
-            <span class="text-sm text-gray-400 flex items-center gap-1">📅 {{ .Date.Format "Jan 2, 2006" }}</span>
+            <span class="text-sm text-gray-400 flex items-center gap-1">{{ .Date.Format "Jan 2, 2006" }}</span>
           </div>
         </a>
       {{ end }}
 
       <!-- TAGS (MOBILE ONLY) -->
       <div class="block lg:hidden mb-10">
-        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">🏷️ Tags</h3>
+        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Tags</h3>
         <div class="flex flex-wrap gap-2">
           {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
             <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}"
@@ -36,7 +36,9 @@
       </div>
 
       <!-- ARTICLE LIST -->
-      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">📚 Artikel Terbaru</h2>
+      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+        New Articles
+      </h2>
       {{ $pages := where .Site.RegularPages "Type" "blog" }}
       {{ $paginator := .Paginate (after 1 $pages) 6 }}
       <div class="grid gap-6 sm:grid-cols-2">
@@ -45,7 +47,7 @@
             class="bg-white dark:bg-gray-800 p-4 rounded shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
             <h3 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ .Title }}</h3>
             <p class="text-sm text-gray-600 dark:text-gray-300">{{ .Summary | truncate 100 }}</p>
-            <span class="text-xs text-gray-400 block mt-2">📅 {{ .Date.Format "02 Jan 2006" }}</span>
+            <span class="text-xs text-gray-400 block mt-2">{{ .Date.Format "02 Jan 2006" }}</span>
           </a>
         {{ end }}
       </div>
@@ -95,7 +97,7 @@
 
       <!-- TAGS -->
       <div>
-        <h3 class="text-xl font-bold mb-4 pt-[6px] text-gray-900 dark:text-white">🏷️ Tags</h3>
+        <h3 class="text-xl font-bold mb-4 pt-[6px] text-gray-900 dark:text-white">Tags</h3>
         <div class="flex flex-wrap gap-2">
           {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
             <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}"
@@ -107,10 +109,10 @@
       </div>
 
       <!-- ADS -->
-      <div class="bg-white dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-600 p-6 rounded text-center text-gray-400">
+      <!-- <div class="bg-white dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-600 p-6 rounded text-center text-gray-400">
         <span class="block text-sm font-medium mb-2 dark:text-gray-300">🔖 Iklan</span>
         <p class="text-xs dark:text-gray-400">Space untuk banner 300x250</p>
-      </div>
+      </div> -->
 
     </aside>
 
