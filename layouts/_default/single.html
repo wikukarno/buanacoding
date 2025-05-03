@@ -1,0 +1,74 @@
+{{ define "main" }}
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8">
+  <!-- ==== LEFT: ARTICLE CONTENT ==== -->
+  <article class="prose prose-blue dark:prose-invert lg:col-span-2">
+    <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
+      <span class="mx-2">/</span>
+      {{ $tag := index .Params.tags 0 }}
+      {{ if $tag }}
+        <a href="/tags/{{ $tag | urlize }}" class="hover:text-[#0f7ea9] font-medium">#{{ $tag }}</a>
+      {{ else }}
+        <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#blog</a>
+      {{ end }}
+    </nav>
+
+
+    <h1>{{ .Title }}</h1>
+
+    <!-- Artikel Content -->
+    {{ $p := .Content }} {{ $split := split $p "<!--readmore-->" }} {{ index
+    $split 0 | safeHTML }}
+
+    <!-- Baca Juga -->
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
+      <h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2>
+      <ul class="list-disc list-inside">
+        {{ range first 3 (where .Site.RegularPages "Type" "blog") }}
+        <li>
+          <a
+            href="{{ .RelPermalink }}"
+            class="text-blue-600 dark:text-blue-400 hover:underline"
+            >{{ .Title }}</a
+          >
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <!-- Sisa Konten -->
+    {{ if gt (len $split) 1 }} {{ index $split 1 | safeHTML }} {{ end }}
+  </article>
+
+  <!-- ==== RIGHT: SIDEBAR ==== -->
+  <aside class="space-y-10">
+    <!-- POPULAR POST -->
+    <div>
+      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+        🔥 Popular Post
+      </h3>
+      <ul
+        class="space-y-3 list-disc list-inside text-sm text-gray-800 dark:text-gray-200"
+      >
+        {{ range first 5 (where .Site.RegularPages "Type" "blog") }}
+        <li>
+          <a href="{{ .RelPermalink }}" class="hover:text-[#0f7ea9] transition"
+            >{{ .Title }}</a
+          >
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <!-- Ads -->
+    <div
+      class="bg-white dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-600 p-6 rounded text-center text-gray-400"
+    >
+      <span class="block text-sm font-medium mb-2 dark:text-gray-300"
+        >🔖 Iklan</span
+      >
+      <p class="text-xs dark:text-gray-400">Space untuk banner 300x250</p>
+    </div>
+  </aside>
+</div>
+{{ end }}

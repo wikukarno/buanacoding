@@ -1,0 +1,120 @@
+{{ define "main" }}
+
+<section class="pt-8 pb-12 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- ==== LEFT: CONTENT ==== -->
+    <div class="lg:col-span-2">
+
+      <!-- FEATURED POST -->
+      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">🔥 Featured Post</h2>
+      {{ $featured := index (where .Site.RegularPages "Type" "blog") 0 }}
+      {{ with $featured }}
+        <a href="{{ .RelPermalink }}" class="block bg-white dark:bg-gray-800 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition mb-8 overflow-hidden">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold text-[#0f7ea9] mb-2">{{ .Title }}</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-base mb-3">
+              {{ .Summary | truncate 150 }}
+            </p>
+            <span class="text-sm text-gray-400 flex items-center gap-1">📅 {{ .Date.Format "Jan 2, 2006" }}</span>
+          </div>
+        </a>
+      {{ end }}
+
+      <!-- TAGS (MOBILE ONLY) -->
+      <div class="block lg:hidden mb-10">
+        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">🏷️ Tags</h3>
+        <div class="flex flex-wrap gap-2">
+          {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}"
+              class="text-sm bg-gray-200 dark:bg-gray-700 dark:text-white hover:bg-[#0f7ea9] hover:text-white px-3 py-1 rounded transition">
+              #{{ $name }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
+
+      <!-- ARTICLE LIST -->
+      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">📚 Artikel Terbaru</h2>
+      {{ $pages := where .Site.RegularPages "Type" "blog" }}
+      {{ $paginator := .Paginate (after 1 $pages) 6 }}
+      <div class="grid gap-6 sm:grid-cols-2">
+        {{ range $paginator.Pages }}
+          <a href="{{ .RelPermalink }}"
+            class="bg-white dark:bg-gray-800 p-4 rounded shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+            <h3 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ .Title }}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">{{ .Summary | truncate 100 }}</p>
+            <span class="text-xs text-gray-400 block mt-2">📅 {{ .Date.Format "02 Jan 2006" }}</span>
+          </a>
+        {{ end }}
+      </div>
+
+      <!-- PAGINATION -->
+      {{ if gt $paginator.TotalPages 1 }}
+        <div class="mt-12 flex justify-center">
+          <nav class="flex items-center space-x-1 text-sm">
+            {{ if $paginator.HasPrev }}
+              <a href="{{ $paginator.Prev.URL }}"
+                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600">
+                ← Prev
+              </a>
+            {{ end }}
+
+            {{ range $page := $paginator.Pagers }}
+              <a href="{{ $page.URL }}"
+                class="px-3 py-2 rounded border border-gray-300 dark:border-gray-600
+                {{ if eq $page $paginator }}
+                  bg-[#0f7ea9] text-white
+                {{ else }}
+                  text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700
+                {{ end }}">
+                {{ $page.PageNumber }}
+              </a>
+            {{ end }}
+
+            {{ if $paginator.HasNext }}
+              <a href="{{ $paginator.Next.URL }}"
+                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600">
+                Next →
+              </a>
+              {{ with index $paginator.Pagers (sub $paginator.TotalPages 1) }}
+                <a href="{{ .URL }}"
+                  class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600">
+                  Last
+                </a>
+              {{ end }}
+            {{ end }}
+          </nav>
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- ==== RIGHT: SIDEBAR (DESKTOP ONLY) ==== -->
+    <aside class="space-y-10 hidden lg:block">
+
+      <!-- TAGS -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 pt-[6px] text-gray-900 dark:text-white">🏷️ Tags</h3>
+        <div class="flex flex-wrap gap-2">
+          {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}"
+              class="text-sm bg-gray-200 dark:bg-gray-700 dark:text-white hover:bg-[#0f7ea9] hover:text-white px-3 py-1 rounded transition">
+              #{{ $name }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
+
+      <!-- ADS -->
+      <div class="bg-white dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-600 p-6 rounded text-center text-gray-400">
+        <span class="block text-sm font-medium mb-2 dark:text-gray-300">🔖 Iklan</span>
+        <p class="text-xs dark:text-gray-400">Space untuk banner 300x250</p>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,49 @@
+{{ define "main" }}
+<section class="py-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
+    
+    <!-- === LEFT: POSTS BY TAG === -->
+    <div class="lg:col-span-2">
+      <h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">📚 Artikel dengan Tag: #{{ .Title }}</h1>
+
+      {{ $paginator := .Paginate .Pages }}
+      <div class="space-y-5">
+        {{ range $paginator.Pages }}
+          <a href="{{ .RelPermalink }}" class="block bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+            <h2 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ .Title }}</h2>
+            <p class="text-sm text-gray-600 dark:text-gray-300">{{ .Summary | truncate 100 }}</p>
+            <span class="text-xs text-gray-400 block mt-2">📅 {{ .Date.Format "02 Jan 2006" }}</span>
+          </a>
+        {{ end }}
+      </div>
+
+      <!-- PAGINATION -->
+      {{ if gt $paginator.TotalPages 1 }}
+        <div class="mt-8 flex justify-center space-x-2 text-sm">
+          {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}" class="px-3 py-2 bg-white dark:bg-gray-700 border rounded hover:bg-gray-100 dark:hover:bg-gray-600">← Prev</a>
+          {{ end }}
+          {{ range $page := $paginator.Pagers }}
+            <a href="{{ $page.URL }}"
+              class="px-3 py-2 border rounded {{ if eq $page $paginator }}bg-[#0f7ea9] text-white{{ else }}bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600{{ end }}">
+              {{ $page.PageNumber }}
+            </a>
+          {{ end }}
+          {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}" class="px-3 py-2 bg-white dark:bg-gray-700 border rounded hover:bg-gray-100 dark:hover:bg-gray-600">Next →</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- === RIGHT: ADS === -->
+    <aside class="space-y-10">
+      <div class="bg-white dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-600 p-6 rounded text-center text-gray-400">
+        <span class="block text-sm font-medium mb-2 dark:text-gray-300">🔖 Iklan</span>
+        <p class="text-xs dark:text-gray-400">Space untuk banner 300x250</p>
+      </div>
+    </aside>
+
+  </div>
+</section>
+{{ end }}

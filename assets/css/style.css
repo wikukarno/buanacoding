@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer base {
+  html {
+    @apply transition-colors duration-500;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+@layer components {
+  .prose h1 {
+    @apply text-2xl lg:text-3xl font-extrabold mb-3;
+  }
+}
+

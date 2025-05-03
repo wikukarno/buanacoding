@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  {{ partial "head.html" . }}
+  <body
+    class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col"
+  >
+    <!-- NAVBAR -->
+    {{ partial "header.html" . }}
+
+    <!-- MAIN -->
+    <main class="flex-1 w-full">
+      <div class="max-w-7xl mx-auto py-8 px-4">
+        {{ block "main" . }}{{ end }}
+      </div>
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    {{ partial "scrolltotop.html" . }}
+
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

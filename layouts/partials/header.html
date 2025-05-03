@@ -1,0 +1,103 @@
+<header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-extrabold tracking-wide">
+      <a href="/" class="hover:opacity-90">BUANACODING</a>
+    </h1>
+
+    <!-- DESKTOP NAV -->
+    <nav
+      class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"
+    >
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      <a
+        href="/tags/{{ $name | urlize }}"
+        class="no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+      >
+        {{ $name }}
+      </a>
+      {{ end }}
+
+      <!-- Toggle Button -->
+      <button
+        id="theme-toggle"
+        class="ml-4 text-white hover:text-yellow-400 transition duration-300"
+      >
+        <!-- Sun Icon -->
+        <svg
+          id="icon-sun"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v1m0 16v1m8.485-8.485l-.707.707M4.222 4.222l.707.707M21 12h-1M4 12H3m16.263-7.263l-.707.707M4.222 19.778l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"
+          />
+        </svg>
+        <!-- Moon Icon -->
+        <svg
+          id="icon-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M21 12.79A9 9 0 0112.21 3a7 7 0 100 14 9 9 0 008.79-4.21z" />
+        </svg>
+      </button>
+    </nav>
+
+    <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+      ☰
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <a
+      href="/tags/{{ $name | urlize }}"
+      class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+    >
+      {{ $name }}
+    </a>
+    {{ end }}
+    <div class="flex items-center gap-4 mt-2">
+      <!-- Mobile Toggle Button -->
+      <button
+        id="theme-toggle-mobile"
+        class="text-white hover:text-yellow-400 transition duration-300"
+      >
+        <!-- Sun Icon -->
+        <svg
+          id="icon-sun-mobile"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v1m0 16v1m8.485-8.485l-.707.707M4.222 4.222l.707.707M21 12h-1M4 12H3m16.263-7.263l-.707.707M4.222 19.778l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"
+          />
+        </svg>
+        <!-- Moon Icon -->
+        <svg
+          id="icon-moon-mobile"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M21 12.79A9 9 0 0112.21 3a7 7 0 100 14 9 9 0 008.79-4.21z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

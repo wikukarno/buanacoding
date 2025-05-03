@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on Buanacoding</title>
+    <link>http://localhost:1313/tags/laravel/</link>
+    <description>Recent content in Laravel on Buanacoding</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mengenal Dasar Laravel</title>
+      <link>http://localhost:1313/blog/laravel-dasar/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/laravel-dasar/</guid>
+      <description>Artikel ini membahas pengenalan framework Laravel dan mengapa banyak developer menggunakannya.</description>
+    </item>
+  </channel>
+</rss>

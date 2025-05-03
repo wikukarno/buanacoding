@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Buanacoding</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on Buanacoding</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Belajar Syntax Linux untuk Pemula</title>
+      <link>http://localhost:1313/blog/syntax-linux/</link>
+      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/syntax-linux/</guid>
+      <description>Pelajari dasar-dasar syntax Linux untuk developer pemula. Cocok untuk yang baru mulai belajar pemrograman.</description>
+    </item>
+    <item>
+      <title>Dasar-Dasar Linux untuk Developer</title>
+      <link>http://localhost:1313/blog/linux-dasar/</link>
+      <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/linux-dasar/</guid>
+      <description>Pelajari dasar-dasar penggunaan Linux, command line, dan file system yang wajib dikuasai developer.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,9 @@
+baseURL = "http://localhost:1313/"
+languageCode = "id"
+title = "Buanacoding"
+theme = ""
+
+[taxonomies]
+  tag = "tags"
+[pagination]
+  pagerSize = 6
