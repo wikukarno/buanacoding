@@ -13,14 +13,11 @@
   <title>Generics in Go: Writing Reusable and Type-Safe Code | Buana Coding</title>
 
   
-  <meta name="description" content="Generics were introduced in Go 1.18, marking a significant evolution of the language. They allow you to write flexible, reusable code without sacrificing type safety. With generics, you can define functions, types, and data structures that work with different types, all while maintaining strong compile-time checks.
-In this article, you’ll learn:
-What generics are and why they matter How to define generic functions and types Type parameters and constraints Real-world examples of generics Best practices when using generics in Go What Are Generics? Generics let you write code that works with different data types while keeping the benefits of static typing. Before generics, developers often used interface{} and type assertions to achieve flexibility, but that meant losing compile-time type safety.
-" />
+  <meta name="description" content="Learn how to use generics in Go to write reusable and type-safe code." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, generics, type-safe, reusable, code, functions, types" />
   
 
   
@@ -29,20 +26,14 @@ What generics are and why they matter How to define generic functions and types 
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Generics in Go: Writing Reusable and Type-Safe Code | Buana Coding" />
-  <meta property="og:description" content="Generics were introduced in Go 1.18, marking a significant evolution of the language. They allow you to write flexible, reusable code without sacrificing type safety. With generics, you can define functions, types, and data structures that work with different types, all while maintaining strong compile-time checks.
-In this article, you’ll learn:
-What generics are and why they matter How to define generic functions and types Type parameters and constraints Real-world examples of generics Best practices when using generics in Go What Are Generics? Generics let you write code that works with different data types while keeping the benefits of static typing. Before generics, developers often used interface{} and type assertions to achieve flexibility, but that meant losing compile-time type safety.
-" />
+  <meta property="og:description" content="Learn how to use generics in Go to write reusable and type-safe code." />
   <meta property="og:url" content="http://localhost:1313/2025/04/generics-in-go-writing-reusable-and.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Generics in Go: Writing Reusable and Type-Safe Code | Buana Coding" />
-  <meta name="twitter:description" content="Generics were introduced in Go 1.18, marking a significant evolution of the language. They allow you to write flexible, reusable code without sacrificing type safety. With generics, you can define functions, types, and data structures that work with different types, all while maintaining strong compile-time checks.
-In this article, you’ll learn:
-What generics are and why they matter How to define generic functions and types Type parameters and constraints Real-world examples of generics Best practices when using generics in Go What Are Generics? Generics let you write code that works with different data types while keeping the benefits of static typing. Before generics, developers often used interface{} and type assertions to achieve flexibility, but that meant losing compile-time type safety.
-" />
+  <meta name="twitter:description" content="Learn how to use generics in Go to write reusable and type-safe code." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ What generics are and why they matter How to define generic functions and types 
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -224,60 +217,60 @@ What generics are and why they matter How to define generic functions and types 
 <p>Generics let you write code that works with different data types while keeping the benefits of static typing. Before generics, developers often used <code>interface{}</code> and type assertions to achieve flexibility, but that meant losing compile-time type safety.</p>
 <h2 id="defining-a-generic-function">Defining a Generic Function</h2>
 <p>A generic function introduces a type parameter list using square brackets <code>[]</code> before the function parameters.</p>
-<pre tabindex="0"><code>func Print[T any](value T) {
-    fmt.Println(value)
-} 
-</code></pre><p>Here, <code>T</code> is a type parameter, and <code>any</code> is a constraint (alias for <code>interface{}</code>). This function works with any type, like:</p>
-<pre tabindex="0"><code>Print(10)
-Print(&#34;Hello&#34;)
-Print(true) 
-</code></pre><h2 id="using-type-constraints">Using Type Constraints</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nx">Print</span><span class="p">[</span><span class="nx">T</span> <span class="kt">any</span><span class="p">](</span><span class="nx">value</span> <span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Here, <code>T</code> is a type parameter, and <code>any</code> is a constraint (alias for <code>interface{}</code>). This function works with any type, like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nf">Print</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">Print</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">Print</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> 
+</span></span></code></pre></div><h2 id="using-type-constraints">Using Type Constraints</h2>
 <p>You can limit what types can be passed by using constraints:</p>
-<pre tabindex="0"><code>type Number interface {
-    ~int | ~float64
-}
-
-func Sum[T Number](a, b T) T {
-    return a + b
-} 
-</code></pre><p>Now <code>Sum</code> can only be called with numeric types.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Number</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">~</span><span class="kt">int</span> <span class="p">|</span> <span class="p">~</span><span class="kt">float64</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nx">Sum</span><span class="p">[</span><span class="nx">T</span> <span class="nx">Number</span><span class="p">](</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="nx">T</span><span class="p">)</span> <span class="nx">T</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Now <code>Sum</code> can only be called with numeric types.</p>
 <h2 id="generic-types">Generic Types</h2>
 <p>You can also define structs or custom types with generics:</p>
-<pre tabindex="0"><code>type Pair[T any] struct {
-    First  T
-    Second T
-}
-
-func main() {
-    p := Pair[string]{&#34;Go&#34;, &#34;Lang&#34;}
-    fmt.Println(p.First, p.Second)
-} 
-</code></pre><h2 id="multiple-type-parameters">Multiple Type Parameters</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Pair</span><span class="p">[</span><span class="nx">T</span> <span class="kt">any</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">First</span>  <span class="nx">T</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Second</span> <span class="nx">T</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">Pair</span><span class="p">[</span><span class="kt">string</span><span class="p">]{</span><span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="s">&#34;Lang&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">First</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="multiple-type-parameters">Multiple Type Parameters</h2>
 <p>You can define more than one type parameter:</p>
-<pre tabindex="0"><code>type Map[K comparable, V any] struct {
-    data map[K]V
-} 
-</code></pre><p>The <code>comparable</code> constraint is required for keys in a map (they must support <code>==</code>).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Map</span><span class="p">[</span><span class="nx">K</span> <span class="nx">comparable</span><span class="p">,</span> <span class="nx">V</span> <span class="kt">any</span><span class="p">]</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">data</span> <span class="kd">map</span><span class="p">[</span><span class="nx">K</span><span class="p">]</span><span class="nx">V</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>The <code>comparable</code> constraint is required for keys in a map (they must support <code>==</code>).</p>
 <h2 id="real-world-example-generic-filter-function">Real-World Example: Generic Filter Function</h2>
-<pre tabindex="0"><code>func Filter[T any](items []T, predicate func(T) bool) []T {
-    var result []T
-    for _, item := range items {
-        if predicate(item) {
-            result = append(result, item)
-        }
-    }
-    return result
-} 
-</code></pre><p>Usage:</p>
-<pre tabindex="0"><code>evens := Filter([]int{1, 2, 3, 4}, func(n int) bool {
-    return n%2 == 0
-}) 
-</code></pre><h2 id="generics-vs-interface">Generics vs Interface</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nx">Filter</span><span class="p">[</span><span class="nx">T</span> <span class="kt">any</span><span class="p">](</span><span class="nx">items</span> <span class="p">[]</span><span class="nx">T</span><span class="p">,</span> <span class="nx">predicate</span> <span class="kd">func</span><span class="p">(</span><span class="nx">T</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="nx">T</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">result</span> <span class="p">[]</span><span class="nx">T</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">item</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">items</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nf">predicate</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">result</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Usage:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">evens</span> <span class="o">:=</span> <span class="nf">Filter</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="kd">func</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span> 
+</span></span></code></pre></div><h2 id="generics-vs-interface">Generics vs Interface</h2>
 <p>Before generics, we often used <code>interface{}</code> and did type assertion:</p>
-<pre tabindex="0"><code>func PrintAny(val interface{}) {
-    fmt.Println(val)
-} 
-</code></pre><p>This works, but doesn’t give compile-time safety or clarity. With generics, you avoid runtime type errors.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">PrintAny</span><span class="p">(</span><span class="nx">val</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This works, but doesn’t give compile-time safety or clarity. With generics, you avoid runtime type errors.</p>
 <h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Use generics when you write reusable logic (e.g. map, reduce, filter)</li>
@@ -287,7 +280,7 @@ func main() {
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>Generics are a powerful addition to Go that let you write cleaner, more reusable code without giving up type safety. Whether you&rsquo;re building data structures, utility functions, or abstractions, generics help reduce duplication and improve flexibility.</p>
-<p>Now that you understand generics, you’re ready to explore Go’s concurrency model and build high-performance programs using <a href="https://www.buanacoding.com/2025/04/concurrency-in-go-goroutines-and.html">goroutines</a> and channels.</p>
+<p>Now that you understand generics, you’re ready to explore Go’s concurrency model and build high-performance programs using <a href="https://www.buanacoding.com/blog/concurrency-in-go-goroutines-and.html">goroutines</a> and channels.</p>
 <p>Happy coding!</p>
 
 
@@ -520,5 +513,17 @@ func main() {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

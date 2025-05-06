@@ -13,14 +13,11 @@
   <title>Working with Collections in Go: Arrays, Slices, and Maps Explained | Buana Coding</title>
 
   
-  <meta name="description" content="When building applications in Go, it&rsquo;s common to work with groups of data. For example, you might want to store a list of user names, or map names to scores. In Go, you can use collections like arrays, slices, and maps to do that.
-In this article, we’ll explore:
-What arrays are and how they work How slices offer more flexibility What maps are and how to use them Common operations with collections Practical examples to understand the difference between them Let’s dive in and learn how Go helps us manage grouped data efficiently.
-" />
+  <meta name="description" content="Learn how to work with collections in Go: arrays, slices, and maps." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, arrays, slices, maps, collections, data structures" />
   
 
   
@@ -29,20 +26,14 @@ What arrays are and how they work How slices offer more flexibility What maps ar
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Working with Collections in Go: Arrays, Slices, and Maps Explained | Buana Coding" />
-  <meta property="og:description" content="When building applications in Go, it&rsquo;s common to work with groups of data. For example, you might want to store a list of user names, or map names to scores. In Go, you can use collections like arrays, slices, and maps to do that.
-In this article, we’ll explore:
-What arrays are and how they work How slices offer more flexibility What maps are and how to use them Common operations with collections Practical examples to understand the difference between them Let’s dive in and learn how Go helps us manage grouped data efficiently.
-" />
+  <meta property="og:description" content="Learn how to work with collections in Go: arrays, slices, and maps." />
   <meta property="og:url" content="http://localhost:1313/2025/04/working-with-collections-in-go-arrays.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Working with Collections in Go: Arrays, Slices, and Maps Explained | Buana Coding" />
-  <meta name="twitter:description" content="When building applications in Go, it&rsquo;s common to work with groups of data. For example, you might want to store a list of user names, or map names to scores. In Go, you can use collections like arrays, slices, and maps to do that.
-In this article, we’ll explore:
-What arrays are and how they work How slices offer more flexibility What maps are and how to use them Common operations with collections Practical examples to understand the difference between them Let’s dive in and learn how Go helps us manage grouped data efficiently.
-" />
+  <meta name="twitter:description" content="Learn how to work with collections in Go: arrays, slices, and maps." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ What arrays are and how they work How slices offer more flexibility What maps ar
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -223,78 +216,78 @@ What arrays are and how they work How slices offer more flexibility What maps ar
 <p>Let’s dive in and learn how Go helps us manage grouped data efficiently.</p>
 <h2 id="arrays-in-go">Arrays in Go</h2>
 <p>An array is a fixed-size collection of elements of the same type. Once an array is created, its size cannot change.</p>
-<pre tabindex="0"><code>package main
-
-import &#34;fmt&#34;
-
-func main() {
-    var numbers [3]int
-    numbers[0] = 10
-    numbers[1] = 20
-    numbers[2] = 30
-
-    fmt.Println(numbers)
-} 
-</code></pre><p>You can also initialize an array directly:</p>
-<pre tabindex="0"><code>names := [3]string{&#34;Alice&#34;, &#34;Bob&#34;, &#34;Charlie&#34;}
-</code></pre><p>Arrays have a fixed size. All elements must be of the same type, and you can access items using their index (starting from 0).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">numbers</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>You can also initialize an array directly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">names</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="s">&#34;Charlie&#34;</span><span class="p">}</span>
+</span></span></code></pre></div><p>Arrays have a fixed size. All elements must be of the same type, and you can access items using their index (starting from 0).</p>
 <p>Arrays are not commonly used in large Go applications, but understanding them is key to learning slices.</p>
 <h2 id="slices-in-go">Slices in Go</h2>
 <p>Slices are more flexible than arrays. They are built on top of arrays but allow dynamic resizing.</p>
-<pre tabindex="0"><code>numbers := []int{10, 20, 30}
-fmt.Println(numbers) 
-</code></pre><p>Adding elements to a slice:</p>
-<pre tabindex="0"><code>numbers = append(numbers, 40)
-fmt.Println(numbers) 
-</code></pre><p>Creating slices from existing arrays:</p>
-<pre tabindex="0"><code>arr := [5]int{1, 2, 3, 4, 5}
-slice := arr[1:4] // includes index 1 to 3
-fmt.Println(slice) 
-</code></pre><p>Useful slice operations include append, len (length), and cap (capacity). Slices are widely used in Go because they are flexible and efficient.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">numbers</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> 
+</span></span></code></pre></div><p>Adding elements to a slice:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">numbers</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">numbers</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> 
+</span></span></code></pre></div><p>Creating slices from existing arrays:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">slice</span> <span class="o">:=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="c1">// includes index 1 to 3</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">slice</span><span class="p">)</span> 
+</span></span></code></pre></div><p>Useful slice operations include append, len (length), and cap (capacity). Slices are widely used in Go because they are flexible and efficient.</p>
 <p>Another great thing about slices is that they can share the same underlying array. This allows for memory-efficient manipulation of data. However, you should be cautious when modifying shared slices as changes might affect other parts of your code.</p>
 <h2 id="maps-in-go">Maps in Go</h2>
 <p>Maps are key-value pairs. You can use them to store and retrieve data by key.</p>
-<pre tabindex="0"><code>scores := map[string]int{
-    &#34;Alice&#34;: 90,
-    &#34;Bob&#34;: 85,
-}
-
-fmt.Println(scores[&#34;Alice&#34;]) 
-</code></pre><p>Adding and updating values:</p>
-<pre tabindex="0"><code>scores[&#34;Charlie&#34;] = 88
-scores[&#34;Bob&#34;] = 95 
-</code></pre><p>Deleting a value:</p>
-<pre tabindex="0"><code>delete(scores, &#34;Alice&#34;)
-</code></pre><p>Looping through a map:</p>
-<pre tabindex="0"><code>for name, score := range scores {
-    fmt.Println(name, &#34;has score&#34;, score)
-} 
-</code></pre><p>Checking if a key exists:</p>
-<pre tabindex="0"><code>value, exists := scores[&#34;David&#34;]
-if exists {
-    fmt.Println(&#34;Score:&#34;, value)
-} else {
-    fmt.Println(&#34;David not found&#34;)
-} 
-</code></pre><p>Maps are extremely useful when you need fast lookups or need to associate labels with values. For example, they’re great for storing configuration options, lookup tables, or grouped statistics.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">scores</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Alice&#34;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Bob&#34;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">scores</span><span class="p">[</span><span class="s">&#34;Alice&#34;</span><span class="p">])</span> 
+</span></span></code></pre></div><p>Adding and updating values:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">scores</span><span class="p">[</span><span class="s">&#34;Charlie&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">88</span>
+</span></span><span class="line"><span class="cl"><span class="nx">scores</span><span class="p">[</span><span class="s">&#34;Bob&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">95</span> 
+</span></span></code></pre></div><p>Deleting a value:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nb">delete</span><span class="p">(</span><span class="nx">scores</span><span class="p">,</span> <span class="s">&#34;Alice&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Looping through a map:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">score</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">scores</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="s">&#34;has score&#34;</span><span class="p">,</span> <span class="nx">score</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Checking if a key exists:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">value</span><span class="p">,</span> <span class="nx">exists</span> <span class="o">:=</span> <span class="nx">scores</span><span class="p">[</span><span class="s">&#34;David&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">exists</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Score:&#34;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;David not found&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Maps are extremely useful when you need fast lookups or need to associate labels with values. For example, they’re great for storing configuration options, lookup tables, or grouped statistics.</p>
 <h2 id="choosing-between-arrays-slices-and-maps">Choosing Between Arrays, Slices, and Maps</h2>
 <p>Use arrays when the size is known and fixed. Use slices when you need a dynamic list. Use maps when you need to associate keys to values (like name to score).</p>
 <p>Each data structure has its own strengths. As a Go developer, you’ll likely use slices and maps much more often than arrays, especially when working with APIs, databases, or handling JSON.</p>
 <h2 id="practical-example-student-grades">Practical Example: Student Grades</h2>
-<pre tabindex="0"><code>grades := map[string][]int{
-    &#34;Alice&#34;: {90, 85, 88},
-    &#34;Bob&#34;: {78, 82, 80},
-}
-
-for name, gradeList := range grades {
-    total := 0
-    for _, grade := range gradeList {
-        total += grade
-    }
-    average := total / len(gradeList)
-    fmt.Println(name, &#34;average grade:&#34;, average)
-} 
-</code></pre><p>This example combines maps and slices to store multiple grades for each student and calculates the average.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">grades</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">int</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Alice&#34;</span><span class="p">:</span> <span class="p">{</span><span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">88</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;Bob&#34;</span><span class="p">:</span> <span class="p">{</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">80</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">gradeList</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">grades</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">total</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">grade</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">gradeList</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">total</span> <span class="o">+=</span> <span class="nx">grade</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">average</span> <span class="o">:=</span> <span class="nx">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="nx">gradeList</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="s">&#34;average grade:&#34;</span><span class="p">,</span> <span class="nx">average</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This example combines maps and slices to store multiple grades for each student and calculates the average.</p>
 <h2 id="summary">Summary</h2>
 <p>Collections in Go help you group and organize data. Arrays are useful but limited by their fixed size. Slices are flexible and the most commonly used collection in Go. Maps let you link one value to another using keys.</p>
 <p>By understanding and practicing with these three types of collections, you’ll be ready to write real-world programs that work with lists of data, settings, or records.</p>
@@ -531,5 +524,17 @@ for name, gradeList := range grades {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

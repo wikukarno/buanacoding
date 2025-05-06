@@ -13,14 +13,11 @@
   <title>Understanding Loops in Go: for, range, break, and continue Explained | Buana Coding</title>
 
   
-  <meta name="description" content="Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they&rsquo;re built using just one keyword: for.
-In this article, we’ll explore:
-The basic for loop in Go Using for as a while loop Looping with range Breaking or skipping parts of loops with break and continue Real-world examples to help you understand how loops work What is a Loop? A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.
-" />
+  <meta name="description" content="Learn how to use loops in Go: for, range, break, and continue. Understand how to iterate over collections and control loop flow." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, loops, for, range, break, continue, programming" />
   
 
   
@@ -29,20 +26,14 @@ The basic for loop in Go Using for as a while loop Looping with range Breaking o
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Understanding Loops in Go: for, range, break, and continue Explained | Buana Coding" />
-  <meta property="og:description" content="Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they&rsquo;re built using just one keyword: for.
-In this article, we’ll explore:
-The basic for loop in Go Using for as a while loop Looping with range Breaking or skipping parts of loops with break and continue Real-world examples to help you understand how loops work What is a Loop? A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.
-" />
+  <meta property="og:description" content="Learn how to use loops in Go: for, range, break, and continue. Understand how to iterate over collections and control loop flow." />
   <meta property="og:url" content="http://localhost:1313/2025/04/understanding-loops-in-go-for-range.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding Loops in Go: for, range, break, and continue Explained | Buana Coding" />
-  <meta name="twitter:description" content="Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they&rsquo;re built using just one keyword: for.
-In this article, we’ll explore:
-The basic for loop in Go Using for as a while loop Looping with range Breaking or skipping parts of loops with break and continue Real-world examples to help you understand how loops work What is a Loop? A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.
-" />
+  <meta name="twitter:description" content="Learn how to use loops in Go: for, range, break, and continue. Understand how to iterate over collections and control loop flow." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ The basic for loop in Go Using for as a while loop Looping with range Breaking o
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -224,89 +217,89 @@ The basic for loop in Go Using for as a while loop Looping with range Breaking o
 <p>A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.</p>
 <h2 id="the-basic-for-loop">The Basic for Loop</h2>
 <p>The most common way to write a loop in Go is with the standard for loop structure. It includes three parts: an initializer, a condition, and a post statement.</p>
-<pre tabindex="0"><code>package main
-
-import &#34;fmt&#34;
-
-func main() {
-    for i := 0; i &lt; 5; i++ {
-        fmt.Println(&#34;Count:&#34;, i)
-    }
-} 
-</code></pre><p>This loop will print numbers from 0 to 4. First, it starts with i = 0. Then it checks the condition i &lt; 5. If true, it runs the code inside the loop. After each loop, i is increased by 1. When the condition is false, the loop stops.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Count:&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This loop will print numbers from 0 to 4. First, it starts with i = 0. Then it checks the condition i &lt; 5. If true, it runs the code inside the loop. After each loop, i is increased by 1. When the condition is false, the loop stops.</p>
 <h2 id="using-for-as-a-while-loop">Using for as a while Loop</h2>
 <p>Go doesn’t have a while keyword. But you can use for in the same way by just writing the condition.</p>
-<pre tabindex="0"><code>func main() {
-    i := 0
-    for i &lt; 3 {
-        fmt.Println(&#34;i is:&#34;, i)
-        i++
-    }
-} 
-</code></pre><p>This loop works exactly like a while loop. It continues running as long as the condition i &lt; 3 is true. This format is useful when you don’t need a counter setup like in the basic for loop.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">3</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;i is:&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">i</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This loop works exactly like a while loop. It continues running as long as the condition i &lt; 3 is true. This format is useful when you don’t need a counter setup like in the basic for loop.</p>
 <h2 id="infinite-loops">Infinite Loops</h2>
 <p>Sometimes you want a loop to run forever, such as when building servers or listening to user input. You can do this by writing for without a condition.</p>
-<pre tabindex="0"><code>func main() {
-    for {
-        fmt.Println(&#34;This runs forever until we break it.&#34;)
-        break
-    }
-} 
-</code></pre><p>This is an infinite loop, and you control when to stop it using a break statement inside the loop.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;This runs forever until we break it.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This is an infinite loop, and you control when to stop it using a break statement inside the loop.</p>
 <h2 id="looping-with-range">Looping with range</h2>
 <p>Go provides a very handy way to loop over arrays, slices, strings, and maps using range. It simplifies working with collections.</p>
 <h3 id="example-with-a-slice">Example with a slice:</h3>
-<pre tabindex="0"><code>func main() {
-    fruits := []string{&#34;apple&#34;, &#34;banana&#34;, &#34;cherry&#34;}
-
-    for index, fruit := range fruits {
-        fmt.Println(index, fruit)
-    }
-} 
-</code></pre><p>Here, range gives both the index and the value of each item. If you don’t need the index, you can ignore it using an underscore:</p>
-<pre tabindex="0"><code>for _, fruit := range fruits {
-    fmt.Println(fruit)
-} 
-</code></pre><h3 id="looping-through-a-map">Looping through a map:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fruits</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;cherry&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">fruit</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">fruits</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">fruit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Here, range gives both the index and the value of each item. If you don’t need the index, you can ignore it using an underscore:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">fruit</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">fruits</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fruit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h3 id="looping-through-a-map">Looping through a map:</h3>
 <p>You can use range to loop through key-value pairs in a map:</p>
-<pre tabindex="0"><code>func main() {
-    scores := map[string]int{&#34;Alice&#34;: 90, &#34;Bob&#34;: 85}
-
-    for name, score := range scores {
-        fmt.Println(name, &#34;scored&#34;, score)
-    }
-} 
-</code></pre><h3 id="looping-over-a-string">Looping over a string:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">scores</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;Alice&#34;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s">&#34;Bob&#34;</span><span class="p">:</span> <span class="mi">85</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">score</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">scores</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="s">&#34;scored&#34;</span><span class="p">,</span> <span class="nx">score</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h3 id="looping-over-a-string">Looping over a string:</h3>
 <p>Strings in Go are UTF-8 encoded. Using range lets you loop through each character:</p>
-<pre tabindex="0"><code>func main() {
-    word := &#34;go&#34;
-
-    for _, char := range word {
-        fmt.Println(char)
-    }
-} 
-</code></pre><p>Note: This prints the Unicode code points (runes) for each character. If you want the actual character, you can use fmt.Printf(&quot;%c&quot;, char).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">word</span> <span class="o">:=</span> <span class="s">&#34;go&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">char</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">word</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">char</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Note: This prints the Unicode code points (runes) for each character. If you want the actual character, you can use fmt.Printf(&quot;%c&quot;, char).</p>
 <h2 id="using-break-and-continue">Using break and continue</h2>
 <p>To control your loop more precisely, you can use break to stop the loop early, or continue to skip the current iteration and move to the next one.</p>
 <h3 id="example-with-break">Example with break:</h3>
-<pre tabindex="0"><code>func main() {
-    for i := 0; i &lt; 10; i++ {
-        if i == 5 {
-            break
-        }
-        fmt.Println(i)
-    }
-} 
-</code></pre><h3 id="example-with-continue">Example with continue:</h3>
-<pre tabindex="0"><code>func main() {
-    for i := 0; i &lt; 5; i++ {
-        if i == 2 {
-            continue
-        }
-        fmt.Println(i)
-    }
-} 
-</code></pre><p>In this example, when i equals 2, the loop skips that iteration and continues with the next one.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">5</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h3 id="example-with-continue">Example with continue:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>In this example, when i equals 2, the loop skips that iteration and continues with the next one.</p>
 <h2 id="why-loops-matter">Why Loops Matter</h2>
 <p>Loops allow you to handle tasks like processing data, creating repeated outputs, checking conditions, or iterating through user input efficiently. Whether you’re building a calculator, a file reader, or a game, you’ll probably use loops often.</p>
 <h2 id="summary">Summary</h2>
@@ -544,5 +537,17 @@ func main() {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

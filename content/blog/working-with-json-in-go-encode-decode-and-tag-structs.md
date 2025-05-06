@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/working-with-json-in-go-encode-decode.html
 tags: 
 - Go
+description: "Learn how to work with JSON in Go: encoding, decoding, and using struct tags."
+keywords: ["Go", "JSON", "encoding", "decoding", "struct tags", "maps", "nested JSON"]
 ---
 
 JSON (JavaScript Object Notation) is a widely used data format in APIs and web applications. Go provides strong support for JSON through the standard `encoding/json` package. In this article, you’ll learn how to parse JSON into structs, generate JSON from Go data, use struct tags, and work with nested or dynamic structures.
@@ -23,7 +25,7 @@ Encoding Structs to JSON
 
 Use `json.Marshal` to convert Go structs into JSON strings:
 
-```
+```go
 type User struct {
     Name  string `json:"name"`
     Email string `json:"email"`
@@ -47,7 +49,7 @@ Decoding JSON into Structs
 
 Use `json.Unmarshal` to parse JSON into a struct:
 
-```
+```go
 var jsonInput = []byte(`{"name":"Bob","email":"bob@example.com","age":25}`)
 
 var user User
@@ -64,7 +66,7 @@ Using Struct Tags
 
 By default, Go uses struct field names as JSON keys. Use tags to customize:
 
-```
+```go
 type Product struct {
     ID    int     `json:"id"`
     Name  string  `json:"name"`
@@ -77,7 +79,7 @@ Working with Maps and Dynamic JSON
 
 Use `map[string]interface{}` when the structure is not fixed:
 
-```
+```go
 var data = []byte(`{"status":"ok","code":200}`)
 
 var result map[string]interface{}
@@ -92,7 +94,7 @@ fmt.Println(result["status"], result["code"])
 Nested JSON Example
 -------------------
 
-```
+```go
 type Address struct {
     City    string `json:"city"`
     Country string `json:"country"`
@@ -106,7 +108,7 @@ type Employee struct {
 
 JSON:
 
-```
+```json
  {
   "name": "John",
   "address": {
@@ -119,7 +121,7 @@ JSON:
 Encode JSON to File
 -------------------
 
-```
+```go
 f, err := os.Create("data.json")
 if err != nil {
     log.Fatal(err)
@@ -132,7 +134,7 @@ json.NewEncoder(f).Encode(user)
 Decode JSON from File
 ---------------------
 
-```
+```go
 f, err := os.Open("data.json")
 if err != nil {
     log.Fatal(err)

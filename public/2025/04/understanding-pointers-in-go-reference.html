@@ -13,14 +13,11 @@
   <title>Understanding Pointers in Go: Reference Types and Receivers Explained | Buana Coding</title>
 
   
-  <meta name="description" content="In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.
-This article will help you understand:
-What pointers are in Go and how they work Using pointers in functions Method receivers: value vs pointer Choosing between value or pointer receiver Common mistakes with pointers Best practices for using pointers effectively What is a Pointer? A pointer is a variable that stores the memory address of another variable. You use the &amp; operator to get the address and * to access the value at that address.
-" />
+  <meta name="description" content="Learn how to use pointers in Go: reference types, method receivers, and best practices." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, pointers, reference types, method receivers, value receiver, pointer receiver, best practices" />
   
 
   
@@ -29,20 +26,14 @@ What pointers are in Go and how they work Using pointers in functions Method rec
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Understanding Pointers in Go: Reference Types and Receivers Explained | Buana Coding" />
-  <meta property="og:description" content="In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.
-This article will help you understand:
-What pointers are in Go and how they work Using pointers in functions Method receivers: value vs pointer Choosing between value or pointer receiver Common mistakes with pointers Best practices for using pointers effectively What is a Pointer? A pointer is a variable that stores the memory address of another variable. You use the &amp; operator to get the address and * to access the value at that address.
-" />
+  <meta property="og:description" content="Learn how to use pointers in Go: reference types, method receivers, and best practices." />
   <meta property="og:url" content="http://localhost:1313/2025/04/understanding-pointers-in-go-reference.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding Pointers in Go: Reference Types and Receivers Explained | Buana Coding" />
-  <meta name="twitter:description" content="In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.
-This article will help you understand:
-What pointers are in Go and how they work Using pointers in functions Method receivers: value vs pointer Choosing between value or pointer receiver Common mistakes with pointers Best practices for using pointers effectively What is a Pointer? A pointer is a variable that stores the memory address of another variable. You use the &amp; operator to get the address and * to access the value at that address.
-" />
+  <meta name="twitter:description" content="Learn how to use pointers in Go: reference types, method receivers, and best practices." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ What pointers are in Go and how they work Using pointers in functions Method rec
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -223,59 +216,59 @@ What pointers are in Go and how they work Using pointers in functions Method rec
 </ul>
 <h2 id="what-is-a-pointer">What is a Pointer?</h2>
 <p>A pointer is a variable that stores the memory address of another variable. You use the <code>&amp;</code> operator to get the address and <code>*</code> to access the value at that address.</p>
-<pre tabindex="0"><code>func main() {
-    x := 10
-    p := &amp;x
-    fmt.Println(*p) // 10
-} 
-</code></pre><p>Here, <code>p</code> is a pointer to <code>x</code>. <code>*p</code> accesses the value stored at the address.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">p</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">x</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">p</span><span class="p">)</span> <span class="c1">// 10</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Here, <code>p</code> is a pointer to <code>x</code>. <code>*p</code> accesses the value stored at the address.</p>
 <h2 id="pointers-and-functions">Pointers and Functions</h2>
 <p>When passing variables to functions, Go uses value semantics—meaning it passes a copy. If you want the function to modify the original variable, pass a pointer.</p>
-<pre tabindex="0"><code>func update(val *int) {
-    *val = 100
-}
-
-func main() {
-    x := 10
-    update(&amp;x)
-    fmt.Println(x) // 100
-} 
-</code></pre><p>This is useful when working with large structs or when you need to update the caller&rsquo;s data.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nx">val</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="nx">val</span> <span class="p">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">update</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="c1">// 100</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This is useful when working with large structs or when you need to update the caller&rsquo;s data.</p>
 <h2 id="pointer-receivers-in-methods">Pointer Receivers in Methods</h2>
 <p>In Go, methods can be defined with either value receivers or pointer receivers. Pointer receivers allow methods to modify the actual object.</p>
-<pre tabindex="0"><code>type Person struct {
-    Name string
-    Age  int
-}
-
-func (p *Person) GrowUp() {
-    p.Age++
-}
-
-func main() {
-    person := Person{&#34;Alice&#34;, 20}
-    person.GrowUp()
-    fmt.Println(person.Age) // 21
-} 
-</code></pre><p>If <code>GrowUp()</code> used a value receiver (i.e., <code>func (p Person)</code>), the change would not persist outside the method.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">GrowUp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">p</span><span class="p">.</span><span class="nx">Age</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">person</span> <span class="o">:=</span> <span class="nx">Person</span><span class="p">{</span><span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">person</span><span class="p">.</span><span class="nf">GrowUp</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">Age</span><span class="p">)</span> <span class="c1">// 21</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>If <code>GrowUp()</code> used a value receiver (i.e., <code>func (p Person)</code>), the change would not persist outside the method.</p>
 <h2 id="value-vs-pointer-receiver">Value vs Pointer Receiver</h2>
 <p>Go allows both styles, but here&rsquo;s when to choose each:</p>
 <ul>
 <li><strong>Value receiver</strong>: small structs, method does not modify data</li>
 <li><strong>Pointer receiver</strong>: large structs, method needs to modify state</li>
 </ul>
-<pre tabindex="0"><code>func (p Person) ValueGreet() {
-    fmt.Println(&#34;Hello,&#34;, p.Name)
-}
-
-func (p *Person) PointerUpdate(name string) {
-    p.Name = name
-} 
-</code></pre><h2 id="go-is-smart-automatic-conversion">Go is Smart: Automatic Conversion</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">Person</span><span class="p">)</span> <span class="nf">ValueGreet</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello,&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">PointerUpdate</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">p</span><span class="p">.</span><span class="nx">Name</span> <span class="p">=</span> <span class="nx">name</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="go-is-smart-automatic-conversion">Go is Smart: Automatic Conversion</h2>
 <p>Go is smart enough to let you call pointer receiver methods on value types and vice versa—it will automatically add or remove the <code>&amp;</code> for you:</p>
-<pre tabindex="0"><code>person := Person{&#34;Bob&#34;, 30}
-person.GrowUp() // Works even though GrowUp has a pointer receiver 
-</code></pre><h2 id="common-mistakes">Common Mistakes</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">person</span> <span class="o">:=</span> <span class="nx">Person</span><span class="p">{</span><span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">person</span><span class="p">.</span><span class="nf">GrowUp</span><span class="p">()</span> <span class="c1">// Works even though GrowUp has a pointer receiver </span>
+</span></span></code></pre></div><h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Forgetting to pass <code>&amp;x</code> when a function expects <code>*int</code></li>
 <li>Trying to use <code>*x</code> when <code>x</code> is not a pointer</li>
@@ -522,5 +515,17 @@ person.GrowUp() // Works even though GrowUp has a pointer receiver
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

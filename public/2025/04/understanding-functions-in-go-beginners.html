@@ -13,14 +13,11 @@
   <title>Understanding Functions in Go: A Beginner&#39;s Guide | Buana Coding</title>
 
   
-  <meta name="description" content="Functions are an essential part of programming in any language, and Go is no exception. A function lets you organize code into reusable blocks, which helps reduce duplication and improve readability. In this article, you’ll learn how functions work in Go, how to define them, use them, and apply best practices.
-This guide covers:
-How to define and call a function in Go Function parameters and return values Multiple return values Named return values Variadic functions Functions as values and arguments Best practices for clean function design Defining and Calling a Function To define a function in Go, use the func keyword, followed by the function name, parameters, and return type (if any). Here&rsquo;s a simple example:
-" />
+  <meta name="description" content="Learn how to define, call, and use functions in Go. Understand parameters, return values, and best practices." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, functions, programming, beginner, guide, parameters, return values" />
   
 
   
@@ -29,20 +26,14 @@ How to define and call a function in Go Function parameters and return values Mu
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Understanding Functions in Go: A Beginner&#39;s Guide | Buana Coding" />
-  <meta property="og:description" content="Functions are an essential part of programming in any language, and Go is no exception. A function lets you organize code into reusable blocks, which helps reduce duplication and improve readability. In this article, you’ll learn how functions work in Go, how to define them, use them, and apply best practices.
-This guide covers:
-How to define and call a function in Go Function parameters and return values Multiple return values Named return values Variadic functions Functions as values and arguments Best practices for clean function design Defining and Calling a Function To define a function in Go, use the func keyword, followed by the function name, parameters, and return type (if any). Here&rsquo;s a simple example:
-" />
+  <meta property="og:description" content="Learn how to define, call, and use functions in Go. Understand parameters, return values, and best practices." />
   <meta property="og:url" content="http://localhost:1313/2025/04/understanding-functions-in-go-beginners.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding Functions in Go: A Beginner&#39;s Guide | Buana Coding" />
-  <meta name="twitter:description" content="Functions are an essential part of programming in any language, and Go is no exception. A function lets you organize code into reusable blocks, which helps reduce duplication and improve readability. In this article, you’ll learn how functions work in Go, how to define them, use them, and apply best practices.
-This guide covers:
-How to define and call a function in Go Function parameters and return values Multiple return values Named return values Variadic functions Functions as values and arguments Best practices for clean function design Defining and Calling a Function To define a function in Go, use the func keyword, followed by the function name, parameters, and return type (if any). Here&rsquo;s a simple example:
-" />
+  <meta name="twitter:description" content="Learn how to define, call, and use functions in Go. Understand parameters, return values, and best practices." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ How to define and call a function in Go Function parameters and return values Mu
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -224,82 +217,82 @@ How to define and call a function in Go Function parameters and return values Mu
 </ul>
 <h2 id="defining-and-calling-a-function">Defining and Calling a Function</h2>
 <p>To define a function in Go, use the <code>func</code> keyword, followed by the function name, parameters, and return type (if any). Here&rsquo;s a simple example:</p>
-<pre tabindex="0"><code>package main
-
-import &#34;fmt&#34;
-
-func greet(name string) {
-    fmt.Println(&#34;Hello,&#34;, name)
-}
-
-func main() {
-    greet(&#34;Alice&#34;)
-} 
-</code></pre><p>This function takes a string parameter and prints a greeting message. It is called from the <code>main</code> function.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">greet</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello,&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">greet</span><span class="p">(</span><span class="s">&#34;Alice&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This function takes a string parameter and prints a greeting message. It is called from the <code>main</code> function.</p>
 <h2 id="function-parameters-and-return-values">Function Parameters and Return Values</h2>
 <p>Functions can accept multiple parameters and return values. You need to specify the type for each parameter.</p>
-<pre tabindex="0"><code>func add(a int, b int) int {
-    return a + b
-}
-
-func main() {
-    result := add(3, 5)
-    fmt.Println(&#34;Sum:&#34;, result)
-} 
-</code></pre><p>Go also allows you to declare multiple parameters of the same type together, like this:</p>
-<pre tabindex="0"><code>func multiply(a, b int) int {
-    return a * b
-} 
-</code></pre><h2 id="multiple-return-values">Multiple Return Values</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span> <span class="o">:=</span> <span class="nf">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Sum:&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Go also allows you to declare multiple parameters of the same type together, like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">multiply</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="multiple-return-values">Multiple Return Values</h2>
 <p>One of Go’s unique features is that a function can return more than one value.</p>
-<pre tabindex="0"><code>func divide(a, b int) (int, int) {
-    quotient := a / b
-    remainder := a % b
-    return quotient, remainder
-}
-
-func main() {
-    q, r := divide(10, 3)
-    fmt.Println(&#34;Quotient:&#34;, q, &#34;Remainder:&#34;, r)
-} 
-</code></pre><p>This is commonly used in Go for returning both result and error values.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">divide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">quotient</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">remainder</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">%</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">quotient</span><span class="p">,</span> <span class="nx">remainder</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">q</span><span class="p">,</span> <span class="nx">r</span> <span class="o">:=</span> <span class="nf">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Quotient:&#34;</span><span class="p">,</span> <span class="nx">q</span><span class="p">,</span> <span class="s">&#34;Remainder:&#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This is commonly used in Go for returning both result and error values.</p>
 <h2 id="named-return-values">Named Return Values</h2>
 <p>You can also name return values in the function signature. This makes your code more readable and enables implicit return.</p>
-<pre tabindex="0"><code>func compute(a, b int) (sum int, product int) {
-    sum = a + b
-    product = a * b
-    return
-} 
-</code></pre><p>This is useful when the function logic is a bit more complex and you want to keep track of return values easily.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">compute</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">sum</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">product</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sum</span> <span class="p">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">product</span> <span class="p">=</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This is useful when the function logic is a bit more complex and you want to keep track of return values easily.</p>
 <h2 id="variadic-functions">Variadic Functions</h2>
 <p>Sometimes, you may want to pass an arbitrary number of arguments to a function. Go supports this with variadic functions.</p>
-<pre tabindex="0"><code>func total(numbers ...int) int {
-    sum := 0
-    for _, number := range numbers {
-        sum += number
-    }
-    return sum
-}
-
-func main() {
-    fmt.Println(total(1, 2, 3, 4, 5))
-} 
-</code></pre><p>The <code>...int</code> means the function accepts any number of <code>int</code> values. Inside the function, <code>numbers</code> behaves like a slice.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">total</span><span class="p">(</span><span class="nx">numbers</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sum</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">number</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">numbers</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">number</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">sum</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">total</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>The <code>...int</code> means the function accepts any number of <code>int</code> values. Inside the function, <code>numbers</code> behaves like a slice.</p>
 <h2 id="functions-as-values-and-arguments">Functions as Values and Arguments</h2>
 <p>In Go, functions are first-class citizens. You can assign them to variables, pass them as arguments, and return them from other functions.</p>
-<pre tabindex="0"><code>func square(x int) int {
-    return x * x
-}
-
-func apply(op func(int) int, value int) int {
-    return op(value)
-}
-
-func main() {
-    result := apply(square, 4)
-    fmt.Println(result)
-} 
-</code></pre><p>This opens up many possibilities such as writing flexible and composable code, especially when used with closures or higher-order functions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">square</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="nx">op</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">value</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">op</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span> <span class="o">:=</span> <span class="nf">apply</span><span class="p">(</span><span class="nx">square</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This opens up many possibilities such as writing flexible and composable code, especially when used with closures or higher-order functions.</p>
 <h2 id="best-practices">Best Practices</h2>
 <p>Here are some general tips when writing functions in Go:</p>
 <ul>
@@ -543,5 +536,17 @@ func main() {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

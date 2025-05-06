@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/understanding-functions-in-go-beginners.html
 tags: 
 - Go
+description: "Learn how to define, call, and use functions in Go. Understand parameters, return values, and best practices."
+keywords: ["Go", "functions", "programming", "beginner", "guide", "parameters", "return values"]
 ---
 
 Functions are an essential part of programming in any language, and Go is no exception. A function lets you organize code into reusable blocks, which helps reduce duplication and improve readability. In this article, you’ll learn how functions work in Go, how to define them, use them, and apply best practices.
@@ -24,7 +26,7 @@ Defining and Calling a Function
 
 To define a function in Go, use the `func` keyword, followed by the function name, parameters, and return type (if any). Here's a simple example:
 
-```
+```go
 package main
 
 import "fmt"
@@ -45,7 +47,7 @@ Function Parameters and Return Values
 
 Functions can accept multiple parameters and return values. You need to specify the type for each parameter.
 
-```
+```go
 func add(a int, b int) int {
     return a + b
 }
@@ -58,7 +60,7 @@ func main() {
 
 Go also allows you to declare multiple parameters of the same type together, like this:
 
-```
+```go
 func multiply(a, b int) int {
     return a * b
 } 
@@ -69,7 +71,7 @@ Multiple Return Values
 
 One of Go’s unique features is that a function can return more than one value.
 
-```
+```go
 func divide(a, b int) (int, int) {
     quotient := a / b
     remainder := a % b
@@ -89,7 +91,7 @@ Named Return Values
 
 You can also name return values in the function signature. This makes your code more readable and enables implicit return.
 
-```
+```go
 func compute(a, b int) (sum int, product int) {
     sum = a + b
     product = a * b
@@ -104,7 +106,7 @@ Variadic Functions
 
 Sometimes, you may want to pass an arbitrary number of arguments to a function. Go supports this with variadic functions.
 
-```
+```go
 func total(numbers ...int) int {
     sum := 0
     for _, number := range numbers {
@@ -125,7 +127,7 @@ Functions as Values and Arguments
 
 In Go, functions are first-class citizens. You can assign them to variables, pass them as arguments, and return them from other functions.
 
-```
+```go
 func square(x int) int {
     return x * x
 }

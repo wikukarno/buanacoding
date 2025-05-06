@@ -5,6 +5,9 @@ draft: false
 url: /2025/04/concurrency-in-go-goroutines-and.html
 tags: 
 - Go
+description: 'Learn how to use goroutines and channels in Go for concurrent programming. Understand the differences between concurrency and parallelism, and explore real-world examples.'
+keywords: [
+    "Go", "concurrency", "goroutines", "channels", "programming", "sync", "parallelism", "best practices"]
 ---
 
 One of the most powerful features of Go is its built-in support for concurrency. Go makes it easy to write programs that perform multiple tasks at the same time, thanks to goroutines and channels. Unlike traditional multithreading, Go provides a lightweight and clean way to build concurrent systems with minimal overhead and boilerplate.
@@ -29,7 +32,7 @@ Introducing Goroutines
 
 A goroutine is a function that runs concurrently with other functions. You start one by using the `go` keyword:
 
-```
+```go
 func sayHello() {
     fmt.Println("Hello from goroutine!")
 }
@@ -47,7 +50,7 @@ Why You Need to Wait
 
 The above example might not print the goroutine output if `main()` exits first. You can fix this using `time.Sleep` or better, `sync.WaitGroup`:
 
-```
+```go
 var wg sync.WaitGroup
 
 func sayHi() {
@@ -67,7 +70,7 @@ Using Channels
 
 Channels are used to send and receive values between goroutines. They are typed and provide safe communication.
 
-```
+```go
 func main() {
     ch := make(chan string)
 
@@ -80,7 +83,7 @@ Buffered Channels
 
 A buffered channel allows sending without blocking, up to its capacity:
 
-```
+```go
 ch := make(chan int, 2)
 ch <- 1="" 2="" 3="" block="" buffer="" ch="" code="" fmt.println="" full="" if="" is="" this="" will="">
 ```
@@ -90,7 +93,7 @@ Select Statement
 
 `select` lets you wait on multiple channel operations:
 
-```
+```go
 func main() {
     ch1 := make(chan string)
     ch2 := make(chan string)
@@ -111,7 +114,7 @@ Use `go run -race` to detect race conditions.
 Real-World Example: Worker Pool
 -------------------------------
 
-```
+```go
 func worker(id int, jobs <-chan 2="" 3="" 5="" :="1;" chan="" close="" code="" d="" finished="" fmt.printf="" fmt.println="" for="" func="" go="" id="" int="" j="" job="" jobs="" main="" n="" orker="" r="" results="" started="" time.second="" time.sleep="" w="" worker="">
 ```
 
@@ -128,6 +131,6 @@ Conclusion
 
 Goroutines and channels are the foundation of concurrency in Go. With them, you can build scalable and efficient programs without the complexity of traditional multithreading. Start small, experiment with simple patterns, and scale your knowledge step by step.
 
-Next, we'll explore advanced concurrency control using `sync.Mutex`, `sync.Once`, and `[context](https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html)` for cancellation and timeouts.
+Next, we'll explore advanced concurrency control using `sync.Mutex`, `sync.Once`, and [context](https://www.buanacoding.com/blog/using-context-in-go-cancellation.html) for cancellation and timeouts.
 
 Happy coding!

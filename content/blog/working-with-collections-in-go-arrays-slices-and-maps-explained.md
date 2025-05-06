@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/working-with-collections-in-go-arrays.html
 tags: 
 - Go
+description: "Learn how to work with collections in Go: arrays, slices, and maps."
+keywords: ["Go", "arrays", "slices", "maps", "collections", "data structures"]
 ---
 
 When building applications in Go, it's common to work with groups of data. For example, you might want to store a list of user names, or map names to scores. In Go, you can use collections like arrays, slices, and maps to do that.
@@ -24,7 +26,7 @@ Arrays in Go
 
 An array is a fixed-size collection of elements of the same type. Once an array is created, its size cannot change.
 
-```
+```go
 package main
 
 import "fmt"
@@ -41,7 +43,7 @@ func main() {
 
 You can also initialize an array directly:
 
-```
+```go
 names := [3]string{"Alice", "Bob", "Charlie"}
 ```
 
@@ -54,21 +56,21 @@ Slices in Go
 
 Slices are more flexible than arrays. They are built on top of arrays but allow dynamic resizing.
 
-```
+```go
 numbers := []int{10, 20, 30}
 fmt.Println(numbers) 
 ```
 
 Adding elements to a slice:
 
-```
+```go
 numbers = append(numbers, 40)
 fmt.Println(numbers) 
 ```
 
 Creating slices from existing arrays:
 
-```
+```go
 arr := [5]int{1, 2, 3, 4, 5}
 slice := arr[1:4] // includes index 1 to 3
 fmt.Println(slice) 
@@ -83,7 +85,7 @@ Maps in Go
 
 Maps are key-value pairs. You can use them to store and retrieve data by key.
 
-```
+```go
 scores := map[string]int{
     "Alice": 90,
     "Bob": 85,
@@ -94,20 +96,20 @@ fmt.Println(scores["Alice"])
 
 Adding and updating values:
 
-```
+```go
 scores["Charlie"] = 88
 scores["Bob"] = 95 
 ```
 
 Deleting a value:
 
-```
+```go
 delete(scores, "Alice")
 ```
 
 Looping through a map:
 
-```
+```go
 for name, score := range scores {
     fmt.Println(name, "has score", score)
 } 
@@ -115,7 +117,7 @@ for name, score := range scores {
 
 Checking if a key exists:
 
-```
+```go
 value, exists := scores["David"]
 if exists {
     fmt.Println("Score:", value)
@@ -136,7 +138,7 @@ Each data structure has its own strengths. As a Go developer, you’ll likely us
 Practical Example: Student Grades
 ---------------------------------
 
-```
+```go
 grades := map[string][]int{
     "Alice": {90, 85, 88},
     "Bob": {78, 82, 80},

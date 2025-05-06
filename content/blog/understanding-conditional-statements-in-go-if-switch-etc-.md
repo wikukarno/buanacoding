@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/understanding-conditional-statements-in.html
 tags: 
 - Go
+description: "Learn how to use conditional statements in Go: if, else, and switch."
+keywords: ["Go", "conditional statements", "if", "else", "switch", "programming"]
 ---
 
 Understanding Conditional Statements in Go (if, switch, etc.)
@@ -33,7 +35,7 @@ The most common conditional structure is if.
 
 ### Basic if syntax:
 
-```
+```go
 package main
 
 import "fmt"
@@ -49,7 +51,7 @@ func main() {
 
 ### With else:
 
-```
+```go
 func main() {
     age := 15
 
@@ -63,7 +65,7 @@ func main() {
 
 ### With else if:
 
-```
+```go
 func main() {
     hour := 14
 
@@ -84,7 +86,7 @@ Short if Statement
 
 Go supports a shorter form to declare variables inside the if block:
 
-```
+```go
 func main() {
     if num := 10; num%2 == 0 {
         fmt.Println("Even number")
@@ -101,7 +103,7 @@ The switch statement lets you compare a value against multiple conditions. It's 
 
 ### Example:
 
-```
+```go
 func main() {
     day := "Friday"
 
@@ -133,7 +135,7 @@ More Practice Examples
 
 ### 1\. Check if a number is positive, negative, or zero:
 
-```
+```go
 func main() {
     num := 0
 
@@ -149,7 +151,7 @@ func main() {
 
 ### 2\. Simple login simulation:
 
-```
+```go
 func main() {
     username := "admin"
     password := "1234"
@@ -167,6 +169,6 @@ Conclusion
 
 Understanding how conditionals work in Go helps you control the flow of your programs. Start with if and else, and move on to switch when you need to compare multiple options. Use these tools to build dynamic and interactive applications.
 
-Next Step: Learn about [loops](https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html) in Go — another powerful way to control program flow!
+Next Step: Learn about [loops](https://www.buanacoding.com/blog/understanding-loops-in-go-for-range.html) in Go — another powerful way to control program flow!
 
 Happy coding!

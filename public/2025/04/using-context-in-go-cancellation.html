@@ -13,14 +13,11 @@
   <title>Using Context in Go: Cancellation, Timeout, and Deadlines Explained | Buana Coding</title>
 
   
-  <meta name="description" content="As your Go applications become more concurrent and complex, you&rsquo;ll need a way to manage the lifecycle of your goroutines—especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the context package comes in. It&rsquo;s the idiomatic way in Go to control concurrent processes gracefully and reliably.
-In this article, you’ll learn:
-What context is and why it’s important Using context.Background() and context.TODO() How to cancel a goroutine with context.WithCancel() How to set a timeout or deadline How to check if a context is done Real-world examples and best practices What Is Context? The context package provides a way to carry deadlines, cancellation signals, and other request-scoped values across function boundaries and between goroutines.
-" />
+  <meta name="description" content="Learn how to use the context package in Go for cancellation, timeouts, and deadlines." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, context, cancellation, timeout, deadlines, goroutines" />
   
 
   
@@ -29,20 +26,14 @@ What context is and why it’s important Using context.Background() and context.
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Using Context in Go: Cancellation, Timeout, and Deadlines Explained | Buana Coding" />
-  <meta property="og:description" content="As your Go applications become more concurrent and complex, you&rsquo;ll need a way to manage the lifecycle of your goroutines—especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the context package comes in. It&rsquo;s the idiomatic way in Go to control concurrent processes gracefully and reliably.
-In this article, you’ll learn:
-What context is and why it’s important Using context.Background() and context.TODO() How to cancel a goroutine with context.WithCancel() How to set a timeout or deadline How to check if a context is done Real-world examples and best practices What Is Context? The context package provides a way to carry deadlines, cancellation signals, and other request-scoped values across function boundaries and between goroutines.
-" />
+  <meta property="og:description" content="Learn how to use the context package in Go for cancellation, timeouts, and deadlines." />
   <meta property="og:url" content="http://localhost:1313/2025/04/using-context-in-go-cancellation.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Using Context in Go: Cancellation, Timeout, and Deadlines Explained | Buana Coding" />
-  <meta name="twitter:description" content="As your Go applications become more concurrent and complex, you&rsquo;ll need a way to manage the lifecycle of your goroutines—especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the context package comes in. It&rsquo;s the idiomatic way in Go to control concurrent processes gracefully and reliably.
-In this article, you’ll learn:
-What context is and why it’s important Using context.Background() and context.TODO() How to cancel a goroutine with context.WithCancel() How to set a timeout or deadline How to check if a context is done Real-world examples and best practices What Is Context? The context package provides a way to carry deadlines, cancellation signals, and other request-scoped values across function boundaries and between goroutines.
-" />
+  <meta name="twitter:description" content="Learn how to use the context package in Go for cancellation, timeouts, and deadlines." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ What context is and why it’s important Using context.Background() and context.
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -230,54 +223,54 @@ What context is and why it’s important Using context.Background() and context.
 <li>Propagate cancellation across multiple goroutines</li>
 </ul>
 <h2 id="starting-point-background-and-todo">Starting Point: Background and TODO</h2>
-<pre tabindex="0"><code>ctx := context.Background() // root context, no cancel/timeout
-ctx := context.TODO()       // use when unsure (placeholder)
-</code></pre><h2 id="cancelling-a-goroutine-withcancel">Cancelling a Goroutine: WithCancel</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">()</span> <span class="c1">// root context, no cancel/timeout</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">TODO</span><span class="p">()</span>       <span class="c1">// use when unsure (placeholder)</span>
+</span></span></code></pre></div><h2 id="cancelling-a-goroutine-withcancel">Cancelling a Goroutine: WithCancel</h2>
 <p>You can use <code>context.WithCancel</code> to manually stop a goroutine:</p>
-<pre tabindex="0"><code>func doWork(ctx context.Context) {
-    for {
-        select {
-        case &lt;-ctx .done=&#34;&#34; :=&#34;context.WithCancel(context.Background())&#34; cancel=&#34;&#34; canceled=&#34;&#34; code=&#34;&#34; context=&#34;&#34; ctx=&#34;&#34; default:=&#34;&#34; dowork=&#34;&#34; fmt.println=&#34;&#34; func=&#34;&#34; go=&#34;&#34; main=&#34;&#34; orking...=&#34;&#34; oroutine=&#34;&#34; return=&#34;&#34; the=&#34;&#34; time.millisecond=&#34;&#34; time.second=&#34;&#34; time.sleep=&#34;&#34;&gt;
-</code></pre><p>When <code>cancel()</code> is called, the goroutine receives a signal via <code>ctx.Done()</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">doWork</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="o">&lt;-</span><span class="nx">ctx</span> <span class="p">.</span><span class="nx">done</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="o">:=</span><span class="s">&#34;context.WithCancel(context.Background())&#34;</span> <span class="nx">cancel</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">canceled</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">code</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">context</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">ctx</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">default</span><span class="o">:=</span><span class="s">&#34;&#34;</span> <span class="nx">dowork</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">println</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="kd">func</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">go</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">main</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">orking</span><span class="o">...</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">oroutine</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">return</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">the</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">millisecond</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">second</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">sleep</span><span class="p">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>When <code>cancel()</code> is called, the goroutine receives a signal via <code>ctx.Done()</code>.</p>
 <h2 id="setting-a-timeout-withtimeout">Setting a Timeout: WithTimeout</h2>
-<pre tabindex="0"><code>ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-defer cancel()
-
-select {
-case &lt;-time .after=&#34;&#34; case=&#34;&#34; code=&#34;&#34; completed=&#34;&#34; ctx.done=&#34;&#34; ctx.err=&#34;&#34; fmt.println=&#34;&#34; ontext=&#34;&#34; peration=&#34;&#34; time.second=&#34;&#34; timeout:=&#34;&#34;&gt;
-</code></pre><p><code>WithDeadline</code> works the same way, but with a fixed time:</p>
-<pre tabindex="0"><code>deadline := time.Now().Add(2 * time.Second)
-ctx, cancel := context.WithDeadline(context.Background(), deadline) 
-</code></pre><h2 id="how-to-use-ctxdone">How to Use ctx.Done()</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="mi">2</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">defer</span> <span class="nf">cancel</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span> <span class="p">.</span><span class="nx">after</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">case</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">code</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">completed</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">done</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">err</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">println</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">ontext</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">peration</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">second</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">timeout</span><span class="o">:=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p><code>WithDeadline</code> works the same way, but with a fixed time:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">deadline</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="nx">deadline</span><span class="p">)</span> 
+</span></span></code></pre></div><h2 id="how-to-use-ctxdone">How to Use ctx.Done()</h2>
 <p>The <code>ctx.Done()</code> channel is closed when the context is canceled or times out. Use it in <code>select</code> blocks to exit early.</p>
 <h2 id="real-world-example-http-request-timeout">Real-World Example: HTTP Request Timeout</h2>
-<pre tabindex="0"><code>func fetch(ctx context.Context, url string) error {
-    req, err := http.NewRequestWithContext(ctx, &#34;GET&#34;, url, nil)
-    if err != nil {
-        return err
-    }
-
-    client := http.Client{}
-    resp, err := client.Do(req)
-    if err != nil {
-        return err
-    }
-    defer resp.Body.Close()
-
-    fmt.Println(&#34;Status:&#34;, resp.Status)
-    return nil
-}
-
-func main() {
-    ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-    defer cancel()
-
-    err := fetch(ctx, &#34;https://httpbin.org/delay/2&#34;)
-    if err != nil {
-        fmt.Println(&#34;Request failed:&#34;, err)
-    }
-} 
-</code></pre><h2 id="best-practices">Best Practices</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">url</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">req</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewRequestWithContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&#34;GET&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">client</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Client</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Status:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="mi">1</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nf">cancel</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&#34;https://httpbin.org/delay/2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Request failed:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Always call <code>cancel()</code> to release resources</li>
 <li>Pass <code>context.Context</code> as the first argument in your functions</li>
@@ -292,7 +285,7 @@ func main() {
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>Understanding <code>context</code> is essential for writing responsive, well-behaved concurrent programs in Go. Whether you&rsquo;re managing goroutines, dealing with timeouts, or handling request chains in a web server, context gives you the tools to do it cleanly and safely.</p>
-<p>Next, we’ll cover <code>sync.Mutex</code> and other tools for <a href="https://www.buanacoding.com/2025/04/synchronizing-goroutines-in-go-using.html">synchronizing</a> data between goroutines.</p>
+<p>Next, we’ll cover <code>sync.Mutex</code> and other tools for <a href="https://www.buanacoding.com/blog/synchronizing-goroutines-in-go-using.html">synchronizing</a> data between goroutines.</p>
 <p>Happy coding!</p>
 
 
@@ -525,5 +518,17 @@ func main() {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/file-handling-in-go-read-write-and.html
 tags: 
 - Go
+description: "Learn how to handle files in Go: create, read, write, append, and manage directories."
+keywords: ["Go", "file", "handling", "read", "write", "append", "directory", "management"]
 ---
 
 In Go, file handling is straightforward and powerful. You can create, read, write, and manage files using standard packages like `os`, `io`, and `ioutil` (deprecated but still common). Understanding how to work with files is essential when building CLI tools, web servers, or any application that deals with local data.
@@ -23,7 +25,7 @@ Creating and Writing to a File
 
 To create and write content to a file:
 
-```
+```go
 func main() {
     content := []byte("Hello, file!")
 
@@ -43,7 +45,7 @@ Reading a File
 
 To read the entire content of a file:
 
-```
+```go
 func main() {
     data, err := os.ReadFile("example.txt")
     if err != nil {
@@ -59,7 +61,7 @@ Appending to a File
 
 If you want to add content to an existing file without overwriting it:
 
-```
+```go
 func main() {
     f, err := os.OpenFile("example.txt", os.O_APPEND|os.O_WRONLY, 0644)
     if err != nil {
@@ -80,19 +82,19 @@ Working with Directories
 
 ### Create a new folder:
 
-```
+```go
 err := os.Mkdir("myfolder", 0755)
 ```
 
 ### Create nested folders:
 
-```
+```go
 err := os.MkdirAll("path/to/folder", 0755)
 ```
 
 ### List files in a folder:
 
-```
+```go
 files, err := os.ReadDir(".")
 for _, file := range files {
     fmt.Println(file.Name())
@@ -102,7 +104,7 @@ for _, file := range files {
 Check if a File Exists
 ----------------------
 
-```
+```go
 func fileExists(filename string) bool {
     _, err := os.Stat(filename)
     return !os.IsNotExist(err)
@@ -112,7 +114,7 @@ func fileExists(filename string) bool {
 Deleting a File or Folder
 -------------------------
 
-```
+```go
 err := os.Remove("example.txt")              // delete file
 err := os.RemoveAll("path/to/folder")        // delete folder and contents 
 ```

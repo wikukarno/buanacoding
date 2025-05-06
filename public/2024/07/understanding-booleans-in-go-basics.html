@@ -13,14 +13,11 @@
   <title>Understanding Booleans Data Type in Go: Basics and Practical Examples | Buana Coding</title>
 
   
-  <meta name="description" content="In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.
-Declaration and Initialization
-To declare a boolean in Go, you use the keyword bool. Here&rsquo;s how you can declare and initialize a boolean variable:
-" />
+  <meta name="description" content="Learn about the boolean data type in Go, its usage in conditional statements, loops, and practical examples." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, boolean, data type, conditional statements, loops, examples" />
   
 
   
@@ -29,20 +26,14 @@ To declare a boolean in Go, you use the keyword bool. Here&rsquo;s how you can d
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Understanding Booleans Data Type in Go: Basics and Practical Examples | Buana Coding" />
-  <meta property="og:description" content="In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.
-Declaration and Initialization
-To declare a boolean in Go, you use the keyword bool. Here&rsquo;s how you can declare and initialize a boolean variable:
-" />
+  <meta property="og:description" content="Learn about the boolean data type in Go, its usage in conditional statements, loops, and practical examples." />
   <meta property="og:url" content="http://localhost:1313/2024/07/understanding-booleans-in-go-basics.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding Booleans Data Type in Go: Basics and Practical Examples | Buana Coding" />
-  <meta name="twitter:description" content="In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.
-Declaration and Initialization
-To declare a boolean in Go, you use the keyword bool. Here&rsquo;s how you can declare and initialize a boolean variable:
-" />
+  <meta name="twitter:description" content="Learn about the boolean data type in Go, its usage in conditional statements, loops, and practical examples." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ To declare a boolean in Go, you use the keyword bool. Here&rsquo;s how you can d
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -215,88 +208,88 @@ To declare a boolean in Go, you use the keyword bool. Here&rsquo;s how you can d
 <p>Declaration and Initialization</p>
 <hr>
 <p>To declare a boolean in Go, you use the keyword <strong>bool</strong>. Here&rsquo;s how you can declare and initialize a boolean variable:</p>
-<pre tabindex="0"><code>`var myBool bool = true`
-</code></pre><p>This code snippet shows how to initialize a boolean variable named <code>myBool</code> with the value <strong>true</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">myBool</span> <span class="kt">bool</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></div><p>This code snippet shows how to initialize a boolean variable named <code>myBool</code> with the value <strong>true</strong>.</p>
 <p>In this line, isOnline is a boolean variable that is initialized to true . Alternatively, Go supports type inference where the compiler automatically detects the type based on the initial value:</p>
-<pre tabindex="0"><code>`isOnline := true`
-</code></pre><p>This shorthand method is preferred in Go for its simplicity and readability.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">isOnline</span> <span class="o">:=</span> <span class="kc">true</span>
+</span></span></code></pre></div><p>This shorthand method is preferred in Go for its simplicity and readability.</p>
 <h3 id="boolean-in-conditional-statement">Boolean in conditional statement</h3>
 <p>Booleans are extensively used in conditional statements. Here&rsquo;s an example of how to use a boolean in an <strong>if</strong> and <strong>else</strong> statement:</p>
-<pre tabindex="0"><code> `package main
-
-import &#34;fmt&#34;
-
-func main() {
-
-    isOnline := true
-
-    if isOnline {
-
-        fmt.Println(&#34;User is online&#34;)
-
-    } else {
-        
-        fmt.Println(&#34;User is offline&#34;)
-
-    }
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`User is online`
-</code></pre><h3 id="practical-example-user-authentication">Practical example: User Authentication</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">isOnline</span> <span class="o">:=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">isOnline</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;User is online&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;User is offline&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">User is online
+</span></span></code></pre></div><h3 id="practical-example-user-authentication">Practical example: User Authentication</h3>
 <p>Let&rsquo;s create a practical example where booleans are used to check whether a user&rsquo;s username and password match the expected values:</p>
-<pre tabindex="0"><code> `package main
-
-import &#34;fmt&#34;
-
-func main() {
-
-    username := &#34;admin&#34;
-    password := &#34;password&#34;
-
-    inputUsername := &#34;admin&#34;
-    inputPassword := &#34;password&#34;
-
-    if username == inputUsername &amp;&amp; password == inputPassword {
-
-        fmt.Println(&#34;User authenticated&#34;)
-
-    } else {
-
-        fmt.Println(&#34;Invalid credentials&#34;)
-
-    }
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`User authenticated`
-</code></pre><p>in this example, <strong>isAuthenticated</strong> is a boolean that becomes true if both the username and password match the expected values. This boolean is then used to determine the message to display to the user.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">username</span> <span class="o">:=</span> <span class="s">&#34;admin&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">password</span> <span class="o">:=</span> <span class="s">&#34;password&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">inputUsername</span> <span class="o">:=</span> <span class="s">&#34;admin&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">inputPassword</span> <span class="o">:=</span> <span class="s">&#34;password&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">username</span> <span class="o">==</span> <span class="nx">inputUsername</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span> <span class="o">==</span> <span class="nx">inputPassword</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;User authenticated&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Invalid credentials&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">User authenticated
+</span></span></code></pre></div><p>in this example, <strong>isAuthenticated</strong> is a boolean that becomes true if both the username and password match the expected values. This boolean is then used to determine the message to display to the user.</p>
 <h3 id="using-booleans-with-loops">Using Booleans with Loops</h3>
 <p>Booleans are also useful in loops to determine when the loop should end. Here&rsquo;s a simple <strong>for</strong> loop that uses a boolean condition:</p>
-<pre tabindex="0"><code> `package main
-
-import &#34;fmt&#34;
-
-func main() {
-
-    isRunning := true
-    count := 0
-
-    for isRunning {
-
-        fmt.Println(&#34;Count:&#34;, count)
-        count++
-
-        if count == 5 {
-            isRunning = false
-        }
-    }
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`Count: 0
-Count: 1
-Count: 2
-Count: 3
-Count: 4`
-</code></pre><p>In this loop, the boolean expression <strong>count &lt; 5</strong> determines whether the loop should continue running.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">isRunning</span> <span class="o">:=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">isRunning</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Count:&#34;</span><span class="p">,</span> <span class="nx">count</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">count</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">count</span> <span class="o">==</span> <span class="mi">5</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">isRunning</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Count: <span class="m">0</span>
+</span></span><span class="line"><span class="cl">Count: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">Count: <span class="m">2</span>
+</span></span><span class="line"><span class="cl">Count: <span class="m">3</span>
+</span></span><span class="line"><span class="cl">Count: <span class="m">4</span>
+</span></span></code></pre></div><p>In this loop, the boolean expression <strong>count &lt; 5</strong> determines whether the loop should continue running.</p>
 <h3 id="conclusion">Conclusion</h3>
 <p>Booleans in Go provide a simple yet powerful way to handle decision-making in your programs. They are essential for executing different code paths under different conditions, handling user authentication, controlling loops, and more.</p>
 <p>As you continue to develop in Go, you&rsquo;ll find that booleans ar an indispensable part of many common programming task.</p>
@@ -534,5 +527,17 @@ Count: 4`
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

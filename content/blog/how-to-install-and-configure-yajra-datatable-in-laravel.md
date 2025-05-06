@@ -5,11 +5,9 @@ draft: false
 url: /2023/08/how-to-install-and-configure-yajra.html
 tags: 
 - Laravel
+description: "Panduan lengkap cara menginstal dan mengonfigurasi Yajra DataTables di Laravel. Cocok untuk pemula yang ingin belajar."
+keywords: ["laravel", "yajra datatable", "laravel datatable", "laravel tutorial"]
 ---
-
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH_-QKD7jQ3HUBo8UmY8AkodgDEHO7LnJjfWa5nPZXyLNWVAtsNSVCddw8qM7FrJugF0I5NTtniabQUyks8ja4xqZCcbl6_4E-pj0khy3e1YpvvQQqtB4ruXMlC0TIu-uSGILqbkL7FbCp7iRMuVg3YTgbO2tMbimPcREW4W9M31tKVMVsJSOoyCkVRv5b/w640-h456/table.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH_-QKD7jQ3HUBo8UmY8AkodgDEHO7LnJjfWa5nPZXyLNWVAtsNSVCddw8qM7FrJugF0I5NTtniabQUyks8ja4xqZCcbl6_4E-pj0khy3e1YpvvQQqtB4ruXMlC0TIu-uSGILqbkL7FbCp7iRMuVg3YTgbO2tMbimPcREW4W9M31tKVMVsJSOoyCkVRv5b/s1920/table.jpg)
-
-  
 
 In the realm of modern web development, providing a seamless user experience and enhancing the overall performance of your web applications is paramount. One essential aspect that plays a pivotal role in achieving these goals is efficient data presentation and manipulation. This is where Yajra DataTables comes into the picture.
 
@@ -33,14 +31,14 @@ So let's get started on how to install and configure Yajra Datatable in Laravel.
 
 The first step you must be to visit the official website of [Yajra Datatable](https://yajrabox.com/docs/laravel-datatables/10.0), if you want to follow my way please follow the guide below.
 
-```
+```bash
 `composer require yajra/laravel-datatables-oracle:"^10.3.1"`
 
 ```
 
 If you want to change the version of Yajra Datatable you must change the value "^10.3.1" to an old version or if you want to get the new version you can use the script below.
 
-```
+```bash
 composer require yajra/laravel-datatables-oracle
 ```
 
@@ -52,7 +50,7 @@ So, in the next step, we will configure the provider in Laravel so that you go t
 
   
 
-```
+```php
 
 
 providers'  \=> \[
@@ -68,7 +66,7 @@ providers'  \=> \[
 
 If you have put your code into the file app.php, now you can follow this step to publish assets and vendors from Yajra Datatable so that you can use Yajra Datatable on your project.
 
-```
+```bash
 php artisan vendor:publish --tag=datatables
 ```
 
@@ -76,7 +74,7 @@ Now you can use Datatable on your projects yeah, now if you want to call the Dat
 
   
 
-```
+```css
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.jqueryui.min.css" />
 ``````
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
@@ -92,7 +90,7 @@ If you have been adding the following script on the top now you add the script b
 
   
 
-```
+```js
 @push('after-script')
 <script>
     $('#tb_user').DataTable({
@@ -117,7 +115,7 @@ And then, you must be sent data from the controller to view with script below.
 
   
 
-```
+```php
 
 
 if (request()->ajax()) {

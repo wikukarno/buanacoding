@@ -13,14 +13,11 @@
   <title>Testing in Go: Writing Unit Tests with the Testing Package | Buana Coding</title>
 
   
-  <meta name="description" content="Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought — it&rsquo;s built into the language itself through the powerful and easy-to-use testing package. Whether you&rsquo;re building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.
-This article will help you understand:
-Why testing matters in software development The basics of writing tests in Go Using t.Error, t.Fail, and t.Fatal Table-driven tests Running and understanding test results Measuring code coverage Best practices for writing useful tests Why Testing is Important Testing helps you ensure that your code works as expected — not just today, but as it evolves. Without tests, it&rsquo;s risky to make changes because you can&rsquo;t be confident you haven&rsquo;t broken something.
-" />
+  <meta name="description" content="Learn how to write unit tests in Go using the built-in testing package." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, testing, unit tests, testing package, best practices" />
   
 
   
@@ -29,20 +26,14 @@ Why testing matters in software development The basics of writing tests in Go Us
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Testing in Go: Writing Unit Tests with the Testing Package | Buana Coding" />
-  <meta property="og:description" content="Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought — it&rsquo;s built into the language itself through the powerful and easy-to-use testing package. Whether you&rsquo;re building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.
-This article will help you understand:
-Why testing matters in software development The basics of writing tests in Go Using t.Error, t.Fail, and t.Fatal Table-driven tests Running and understanding test results Measuring code coverage Best practices for writing useful tests Why Testing is Important Testing helps you ensure that your code works as expected — not just today, but as it evolves. Without tests, it&rsquo;s risky to make changes because you can&rsquo;t be confident you haven&rsquo;t broken something.
-" />
+  <meta property="og:description" content="Learn how to write unit tests in Go using the built-in testing package." />
   <meta property="og:url" content="http://localhost:1313/2025/04/testing-in-go-writing-unit-tests-with.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Testing in Go: Writing Unit Tests with the Testing Package | Buana Coding" />
-  <meta name="twitter:description" content="Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought — it&rsquo;s built into the language itself through the powerful and easy-to-use testing package. Whether you&rsquo;re building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.
-This article will help you understand:
-Why testing matters in software development The basics of writing tests in Go Using t.Error, t.Fail, and t.Fatal Table-driven tests Running and understanding test results Measuring code coverage Best practices for writing useful tests Why Testing is Important Testing helps you ensure that your code works as expected — not just today, but as it evolves. Without tests, it&rsquo;s risky to make changes because you can&rsquo;t be confident you haven&rsquo;t broken something.
-" />
+  <meta name="twitter:description" content="Learn how to write unit tests in Go using the built-in testing package." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ Why testing matters in software development The basics of writing tests in Go Us
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -234,25 +227,25 @@ Why testing matters in software development The basics of writing tests in Go Us
 <h2 id="getting-started-writing-your-first-test">Getting Started: Writing Your First Test</h2>
 <p>In Go, a test file must end with <code>_test.go</code> and be in the same package as the code you want to test.</p>
 <p>Let’s say you have a simple math function:</p>
-<pre tabindex="0"><code>package calculator
-
-func Add(a, b int) int {
-    return a + b
-} 
-</code></pre><p>Your test file could look like this:</p>
-<pre tabindex="0"><code>package calculator
-
-import &#34;testing&#34;
-
-func TestAdd(t *testing.T) {
-    result := Add(2, 3)
-    expected := 5
-
-    if result != expected {
-        t.Errorf(&#34;Add(2, 3) = %d; want %d&#34;, result, expected)
-    }
-} 
-</code></pre><h2 id="understanding-terror-tfail-and-tfatal">Understanding t.Error, t.Fail, and t.Fatal</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">calculator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Your test file could look like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">calculator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestAdd</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span> <span class="o">:=</span> <span class="nf">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">expected</span> <span class="o">:=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">result</span> <span class="o">!=</span> <span class="nx">expected</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Add(2, 3) = %d; want %d&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">,</span> <span class="nx">expected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="understanding-terror-tfail-and-tfatal">Understanding t.Error, t.Fail, and t.Fatal</h2>
 <ul>
 <li><code>t.Error</code>: reports an error but continues running the test</li>
 <li><code>t.Fatal</code>: reports an error and immediately stops the test</li>
@@ -260,35 +253,35 @@ func TestAdd(t *testing.T) {
 </ul>
 <h2 id="table-driven-tests">Table-Driven Tests</h2>
 <p>This is a common Go pattern for testing multiple cases in a clean way:</p>
-<pre tabindex="0"><code>func TestAddMultipleCases(t *testing.T) {
-    tests := []struct {
-        a, b     int
-        expected int
-    }{
-        {1, 2, 3},
-        {0, 0, 0},
-        {-1, -1, -2},
-    }
-
-    for _, tt := range tests {
-        result := Add(tt.a, tt.b)
-        if result != tt.expected {
-            t.Errorf(&#34;Add(%d, %d) = %d; want %d&#34;, tt.a, tt.b, result, tt.expected)
-        }
-    }
-} 
-</code></pre><h2 id="running-tests">Running Tests</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestAddMultipleCases</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tests</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span>     <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">expected</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">tt</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">tests</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">result</span> <span class="o">:=</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">result</span> <span class="o">!=</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">expected</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Add(%d, %d) = %d; want %d&#34;</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">b</span><span class="p">,</span> <span class="nx">result</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">expected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="running-tests">Running Tests</h2>
 <p>To run all tests in a package, use:</p>
-<pre tabindex="0"><code>go test
-</code></pre><p>To see detailed output:</p>
-<pre tabindex="0"><code>go test -v
-</code></pre><h2 id="code-coverage">Code Coverage</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go <span class="nb">test</span>
+</span></span></code></pre></div><p>To see detailed output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go <span class="nb">test</span> -v
+</span></span></code></pre></div><h2 id="code-coverage">Code Coverage</h2>
 <p>Want to know how much of your code is tested?</p>
-<pre tabindex="0"><code>go test -cover
-</code></pre><p>You can even generate an HTML report:</p>
-<pre tabindex="0"><code>go test -coverprofile=coverage.out
-go tool cover -html=coverage.out
-</code></pre><h2 id="where-to-put-tests">Where to Put Tests</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go <span class="nb">test</span> -cover
+</span></span></code></pre></div><p>You can even generate an HTML report:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go <span class="nb">test</span> -coverprofile<span class="o">=</span>coverage.out
+</span></span><span class="line"><span class="cl">go tool cover -html<span class="o">=</span>coverage.out
+</span></span></code></pre></div><h2 id="where-to-put-tests">Where to Put Tests</h2>
 <p>It’s a good practice to place tests right next to the code they are testing. This makes them easy to find and maintain. Use the same package name unless you’re doing black-box testing.</p>
 <h2 id="best-practices">Best Practices</h2>
 <ul>
@@ -300,7 +293,7 @@ go tool cover -html=coverage.out
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>Testing is not just a formality — it’s a mindset. Go makes it easy to write fast, reliable tests without third-party tools. By integrating testing into your daily development flow, you’ll gain confidence, spot bugs earlier, and create better software.</p>
-<p>In the next topic, we’ll explore how to <a href="https://www.buanacoding.com/2025/04/benchmarking-in-go-measuring.html">benchmark</a> Go code and write performance tests.</p>
+<p>In the next topic, we’ll explore how to <a href="https://www.buanacoding.com/blog/benchmarking-in-go-measuring.html">benchmark</a> Go code and write performance tests.</p>
 <p>Keep testing and happy coding!</p>
 
 
@@ -533,5 +526,17 @@ go tool cover -html=coverage.out
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

@@ -13,14 +13,11 @@
   <title>File Handling in Go: Read, Write, and Manage Files | Buana Coding</title>
 
   
-  <meta name="description" content="In Go, file handling is straightforward and powerful. You can create, read, write, and manage files using standard packages like os, io, and ioutil (deprecated but still common). Understanding how to work with files is essential when building CLI tools, web servers, or any application that deals with local data.
-In this article, you’ll learn:
-How to create and write to a file How to read a file Appending data to files Working with directories Checking if a file exists Best practices and error handling Creating and Writing to a File To create and write content to a file:
-" />
+  <meta name="description" content="Learn how to handle files in Go: create, read, write, append, and manage directories." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, file, handling, read, write, append, directory, management" />
   
 
   
@@ -29,20 +26,14 @@ How to create and write to a file How to read a file Appending data to files Wor
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="File Handling in Go: Read, Write, and Manage Files | Buana Coding" />
-  <meta property="og:description" content="In Go, file handling is straightforward and powerful. You can create, read, write, and manage files using standard packages like os, io, and ioutil (deprecated but still common). Understanding how to work with files is essential when building CLI tools, web servers, or any application that deals with local data.
-In this article, you’ll learn:
-How to create and write to a file How to read a file Appending data to files Working with directories Checking if a file exists Best practices and error handling Creating and Writing to a File To create and write content to a file:
-" />
+  <meta property="og:description" content="Learn how to handle files in Go: create, read, write, append, and manage directories." />
   <meta property="og:url" content="http://localhost:1313/2025/04/file-handling-in-go-read-write-and.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="File Handling in Go: Read, Write, and Manage Files | Buana Coding" />
-  <meta name="twitter:description" content="In Go, file handling is straightforward and powerful. You can create, read, write, and manage files using standard packages like os, io, and ioutil (deprecated but still common). Understanding how to work with files is essential when building CLI tools, web servers, or any application that deals with local data.
-In this article, you’ll learn:
-How to create and write to a file How to read a file Appending data to files Working with directories Checking if a file exists Best practices and error handling Creating and Writing to a File To create and write content to a file:
-" />
+  <meta name="twitter:description" content="Learn how to handle files in Go: create, read, write, append, and manage directories." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ How to create and write to a file How to read a file Appending data to files Wor
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -223,61 +216,61 @@ How to create and write to a file How to read a file Appending data to files Wor
 </ul>
 <h2 id="creating-and-writing-to-a-file">Creating and Writing to a File</h2>
 <p>To create and write content to a file:</p>
-<pre tabindex="0"><code>func main() {
-    content := []byte(&#34;Hello, file!&#34;)
-
-    err := os.WriteFile(&#34;example.txt&#34;, content, 0644)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Println(&#34;File written successfully&#34;)
-} 
-</code></pre><p><code>os.WriteFile</code> creates the file if it doesn&rsquo;t exist and replaces it if it does.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">content</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;Hello, file!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">WriteFile</span><span class="p">(</span><span class="s">&#34;example.txt&#34;</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="mo">0644</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;File written successfully&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p><code>os.WriteFile</code> creates the file if it doesn&rsquo;t exist and replaces it if it does.</p>
 <h2 id="reading-a-file">Reading a File</h2>
 <p>To read the entire content of a file:</p>
-<pre tabindex="0"><code>func main() {
-    data, err := os.ReadFile(&#34;example.txt&#34;)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Println(&#34;File content:&#34;, string(data))
-} 
-</code></pre><h2 id="appending-to-a-file">Appending to a File</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;example.txt&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;File content:&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="appending-to-a-file">Appending to a File</h2>
 <p>If you want to add content to an existing file without overwriting it:</p>
-<pre tabindex="0"><code>func main() {
-    f, err := os.OpenFile(&#34;example.txt&#34;, os.O_APPEND|os.O_WRONLY, 0644)
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer f.Close()
-
-    if _, err := f.WriteString(&#34;\nThis is appended.&#34;); err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Println(&#34;Appended successfully&#34;)
-} 
-</code></pre><h2 id="working-with-directories">Working with Directories</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;example.txt&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_APPEND</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_WRONLY</span><span class="p">,</span> <span class="mo">0644</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;\nThis is appended.&#34;</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Appended successfully&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="working-with-directories">Working with Directories</h2>
 <h3 id="create-a-new-folder">Create a new folder:</h3>
-<pre tabindex="0"><code>err := os.Mkdir(&#34;myfolder&#34;, 0755)
-</code></pre><h3 id="create-nested-folders">Create nested folders:</h3>
-<pre tabindex="0"><code>err := os.MkdirAll(&#34;path/to/folder&#34;, 0755)
-</code></pre><h3 id="list-files-in-a-folder">List files in a folder:</h3>
-<pre tabindex="0"><code>files, err := os.ReadDir(&#34;.&#34;)
-for _, file := range files {
-    fmt.Println(file.Name())
-} 
-</code></pre><h2 id="check-if-a-file-exists">Check if a File Exists</h2>
-<pre tabindex="0"><code>func fileExists(filename string) bool {
-    _, err := os.Stat(filename)
-    return !os.IsNotExist(err)
-} 
-</code></pre><h2 id="deleting-a-file-or-folder">Deleting a File or Folder</h2>
-<pre tabindex="0"><code>err := os.Remove(&#34;example.txt&#34;)              // delete file
-err := os.RemoveAll(&#34;path/to/folder&#34;)        // delete folder and contents 
-</code></pre><h2 id="best-practices">Best Practices</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Mkdir</span><span class="p">(</span><span class="s">&#34;myfolder&#34;</span><span class="p">,</span> <span class="mo">0755</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="create-nested-folders">Create nested folders:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">MkdirAll</span><span class="p">(</span><span class="s">&#34;path/to/folder&#34;</span><span class="p">,</span> <span class="mo">0755</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="list-files-in-a-folder">List files in a folder:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">files</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">ReadDir</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">file</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">files</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nf">Name</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="check-if-a-file-exists">Check if a File Exists</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">fileExists</span><span class="p">(</span><span class="nx">filename</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Stat</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">!</span><span class="nx">os</span><span class="p">.</span><span class="nf">IsNotExist</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="deleting-a-file-or-folder">Deleting a File or Folder</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="s">&#34;example.txt&#34;</span><span class="p">)</span>              <span class="c1">// delete file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">RemoveAll</span><span class="p">(</span><span class="s">&#34;path/to/folder&#34;</span><span class="p">)</span>        <span class="c1">// delete folder and contents </span>
+</span></span></code></pre></div><h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Always handle file errors (file not found, permissions)</li>
 <li>Use <code>defer f.Close()</code> after opening files</li>
@@ -519,5 +512,17 @@ err := os.RemoveAll(&#34;path/to/folder&#34;)        // delete folder and conten
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

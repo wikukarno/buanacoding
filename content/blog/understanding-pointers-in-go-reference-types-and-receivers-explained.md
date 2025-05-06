@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/understanding-pointers-in-go-reference.html
 tags: 
 - Go
+description: "Learn how to use pointers in Go: reference types, method receivers, and best practices."
+keywords: ["Go", "pointers", "reference types", "method receivers", "value receiver", "pointer receiver", "best practices"]
 ---
 
 In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.
@@ -23,7 +25,7 @@ What is a Pointer?
 
 A pointer is a variable that stores the memory address of another variable. You use the `&` operator to get the address and `*` to access the value at that address.
 
-```
+```go
 func main() {
     x := 10
     p := &x
@@ -38,7 +40,7 @@ Pointers and Functions
 
 When passing variables to functions, Go uses value semantics—meaning it passes a copy. If you want the function to modify the original variable, pass a pointer.
 
-```
+```go
 func update(val *int) {
     *val = 100
 }
@@ -57,7 +59,7 @@ Pointer Receivers in Methods
 
 In Go, methods can be defined with either value receivers or pointer receivers. Pointer receivers allow methods to modify the actual object.
 
-```
+```go
 type Person struct {
     Name string
     Age  int
@@ -84,7 +86,7 @@ Go allows both styles, but here's when to choose each:
 *   **Value receiver**: small structs, method does not modify data
 *   **Pointer receiver**: large structs, method needs to modify state
 
-```
+```go
 func (p Person) ValueGreet() {
     fmt.Println("Hello,", p.Name)
 }
@@ -99,7 +101,7 @@ Go is Smart: Automatic Conversion
 
 Go is smart enough to let you call pointer receiver methods on value types and vice versa—it will automatically add or remove the `&` for you:
 
-```
+```go
 person := Person{"Bob", 30}
 person.GrowUp() // Works even though GrowUp has a pointer receiver 
 ```

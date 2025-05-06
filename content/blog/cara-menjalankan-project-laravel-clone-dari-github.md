@@ -1,5 +1,5 @@
 ---
-title: 'Cara menjalankan project laravel clone dari github'
+title: 'Cara Menjalankan Project Laravel Clone dari GitHub'
 date: 2023-04-09T23:08:00.002+07:00
 draft: false
 featured: true
@@ -7,95 +7,87 @@ url: /2023/04/cara-menjalankan-project-laravel-clone.html
 image: /images/blog/code.jpg
 tags: 
 - Laravel
+description: "Panduan lengkap cara menjalankan project Laravel yang di-clone dari GitHub. Cocok untuk pemula yang ingin belajar Laravel."
+keywords: ["laravel", "clone laravel", "laravel github", "laravel project", "laravel tutorial"]
 ---
 
-Sebelum kita melakukan cloning project laravel dari github, pastikan kamu telah menginstall tools yang tertera dibawah ini, agar proses cloning berjalan dengan lancar.
+Sebelum kita melakukan cloning project Laravel dari GitHub, pastikan kamu telah menginstal tools berikut agar proses berjalan lancar.
 
-1.  [git](https://git-scm.com/)
-2.  [composer](https://getcomposer.org/download/)
+Tools di bawah ini sangat penting. Tanpa keduanya, kamu tidak akan bisa menjalankan project Laravel dengan benar.
 
-Tools diatas sangat penting untuk melakukan cloning project laravel dari github, jika tidak ada maka kita tidak bisa melakukannya.
+1. [Git](https://git-scm.com/)
+2. [Composer](https://getcomposer.org/download/)
 
-  
+Untuk mendapatkan project Laravel dari GitHub, ada dua cara:
 
-Untuk melakukan cloning atau download project laravel dari github ini ada dua cara, pertama menggunakan git dan yang kedua adalah download menggunakan zip seperti gambar dibawah ini.
+1. **Menggunakan Git**
+2. **Mengunduh via file ZIP**
 
-  
+Tidak ada perbedaan signifikan, hanya beda cara ambilnya. Kita bahas dua-duanya.
 
-[![clone project from github](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiS_h6FCNSFXUu1GNAgaPNHhC3n_6oWhPFrFxpqL72UYfDwoc3dCj8VoN71p2EmYo-Zqp-be9jvHk7vaXSxCrieU12oiZWLAlIWzPYr9SihVmZfPOQ_0_Gb0UqPb1theAWshcN2zuGzTesIoh-KaOdqhQSxIu8s8wc9FoWGnAMhG_rhcbeCDUwHfDHsPA/w400-h233/cloningprojectgithub.webp)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiS_h6FCNSFXUu1GNAgaPNHhC3n_6oWhPFrFxpqL72UYfDwoc3dCj8VoN71p2EmYo-Zqp-be9jvHk7vaXSxCrieU12oiZWLAlIWzPYr9SihVmZfPOQ_0_Gb0UqPb1theAWshcN2zuGzTesIoh-KaOdqhQSxIu8s8wc9FoWGnAMhG_rhcbeCDUwHfDHsPA/s512/cloningprojectgithub.webp)
+## 💻 Cara Clone Menggunakan Git
 
-  
+1. Salin URL repository dari GitHub (HTTPS atau SSH).
+2. Buka terminal dan jalankan:
 
-Sebenarnya tidak ada perbedaan yang signifikan dari kedua cara tersebut, dan hasil akhirnya adalah sama, cuman beda cara saja.
+    ```bash
+    git clone <url-repository>
+    ```
 
-  
+3. Kalau ingin beri nama folder project-nya:
 
-Pada artikel ini kita akan melakukan kedua cara tersebut supaya lebih jelas perbedaannya, ya walaupun tidak berbeda jauh.
+    ```bash
+    git clone <url-repository> nama-folder
+    ```
 
-  
+4. Tunggu proses cloning selesai.
+5. Masuk ke folder project:
 
-### Cara clone menggunakan git
+    ```bash
+    cd nama-folder
+    ```
 
-1.  copykan script dari https atau ssh ke dalam terminal kamu.
-2.  buka terminal kamu dan ketikan git clone url repository seperti gambar dibawah ini.  
-      
-    
-    [![git clone](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3AiWs__PvFlpfdzQ7rjCtdEurYJ0Jo5NwlEHXIF3G83ZNxa1KkmRrIi-3GCqEe_wjA4IEhdAZCyrVUgm1wPn2zfxsyZf_w-ezNh7Q1Z_PlukfZaVLdRqfqyRjgMjyg-IL8ZLgWuk0bIeCSSXIuKvhf6b3f_KdJhnvNelgRLrHw4Lj9gH6ZAgC4wmuBA/w400-h48/Screenshot%20from%202023-04-09%2022-00-54.webp)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3AiWs__PvFlpfdzQ7rjCtdEurYJ0Jo5NwlEHXIF3G83ZNxa1KkmRrIi-3GCqEe_wjA4IEhdAZCyrVUgm1wPn2zfxsyZf_w-ezNh7Q1Z_PlukfZaVLdRqfqyRjgMjyg-IL8ZLgWuk0bIeCSSXIuKvhf6b3f_KdJhnvNelgRLrHw4Lj9gH6ZAgC4wmuBA/s823/Screenshot%20from%202023-04-09%2022-00-54.webp)
-    
-      
-    
-3.  kamu juga bisa memberikan nama pada project yang kamu clone seperti gambar dibawah ini.  
-      
-    
-    [![clone with name folder](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9NdPFK-UgC4NweRIRHxj-lMnYg4qJz_GyQcw_Ue0GnRA2NCHaHDadkGAjPoufcqgZupmoYcnKW4xjHMxZJ6K4FPihbAHFwyLMHqB6VtXATqXlt7Pd1Fkk6e6sKlSz7gDpxI_pnJnbavQeAdz6KrUaZaZRzX23y3RlgBioU_a2szitR2xM_89cPgiZSA/w400-h102/Screenshot%20from%202023-04-09%2022-16-16.webp)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9NdPFK-UgC4NweRIRHxj-lMnYg4qJz_GyQcw_Ue0GnRA2NCHaHDadkGAjPoufcqgZupmoYcnKW4xjHMxZJ6K4FPihbAHFwyLMHqB6VtXATqXlt7Pd1Fkk6e6sKlSz7gDpxI_pnJnbavQeAdz6KrUaZaZRzX23y3RlgBioU_a2szitR2xM_89cPgiZSA/s1192/Screenshot%20from%202023-04-09%2022-16-16.webp)
-    
-      
-    
-4.  Jika sudah tunggu proses cloning hingga selesai 
-5.  Jika sudah masuk kedalam direktori project seperti printah dibawah ini  
-    
-    > cd nama project clone
-    
-6.  Jika sudah masuk kedalam direktori silahkan ketikan perintah dibawah ini.  
-      
-    
-    > composer install 
-    
-    jika proses installasi dependensi sudah selesai maka langkah selanjutnya kamu harus copy file .env.example seperti dibawah ini.  
-    
-    > cp .env.example .env 
-    
-    Jika sudah silahkan generate app\_key laravel seperti script dibawah ini  
-    
-    > php artisan key:generate
-    
-    Jika sudah seharusnya kita sudah bisa menjalankan project laravel, namu alangkah lebih baiknya kita clear cache jika baru clone project dari git, untuk meminimalisir terjadinya error menggunakan perintah seperti dibawah ini.  
-    
-    > php artisan config:clear
-    
-    Jika sudah maka tinggal kita jalankan project yang sudah kita clone menggunakan perintah dibawah ini.  
-    
-    > php artisan serve
-    
-    Lalu pastekan link url (http://127.0.0.1:8000) pada browser favorit anda, maka project laravel pun berhasil dijalankan seperti gambar dibawah ini.  
-    
+6. Install dependensi:
 
-[![Laravel](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAIrzSKCzEPor0O_MbtDVEgdd-MQ7jPpgZE-9ThUh8twoDtQWy6NZpt0yFdXhtFgsdBzPRTc0e0ADktGS_7FpviatBH8LDpQwTEFeqFc-KxEPmTFYNLYNzH48YS1SZmsUXbn3V2LpXgjmQDfF7f1JNWZ4c_hsHCSI5Y641J-PzDJfhCnG1vZe0LQdh4g/w640-h298/Screenshot%20from%202023-04-09%2022-18-14.webp)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAIrzSKCzEPor0O_MbtDVEgdd-MQ7jPpgZE-9ThUh8twoDtQWy6NZpt0yFdXhtFgsdBzPRTc0e0ADktGS_7FpviatBH8LDpQwTEFeqFc-KxEPmTFYNLYNzH48YS1SZmsUXbn3V2LpXgjmQDfF7f1JNWZ4c_hsHCSI5Y641J-PzDJfhCnG1vZe0LQdh4g/s1355/Screenshot%20from%202023-04-09%2022-18-14.webp)
+    ```bash
+    composer install
+    ```
 
-  
+7. Salin file `.env`:
 
-  
+    ```bash
+    cp .env.example .env
+    ```
 
-  
+8. Generate key:
 
-### Cara Clone atau Download menggunakan Zip
+    ```bash
+    php artisan key:generate
+    ```
 
-Sebenernya cara ini cukup mudah tinggal kita klik maka secara otomatis project langsung terdownload.
+9. Bersihkan konfigurasi cache (opsional):
 
-  
+    ```bash
+    php artisan config:clear
+    ```
 
-Untuk konfigurasi sama seperti script diatas hanya beda cara saja, biasanya kebanyakan dari developer mengunakan git untuk cloning project.
+10. Jalankan Laravel:
 
-  
+    ```bash
+    php artisan serve
+    ```
 
-Namun kembali lagi kepada diri sendiri lebih enak dan nyaman mengunakan yang mana, semoga bermanfaat terimakasih.
+Lalu buka `http://127.0.0.1:8000` di browser favorit kamu.
+
+## 📦 Cara Download Menggunakan ZIP
+
+1. Klik tombol **Code** di GitHub, lalu pilih **Download ZIP**.
+2. Ekstrak filenya.
+3. Buka terminal, masuk ke folder hasil ekstrak.
+4. Lanjutkan langkah instalasi seperti pada metode Git di atas (`composer install`, dll).
+
+---
+
+Sebagian besar developer lebih suka menggunakan Git, tapi metode ZIP juga tetap valid. Silakan pilih yang paling nyaman buat kamu.
+
+Semoga bermanfaat!

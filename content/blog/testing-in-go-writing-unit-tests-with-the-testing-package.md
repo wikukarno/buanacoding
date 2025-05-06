@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/testing-in-go-writing-unit-tests-with.html
 tags: 
 - Go
+description: "Learn how to write unit tests in Go using the built-in testing package."
+keywords: ["Go", "testing", "unit tests", "testing package", "best practices"]
 ---
 
 Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought — it's built into the language itself through the powerful and easy-to-use `testing` package. Whether you're building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.
@@ -38,7 +40,7 @@ In Go, a test file must end with `_test.go` and be in the same package as the co
 
 Let’s say you have a simple math function:
 
-```
+```go
 package calculator
 
 func Add(a, b int) int {
@@ -48,7 +50,7 @@ func Add(a, b int) int {
 
 Your test file could look like this:
 
-```
+```go
 package calculator
 
 import "testing"
@@ -75,7 +77,7 @@ Table-Driven Tests
 
 This is a common Go pattern for testing multiple cases in a clean way:
 
-```
+```go
 func TestAddMultipleCases(t *testing.T) {
     tests := []struct {
         a, b     int
@@ -100,13 +102,13 @@ Running Tests
 
 To run all tests in a package, use:
 
-```
+```bash
 go test
 ```
 
 To see detailed output:
 
-```
+```bash
 go test -v
 ```
 
@@ -115,13 +117,13 @@ Code Coverage
 
 Want to know how much of your code is tested?
 
-```
+```bash
 go test -cover
 ```
 
 You can even generate an HTML report:
 
-```
+```bash
 go test -coverprofile=coverage.out
 go tool cover -html=coverage.out
 ```
@@ -145,6 +147,6 @@ Conclusion
 
 Testing is not just a formality — it’s a mindset. Go makes it easy to write fast, reliable tests without third-party tools. By integrating testing into your daily development flow, you’ll gain confidence, spot bugs earlier, and create better software.
 
-In the next topic, we’ll explore how to [benchmark](https://www.buanacoding.com/2025/04/benchmarking-in-go-measuring.html) Go code and write performance tests.
+In the next topic, we’ll explore how to [benchmark](https://www.buanacoding.com/blog/benchmarking-in-go-measuring.html) Go code and write performance tests.
 
 Keep testing and happy coding!

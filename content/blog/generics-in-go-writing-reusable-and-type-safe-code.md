@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/generics-in-go-writing-reusable-and.html
 tags: 
 - Go
+description: "Learn how to use generics in Go to write reusable and type-safe code."
+keywords: ["Go", "generics", "type-safe", "reusable", "code", "functions", "types"]
 ---
 
 Generics were introduced in Go 1.18, marking a significant evolution of the language. They allow you to write flexible, reusable code without sacrificing type safety. With generics, you can define functions, types, and data structures that work with different types, all while maintaining strong compile-time checks.
@@ -27,7 +29,7 @@ Defining a Generic Function
 
 A generic function introduces a type parameter list using square brackets `[]` before the function parameters.
 
-```
+```go
 func Print[T any](value T) {
     fmt.Println(value)
 } 
@@ -35,7 +37,7 @@ func Print[T any](value T) {
 
 Here, `T` is a type parameter, and `any` is a constraint (alias for `interface{}`). This function works with any type, like:
 
-```
+```go
 Print(10)
 Print("Hello")
 Print(true) 
@@ -46,7 +48,7 @@ Using Type Constraints
 
 You can limit what types can be passed by using constraints:
 
-```
+```go
 type Number interface {
     ~int | ~float64
 }
@@ -63,7 +65,7 @@ Generic Types
 
 You can also define structs or custom types with generics:
 
-```
+```go
 type Pair[T any] struct {
     First  T
     Second T
@@ -80,7 +82,7 @@ Multiple Type Parameters
 
 You can define more than one type parameter:
 
-```
+```go
 type Map[K comparable, V any] struct {
     data map[K]V
 } 
@@ -91,7 +93,7 @@ The `comparable` constraint is required for keys in a map (they must support `==
 Real-World Example: Generic Filter Function
 -------------------------------------------
 
-```
+```go
 func Filter[T any](items []T, predicate func(T) bool) []T {
     var result []T
     for _, item := range items {
@@ -105,7 +107,7 @@ func Filter[T any](items []T, predicate func(T) bool) []T {
 
 Usage:
 
-```
+```go
 evens := Filter([]int{1, 2, 3, 4}, func(n int) bool {
     return n%2 == 0
 }) 
@@ -116,7 +118,7 @@ Generics vs Interface{}
 
 Before generics, we often used `interface{}` and did type assertion:
 
-```
+```go
 func PrintAny(val interface{}) {
     fmt.Println(val)
 } 
@@ -137,6 +139,6 @@ Conclusion
 
 Generics are a powerful addition to Go that let you write cleaner, more reusable code without giving up type safety. Whether you're building data structures, utility functions, or abstractions, generics help reduce duplication and improve flexibility.
 
-Now that you understand generics, you’re ready to explore Go’s concurrency model and build high-performance programs using [goroutines](https://www.buanacoding.com/2025/04/concurrency-in-go-goroutines-and.html) and channels.
+Now that you understand generics, you’re ready to explore Go’s concurrency model and build high-performance programs using [goroutines](https://www.buanacoding.com/blog/concurrency-in-go-goroutines-and.html) and channels.
 
 Happy coding!

@@ -13,14 +13,11 @@
   <title>Error Handling in Go: Managing Errors the Right Way | Buana Coding</title>
 
   
-  <meta name="description" content="Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it&rsquo;s the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.
-In this article, you&rsquo;ll learn:
-What an error is in Go How to handle errors using if err != nil Creating custom errors Error wrapping with Go 1.13&#43; Custom error types Using panic and recover (when and why) Best practices for error handling What is an Error in Go? In Go, the error type is a built-in interface:
-" />
+  <meta name="description" content="Learn how to handle errors in Go, create custom errors, and understand best practices for error management." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, error, handling, custom, errors, panic, recover, best practices" />
   
 
   
@@ -29,20 +26,14 @@ What an error is in Go How to handle errors using if err != nil Creating custom 
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Error Handling in Go: Managing Errors the Right Way | Buana Coding" />
-  <meta property="og:description" content="Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it&rsquo;s the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.
-In this article, you&rsquo;ll learn:
-What an error is in Go How to handle errors using if err != nil Creating custom errors Error wrapping with Go 1.13&#43; Custom error types Using panic and recover (when and why) Best practices for error handling What is an Error in Go? In Go, the error type is a built-in interface:
-" />
+  <meta property="og:description" content="Learn how to handle errors in Go, create custom errors, and understand best practices for error management." />
   <meta property="og:url" content="http://localhost:1313/2025/04/error-handling-in-go-managing-errors.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Error Handling in Go: Managing Errors the Right Way | Buana Coding" />
-  <meta name="twitter:description" content="Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it&rsquo;s the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.
-In this article, you&rsquo;ll learn:
-What an error is in Go How to handle errors using if err != nil Creating custom errors Error wrapping with Go 1.13&#43; Custom error types Using panic and recover (when and why) Best practices for error handling What is an Error in Go? In Go, the error type is a built-in interface:
-" />
+  <meta name="twitter:description" content="Learn how to handle errors in Go, create custom errors, and understand best practices for error management." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ What an error is in Go How to handle errors using if err != nil Creating custom 
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -224,72 +217,72 @@ What an error is in Go How to handle errors using if err != nil Creating custom 
 </ul>
 <h2 id="what-is-an-error-in-go">What is an Error in Go?</h2>
 <p>In Go, the <code>error</code> type is a built-in interface:</p>
-<pre tabindex="0"><code>type error interface {
-    Error() string
-} 
-</code></pre><p>Any type that implements the <code>Error()</code> method satisfies the error interface. Most standard functions return an error as a way to indicate that something went wrong.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="kt">error</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Error</span><span class="p">()</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Any type that implements the <code>Error()</code> method satisfies the error interface. Most standard functions return an error as a way to indicate that something went wrong.</p>
 <h2 id="basic-error-handling">Basic Error Handling</h2>
 <p>The standard way to handle errors in Go is with <code>if err != nil</code> blocks:</p>
-<pre tabindex="0"><code>package main
-
-import (
-    &#34;errors&#34;
-    &#34;fmt&#34;
-)
-
-func divide(a, b int) (int, error) {
-    if b == 0 {
-        return 0, errors.New(&#34;cannot divide by zero&#34;)
-    }
-    return a / b, nil
-}
-
-func main() {
-    result, err := divide(10, 0)
-    if err != nil {
-        fmt.Println(&#34;Error:&#34;, err)
-        return
-    }
-    fmt.Println(&#34;Result:&#34;, result)
-} 
-</code></pre><h2 id="creating-custom-errors">Creating Custom Errors</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;errors&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">divide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;cannot divide by zero&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Error:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Result:&#34;</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="creating-custom-errors">Creating Custom Errors</h2>
 <p>You can create custom errors using the <code>errors.New</code> or <code>fmt.Errorf</code> functions:</p>
-<pre tabindex="0"><code>err := errors.New(&#34;something went wrong&#34;)
-err := fmt.Errorf(&#34;error occurred: %v&#34;, err) 
-</code></pre><h2 id="error-wrapping-go-113">Error Wrapping (Go 1.13+)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;something went wrong&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;error occurred: %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span> 
+</span></span></code></pre></div><h2 id="error-wrapping-go-113">Error Wrapping (Go 1.13+)</h2>
 <p>Go 1.13 introduced error wrapping, which lets you keep the original error while adding context:</p>
-<pre tabindex="0"><code>original := errors.New(&#34;file not found&#34;)
-wrapped := fmt.Errorf(&#34;cannot load config: %w&#34;, original) 
-</code></pre><p>You can later use <code>errors.Is</code> and <code>errors.As</code> to inspect wrapped errors:</p>
-<pre tabindex="0"><code>if errors.Is(wrapped, original) {
-    fmt.Println(&#34;Original error matched&#34;)
-} 
-</code></pre><h2 id="custom-error-types">Custom Error Types</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">original</span> <span class="o">:=</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;file not found&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wrapped</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;cannot load config: %w&#34;</span><span class="p">,</span> <span class="nx">original</span><span class="p">)</span> 
+</span></span></code></pre></div><p>You can later use <code>errors.Is</code> and <code>errors.As</code> to inspect wrapped errors:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">Is</span><span class="p">(</span><span class="nx">wrapped</span><span class="p">,</span> <span class="nx">original</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Original error matched&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="custom-error-types">Custom Error Types</h2>
 <p>To add more detail or behavior, you can define your own error types:</p>
-<pre tabindex="0"><code>type MyError struct {
-    Code int
-    Msg  string
-}
-
-func (e MyError) Error() string {
-    return fmt.Sprintf(&#34;Code %d: %s&#34;, e.Code, e.Msg)
-} 
-</code></pre><p>Now you can return <code>MyError</code> from functions and check its fields with type assertions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MyError</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Code</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Msg</span>  <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="nx">MyError</span><span class="p">)</span> <span class="nf">Error</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Code %d: %s&#34;</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Code</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Now you can return <code>MyError</code> from functions and check its fields with type assertions.</p>
 <h2 id="panic-and-recover">Panic and Recover</h2>
 <p><code>panic</code> is used when your program cannot continue. It&rsquo;s similar to throwing an exception but should be avoided for expected errors.</p>
-<pre tabindex="0"><code>func risky() {
-    panic(&#34;something went really wrong&#34;)
-} 
-</code></pre><p>To handle panic safely, use <code>recover</code> inside a deferred function:</p>
-<pre tabindex="0"><code>func safe() {
-    defer func() {
-        if r := recover(); r != nil {
-            fmt.Println(&#34;Recovered from panic:&#34;, r)
-        }
-    }()
-    risky()
-} 
-</code></pre><h2 id="best-practices">Best Practices</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">risky</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;something went really wrong&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>To handle panic safely, use <code>recover</code> inside a deferred function:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">safe</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">r</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">r</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Recovered from panic:&#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">risky</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Always check and handle errors returned from functions</li>
 <li>Wrap errors with context using <code>fmt.Errorf</code> and <code>%w</code></li>
@@ -299,7 +292,7 @@ func (e MyError) Error() string {
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>Go’s error handling may be explicit and repetitive, but it leads to clear and predictable code. By following best practices and understanding how to create, return, and wrap errors, you’ll build programs that are easier to maintain and debug.</p>
-<p>In the next topic, we’ll explore how to write tests in Go to verify the correctness of your code using <code>go [test](https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html)</code> and the <code>testing</code> package.</p>
+<p>In the next topic, we’ll explore how to write tests in Go to verify the correctness of your code using go <a href="https://www.buanacoding.com/blog/testing-in-go-writing-unit-tests-with.html">test</a> and the <code>testing</code> package.</p>
 <p>Happy coding!</p>
 
 
@@ -532,5 +525,17 @@ func (e MyError) Error() string {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

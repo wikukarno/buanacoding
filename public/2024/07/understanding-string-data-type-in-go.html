@@ -13,13 +13,11 @@
   <title>Understanding String Data Type in Go: Basics and Practical Examples | Buana Coding</title>
 
   
-  <meta name="description" content="In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.
-Introduction to Strings In Go, a string is a sequence of immutable bytes. This means that once a string value is set, it cannot be changed without creating a new string.
-" />
+  <meta name="description" content="Learn about the string data type in Go, its immutability, basic operations, manipulation, and practical examples." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, string, data type, immutability, operations, manipulation, examples" />
   
 
   
@@ -28,18 +26,14 @@ Introduction to Strings In Go, a string is a sequence of immutable bytes. This m
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Understanding String Data Type in Go: Basics and Practical Examples | Buana Coding" />
-  <meta property="og:description" content="In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.
-Introduction to Strings In Go, a string is a sequence of immutable bytes. This means that once a string value is set, it cannot be changed without creating a new string.
-" />
+  <meta property="og:description" content="Learn about the string data type in Go, its immutability, basic operations, manipulation, and practical examples." />
   <meta property="og:url" content="http://localhost:1313/2024/07/understanding-string-data-type-in-go.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding String Data Type in Go: Basics and Practical Examples | Buana Coding" />
-  <meta name="twitter:description" content="In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.
-Introduction to Strings In Go, a string is a sequence of immutable bytes. This means that once a string value is set, it cannot be changed without creating a new string.
-" />
+  <meta name="twitter:description" content="Learn about the string data type in Go, its immutability, basic operations, manipulation, and practical examples." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -199,8 +193,10 @@ Introduction to Strings In Go, a string is a sequence of immutable bytes. This m
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -211,102 +207,102 @@ Introduction to Strings In Go, a string is a sequence of immutable bytes. This m
       <p>In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.</p>
 <h2 id="introduction-to-strings">Introduction to Strings</h2>
 <p>In Go, a string is a sequence of immutable bytes. This means that once a string value is set, it cannot be changed without creating a new string.</p>
-<pre tabindex="0"><code> package main
-
-import &#34;fmt&#34;
-
-func main()  {
-    s := &#34;hello world&#34; 
-    // s[0] = &#39;H&#39; // this will result in an error because strings are immutable
-    s = &#34;Hello World&#34; // this is valid, creates a new string
-
-    fmt.Println(s)
-} 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`Hello World`
-</code></pre><h2 id="basic-operations">Basic Operations</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span> <span class="o">:=</span> <span class="s">&#34;hello world&#34;</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// s[0] = &#39;H&#39; // this will result in an error because strings are immutable</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s</span> <span class="p">=</span> <span class="s">&#34;Hello World&#34;</span> <span class="c1">// this is valid, creates a new string</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Hello World
+</span></span></code></pre></div><h2 id="basic-operations">Basic Operations</h2>
 <p>Basic operations on strings include concatenation and substring extraction. Concatenation can be done using the <strong>+</strong> operator, and substrings can be obtained by slicing.</p>
-<pre tabindex="0"><code> package main
-
-func main()  {
-    firstName := &#34;John&#34;
-    lastName := &#34;Doe&#34;
-    fullName := firstName + &#34; &#34; + lastName // String concatenation
-    println(fullName)
-
-    hello := &#34;Hello, world!&#34;
-    sub := hello[7:] // Extracting a substring
-    println(sub)
-} 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`John Doe
-world!`
-</code></pre><h2 id="string-manipulation">String Manipulation</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"> <span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">firstName</span> <span class="o">:=</span> <span class="s">&#34;John&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">lastName</span> <span class="o">:=</span> <span class="s">&#34;Doe&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fullName</span> <span class="o">:=</span> <span class="nx">firstName</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="nx">lastName</span> <span class="c1">// String concatenation</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">println</span><span class="p">(</span><span class="nx">fullName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">hello</span> <span class="o">:=</span> <span class="s">&#34;Hello, world!&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sub</span> <span class="o">:=</span> <span class="nx">hello</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span> <span class="c1">// Extracting a substring</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">println</span><span class="p">(</span><span class="nx">sub</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">John Doe
+</span></span><span class="line"><span class="cl">world!
+</span></span></code></pre></div><h2 id="string-manipulation">String Manipulation</h2>
 <p>The <strong>strings</strong> package in Go provides many functions for string manipulation. Here are a few examples:</p>
-<pre tabindex="0"><code> package main
-
-import &#34;fmt&#34;
-import &#34;strings&#34;
-
-func main()  {
-    var str = &#34;Hello, World&#34;
-    fmt.Println(strings.ToLower(str)) // convert all letters to lowercase
-    fmt.Println(strings.ToUpper(str)) // convert all letters to uppercase
-    fmt.Println(strings.TrimSpace(&#34;   space remover   &#34;)) // trim spaces from both ends
-} 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`hello, world
-HELLO, WORLD
-space remover`
-</code></pre><h2 id="iteration-and-transformation">Iteration and Transformation</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;strings&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">str</span> <span class="p">=</span> <span class="s">&#34;Hello, World&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span><span class="nx">str</span><span class="p">))</span> <span class="c1">// convert all letters to lowercase</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">ToUpper</span><span class="p">(</span><span class="nx">str</span><span class="p">))</span> <span class="c1">// convert all letters to uppercase</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">TrimSpace</span><span class="p">(</span><span class="s">&#34;   space remover   &#34;</span><span class="p">))</span> <span class="c1">// trim spaces from both ends</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hello, world
+</span></span><span class="line"><span class="cl">HELLO, WORLD
+</span></span><span class="line"><span class="cl">space remover
+</span></span></code></pre></div><h2 id="iteration-and-transformation">Iteration and Transformation</h2>
 <p>We can iterate over strings with a <strong>for</strong> loop, and convert strings to byte slices or rune arrays.</p>
-<pre tabindex="0"><code> package main
-
-import &#34;fmt&#34;
-
-func main()  {
-    str := &#34;Hello, 世界&#34;
-    for i, runeValue := range str {
-        fmt.Printf(&#34;%#U starts at byte position %d\n&#34;, runeValue, i)
-    }
-
-    // Convert string to byte slice
-    byteSlice := []byte(str)
-    fmt.Println(byteSlice)
-
-    // Convert string to rune slice
-    runeSlice := []rune(str)
-    fmt.Println(runeSlice)
-} 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`U+0048 &#39;H&#39; starts at byte position 0
-U+0065 &#39;e&#39; starts at byte position 1
-U+006C &#39;l&#39; starts at byte position 2
-U+006C &#39;l&#39; starts at byte position 3
-U+006F &#39;o&#39; starts at byte position 4
-U+002C &#39;,&#39; starts at byte position 5
-U+0020 &#39; &#39; starts at byte position 6
-U+4E16 &#39;世&#39; starts at byte position 7
-U+754C &#39;界&#39; starts at byte position 10
-[72 101 108 108 111 44 32 228 184 150 231 149 140]
-[72 101 108 108 111 44 32 19990 30028]` 
-</code></pre><h2 id="strings-and-unicode">Strings and Unicode</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">str</span> <span class="o">:=</span> <span class="s">&#34;Hello, 世界&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">runeValue</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">str</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%#U starts at byte position %d\n&#34;</span><span class="p">,</span> <span class="nx">runeValue</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Convert string to byte slice</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">byteSlice</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">byteSlice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Convert string to rune slice</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">runeSlice</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">rune</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">runeSlice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">U+0048 <span class="s1">&#39;H&#39;</span> starts at byte position <span class="m">0</span>
+</span></span><span class="line"><span class="cl">U+0065 <span class="s1">&#39;e&#39;</span> starts at byte position <span class="m">1</span>
+</span></span><span class="line"><span class="cl">U+006C <span class="s1">&#39;l&#39;</span> starts at byte position <span class="m">2</span>
+</span></span><span class="line"><span class="cl">U+006C <span class="s1">&#39;l&#39;</span> starts at byte position <span class="m">3</span>
+</span></span><span class="line"><span class="cl">U+006F <span class="s1">&#39;o&#39;</span> starts at byte position <span class="m">4</span>
+</span></span><span class="line"><span class="cl">U+002C <span class="s1">&#39;,&#39;</span> starts at byte position <span class="m">5</span>
+</span></span><span class="line"><span class="cl">U+0020 <span class="s1">&#39; &#39;</span> starts at byte position <span class="m">6</span>
+</span></span><span class="line"><span class="cl">U+4E16 <span class="s1">&#39;世&#39;</span> starts at byte position <span class="m">7</span>
+</span></span><span class="line"><span class="cl">U+754C <span class="s1">&#39;界&#39;</span> starts at byte position <span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span><span class="m">72</span> <span class="m">101</span> <span class="m">108</span> <span class="m">108</span> <span class="m">111</span> <span class="m">44</span> <span class="m">32</span> <span class="m">228</span> <span class="m">184</span> <span class="m">150</span> <span class="m">231</span> <span class="m">149</span> 140<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span><span class="m">72</span> <span class="m">101</span> <span class="m">108</span> <span class="m">108</span> <span class="m">111</span> <span class="m">44</span> <span class="m">32</span> <span class="m">19990</span> 30028<span class="o">]</span><span class="sb">`</span> 
+</span></span></code></pre></div><h2 id="strings-and-unicode">Strings and Unicode</h2>
 <p>Go supports Unicode characters, which means that strings can contain characters from any language. This is because Go uses UTF-8 encoding for strings, which can represent all Unicode characters.</p>
-<pre tabindex="0"><code> package main
-
-import &#34;fmt&#34;
-
-func main()  {
-    const nihongo = &#34;日本語&#34;
-    for index, runeValue := range nihongo {
-        fmt.Printf(&#34;%#U starts at byte position %d\n&#34;, runeValue, index)
-    }
-} 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`U+65E5 &#39;日&#39; starts at byte position 0
-U+672C &#39;本&#39; starts at byte position 3
-U+8A9E &#39;語&#39; starts at byte position 6`
-</code></pre><h2 id="conclusion">Conclusion</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"> <span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">const</span> <span class="nx">nihongo</span> <span class="p">=</span> <span class="s">&#34;日本語&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">runeValue</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nihongo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%#U starts at byte position %d\n&#34;</span><span class="p">,</span> <span class="nx">runeValue</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">U+65E5 <span class="s1">&#39;日&#39;</span> starts at byte position <span class="m">0</span>
+</span></span><span class="line"><span class="cl">U+672C <span class="s1">&#39;本&#39;</span> starts at byte position <span class="m">3</span>
+</span></span><span class="line"><span class="cl">U+8A9E <span class="s1">&#39;語&#39;</span> starts at byte position <span class="m">6</span>
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>Strings are a fundamental data type in Go, and understanding how to work with them is essential for any Go programmer. In this article, we explored the basics of strings in Go, including their immutability, basic operations, manipulation, iteration, and Unicode support. Armed with this knowledge, you should be well-equipped to handle strings in your Go programs.</p>
 <p>For more information on strings and other data types in Go, check out the official <a href="https://golang.org/pkg/strings/">strings</a> package documentation.</p>
 <p>Happy coding!</p>
@@ -541,5 +537,17 @@ U+8A9E &#39;語&#39; starts at byte position 6`
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

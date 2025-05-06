@@ -5,6 +5,8 @@ draft: false
 url: /2024/07/understanding-booleans-in-go-basics.html
 tags: 
 - Go
+description: "Learn about the boolean data type in Go, its usage in conditional statements, loops, and practical examples."
+keywords: ["Go", "boolean", "data type", "conditional statements", "loops", "examples"]
 ---
 
 In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.
@@ -16,8 +18,8 @@ Declaration and Initialization
 
 To declare a boolean in Go, you use the keyword **bool**. Here's how you can declare and initialize a boolean variable:
 
-```
-`var myBool bool = true`
+```go
+var myBool bool = true
 
 ```
 
@@ -25,8 +27,8 @@ This code snippet shows how to initialize a boolean variable named `myBool` with
 
 In this line, isOnline is a boolean variable that is initialized to true . Alternatively, Go supports type inference where the compiler automatically detects the type based on the initial value:
 
-```
-`isOnline := true`
+```go
+isOnline := true
 
 ```
 
@@ -36,8 +38,8 @@ This shorthand method is preferred in Go for its simplicity and readability.
 
 Booleans are extensively used in conditional statements. Here's an example of how to use a boolean in an **if** and **else** statement:
 
-```
- `package main
+```go
+package main
 
 import "fmt"
 
@@ -54,14 +56,14 @@ func main() {
         fmt.Println("User is offline")
 
     }
-}` 
+}
 
 ```
 
 Output
 
-```
-`User is online`
+```bash
+User is online
 
 ```
 
@@ -69,8 +71,8 @@ Output
 
 Let's create a practical example where booleans are used to check whether a user's username and password match the expected values:
 
-```
- `package main
+```go
+package main
 
 import "fmt"
 
@@ -91,14 +93,14 @@ func main() {
         fmt.Println("Invalid credentials")
 
     }
-}` 
+}
 
 ```
 
 Output
 
-```
-`User authenticated`
+```bash
+User authenticated
 
 ```
 
@@ -108,8 +110,8 @@ in this example, **isAuthenticated** is a boolean that becomes true if both the 
 
 Booleans are also useful in loops to determine when the loop should end. Here's a simple **for** loop that uses a boolean condition:
 
-```
- `package main
+```go
+package main
 
 import "fmt"
 
@@ -127,18 +129,18 @@ func main() {
             isRunning = false
         }
     }
-}` 
+}
 
 ```
 
 Output
 
-```
-`Count: 0
+```bash
+Count: 0
 Count: 1
 Count: 2
 Count: 3
-Count: 4`
+Count: 4
 
 ```
 

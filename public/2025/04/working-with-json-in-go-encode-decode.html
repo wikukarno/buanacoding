@@ -13,14 +13,11 @@
   <title>Working with JSON in Go: Encode, Decode, and Tag Structs | Buana Coding</title>
 
   
-  <meta name="description" content="JSON (JavaScript Object Notation) is a widely used data format in APIs and web applications. Go provides strong support for JSON through the standard encoding/json package. In this article, you’ll learn how to parse JSON into structs, generate JSON from Go data, use struct tags, and work with nested or dynamic structures.
-In this article, you’ll learn:
-How to encode Go structs to JSON How to decode JSON into Go structs Using JSON tags to customize field names Working with maps and dynamic JSON Handling nested JSON structures Best practices and error handling Encoding Structs to JSON Use json.Marshal to convert Go structs into JSON strings:
-" />
+  <meta name="description" content="Learn how to work with JSON in Go: encoding, decoding, and using struct tags." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, JSON, encoding, decoding, struct tags, maps, nested JSON" />
   
 
   
@@ -29,20 +26,14 @@ How to encode Go structs to JSON How to decode JSON into Go structs Using JSON t
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Working with JSON in Go: Encode, Decode, and Tag Structs | Buana Coding" />
-  <meta property="og:description" content="JSON (JavaScript Object Notation) is a widely used data format in APIs and web applications. Go provides strong support for JSON through the standard encoding/json package. In this article, you’ll learn how to parse JSON into structs, generate JSON from Go data, use struct tags, and work with nested or dynamic structures.
-In this article, you’ll learn:
-How to encode Go structs to JSON How to decode JSON into Go structs Using JSON tags to customize field names Working with maps and dynamic JSON Handling nested JSON structures Best practices and error handling Encoding Structs to JSON Use json.Marshal to convert Go structs into JSON strings:
-" />
+  <meta property="og:description" content="Learn how to work with JSON in Go: encoding, decoding, and using struct tags." />
   <meta property="og:url" content="http://localhost:1313/2025/04/working-with-json-in-go-encode-decode.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Working with JSON in Go: Encode, Decode, and Tag Structs | Buana Coding" />
-  <meta name="twitter:description" content="JSON (JavaScript Object Notation) is a widely used data format in APIs and web applications. Go provides strong support for JSON through the standard encoding/json package. In this article, you’ll learn how to parse JSON into structs, generate JSON from Go data, use struct tags, and work with nested or dynamic structures.
-In this article, you’ll learn:
-How to encode Go structs to JSON How to decode JSON into Go structs Using JSON tags to customize field names Working with maps and dynamic JSON Handling nested JSON structures Best practices and error handling Encoding Structs to JSON Use json.Marshal to convert Go structs into JSON strings:
-" />
+  <meta name="twitter:description" content="Learn how to work with JSON in Go: encoding, decoding, and using struct tags." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ How to encode Go structs to JSON How to decode JSON into Go structs Using JSON t
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -223,86 +216,86 @@ How to encode Go structs to JSON How to decode JSON into Go structs Using JSON t
 </ul>
 <h2 id="encoding-structs-to-json">Encoding Structs to JSON</h2>
 <p>Use <code>json.Marshal</code> to convert Go structs into JSON strings:</p>
-<pre tabindex="0"><code>type User struct {
-    Name  string `json:&#34;name&#34;`
-    Email string `json:&#34;email&#34;`
-    Age   int    `json:&#34;age&#34;`
-}
-
-func main() {
-    user := User{&#34;Alice&#34;, &#34;alice@example.com&#34;, 30}
-
-    jsonData, err := json.Marshal(user)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Println(string(jsonData))
-} 
-</code></pre><h2 id="decoding-json-into-structs">Decoding JSON into Structs</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span>  <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Email</span> <span class="kt">string</span> <span class="s">`json:&#34;email&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Age</span>   <span class="kt">int</span>    <span class="s">`json:&#34;age&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">user</span> <span class="o">:=</span> <span class="nx">User</span><span class="p">{</span><span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="s">&#34;alice@example.com&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">jsonData</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="decoding-json-into-structs">Decoding JSON into Structs</h2>
 <p>Use <code>json.Unmarshal</code> to parse JSON into a struct:</p>
-<pre tabindex="0"><code>var jsonInput = []byte(`{&#34;name&#34;:&#34;Bob&#34;,&#34;email&#34;:&#34;bob@example.com&#34;,&#34;age&#34;:25}`)
-
-var user User
-err := json.Unmarshal(jsonInput, &amp;user)
-if err != nil {
-    log.Fatal(err)
-}
-
-fmt.Println(user.Name, user.Email, user.Age) 
-</code></pre><h2 id="using-struct-tags">Using Struct Tags</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">jsonInput</span> <span class="p">=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">`{&#34;name&#34;:&#34;Bob&#34;,&#34;email&#34;:&#34;bob@example.com&#34;,&#34;age&#34;:25}`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">user</span> <span class="nx">User</span>
+</span></span><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">jsonInput</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">Email</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">Age</span><span class="p">)</span> 
+</span></span></code></pre></div><h2 id="using-struct-tags">Using Struct Tags</h2>
 <p>By default, Go uses struct field names as JSON keys. Use tags to customize:</p>
-<pre tabindex="0"><code>type Product struct {
-    ID    int     `json:&#34;id&#34;`
-    Name  string  `json:&#34;name&#34;`
-    Price float64 `json:&#34;price&#34;`
-} 
-</code></pre><h2 id="working-with-maps-and-dynamic-json">Working with Maps and Dynamic JSON</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Product</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ID</span>    <span class="kt">int</span>     <span class="s">`json:&#34;id&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span>  <span class="kt">string</span>  <span class="s">`json:&#34;name&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Price</span> <span class="kt">float64</span> <span class="s">`json:&#34;price&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="working-with-maps-and-dynamic-json">Working with Maps and Dynamic JSON</h2>
 <p>Use <code>map[string]interface{}</code> when the structure is not fixed:</p>
-<pre tabindex="0"><code>var data = []byte(`{&#34;status&#34;:&#34;ok&#34;,&#34;code&#34;:200}`)
-
-var result map[string]interface{}
-err := json.Unmarshal(data, &amp;result)
-if err != nil {
-    log.Fatal(err)
-}
-
-fmt.Println(result[&#34;status&#34;], result[&#34;code&#34;]) 
-</code></pre><h2 id="nested-json-example">Nested JSON Example</h2>
-<pre tabindex="0"><code>type Address struct {
-    City    string `json:&#34;city&#34;`
-    Country string `json:&#34;country&#34;`
-}
-
-type Employee struct {
-    Name    string  `json:&#34;name&#34;`
-    Address Address `json:&#34;address&#34;`
-} 
-</code></pre><p>JSON:</p>
-<pre tabindex="0"><code> {
-  &#34;name&#34;: &#34;John&#34;,
-  &#34;address&#34;: {
-    &#34;city&#34;: &#34;Jakarta&#34;,
-    &#34;country&#34;: &#34;Indonesia&#34;
-  }
-} 
-</code></pre><h2 id="encode-json-to-file">Encode JSON to File</h2>
-<pre tabindex="0"><code>f, err := os.Create(&#34;data.json&#34;)
-if err != nil {
-    log.Fatal(err)
-}
-defer f.Close()
-
-json.NewEncoder(f).Encode(user) 
-</code></pre><h2 id="decode-json-from-file">Decode JSON from File</h2>
-<pre tabindex="0"><code>f, err := os.Open(&#34;data.json&#34;)
-if err != nil {
-    log.Fatal(err)
-}
-defer f.Close()
-
-json.NewDecoder(f).Decode(&amp;user) 
-</code></pre><h2 id="best-practices">Best Practices</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">data</span> <span class="p">=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">`{&#34;status&#34;:&#34;ok&#34;,&#34;code&#34;:200}`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">result</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="s">&#34;status&#34;</span><span class="p">],</span> <span class="nx">result</span><span class="p">[</span><span class="s">&#34;code&#34;</span><span class="p">])</span> 
+</span></span></code></pre></div><h2 id="nested-json-example">Nested JSON Example</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Address</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">City</span>    <span class="kt">string</span> <span class="s">`json:&#34;city&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Country</span> <span class="kt">string</span> <span class="s">`json:&#34;country&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Employee</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span>    <span class="kt">string</span>  <span class="s">`json:&#34;name&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Address</span> <span class="nx">Address</span> <span class="s">`json:&#34;address&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>JSON:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;city&#34;</span><span class="p">:</span> <span class="s2">&#34;Jakarta&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;country&#34;</span><span class="p">:</span> <span class="s2">&#34;Indonesia&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="encode-json-to-file">Encode JSON to File</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">&#34;data.json&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">defer</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">json</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="nx">f</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> 
+</span></span></code></pre></div><h2 id="decode-json-from-file">Decode JSON from File</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;data.json&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">defer</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">f</span><span class="p">).</span><span class="nf">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">user</span><span class="p">)</span> 
+</span></span></code></pre></div><h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Always handle encoding/decoding errors</li>
 <li>Use struct tags for clean JSON output</li>
@@ -544,5 +537,17 @@ json.NewDecoder(f).Decode(&amp;user)
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

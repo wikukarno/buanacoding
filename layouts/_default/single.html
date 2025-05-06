@@ -5,11 +5,15 @@
     <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
-      {{ $tag := index .Params.tags 0 }}
-      {{ if $tag }}
-        <a href="/tags/{{ $tag | urlize }}" class="hover:text-[#0f7ea9] font-medium">#{{ $tag }}</a>
+      {{ if eq .Section "blog" }}
+        {{ $tag := index .Params.tags 0 }}
+        {{ if $tag }}
+          <a href="/tags/{{ $tag | urlize }}" class="hover:text-[#0f7ea9] font-medium">#{{ $tag }}</a>
+        {{ else }}
+          <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#blog</a>
+        {{ end }}
       {{ else }}
-        <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#blog</a>
+        <a href="/pages" class="hover:text-[#0f7ea9] font-medium">#pages</a>
       {{ end }}
     </nav>
 

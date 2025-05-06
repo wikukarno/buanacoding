@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/error-handling-in-go-managing-errors.html
 tags: 
 - Go
+description: "Learn how to handle errors in Go, create custom errors, and understand best practices for error management."
+keywords: ["Go", "error", "handling", "custom", "errors", "panic", "recover", "best practices"]
 ---
 
 Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it's the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.
@@ -24,7 +26,7 @@ What is an Error in Go?
 
 In Go, the `error` type is a built-in interface:
 
-```
+```go
 type error interface {
     Error() string
 } 
@@ -37,7 +39,7 @@ Basic Error Handling
 
 The standard way to handle errors in Go is with `if err != nil` blocks:
 
-```
+```go
 package main
 
 import (
@@ -67,7 +69,7 @@ Creating Custom Errors
 
 You can create custom errors using the `errors.New` or `fmt.Errorf` functions:
 
-```
+```go
 err := errors.New("something went wrong")
 err := fmt.Errorf("error occurred: %v", err) 
 ```
@@ -77,14 +79,14 @@ Error Wrapping (Go 1.13+)
 
 Go 1.13 introduced error wrapping, which lets you keep the original error while adding context:
 
-```
+```go
 original := errors.New("file not found")
 wrapped := fmt.Errorf("cannot load config: %w", original) 
 ```
 
 You can later use `errors.Is` and `errors.As` to inspect wrapped errors:
 
-```
+```go
 if errors.Is(wrapped, original) {
     fmt.Println("Original error matched")
 } 
@@ -95,7 +97,7 @@ Custom Error Types
 
 To add more detail or behavior, you can define your own error types:
 
-```
+```go
 type MyError struct {
     Code int
     Msg  string
@@ -113,7 +115,7 @@ Panic and Recover
 
 `panic` is used when your program cannot continue. It's similar to throwing an exception but should be avoided for expected errors.
 
-```
+```go
 func risky() {
     panic("something went really wrong")
 } 
@@ -121,7 +123,7 @@ func risky() {
 
 To handle panic safely, use `recover` inside a deferred function:
 
-```
+```go
 func safe() {
     defer func() {
         if r := recover(); r != nil {
@@ -146,6 +148,6 @@ Conclusion
 
 Go’s error handling may be explicit and repetitive, but it leads to clear and predictable code. By following best practices and understanding how to create, return, and wrap errors, you’ll build programs that are easier to maintain and debug.
 
-In the next topic, we’ll explore how to write tests in Go to verify the correctness of your code using `go [test](https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html)` and the `testing` package.
+In the next topic, we’ll explore how to write tests in Go to verify the correctness of your code using go [test](https://www.buanacoding.com/blog/testing-in-go-writing-unit-tests-with.html) and the `testing` package.
 
 Happy coding!

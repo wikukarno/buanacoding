@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/synchronizing-goroutines-in-go-using.html
 tags: 
 - Go
+description: "Learn how to synchronize goroutines in Go using sync.Mutex, sync.RWMutex, and sync.Once."
+keywords: ["Go", "synchronization", "goroutines", "sync.Mutex", "sync.RWMutex", "sync.Once", "concurrency"]
 ---
 
 When you write concurrent programs in Go, multiple goroutines may try to access and modify the same data at the same time. Without proper synchronization, this leads to race conditions, bugs, or crashes. Go provides tools like `sync.Mutex`, `sync.RWMutex`, and `sync.Once` to safely share data across goroutines.
@@ -24,7 +26,7 @@ A race condition happens when two or more goroutines access the same variable at
 
 You can detect race conditions using:
 
-```
+```go
 go run -race main.go
 ```
 
@@ -33,7 +35,7 @@ Using sync.Mutex
 
 `sync.Mutex` is a mutual exclusion lock. Only one goroutine can hold the lock at a time. Use `Lock()` before accessing shared data, and `Unlock()` after.
 
-```
+```go
 type Counter struct {
     mu    sync.Mutex
     value int
@@ -57,7 +59,7 @@ Using sync.RWMutex
 
 `sync.RWMutex` allows multiple readers or one writer. It's useful when reads are frequent but writes are rare.
 
-```
+```go
 type SafeMap struct {
     mu  sync.RWMutex
     m   map[string]string
@@ -81,7 +83,7 @@ Using sync.Once
 
 `sync.Once` guarantees that a piece of code is only executed once, even if called from multiple goroutines. This is commonly used to initialize shared resources.
 
-```
+```go
 var once sync.Once
 
 func initialize() {
@@ -101,7 +103,7 @@ func main() {
 Real-World Example: Safe Counter
 --------------------------------
 
-```
+```go
 type SafeCounter struct {
     mu sync.Mutex
     val int

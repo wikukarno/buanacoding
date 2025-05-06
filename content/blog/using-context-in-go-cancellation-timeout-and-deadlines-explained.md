@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/using-context-in-go-cancellation.html
 tags: 
 - Go
+description: "Learn how to use the context package in Go for cancellation, timeouts, and deadlines."
+keywords: ["Go", "context", "cancellation", "timeout", "deadlines", "goroutines"]
 ---
 
 As your Go applications become more concurrent and complex, you'll need a way to manage the lifecycle of your goroutines—especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the `context` package comes in. It's the idiomatic way in Go to control concurrent processes gracefully and reliably.
@@ -32,7 +34,7 @@ It helps you:
 Starting Point: Background and TODO
 -----------------------------------
 
-```
+```go
 ctx := context.Background() // root context, no cancel/timeout
 ctx := context.TODO()       // use when unsure (placeholder)
 ```
@@ -42,7 +44,7 @@ Cancelling a Goroutine: WithCancel
 
 You can use `context.WithCancel` to manually stop a goroutine:
 
-```
+```go
 func doWork(ctx context.Context) {
     for {
         select {
@@ -54,7 +56,7 @@ When `cancel()` is called, the goroutine receives a signal via `ctx.Done()`.
 Setting a Timeout: WithTimeout
 ------------------------------
 
-```
+```go
 ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 defer cancel()
 
@@ -64,7 +66,7 @@ case <-time .after="" case="" code="" completed="" ctx.done="" ctx.err="" fmt.pr
 
 `WithDeadline` works the same way, but with a fixed time:
 
-```
+```go
 deadline := time.Now().Add(2 * time.Second)
 ctx, cancel := context.WithDeadline(context.Background(), deadline) 
 ```
@@ -77,7 +79,7 @@ The `ctx.Done()` channel is closed when the context is canceled or times out. Us
 Real-World Example: HTTP Request Timeout
 ----------------------------------------
 
-```
+```go
 func fetch(ctx context.Context, url string) error {
     req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
     if err != nil {
@@ -126,6 +128,6 @@ Conclusion
 
 Understanding `context` is essential for writing responsive, well-behaved concurrent programs in Go. Whether you're managing goroutines, dealing with timeouts, or handling request chains in a web server, context gives you the tools to do it cleanly and safely.
 
-Next, we’ll cover `sync.Mutex` and other tools for [synchronizing](https://www.buanacoding.com/2025/04/synchronizing-goroutines-in-go-using.html) data between goroutines.
+Next, we’ll cover `sync.Mutex` and other tools for [synchronizing](https://www.buanacoding.com/blog/synchronizing-goroutines-in-go-using.html) data between goroutines.
 
 Happy coding!

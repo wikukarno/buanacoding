@@ -5,6 +5,8 @@ draft: false
 url: /2024/07/understanding-string-data-type-in-go.html
 tags: 
 - Go
+description: "Learn about the string data type in Go, its immutability, basic operations, manipulation, and practical examples."
+keywords: ["Go", "string", "data type", "immutability", "operations", "manipulation", "examples"]
 ---
 
 In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.
@@ -14,8 +16,8 @@ Introduction to Strings
 
 In Go, a string is a sequence of immutable bytes. This means that once a string value is set, it cannot be changed without creating a new string.
 
-```
- package main
+```go
+package main
 
 import "fmt"
 
@@ -30,8 +32,8 @@ func main()  {
 
 Output
 
-```
-`Hello World`
+```bash
+Hello World
 
 ```
 
@@ -40,7 +42,7 @@ Basic Operations
 
 Basic operations on strings include concatenation and substring extraction. Concatenation can be done using the **+** operator, and substrings can be obtained by slicing.
 
-```
+```go
  package main
 
 func main()  {
@@ -57,9 +59,9 @@ func main()  {
 
 Output
 
-```
-`John Doe
-world!`
+```bash
+John Doe
+world!
 
 ```
 
@@ -68,8 +70,8 @@ String Manipulation
 
 The **strings** package in Go provides many functions for string manipulation. Here are a few examples:
 
-```
- package main
+```go
+package main
 
 import "fmt"
 import "strings"
@@ -84,10 +86,10 @@ func main()  {
 
 Output
 
-```
-`hello, world
+```bash
+hello, world
 HELLO, WORLD
-space remover`
+space remover
 
 ```
 
@@ -96,8 +98,8 @@ Iteration and Transformation
 
 We can iterate over strings with a **for** loop, and convert strings to byte slices or rune arrays.
 
-```
- package main
+```go
+package main
 
 import "fmt"
 
@@ -119,8 +121,8 @@ func main()  {
 
 Output
 
-```
-`U+0048 'H' starts at byte position 0
+```bash
+U+0048 'H' starts at byte position 0
 U+0065 'e' starts at byte position 1
 U+006C 'l' starts at byte position 2
 U+006C 'l' starts at byte position 3
@@ -139,7 +141,7 @@ Strings and Unicode
 
 Go supports Unicode characters, which means that strings can contain characters from any language. This is because Go uses UTF-8 encoding for strings, which can represent all Unicode characters.
 
-```
+```go
  package main
 
 import "fmt"
@@ -154,10 +156,10 @@ func main()  {
 
 Output
 
-```
-`U+65E5 '日' starts at byte position 0
+```bash
+U+65E5 '日' starts at byte position 0
 U+672C '本' starts at byte position 3
-U+8A9E '語' starts at byte position 6`
+U+8A9E '語' starts at byte position 6
 
 
 ```

@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/understanding-loops-in-go-for-range.html
 tags: 
 - Go
+description: "Learn how to use loops in Go: for, range, break, and continue. Understand how to iterate over collections and control loop flow."
+keywords: ["Go", "loops", "for", "range", "break", "continue", "programming"]
 ---
 
 Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they're built using just one keyword: for.
@@ -27,7 +29,7 @@ The Basic for Loop
 
 The most common way to write a loop in Go is with the standard for loop structure. It includes three parts: an initializer, a condition, and a post statement.
 
-```
+```go
 package main
 
 import "fmt"
@@ -46,7 +48,7 @@ Using for as a while Loop
 
 Go doesn’t have a while keyword. But you can use for in the same way by just writing the condition.
 
-```
+```go
 func main() {
     i := 0
     for i < 3 {
@@ -63,7 +65,7 @@ Infinite Loops
 
 Sometimes you want a loop to run forever, such as when building servers or listening to user input. You can do this by writing for without a condition.
 
-```
+```go
 func main() {
     for {
         fmt.Println("This runs forever until we break it.")
@@ -81,7 +83,7 @@ Go provides a very handy way to loop over arrays, slices, strings, and maps usin
 
 ### Example with a slice:
 
-```
+```go
 func main() {
     fruits := []string{"apple", "banana", "cherry"}
 
@@ -93,7 +95,7 @@ func main() {
 
 Here, range gives both the index and the value of each item. If you don’t need the index, you can ignore it using an underscore:
 
-```
+```go
 for _, fruit := range fruits {
     fmt.Println(fruit)
 } 
@@ -103,7 +105,7 @@ for _, fruit := range fruits {
 
 You can use range to loop through key-value pairs in a map:
 
-```
+```go
 func main() {
     scores := map[string]int{"Alice": 90, "Bob": 85}
 
@@ -117,7 +119,7 @@ func main() {
 
 Strings in Go are UTF-8 encoded. Using range lets you loop through each character:
 
-```
+```go
 func main() {
     word := "go"
 
@@ -136,7 +138,7 @@ To control your loop more precisely, you can use break to stop the loop early, o
 
 ### Example with break:
 
-```
+```go
 func main() {
     for i := 0; i < 10; i++ {
         if i == 5 {
@@ -149,7 +151,7 @@ func main() {
 
 ### Example with continue:
 
-```
+```go
 func main() {
     for i := 0; i < 5; i++ {
         if i == 2 {

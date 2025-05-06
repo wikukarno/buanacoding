@@ -5,6 +5,8 @@ draft: false
 url: /2024/07/understanding-numeric-data-type-in-go.html
 tags: 
 - Go
+description: "Learn about numeric data types in Go, including integers, floating-point numbers, and complex numbers. Explore practical examples."
+keywords: ["Go", "numeric", "data type", "integers", "floating-point", "complex numbers", "examples"]
 ---
 
 Go, also known as Golang, is a statically typed language developed by Google. It's known for its simplicity and efficiency, especially when it comes to systems and concurrent programming. In this article, we'll explore the numeric types in Go and provide practical examples to illustrate their usage.
@@ -20,7 +22,7 @@ Integer types are divided into two categories, signed and unsigned. The signed i
 
 Here’s an example of how you can declare and initialize an integer variable in Go:
 
-```
+```go
 `package main
 
 import "fmt"
@@ -36,9 +38,9 @@ func main() {
 
 Output
 
-```
-`Type: int8 Value: 127
-Type: uint8 Value: 255`
+```bash
+Type: int8 Value: 127
+Type: uint8 Value: 255
 
 ```
 
@@ -48,21 +50,21 @@ go has two floating point types: **float32** and **float64**. The numbers repres
 
 Here’s an example of how you can declare and initialize a floating point variable in Go:
 
-```
-`package main
+```go
+package main
 import "fmt"
 
 func main() {
     var pi float64 = 3.14159
     fmt.Printf("Type: %T Value: %v\n", pi, pi)
-}` 
+}
 
 ```
 
 Output
 
-```
-`Type: float64 Value: 3.14159`
+```bash
+Type: float64 Value: 3.14159`
 
 ```
 
@@ -72,21 +74,21 @@ Go has two complex number types: **complex64** and **complex128**. The numbers r
 
 Here’s an example of how you can declare and initialize a complex number variable in Go:
 
-```
-`package main
+```go
+package main
 import "fmt"
 
 func main() {
     c := complex(3, 4)
     fmt.Printf("Type: %T Value: %v\n", c, c)
-}` 
+}
 
 ```
 
 Output
 
-```
-`Type: complex128 Value: (3+4i)`
+```bash
+Type: complex128 Value: (3+4i)
 
 ```
 
@@ -95,8 +97,8 @@ Numeric Literals
 
 Go supports several numeric literals, including decimal, binary, octal, and hexadecimal. Here’s an example of how you can declare and initialize numeric literals in Go:
 
-```
-`package main
+```go
+package main
 import "fmt"
 
 func main() {
@@ -105,14 +107,14 @@ func main() {
     c := 0o52    // octal literal
     d := 0x2a    // hexadecimal literal
     fmt.Println(a, b, c, d)
-}` 
+}
 
 ```
 
 Output
 
-```
-`42 42 42 42`
+```bash
+42 42 42 42
 
 ```
 
@@ -121,8 +123,8 @@ Numeric Operations
 
 Go supports several arithmetic operations on numeric types, including addition, subtraction, multiplication, division, and modulus. Here’s an example of how you can perform arithmetic operations in Go:
 
-```
-`package main
+```go
+package main
 import "fmt"
 
 func main() {
@@ -134,14 +136,14 @@ func main() {
     quotient := a / b
     remainder := a % b
     fmt.Println(sum, diff, product, quotient, remainder)
-}` 
+}
 
 ```
 
 Output
 
-```
-`30 -10 200 0 10`
+```bash
+30 -10 200 0 10
 
 ```
 

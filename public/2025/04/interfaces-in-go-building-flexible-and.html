@@ -13,13 +13,11 @@
   <title>Interfaces in Go: Building Flexible and Reusable Code | Buana Coding</title>
 
   
-  <meta name="description" content="Interfaces are one of the most important features in Go. They allow you to write flexible, reusable, and loosely coupled code. In Go, an interface defines a set of method signatures, and any type that implements those methods satisfies the interface — without needing to explicitly declare that it does so. This is a powerful concept that supports polymorphism and clean architecture in Go applications.
-In this article, you&rsquo;ll learn:
-" />
+  <meta name="description" content="Learn how to use interfaces in Go to create flexible, reusable, and testable code." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, interfaces, polymorphism, abstraction, empty interface, type assertion, best practices" />
   
 
   
@@ -28,18 +26,14 @@ In this article, you&rsquo;ll learn:
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Interfaces in Go: Building Flexible and Reusable Code | Buana Coding" />
-  <meta property="og:description" content="Interfaces are one of the most important features in Go. They allow you to write flexible, reusable, and loosely coupled code. In Go, an interface defines a set of method signatures, and any type that implements those methods satisfies the interface — without needing to explicitly declare that it does so. This is a powerful concept that supports polymorphism and clean architecture in Go applications.
-In this article, you&rsquo;ll learn:
-" />
+  <meta property="og:description" content="Learn how to use interfaces in Go to create flexible, reusable, and testable code." />
   <meta property="og:url" content="http://localhost:1313/2025/04/interfaces-in-go-building-flexible-and.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Interfaces in Go: Building Flexible and Reusable Code | Buana Coding" />
-  <meta name="twitter:description" content="Interfaces are one of the most important features in Go. They allow you to write flexible, reusable, and loosely coupled code. In Go, an interface defines a set of method signatures, and any type that implements those methods satisfies the interface — without needing to explicitly declare that it does so. This is a powerful concept that supports polymorphism and clean architecture in Go applications.
-In this article, you&rsquo;ll learn:
-" />
+  <meta name="twitter:description" content="Learn how to use interfaces in Go to create flexible, reusable, and testable code." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -199,8 +193,10 @@ In this article, you&rsquo;ll learn:
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -221,103 +217,103 @@ In this article, you&rsquo;ll learn:
 </ul>
 <h2 id="what-is-an-interface">What is an Interface?</h2>
 <p>An interface is a type that defines a set of method signatures. Any type that provides implementations for those methods is said to satisfy the interface.</p>
-<pre tabindex="0"><code>type Speaker interface {
-    Speak() string
-} 
-</code></pre><p>This interface requires a method <code>Speak</code> that returns a string.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Speaker</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Speak</span><span class="p">()</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This interface requires a method <code>Speak</code> that returns a string.</p>
 <h2 id="implementing-an-interface">Implementing an Interface</h2>
 <p>Unlike other languages, Go uses implicit implementation. You don’t need to explicitly say “this struct implements an interface.” You just define the required methods.</p>
-<pre tabindex="0"><code>type Dog struct {}
-
-func (d Dog) Speak() string {
-    return &#34;Woof!&#34;
-}
-
-type Cat struct {}
-
-func (c Cat) Speak() string {
-    return &#34;Meow!&#34;
-} 
-</code></pre><p>Both <code>Dog</code> and <code>Cat</code> now satisfy the <code>Speaker</code> interface because they implement the <code>Speak</code> method.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Dog</span> <span class="kd">struct</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="nx">Dog</span><span class="p">)</span> <span class="nf">Speak</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s">&#34;Woof!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Cat</span> <span class="kd">struct</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">Cat</span><span class="p">)</span> <span class="nf">Speak</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s">&#34;Meow!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Both <code>Dog</code> and <code>Cat</code> now satisfy the <code>Speaker</code> interface because they implement the <code>Speak</code> method.</p>
 <h2 id="using-interface-as-function-parameter">Using Interface as Function Parameter</h2>
 <p>Interfaces allow you to write functions that work with any type that satisfies the interface.</p>
-<pre tabindex="0"><code>func makeItSpeak(s Speaker) {
-    fmt.Println(s.Speak())
-}
-
-func main() {
-    makeItSpeak(Dog{})
-    makeItSpeak(Cat{})
-} 
-</code></pre><p>This is very powerful for building reusable code, such as in logging, HTTP handling, and I/O.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">makeItSpeak</span><span class="p">(</span><span class="nx">s</span> <span class="nx">Speaker</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nf">Speak</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">makeItSpeak</span><span class="p">(</span><span class="nx">Dog</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">makeItSpeak</span><span class="p">(</span><span class="nx">Cat</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This is very powerful for building reusable code, such as in logging, HTTP handling, and I/O.</p>
 <h2 id="interface-with-multiple-methods">Interface with Multiple Methods</h2>
-<pre tabindex="0"><code>type Reader interface {
-    Read(p []byte) (n int, err error)
-}
-
-type Writer interface {
-    Write(p []byte) (n int, err error)
-}
-
-type ReadWriter interface {
-    Reader
-    Writer
-} 
-</code></pre><p>Interfaces can be composed from other interfaces, helping you build powerful abstractions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Reader</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Read</span><span class="p">(</span><span class="nx">p</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Writer</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Write</span><span class="p">(</span><span class="nx">p</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ReadWriter</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Reader</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Writer</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Interfaces can be composed from other interfaces, helping you build powerful abstractions.</p>
 <h2 id="the-empty-interface">The Empty Interface</h2>
 <p>The empty interface <code>interface{}</code> can represent any type. It is often used in situations where you don’t know the exact type at compile time (e.g., in JSON decoding, generic containers).</p>
-<pre tabindex="0"><code>func describe(i interface{}) {
-    fmt.Printf(&#34;Value: %v, Type: %T
-&#34;, i, i)
-} 
-</code></pre><h2 id="type-assertion">Type Assertion</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">describe</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Value: %v, Type: %T
+</span></span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="type-assertion">Type Assertion</h2>
 <p>You can convert an empty interface back to a concrete type using type assertion.</p>
-<pre tabindex="0"><code>var i interface{} = &#34;hello&#34;
-
-s := i.(string)
-fmt.Println(s) 
-</code></pre><p>Or safely:</p>
-<pre tabindex="0"><code>if s, ok := i.(string); ok {
-    fmt.Println(&#34;String value:&#34;, s)
-} else {
-    fmt.Println(&#34;Not a string&#34;)
-} 
-</code></pre><h2 id="type-switch">Type Switch</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="s">&#34;hello&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">s</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> 
+</span></span></code></pre></div><p>Or safely:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kt">string</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;String value:&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Not a string&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="type-switch">Type Switch</h2>
 <p>Type switches are like regular switches, but for handling multiple possible types.</p>
-<pre tabindex="0"><code>func printType(i interface{}) {
-    switch v := i.(type) {
-    case string:
-        fmt.Println(&#34;It&#39;s a string:&#34;, v)
-    case int:
-        fmt.Println(&#34;It&#39;s an int:&#34;, v)
-    default:
-        fmt.Println(&#34;Unknown type&#34;)
-    }
-} 
-</code></pre><h2 id="real-world-example-logger-interface">Real-World Example: Logger Interface</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">printType</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="nx">v</span> <span class="o">:=</span> <span class="nx">i</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="kt">string</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;It&#39;s a string:&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="kt">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;It&#39;s an int:&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Unknown type&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="real-world-example-logger-interface">Real-World Example: Logger Interface</h2>
 <p>Let’s create a logger interface and different implementations:</p>
-<pre tabindex="0"><code>type Logger interface {
-    Log(message string)
-}
-
-type ConsoleLogger struct {}
-
-func (c ConsoleLogger) Log(message string) {
-    fmt.Println(&#34;[Console]&#34;, message)
-}
-
-type FileLogger struct {
-    File *os.File
-}
-
-func (f FileLogger) Log(message string) {
-    fmt.Fprintln(f.File, &#34;[File]&#34;, message)
-} 
-</code></pre><p>This allows you to use either logger with the same code:</p>
-<pre tabindex="0"><code>func logMessage(logger Logger, message string) {
-    logger.Log(message)
-} 
-</code></pre><h2 id="best-practices">Best Practices</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Logger</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Log</span><span class="p">(</span><span class="nx">message</span> <span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ConsoleLogger</span> <span class="kd">struct</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">ConsoleLogger</span><span class="p">)</span> <span class="nf">Log</span><span class="p">(</span><span class="nx">message</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[Console]&#34;</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">FileLogger</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">File</span> <span class="o">*</span><span class="nx">os</span><span class="p">.</span><span class="nx">File</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="nx">FileLogger</span><span class="p">)</span> <span class="nf">Log</span><span class="p">(</span><span class="nx">message</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintln</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">File</span><span class="p">,</span> <span class="s">&#34;[File]&#34;</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This allows you to use either logger with the same code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">logMessage</span><span class="p">(</span><span class="nx">logger</span> <span class="nx">Logger</span><span class="p">,</span> <span class="nx">message</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">logger</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Name interfaces based on behavior (e.g., Reader, Formatter)</li>
 <li>Prefer small interfaces with one or two methods</li>
@@ -559,5 +555,17 @@ func (f FileLogger) Log(message string) {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

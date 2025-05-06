@@ -13,14 +13,11 @@
   <title>Structs and Methods in Go: Defining and Using Custom Types | Buana Coding</title>
 
   
-  <meta name="description" content="In Go, a struct is a powerful way to group related data together. It allows you to define your own custom types by combining variables (also called fields). Structs are often used to model real-world entities like users, products, or messages. When combined with methods, structs become the foundation for writing clean and reusable code in Go.
-In this article, you&rsquo;ll learn:
-How to define and use structs in Go How to attach methods to a struct The difference between value and pointer receivers Best practices for using structs and methods effectively Defining a Struct To define a struct, you use the type keyword followed by the name of the struct and the struct keyword:
-" />
+  <meta name="description" content="Learn how to define and use structs and methods in Go for better code organization and reusability." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, structs, methods, custom types, value receiver, pointer receiver, embedding, anonymous structs" />
   
 
   
@@ -29,20 +26,14 @@ How to define and use structs in Go How to attach methods to a struct The differ
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Structs and Methods in Go: Defining and Using Custom Types | Buana Coding" />
-  <meta property="og:description" content="In Go, a struct is a powerful way to group related data together. It allows you to define your own custom types by combining variables (also called fields). Structs are often used to model real-world entities like users, products, or messages. When combined with methods, structs become the foundation for writing clean and reusable code in Go.
-In this article, you&rsquo;ll learn:
-How to define and use structs in Go How to attach methods to a struct The difference between value and pointer receivers Best practices for using structs and methods effectively Defining a Struct To define a struct, you use the type keyword followed by the name of the struct and the struct keyword:
-" />
+  <meta property="og:description" content="Learn how to define and use structs and methods in Go for better code organization and reusability." />
   <meta property="og:url" content="http://localhost:1313/2025/04/structs-and-methods-in-go-defining-and.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Structs and Methods in Go: Defining and Using Custom Types | Buana Coding" />
-  <meta name="twitter:description" content="In Go, a struct is a powerful way to group related data together. It allows you to define your own custom types by combining variables (also called fields). Structs are often used to model real-world entities like users, products, or messages. When combined with methods, structs become the foundation for writing clean and reusable code in Go.
-In this article, you&rsquo;ll learn:
-How to define and use structs in Go How to attach methods to a struct The difference between value and pointer receivers Best practices for using structs and methods effectively Defining a Struct To define a struct, you use the type keyword followed by the name of the struct and the struct keyword:
-" />
+  <meta name="twitter:description" content="Learn how to define and use structs and methods in Go for better code organization and reusability." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ How to define and use structs in Go How to attach methods to a struct The differ
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -221,78 +214,78 @@ How to define and use structs in Go How to attach methods to a struct The differ
 </ul>
 <h2 id="defining-a-struct">Defining a Struct</h2>
 <p>To define a struct, you use the <code>type</code> keyword followed by the name of the struct and the <code>struct</code> keyword:</p>
-<pre tabindex="0"><code>type User struct {
-    Name  string
-    Email string
-    Age   int
-} 
-</code></pre><p>This defines a struct called <code>User</code> with three fields. To create a value of that struct, you can do the following:</p>
-<pre tabindex="0"><code>func main() {
-    user := User{
-        Name:  &#34;Alice&#34;,
-        Email: &#34;alice@example.com&#34;,
-        Age:   30,
-    }
-    fmt.Println(user)
-} 
-</code></pre><p>You can also declare an empty struct and assign fields later:</p>
-<pre tabindex="0"><code>var u User
-u.Name = &#34;Bob&#34;
-u.Email = &#34;bob@example.com&#34;
-u.Age = 25 
-</code></pre><h2 id="accessing-and-updating-struct-fields">Accessing and Updating Struct Fields</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span>  <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Email</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Age</span>   <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This defines a struct called <code>User</code> with three fields. To create a value of that struct, you can do the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">user</span> <span class="o">:=</span> <span class="nx">User</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Name</span><span class="p">:</span>  <span class="s">&#34;Alice&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Email</span><span class="p">:</span> <span class="s">&#34;alice@example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Age</span><span class="p">:</span>   <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>You can also declare an empty struct and assign fields later:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">u</span> <span class="nx">User</span>
+</span></span><span class="line"><span class="cl"><span class="nx">u</span><span class="p">.</span><span class="nx">Name</span> <span class="p">=</span> <span class="s">&#34;Bob&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">u</span><span class="p">.</span><span class="nx">Email</span> <span class="p">=</span> <span class="s">&#34;bob@example.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">u</span><span class="p">.</span><span class="nx">Age</span> <span class="p">=</span> <span class="mi">25</span> 
+</span></span></code></pre></div><h2 id="accessing-and-updating-struct-fields">Accessing and Updating Struct Fields</h2>
 <p>To access a field, use the dot <code>.</code> operator:</p>
-<pre tabindex="0"><code>fmt.Println(user.Name)
-</code></pre><p>To update a field:</p>
-<pre tabindex="0"><code>user.Age = 31
-</code></pre><h2 id="structs-with-functions">Structs with Functions</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span></code></pre></div><p>To update a field:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">user</span><span class="p">.</span><span class="nx">Age</span> <span class="p">=</span> <span class="mi">31</span>
+</span></span></code></pre></div><h2 id="structs-with-functions">Structs with Functions</h2>
 <p>You can write a function that accepts a struct as an argument:</p>
-<pre tabindex="0"><code>func printUser(u User) {
-    fmt.Println(&#34;Name:&#34;, u.Name)
-    fmt.Println(&#34;Email:&#34;, u.Email)
-    fmt.Println(&#34;Age:&#34;, u.Age)
-} 
-</code></pre><h2 id="methods-in-go">Methods in Go</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">printUser</span><span class="p">(</span><span class="nx">u</span> <span class="nx">User</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Name:&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Email:&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Email</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Age:&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Age</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="methods-in-go">Methods in Go</h2>
 <p>In Go, you can define a function that is associated with a struct. This is called a method.</p>
-<pre tabindex="0"><code>func (u User) Greet() {
-    fmt.Println(&#34;Hi, my name is&#34;, u.Name)
-} 
-</code></pre><p>Here, <code>(u User)</code> means this function is a method that can be called on a User value.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="nx">User</span><span class="p">)</span> <span class="nf">Greet</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hi, my name is&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Here, <code>(u User)</code> means this function is a method that can be called on a User value.</p>
 <h2 id="pointer-receivers-vs-value-receivers">Pointer Receivers vs Value Receivers</h2>
 <p>You can define methods using either a value receiver or a pointer receiver:</p>
-<pre tabindex="0"><code>// Value receiver
-func (u User) Info() {
-    fmt.Println(&#34;User info:&#34;, u.Name, u.Email)
-}
-
-// Pointer receiver
-func (u *User) UpdateEmail(newEmail string) {
-    u.Email = newEmail
-} 
-</code></pre><p>Use a pointer receiver if the method needs to modify the original struct or if copying the struct would be expensive.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Value receiver</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="nx">User</span><span class="p">)</span> <span class="nf">Info</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;User info:&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Email</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Pointer receiver</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">UpdateEmail</span><span class="p">(</span><span class="nx">newEmail</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">u</span><span class="p">.</span><span class="nx">Email</span> <span class="p">=</span> <span class="nx">newEmail</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Use a pointer receiver if the method needs to modify the original struct or if copying the struct would be expensive.</p>
 <h2 id="embedding-structs">Embedding Structs</h2>
 <p>Go allows embedding one struct into another. This can be used to extend functionality:</p>
-<pre tabindex="0"><code>type Address struct {
-    City  string
-    State string
-}
-
-type Employee struct {
-    User
-    Address
-    Position string
-} 
-</code></pre><p>You can now access fields from both <code>User</code> and <code>Address</code> in an <code>Employee</code> instance directly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Address</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">City</span>  <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">State</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Employee</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">User</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Address</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Position</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>You can now access fields from both <code>User</code> and <code>Address</code> in an <code>Employee</code> instance directly.</p>
 <h2 id="anonymous-structs">Anonymous Structs</h2>
 <p>Go also supports defining structs without giving them a name. These are used for quick data grouping:</p>
-<pre tabindex="0"><code>person := struct {
-    Name string
-    Age  int
-}{
-    Name: &#34;Charlie&#34;,
-    Age:  22,
-} 
-</code></pre><h2 id="best-practices">Best Practices</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">person</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Charlie&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Age</span><span class="p">:</span>  <span class="mi">22</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Group related data using structs for better organization</li>
 <li>Use methods to define behavior related to a struct</li>
@@ -533,5 +526,17 @@ type Employee struct {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

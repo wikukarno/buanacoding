@@ -13,14 +13,11 @@
   <title>Understanding Numeric Data Type In Go : Basics and Practical Examples | Buana Coding</title>
 
   
-  <meta name="description" content="Go, also known as Golang, is a statically typed language developed by Google. It&rsquo;s known for its simplicity and efficiency, especially when it comes to systems and concurrent programming. In this article, we&rsquo;ll explore the numeric types in Go and provide practical examples to illustrate their usage.
-Basic Numeric Types Go offers several basic numeric types categorized into integers, floating point numbers, and complex numbers. Here’s a quick overview:
-Integer Integer types are divided into two categories, signed and unsigned. The signed integers int8, int16, int32, int64 can hold both negative and positive values, whereas unsigned integers int8, int16, int32, int64 can only hold positive values and zero.
-" />
+  <meta name="description" content="Learn about numeric data types in Go, including integers, floating-point numbers, and complex numbers. Explore practical examples." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, numeric, data type, integers, floating-point, complex numbers, examples" />
   
 
   
@@ -29,20 +26,14 @@ Integer Integer types are divided into two categories, signed and unsigned. The 
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Understanding Numeric Data Type In Go : Basics and Practical Examples | Buana Coding" />
-  <meta property="og:description" content="Go, also known as Golang, is a statically typed language developed by Google. It&rsquo;s known for its simplicity and efficiency, especially when it comes to systems and concurrent programming. In this article, we&rsquo;ll explore the numeric types in Go and provide practical examples to illustrate their usage.
-Basic Numeric Types Go offers several basic numeric types categorized into integers, floating point numbers, and complex numbers. Here’s a quick overview:
-Integer Integer types are divided into two categories, signed and unsigned. The signed integers int8, int16, int32, int64 can hold both negative and positive values, whereas unsigned integers int8, int16, int32, int64 can only hold positive values and zero.
-" />
+  <meta property="og:description" content="Learn about numeric data types in Go, including integers, floating-point numbers, and complex numbers. Explore practical examples." />
   <meta property="og:url" content="http://localhost:1313/2024/07/understanding-numeric-data-type-in-go.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding Numeric Data Type In Go : Basics and Practical Examples | Buana Coding" />
-  <meta name="twitter:description" content="Go, also known as Golang, is a statically typed language developed by Google. It&rsquo;s known for its simplicity and efficiency, especially when it comes to systems and concurrent programming. In this article, we&rsquo;ll explore the numeric types in Go and provide practical examples to illustrate their usage.
-Basic Numeric Types Go offers several basic numeric types categorized into integers, floating point numbers, and complex numbers. Here’s a quick overview:
-Integer Integer types are divided into two categories, signed and unsigned. The signed integers int8, int16, int32, int64 can hold both negative and positive values, whereas unsigned integers int8, int16, int32, int64 can only hold positive values and zero.
-" />
+  <meta name="twitter:description" content="Learn about numeric data types in Go, including integers, floating-point numbers, and complex numbers. Explore practical examples." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ Integer Integer types are divided into two categories, signed and unsigned. The 
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -217,75 +210,75 @@ Integer Integer types are divided into two categories, signed and unsigned. The 
 <h3 id="integer">Integer</h3>
 <p>Integer types are divided into two categories, signed and unsigned. The signed integers <strong>int8, int16, int32, int64</strong> can hold both negative and positive values, whereas unsigned integers <strong>int8, int16, int32, int64</strong> can only hold positive values and zero.</p>
 <p>Here’s an example of how you can declare and initialize an integer variable in Go:</p>
-<pre tabindex="0"><code>`package main
-
-import &#34;fmt&#34;
-
-func main() {
-    var a int8 = 127    // a := int8(127)
-    var b uint8 = 255   // b := uint8(255)
-    fmt.Printf(&#34;Type: %T Value: %v\n&#34;, a, a)
-    fmt.Printf(&#34;Type: %T Value: %v\n&#34;, b, b)
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`Type: int8 Value: 127
-Type: uint8 Value: 255`
-</code></pre><h3 id="floating-point">Floating Point</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="s">`package main
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">import &#34;fmt&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">func main() {
+</span></span></span><span class="line"><span class="cl"><span class="s">    var a int8 = 127    // a := int8(127)
+</span></span></span><span class="line"><span class="cl"><span class="s">    var b uint8 = 255   // b := uint8(255)
+</span></span></span><span class="line"><span class="cl"><span class="s">    fmt.Printf(&#34;Type: %T Value: %v\n&#34;, a, a)
+</span></span></span><span class="line"><span class="cl"><span class="s">    fmt.Printf(&#34;Type: %T Value: %v\n&#34;, b, b)
+</span></span></span><span class="line"><span class="cl"><span class="s">}`</span> 
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Type: int8 Value: <span class="m">127</span>
+</span></span><span class="line"><span class="cl">Type: uint8 Value: <span class="m">255</span>
+</span></span></code></pre></div><h3 id="floating-point">Floating Point</h3>
 <p>go has two floating point types: <strong>float32</strong> and <strong>float64</strong>. The numbers represent single and double precision floating point numbers respectively.</p>
 <p>Here’s an example of how you can declare and initialize a floating point variable in Go:</p>
-<pre tabindex="0"><code>`package main
-import &#34;fmt&#34;
-
-func main() {
-    var pi float64 = 3.14159
-    fmt.Printf(&#34;Type: %T Value: %v\n&#34;, pi, pi)
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`Type: float64 Value: 3.14159`
-</code></pre><h3 id="complex-numbers">Complex Numbers</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">pi</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mf">3.14159</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Type: %T Value: %v\n&#34;</span><span class="p">,</span> <span class="nx">pi</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Type: float64 Value: 3.14159<span class="sb">`</span>
+</span></span></code></pre></div><h3 id="complex-numbers">Complex Numbers</h3>
 <p>Go has two complex number types: <strong>complex64</strong> and <strong>complex128</strong>. The numbers represent complex numbers with <strong>float32</strong> and <strong>float64</strong> real and imaginary parts respectively.</p>
 <p>Here’s an example of how you can declare and initialize a complex number variable in Go:</p>
-<pre tabindex="0"><code>`package main
-import &#34;fmt&#34;
-
-func main() {
-    c := complex(3, 4)
-    fmt.Printf(&#34;Type: %T Value: %v\n&#34;, c, c)
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`Type: complex128 Value: (3+4i)`
-</code></pre><h2 id="numeric-literals">Numeric Literals</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span> <span class="o">:=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Type: %T Value: %v\n&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Type: complex128 Value: <span class="o">(</span>3+4i<span class="o">)</span>
+</span></span></code></pre></div><h2 id="numeric-literals">Numeric Literals</h2>
 <p>Go supports several numeric literals, including decimal, binary, octal, and hexadecimal. Here’s an example of how you can declare and initialize numeric literals in Go:</p>
-<pre tabindex="0"><code>`package main
-import &#34;fmt&#34;
-
-func main() {
-    a := 42
-    b := 0b101010 // binary literal
-    c := 0o52    // octal literal
-    d := 0x2a    // hexadecimal literal
-    fmt.Println(a, b, c, d)
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`42 42 42 42`
-</code></pre><h2 id="numeric-operations">Numeric Operations</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="mi">42</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="mb">0b101010</span> <span class="c1">// binary literal</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span> <span class="o">:=</span> <span class="mi">0</span><span class="nx">o52</span>    <span class="c1">// octal literal</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">d</span> <span class="o">:=</span> <span class="mh">0x2a</span>    <span class="c1">// hexadecimal literal</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="m">42</span> <span class="m">42</span> <span class="m">42</span> <span class="m">42</span>
+</span></span></code></pre></div><h2 id="numeric-operations">Numeric Operations</h2>
 <p>Go supports several arithmetic operations on numeric types, including addition, subtraction, multiplication, division, and modulus. Here’s an example of how you can perform arithmetic operations in Go:</p>
-<pre tabindex="0"><code>`package main
-import &#34;fmt&#34;
-
-func main() {
-    a := 10
-    b := 20
-    sum := a + b
-    diff := a - b
-    product := a * b
-    quotient := a / b
-    remainder := a % b
-    fmt.Println(sum, diff, product, quotient, remainder)
-}` 
-</code></pre><p>Output</p>
-<pre tabindex="0"><code>`30 -10 200 0 10`
-</code></pre><h2 id="conclusion">Conclusion</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sum</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">diff</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">product</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">quotient</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">remainder</span> <span class="o">:=</span> <span class="nx">a</span> <span class="o">%</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">diff</span><span class="p">,</span> <span class="nx">product</span><span class="p">,</span> <span class="nx">quotient</span><span class="p">,</span> <span class="nx">remainder</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="m">30</span> -10 <span class="m">200</span> <span class="m">0</span> <span class="m">10</span>
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>Go provides a rich set of numeric types and operations that make it easy to work with numbers in your programs. By understanding the different numeric types and their usage, you can write efficient and reliable code that performs well in a variety of scenarios.</p>
 <p>For more information on Go’s numeric types, you can refer to the official <a href="https://golang.org/ref/spec#Numeric_types">Go documentation</a>.</p>
 <p>Happy coding!</p>
@@ -520,5 +513,17 @@ func main() {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

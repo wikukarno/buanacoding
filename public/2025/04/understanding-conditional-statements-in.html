@@ -13,14 +13,11 @@
   <title>Understanding Conditional Statements in Go (if, switch, etc.) | Buana Coding</title>
 
   
-  <meta name="description" content="Understanding Conditional Statements in Go (if, switch, etc.) Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.
-In this article, we will explore:
-The if, else, and else if statements The switch statement Best practices for using conditionals in Go Real examples to help you practice What is a Conditional Statement? A conditional statement evaluates whether a condition is true or false. Based on that, your Go program can choose which block of code to execute.
-" />
+  <meta name="description" content="Learn how to use conditional statements in Go: if, else, and switch." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, conditional statements, if, else, switch, programming" />
   
 
   
@@ -29,20 +26,14 @@ The if, else, and else if statements The switch statement Best practices for usi
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Understanding Conditional Statements in Go (if, switch, etc.) | Buana Coding" />
-  <meta property="og:description" content="Understanding Conditional Statements in Go (if, switch, etc.) Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.
-In this article, we will explore:
-The if, else, and else if statements The switch statement Best practices for using conditionals in Go Real examples to help you practice What is a Conditional Statement? A conditional statement evaluates whether a condition is true or false. Based on that, your Go program can choose which block of code to execute.
-" />
+  <meta property="og:description" content="Learn how to use conditional statements in Go: if, else, and switch." />
   <meta property="og:url" content="http://localhost:1313/2025/04/understanding-conditional-statements-in.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Understanding Conditional Statements in Go (if, switch, etc.) | Buana Coding" />
-  <meta name="twitter:description" content="Understanding Conditional Statements in Go (if, switch, etc.) Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.
-In this article, we will explore:
-The if, else, and else if statements The switch statement Best practices for using conditionals in Go Real examples to help you practice What is a Conditional Statement? A conditional statement evaluates whether a condition is true or false. Based on that, your Go program can choose which block of code to execute.
-" />
+  <meta name="twitter:description" content="Learn how to use conditional statements in Go: if, else, and switch." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ The if, else, and else if statements The switch statement Best practices for usi
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -226,66 +219,66 @@ The if, else, and else if statements The switch statement Best practices for usi
 <h2 id="if-else-if-and-else">if, else if, and else</h2>
 <p>The most common conditional structure is if.</p>
 <h3 id="basic-if-syntax">Basic if syntax:</h3>
-<pre tabindex="0"><code>package main
-
-import &#34;fmt&#34;
-
-func main() {
-    age := 20
-
-    if age &gt;= 18 {
-        fmt.Println(&#34;You are an adult.&#34;)
-    }
-} 
-</code></pre><h3 id="with-else">With else:</h3>
-<pre tabindex="0"><code>func main() {
-    age := 15
-
-    if age &gt;= 18 {
-        fmt.Println(&#34;You are an adult.&#34;)
-    } else {
-        fmt.Println(&#34;You are underage.&#34;)
-    }
-} 
-</code></pre><h3 id="with-else-if">With else if:</h3>
-<pre tabindex="0"><code>func main() {
-    hour := 14
-
-    if hour &lt; 12 {
-        fmt.Println(&#34;Good morning!&#34;)
-    } else if hour &lt; 18 {
-        fmt.Println(&#34;Good afternoon!&#34;)
-    } else {
-        fmt.Println(&#34;Good evening!&#34;)
-    }
-} 
-</code></pre><p>You can use multiple else if statements to check different conditions.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span> <span class="o">:=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;You are an adult.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h3 id="with-else">With else:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span> <span class="o">:=</span> <span class="mi">15</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;You are an adult.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;You are underage.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h3 id="with-else-if">With else if:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">hour</span> <span class="o">:=</span> <span class="mi">14</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">hour</span> <span class="p">&lt;</span> <span class="mi">12</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Good morning!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">hour</span> <span class="p">&lt;</span> <span class="mi">18</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Good afternoon!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Good evening!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>You can use multiple else if statements to check different conditions.</p>
 <h2 id="short-if-statement">Short if Statement</h2>
 <p>Go supports a shorter form to declare variables inside the if block:</p>
-<pre tabindex="0"><code>func main() {
-    if num := 10; num%2 == 0 {
-        fmt.Println(&#34;Even number&#34;)
-    }
-} 
-</code></pre><p>This is useful if you only need the variable inside the if scope.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">num</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">num</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Even number&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>This is useful if you only need the variable inside the if scope.</p>
 <h2 id="switch-statement">switch Statement</h2>
 <p>The switch statement lets you compare a value against multiple conditions. It&rsquo;s a cleaner alternative to many else if blocks.</p>
 <h3 id="example">Example:</h3>
-<pre tabindex="0"><code>func main() {
-    day := &#34;Friday&#34;
-
-    switch day {
-    case &#34;Monday&#34;:
-        fmt.Println(&#34;Start of the week!&#34;)
-    case &#34;Friday&#34;:
-        fmt.Println(&#34;Almost weekend!&#34;)
-    case &#34;Saturday&#34;, &#34;Sunday&#34;:
-        fmt.Println(&#34;Weekend time!&#34;)
-    default:
-        fmt.Println(&#34;Another day!&#34;)
-    }
-} 
-</code></pre><p>You can also group cases like Saturday and Sunday above.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">day</span> <span class="o">:=</span> <span class="s">&#34;Friday&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="nx">day</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s">&#34;Monday&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Start of the week!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s">&#34;Friday&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Almost weekend!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="s">&#34;Saturday&#34;</span><span class="p">,</span> <span class="s">&#34;Sunday&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Weekend time!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Another day!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>You can also group cases like Saturday and Sunday above.</p>
 <h2 id="best-practices-for-beginners">Best Practices for Beginners</h2>
 <ul>
 <li>Keep your condition logic simple.</li>
@@ -295,31 +288,31 @@ func main() {
 </ul>
 <h2 id="more-practice-examples">More Practice Examples</h2>
 <h3 id="1-check-if-a-number-is-positive-negative-or-zero">1. Check if a number is positive, negative, or zero:</h3>
-<pre tabindex="0"><code>func main() {
-    num := 0
-
-    if num &gt; 0 {
-        fmt.Println(&#34;Positive&#34;)
-    } else if num &lt; 0 {
-        fmt.Println(&#34;Negative&#34;)
-    } else {
-        fmt.Println(&#34;Zero&#34;)
-    }
-} 
-</code></pre><h3 id="2-simple-login-simulation">2. Simple login simulation:</h3>
-<pre tabindex="0"><code>func main() {
-    username := &#34;admin&#34;
-    password := &#34;1234&#34;
-
-    if username == &#34;admin&#34; &amp;&amp; password == &#34;1234&#34; {
-        fmt.Println(&#34;Login successful&#34;)
-    } else {
-        fmt.Println(&#34;Invalid credentials&#34;)
-    }
-} 
-</code></pre><h2 id="conclusion">Conclusion</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">num</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">num</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Positive&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nx">num</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Negative&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Zero&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h3 id="2-simple-login-simulation">2. Simple login simulation:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">username</span> <span class="o">:=</span> <span class="s">&#34;admin&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">password</span> <span class="o">:=</span> <span class="s">&#34;1234&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">username</span> <span class="o">==</span> <span class="s">&#34;admin&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span> <span class="o">==</span> <span class="s">&#34;1234&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Login successful&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Invalid credentials&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>Understanding how conditionals work in Go helps you control the flow of your programs. Start with if and else, and move on to switch when you need to compare multiple options. Use these tools to build dynamic and interactive applications.</p>
-<p>Next Step: Learn about <a href="https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html">loops</a> in Go — another powerful way to control program flow!</p>
+<p>Next Step: Learn about <a href="https://www.buanacoding.com/blog/understanding-loops-in-go-for-range.html">loops</a> in Go — another powerful way to control program flow!</p>
 <p>Happy coding!</p>
 
 
@@ -552,5 +545,17 @@ func main() {
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

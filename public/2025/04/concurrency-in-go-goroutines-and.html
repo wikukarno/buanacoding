@@ -13,14 +13,11 @@
   <title>Concurrency in Go: Goroutines and Channels Explained | Buana Coding</title>
 
   
-  <meta name="description" content="One of the most powerful features of Go is its built-in support for concurrency. Go makes it easy to write programs that perform multiple tasks at the same time, thanks to goroutines and channels. Unlike traditional multithreading, Go provides a lightweight and clean way to build concurrent systems with minimal overhead and boilerplate.
-In this article, you’ll learn:
-The difference between concurrency and parallelism What goroutines are and how to use them How channels allow communication between goroutines Buffered vs unbuffered channels The select statement Common concurrency problems and how to avoid them Real-world examples and best practices Concurrency vs Parallelism Concurrency means doing multiple things at once (interleaved), while parallelism means running them simultaneously on different processors. Go’s concurrency model allows you to write code that is concurrent, and Go’s runtime handles whether it is executed in parallel depending on available CPU cores.
-" />
+  <meta name="description" content="Learn how to use goroutines and channels in Go for concurrent programming. Understand the differences between concurrency and parallelism, and explore real-world examples." />
 
   
   
-    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+    <meta name="keywords" content="Go, concurrency, goroutines, channels, programming, sync, parallelism, best practices" />
   
 
   
@@ -29,20 +26,14 @@ The difference between concurrency and parallelism What goroutines are and how t
   
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Concurrency in Go: Goroutines and Channels Explained | Buana Coding" />
-  <meta property="og:description" content="One of the most powerful features of Go is its built-in support for concurrency. Go makes it easy to write programs that perform multiple tasks at the same time, thanks to goroutines and channels. Unlike traditional multithreading, Go provides a lightweight and clean way to build concurrent systems with minimal overhead and boilerplate.
-In this article, you’ll learn:
-The difference between concurrency and parallelism What goroutines are and how to use them How channels allow communication between goroutines Buffered vs unbuffered channels The select statement Common concurrency problems and how to avoid them Real-world examples and best practices Concurrency vs Parallelism Concurrency means doing multiple things at once (interleaved), while parallelism means running them simultaneously on different processors. Go’s concurrency model allows you to write code that is concurrent, and Go’s runtime handles whether it is executed in parallel depending on available CPU cores.
-" />
+  <meta property="og:description" content="Learn how to use goroutines and channels in Go for concurrent programming. Understand the differences between concurrency and parallelism, and explore real-world examples." />
   <meta property="og:url" content="http://localhost:1313/2025/04/concurrency-in-go-goroutines-and.html" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Concurrency in Go: Goroutines and Channels Explained | Buana Coding" />
-  <meta name="twitter:description" content="One of the most powerful features of Go is its built-in support for concurrency. Go makes it easy to write programs that perform multiple tasks at the same time, thanks to goroutines and channels. Unlike traditional multithreading, Go provides a lightweight and clean way to build concurrent systems with minimal overhead and boilerplate.
-In this article, you’ll learn:
-The difference between concurrency and parallelism What goroutines are and how to use them How channels allow communication between goroutines Buffered vs unbuffered channels The select statement Common concurrency problems and how to avoid them Real-world examples and best practices Concurrency vs Parallelism Concurrency means doing multiple things at once (interleaved), while parallelism means running them simultaneously on different processors. Go’s concurrency model allows you to write code that is concurrent, and Go’s runtime handles whether it is executed in parallel depending on available CPU cores.
-" />
+  <meta name="twitter:description" content="Learn how to use goroutines and channels in Go for concurrent programming. Understand the differences between concurrency and parallelism, and explore real-world examples." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -202,8 +193,10 @@ The difference between concurrency and parallelism What goroutines are and how t
       <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
       <span class="mx-2">/</span>
       
-      
-        <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
+        
+          <a href="/tags/go" class="hover:text-[#0f7ea9] font-medium">#Go</a>
+        
       
     </nav>
 
@@ -226,58 +219,58 @@ The difference between concurrency and parallelism What goroutines are and how t
 <p>Concurrency means doing multiple things at once (interleaved), while parallelism means running them simultaneously on different processors. Go’s concurrency model allows you to write code that is concurrent, and Go’s runtime handles whether it is executed in parallel depending on available CPU cores.</p>
 <h2 id="introducing-goroutines">Introducing Goroutines</h2>
 <p>A goroutine is a function that runs concurrently with other functions. You start one by using the <code>go</code> keyword:</p>
-<pre tabindex="0"><code>func sayHello() {
-    fmt.Println(&#34;Hello from goroutine!&#34;)
-}
-
-func main() {
-    go sayHello()
-    fmt.Println(&#34;Main function&#34;)
-} 
-</code></pre><p>Goroutines are lightweight and managed by the Go runtime, not the OS. You can spawn thousands of them without major performance issues.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">sayHello</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello from goroutine!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="nf">sayHello</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Main function&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>Goroutines are lightweight and managed by the Go runtime, not the OS. You can spawn thousands of them without major performance issues.</p>
 <h2 id="why-you-need-to-wait">Why You Need to Wait</h2>
 <p>The above example might not print the goroutine output if <code>main()</code> exits first. You can fix this using <code>time.Sleep</code> or better, <code>sync.WaitGroup</code>:</p>
-<pre tabindex="0"><code>var wg sync.WaitGroup
-
-func sayHi() {
-    defer wg.Done()
-    fmt.Println(&#34;Hi!&#34;)
-}
-
-func main() {
-    wg.Add(1)
-    go sayHi()
-    wg.Wait()
-} 
-</code></pre><h2 id="using-channels">Using Channels</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">sayHi</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hi!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="nf">sayHi</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="using-channels">Using Channels</h2>
 <p>Channels are used to send and receive values between goroutines. They are typed and provide safe communication.</p>
-<pre tabindex="0"><code>func main() {
-    ch := make(chan string)
-
-    go func() {
-        ch &lt;- :=&#34;&lt;-ch&#34; code=&#34;&#34; essage=&#34;&#34; fmt.println=&#34;&#34; from=&#34;&#34; goroutine=&#34;&#34; msg=&#34;&#34;&gt;
-</code></pre><h2 id="buffered-channels">Buffered Channels</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="o">:=</span><span class="s">&#34;&lt;-ch&#34;</span> <span class="nx">code</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">essage</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">println</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">from</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">goroutine</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">msg</span><span class="p">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="buffered-channels">Buffered Channels</h2>
 <p>A buffered channel allows sending without blocking, up to its capacity:</p>
-<pre tabindex="0"><code>ch := make(chan int, 2)
-ch &lt;- 1=&#34;&#34; 2=&#34;&#34; 3=&#34;&#34; block=&#34;&#34; buffer=&#34;&#34; ch=&#34;&#34; code=&#34;&#34; fmt.println=&#34;&#34; full=&#34;&#34; if=&#34;&#34; is=&#34;&#34; this=&#34;&#34; will=&#34;&#34;&gt;
-</code></pre><h2 id="select-statement">Select Statement</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ch</span> <span class="o">&lt;-</span> <span class="mi">1</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="mi">2</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="mi">3</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">block</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">buffer</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">ch</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">code</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">println</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">full</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">if</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">is</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">this</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">will</span><span class="p">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="select-statement">Select Statement</h2>
 <p><code>select</code> lets you wait on multiple channel operations:</p>
-<pre tabindex="0"><code>func main() {
-    ch1 := make(chan string)
-    ch2 := make(chan string)
-
-    go func() {
-        time.Sleep(1 * time.Second)
-        ch1 &lt;- :=&#34;&lt;-ch2:&#34; case=&#34;&#34; ch1=&#34;&#34; ch2=&#34;&#34; code=&#34;&#34; fmt.println=&#34;&#34; from=&#34;&#34; func=&#34;&#34; go=&#34;&#34; msg1=&#34;&#34; msg2=&#34;&#34; select=&#34;&#34; time.second=&#34;&#34; time.sleep=&#34;&#34;&gt;
-</code></pre><h2 id="common-problems">Common Problems</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ch1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ch2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ch1</span> <span class="o">&lt;-</span> <span class="o">:=</span><span class="s">&#34;&lt;-ch2:&#34;</span> <span class="k">case</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">ch1</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">ch2</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">code</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">println</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">from</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="kd">func</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">go</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">msg1</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">msg2</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">select</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">second</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">sleep</span><span class="p">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="common-problems">Common Problems</h2>
 <ul>
 <li><strong>Deadlocks</strong>: when goroutines wait forever</li>
 <li><strong>Race conditions</strong>: two goroutines access the same variable concurrently</li>
 </ul>
 <p>Use <code>go run -race</code> to detect race conditions.</p>
 <h2 id="real-world-example-worker-pool">Real-World Example: Worker Pool</h2>
-<pre tabindex="0"><code>func worker(id int, jobs &lt;-chan 2=&#34;&#34; 3=&#34;&#34; 5=&#34;&#34; :=&#34;1;&#34; chan=&#34;&#34; close=&#34;&#34; code=&#34;&#34; d=&#34;&#34; finished=&#34;&#34; fmt.printf=&#34;&#34; fmt.println=&#34;&#34; for=&#34;&#34; func=&#34;&#34; go=&#34;&#34; id=&#34;&#34; int=&#34;&#34; j=&#34;&#34; job=&#34;&#34; jobs=&#34;&#34; main=&#34;&#34; n=&#34;&#34; orker=&#34;&#34; r=&#34;&#34; results=&#34;&#34; started=&#34;&#34; time.second=&#34;&#34; time.sleep=&#34;&#34; w=&#34;&#34; worker=&#34;&#34;&gt;
-</code></pre><h2 id="best-practices">Best Practices</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">worker</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">jobs</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="mi">2</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="mi">3</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="mi">5</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="o">:=</span><span class="s">&#34;1;&#34;</span> <span class="kd">chan</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">close</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">code</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">d</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">finished</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">printf</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">println</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">for</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="kd">func</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="k">go</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">id</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="kt">int</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">j</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">job</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">jobs</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">main</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">n</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">orker</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">r</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">results</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">started</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">second</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">time</span><span class="p">.</span><span class="nx">sleep</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">w</span><span class="p">=</span><span class="s">&#34;&#34;</span> <span class="nx">worker</span><span class="p">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="best-practices">Best Practices</h2>
 <ul>
 <li>Close channels only when you’re done sending</li>
 <li>Use <code>sync.WaitGroup</code> to wait for goroutines</li>
@@ -286,7 +279,7 @@ ch &lt;- 1=&#34;&#34; 2=&#34;&#34; 3=&#34;&#34; block=&#34;&#34; buffer=&#34;&#3
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>Goroutines and channels are the foundation of concurrency in Go. With them, you can build scalable and efficient programs without the complexity of traditional multithreading. Start small, experiment with simple patterns, and scale your knowledge step by step.</p>
-<p>Next, we&rsquo;ll explore advanced concurrency control using <code>sync.Mutex</code>, <code>sync.Once</code>, and <code>[context](https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html)</code> for cancellation and timeouts.</p>
+<p>Next, we&rsquo;ll explore advanced concurrency control using <code>sync.Mutex</code>, <code>sync.Once</code>, and <a href="https://www.buanacoding.com/blog/using-context-in-go-cancellation.html">context</a> for cancellation and timeouts.</p>
 <p>Happy coding!</p>
 
 
@@ -519,5 +512,17 @@ ch &lt;- 1=&#34;&#34; 2=&#34;&#34; 3=&#34;&#34; block=&#34;&#34; buffer=&#34;&#3
   });
 </script>
 
+    <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white dark:bg-gray-900 max-w-xl mx-auto mt-24 p-6 rounded shadow-lg relative">
+        <button id="closeSearchModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">×</button>
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Search articles..."
+          class="w-full px-4 py-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-[#0f7ea9]"
+        />
+        <div id="searchResults" class="space-y-3 text-sm max-h-60 overflow-y-auto text-gray-800 dark:text-gray-200"></div>
+      </div>
+    </div>
   </body>
 </html>

@@ -4,12 +4,10 @@ date: 2024-04-19T15:58:00.001+07:00
 draft: false
 url: /2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html
 tags: 
-- Laravel
+    - Laravel
+description: "Panduan langkah demi langkah untuk membuat aplikasi web pertama Anda menggunakan Laravel. Cocok untuk pemula yang ingin belajar pengembangan web."
+keywords: ["laravel", "aplikasi web", "belajar laravel", "pengembangan web", "tutorial laravel"]
 ---
-
-[![Cara Membuat Aplikasi Pertama dengan Laravel](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm_XQhYi11VC5_tCFj3Tu-d7EOcvuAEif0GtrvDggiW1751GBunrrRhiPEiJb0FwjsnazkPA3wqNpHukCDu0XRGvh-bIZx03FfRuBV4MuReZOMz3T3875g87t_SPlyGLMBjYbFWUR0GKgU4f-HAtEeiEd0stb_DwUMfve4yk9iHhdkgMlzWvJHZy5hrCqY/w640-h366/DALL%C2%B7E%202024-04-15%2017.44.33%20-%20A%20photograph%20of%20a%20laptop%20on%20a%20wooden%20desk%20with%20code%20on%20the%20screen,%20and%20next%20to%20it%20sits%20a%20plush%20toy%20elephant%20that%20typically%20represents%20PHP.%20However,%20th.webp "Cara Membuat Aplikasi Pertama dengan Laravel")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm_XQhYi11VC5_tCFj3Tu-d7EOcvuAEif0GtrvDggiW1751GBunrrRhiPEiJb0FwjsnazkPA3wqNpHukCDu0XRGvh-bIZx03FfRuBV4MuReZOMz3T3875g87t_SPlyGLMBjYbFWUR0GKgU4f-HAtEeiEd0stb_DwUMfve4yk9iHhdkgMlzWvJHZy5hrCqY/s1792/DALL%C2%B7E%202024-04-15%2017.44.33%20-%20A%20photograph%20of%20a%20laptop%20on%20a%20wooden%20desk%20with%20code%20on%20the%20screen,%20and%20next%20to%20it%20sits%20a%20plush%20toy%20elephant%20that%20typically%20represents%20PHP.%20However,%20th.webp)
-
-  
 
 Ketika kita pertama kali melangkah ke dalam dunia pengembangan web, rasanya seperti memasuki sebuah labirin yang penuh dengan kode dan logika yang rumit. Namun, ada sesuatu yang menarik tentang proses belajar bagaimana segala sesuatu terhubung dan bekerja bersama untuk membentuk sebuah aplikasi web.
 
@@ -36,7 +34,7 @@ Langkah 2: Instalasi Laravel
 
 Buka terminal atau command prompt dan jalankan perintah berikut:
 
-```
+```bash
 composer create-project laravel/laravel example-app **namaAplikasi**
 ```
 
@@ -73,7 +71,7 @@ Langkah 4: Menjalankan Web Pertama Anda
 
 Jalankan perintah berikut di terminal vscode ataupun terminal kesayangan anda:
 
-```
+```bash
 php artisan serve
 ```
 
@@ -84,11 +82,9 @@ Perintah ini akan menjalankan server pengembangan lokal dan memberikan Anda URL 
 
 Secara default Laravel akan berjalan di port 8000, jika port tersebut sudah digunakan, maka Laravel akan berjalan di port 8001, 8002, dan seterusnya, namun port tersebut bisa diubah sesuai dengan keinginan anda dengan cara seperti di bawah ini:
 
-```
+```bash
 php artisan serve --port=8080
 
 ```
 
 Buka browser dan kunjungi URL yang diberikan. Anda akan melihat halaman selamat datang Laravel.
-
-[![Welcome to Laravel](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgElsFwh46WsLgmCebXc3kNYnZ5w5OImmZpvCynQdPW3lxHB86H2JHTTYWZ1GbkvIm0CZuH8WpWNzMPfQD9huCn8HDmdV3_qEQCD9NMaNLO40eTebitvMHTkmeZFacX_szb2Ttq04ttrEC89KR3i4z7zziRRUUnBLH8AUpHaHep1KfyjV08M230uhsQi2qt/w640-h314/Screenshot%20from%202024-04-18%2015-01-02.png "Welcome to Laravel")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgElsFwh46WsLgmCebXc3kNYnZ5w5OImmZpvCynQdPW3lxHB86H2JHTTYWZ1GbkvIm0CZuH8WpWNzMPfQD9huCn8HDmdV3_qEQCD9NMaNLO40eTebitvMHTkmeZFacX_szb2Ttq04ttrEC89KR3i4z7zziRRUUnBLH8AUpHaHep1KfyjV08M230uhsQi2qt/s1902/Screenshot%20from%202024-04-18%2015-01-02.png)
