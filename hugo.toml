@@ -25,6 +25,7 @@ title = "Buana Coding"
 # Enable robots.txt and sitemap output
 [outputs]
   home = ["HTML", "RSS", "JSON", "SITEMAP", "ROBOTS"]
+  section = ["HTML", "RSS", "SITEMAP"]
 
 # Enable metaData for SEO
 [params]
