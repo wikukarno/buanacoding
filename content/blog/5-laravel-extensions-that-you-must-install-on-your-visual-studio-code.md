@@ -2,7 +2,7 @@
 title: '5 Laravel extensions that you must install on your Visual Studio Code'
 date: 2024-03-21T21:23:00.001+07:00
 draft: false
-url: /2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html
+url: /2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html
 tags: 
     - Laravel
 description: "5 Laravel extensions that you must install on your Visual Studio Code. These tools will help you write code faster, reduce bugs, and improve your workflow overall."
