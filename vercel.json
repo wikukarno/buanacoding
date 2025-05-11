@@ -7,13 +7,13 @@
     },
     {
       "source": "/:path*",
+      "destination": "https://www.buanacoding.com/:path*",
       "has": [
         {
           "type": "host",
           "value": "buanacoding.com"
         }
       ],
-      "destination": "https://www.buanacoding.com/:path*",
       "permanent": true
     }
   ]
