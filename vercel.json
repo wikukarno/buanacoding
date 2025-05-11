@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "https://buanacoding.com/:path*",
+      "destination": "https://www.buanacoding.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/?m=1",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
