@@ -40,7 +40,7 @@
         New Articles
       </h2>
       {{ $pages := sort (where .Site.RegularPages "Type" "blog") "Date" "desc" }}
-      {{ $paginator := .Paginate (after 1 $pages) 6 }}
+      {{ $paginator := .Paginate $pages 6 }}
       <div class="grid gap-6 sm:grid-cols-2">
         {{ range $paginator.Pages }}
           <a href="{{ .RelPermalink }}"

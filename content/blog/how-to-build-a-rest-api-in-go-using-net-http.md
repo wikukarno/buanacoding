@@ -1,6 +1,6 @@
 ---
 title: "How to Build a REST API in Go using net/http"
-date: 2025-05-11T10:00:00.002+07:00
+date: 2025-05-11T08:00:00+07:00
 draft: false
 url: /2025/05/how-to-build-rest-api-in-go-using-net-http.html
 tags:
