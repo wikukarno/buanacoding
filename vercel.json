@@ -1,19 +1,26 @@
 {
   "redirects": [
     {
-      "source": "/?m=1",
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "m",
+          "value": "1"
+        }
+      ],
       "destination": "/",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "destination": "https://www.buanacoding.com/:path*",
       "has": [
         {
           "type": "host",
           "value": "buanacoding.com"
         }
       ],
+      "destination": "https://www.buanacoding.com/:path*",
       "permanent": true
     }
   ]
