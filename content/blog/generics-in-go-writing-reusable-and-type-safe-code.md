@@ -2,7 +2,7 @@
 title: 'Generics in Go: Writing Reusable and Type-Safe Code'
 date: 2025-04-25T10:00:00.002+07:00
 draft: false
-url: /2025/04/generics-in-go-writing-reusable-and.html
+url: /2025/04/generics-in-go-writing-reusable-and-type-safe-code.html
 tags: 
 - Go
 description: "Learn how to use generics in Go to write reusable and type-safe code."
