@@ -1,4 +1,7 @@
 User-agent: *
+Disallow: /search
+Disallow: /archives
+Disallow: /404.html
 Allow: /
 
-Sitemap: {{ "sitemap.xml" | absURL }}
+Sitemap: {{ .Site.BaseURL }}sitemap.xml

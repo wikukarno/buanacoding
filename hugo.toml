@@ -26,6 +26,8 @@ title = "Buana Coding"
 [outputs]
   home = ["HTML", "RSS", "JSON", "SITEMAP", "ROBOTS"]
   section = ["HTML", "RSS", "SITEMAP"]
+  taxonomy = ["HTML", "SITEMAP"]
+  taxonomyTerm = ["HTML", "SITEMAP"]
 
 # Enable metaData for SEO
 [params]
