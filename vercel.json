@@ -22,17 +22,6 @@
       ],
       "destination": "https://www.buanacoding.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.buanacoding.com"
-        }
-      ],
-      "destination": "https://www.buanacoding.com/:path*",
-      "permanent": true
     }
   ]
 }
