@@ -1,6 +1,8 @@
-
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
 
 <script>
+  feather.replace();
   const btn = document.getElementById("scrollToTop");
   const html = document.documentElement;
   const toggleBtn = document.getElementById("theme-toggle");
@@ -10,19 +12,20 @@
   const iconSunMobile = document.getElementById("icon-sun-mobile");
   const iconMoonMobile = document.getElementById("icon-moon-mobile");
 
-  // Sembunyikan tombol saat halaman dibuka
+  document.getElementById("menu-toggle")?.addEventListener("click", () => {
+    document.getElementById("mobile-menu")?.classList.toggle("hidden");
+  });
+
   btn.style.display = "none";
 
-  // Tampilkan tombol jika scroll > 300px
   window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
-      btn.style.display = "flex"; // pakai flex biar icon-nya center
+      btn.style.display = "flex";
     } else {
       btn.style.display = "none";
     }
   });
 
-  // Scroll ke atas saat tombol diklik
   btn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
@@ -54,40 +57,102 @@
     setDarkMode(!currentlyDark);
   });
 
-  document.getElementById("menu-toggle")?.addEventListener("click", () => {
-    document.getElementById("mobile-menu")?.classList.toggle("hidden");
-  });
+  document.querySelectorAll("pre").forEach((pre) => {
+    const button = document.createElement("button");
+    button.innerHTML = `
+      <span>Copy</span>
+    `;
+    button.className = `
+    copy-btn absolute top-2 right-2
+    text-xs px-2 py-1 rounded flex items-center gap-1
+    transition-colors duration-200
+    bg-gray-200 text-gray-800 hover:bg-gray-300
+    dark:bg-white/10 dark:text-white dark:hover:bg-white/20
+  `.trim();
 
-  // Copy code button
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('pre').forEach((pre) => {
-      const button = document.createElement('button');
-      button.innerHTML = `
-        <span>Copy</span>
-      `;
-      button.className = `
-      copy-btn absolute top-2 right-2
-      text-xs px-2 py-1 rounded flex items-center gap-1
-      transition-colors duration-200
-      bg-gray-200 text-gray-800 hover:bg-gray-300
-      dark:bg-white/10 dark:text-white dark:hover:bg-white/20
-    `.trim();
+    const wrapper = document.createElement("div");
+    wrapper.className = "relative";
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+    wrapper.appendChild(button);
 
-      const wrapper = document.createElement('div');
-      wrapper.className = 'relative';
-      pre.parentNode.insertBefore(wrapper, pre);
-      wrapper.appendChild(pre);
-      wrapper.appendChild(button);
-
-      button.addEventListener('click', () => {
-        const code = pre.innerText;
-        navigator.clipboard.writeText(code).then(() => {
-          button.querySelector('span').innerText = 'Copied!';
-          setTimeout(() => {
-            button.querySelector('span').innerText = 'Copy';
-          }, 2000);
-        });
+    button.addEventListener("click", () => {
+      const code = pre.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        button.querySelector("span").innerText = "Copied!";
+        setTimeout(() => {
+          button.querySelector("span").innerText = "Copy";
+        }, 2000);
       });
     });
   });
+
+  const openBtn = document.getElementById("openSearchModal");
+  const closeBtn = document.getElementById("closeSearchModal");
+  const modal = document.getElementById("searchModal");
+
+  openBtn.addEventListener("click", () => {
+    console.log("Search modal opened");
+    modal.classList.remove("hidden");
+    document.getElementById("searchBox").focus();
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") modal.classList.add("hidden");
+  });
+
+  fetch("/index.json")
+    .then((res) => res.json())
+    .then((data) => {
+      const fuse = new Fuse(data, {
+        keys: ["title", "content"],
+        threshold: 0.3,
+      });
+
+      const searchBox = document.getElementById("searchBox");
+      const resultBox = document.getElementById("results");
+
+      searchBox.addEventListener("input", function (e) {
+        const query = e.target.value.trim();
+        if (query.length < 2) {
+          resultBox.innerHTML = "";
+          return;
+        }
+
+        const results = fuse.search(query);
+        if (results.length === 0) {
+          resultBox.innerHTML = "<li class='px-4 py-2'>No results found.</li>";
+        } else {
+          resultBox.innerHTML = results
+            .map(
+              (r) => `
+                    <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white">${r.item.title}</a>
+                  </li>
+                  `,
+            )
+            .join("");
+        }
+      });
+    });
+
+    const openBtnMobile = document.getElementById("openSearchModalMobile");
+    const closeBtnMobile = document.getElementById("closeSearchModal");
+    const modalMobile = document.getElementById("searchModal");
+
+    openBtnMobile.addEventListener("click", () => {
+      console.log("Search modal opened (mobile)");
+      modalMobile.classList.remove("hidden");
+      document.getElementById("searchBox").focus();
+    });
+    closeBtnMobile.addEventListener("click", () => {
+      modalMobile.classList.add("hidden");
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") modalMobile.classList.add("hidden");
+    });
 </script>
