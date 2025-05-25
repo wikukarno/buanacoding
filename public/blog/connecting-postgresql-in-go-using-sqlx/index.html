@@ -10,14 +10,10 @@
   
 
   
-  <title>Cara publish aplikasi laravel ke server hosting menggunakan git | Buana Coding</title>
+  <title> | Buana Coding</title>
 
   
-  <meta name="description" content="Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.
-Tentunya kita harus memiliki server untuk menyimpan file aplikasi kita supaya bisa di lihat oleh orang lain.
-Pada artikel sebelumnya kita telah mengetahui bagaimana cara menjalankan project laravel clone dari git untuk lebih jelas nya bisa di lihat disini.
-Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan git, sebenernya ada beberapa cara untuk upload aplikasi ke server, tapi kali ini saya akan menggunakan git terlebih dahulu.
-" />
+  <meta name="description" content="Buana Coding is your go-to resource for practical programming tutorials, tips, and tools. Learn web and app development, improve your coding skills, and boost your productivity as a developer." />
 
   
   
@@ -25,27 +21,19 @@ Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan gi
   
 
   
-  <link rel="canonical" href="http://localhost:1313/2023/04/cara-publish-aplikasi-laravel-ke-server.html" />
+  <link rel="canonical" href="http://localhost:1313/blog/connecting-postgresql-in-go-using-sqlx/" />
 
   
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Cara publish aplikasi laravel ke server hosting menggunakan git | Buana Coding" />
-  <meta property="og:description" content="Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.
-Tentunya kita harus memiliki server untuk menyimpan file aplikasi kita supaya bisa di lihat oleh orang lain.
-Pada artikel sebelumnya kita telah mengetahui bagaimana cara menjalankan project laravel clone dari git untuk lebih jelas nya bisa di lihat disini.
-Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan git, sebenernya ada beberapa cara untuk upload aplikasi ke server, tapi kali ini saya akan menggunakan git terlebih dahulu.
-" />
-  <meta property="og:url" content="http://localhost:1313/2023/04/cara-publish-aplikasi-laravel-ke-server.html" />
+  <meta property="og:title" content=" | Buana Coding" />
+  <meta property="og:description" content="Buana Coding is your go-to resource for practical programming tutorials, tips, and tools. Learn web and app development, improve your coding skills, and boost your productivity as a developer." />
+  <meta property="og:url" content="http://localhost:1313/blog/connecting-postgresql-in-go-using-sqlx/" />
   <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cara publish aplikasi laravel ke server hosting menggunakan git | Buana Coding" />
-  <meta name="twitter:description" content="Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.
-Tentunya kita harus memiliki server untuk menyimpan file aplikasi kita supaya bisa di lihat oleh orang lain.
-Pada artikel sebelumnya kita telah mengetahui bagaimana cara menjalankan project laravel clone dari git untuk lebih jelas nya bisa di lihat disini.
-Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan git, sebenernya ada beberapa cara untuk upload aplikasi ke server, tapi kali ini saya akan menggunakan git terlebih dahulu.
-" />
+  <meta name="twitter:title" content=" | Buana Coding" />
+  <meta name="twitter:description" content="Buana Coding is your go-to resource for practical programming tutorials, tips, and tools. Learn web and app development, improve your coding skills, and boost your productivity as a developer." />
   <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
 
   
@@ -220,42 +208,16 @@ Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan gi
       
         
         
-          <a href="/tags/76" class="hover:text-[#0f7ea9] font-medium">#76</a>
+          <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#blog</a>
         
       
     </nav>
 
 
-    <h1>Cara publish aplikasi laravel ke server hosting menggunakan git</h1>
+    <h1></h1>
 
     
-      <p>Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.</p>
-<p>Tentunya kita harus memiliki server untuk menyimpan file aplikasi kita supaya bisa di lihat oleh orang lain.</p>
-<p>Pada artikel sebelumnya kita telah mengetahui bagaimana cara menjalankan project laravel clone dari git untuk lebih jelas nya bisa di lihat <a href="https://www.buanacoding.com/blog/cara-menjalankan-project-laravel-clone.html">disini</a>.</p>
-<p>Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan git, sebenernya ada beberapa cara untuk upload aplikasi ke server, tapi kali ini saya akan menggunakan git terlebih dahulu.</p>
-<ol>
-<li>Siapkan Domain atau subdomain</li>
-</ol>
-<p>Siapkan terlebih dahulu domain atau subdomain untuk menyimpan file aplikasi, pada artikel ini saya menggunakan subdomain, namun jangan takut cara dan kegunaannya sama saja.</p>
-<ol start="2">
-<li>Clone project</li>
-</ol>
-<p>Clone project dari git pada direktori domain atau subdomain yang sudah kamu buat sebelumnya, tambah sepasi titik agar file aplikasi diletakan pada folder domain atau subdomain, jika bingung silahkan lihat gambar di bawah ini.</p>
-<p>Jika proses cloning sudah selesai, langkah selanjutnya adalah menginstal dependensi yang dibutuhkan menggunakan cara <a href="https://www.buanacoding.com/blog/cara-menjalankan-project-laravel-clone.html">ini</a>, atau bisa menggunakan cara dibawah ini.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">composer install
-</span></span></code></pre></div><p>composer install ini digunakan untuk menginstall semua package yang digunakan di dalam aplikasi, biasanya dependesi ini tercatat di file composer.json dan semua dependensi yang ada akan di install menggunakan perintah diatas.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp .env.example .env
-</span></span></code></pre></div><p>Perintah diatas digunakan untuk copy file .env.axample menjadi file .env dimana file ini nantinya di gunakan untuk setup key, nama database dan konfigurasi lainnya.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php artisan key:generate
-</span></span></code></pre></div><p>Perintah diatas digunakan untuk generate app key pada file .env.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php artisan config:cache
-</span></span></code></pre></div><p>Perintah diatas digunakan untuk clear config ata cache yang ada pada aplikasi laravel, perintah ini tambahan dari saya boleh dilakukan dan boleh juga tidak, karena hanya opsional.</p>
-<p>Namun biasanya pada saat clone project biasanya ada beberapa fitur yang belum berjalan semua karena masih ada cache dari aplikasi yang ita clone, dan ini pernah saya alami, jadi saya tambahkan perintah di atas.</p>
-<p>Jika sudah selesai menjalankan dan menginstall semua dependensi yang dibutuhkan sekarang coba akses domain atau subdomain yang kamu buat maka aplikasi sekarang sudah bisa di akses semua orang yeeayyy.</p>
-<p>Gimana mudahkan publish aplikasi ke server hosting, oiya kamu juga tinggal git pull dan git push saja kalau ada perubahan di komputer lokal.</p>
-<p>Kamu juga bisa langsung sinkronkan tanpa perlu ngoding di dalam hosting dengan cara git pull pada terminal hosting atau bisa menggunakan ssh.</p>
-<p>Silahkan share artikel ini keteman kamu yang membutuhkan, semoga bermanfaat&hellip;</p>
-
+      
 
     
     <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
