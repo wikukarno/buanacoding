@@ -8,6 +8,13 @@ title = "Buana Coding"
     noClasses = false
     style = "dracula"
 
+[params.giscus]
+  repo = "wikukarno/buanacoding"
+  repoID = "R_kgD0Oj4jAw"
+  category = "General"
+  categoryID = "DIC_kwD0Oj4jA84Cr_fx"
+
+
 # Tags taxonomy
 [taxonomies]
   tag = "tags"

@@ -4,6 +4,7 @@ date: 2023-04-09
 description: "Learn about Buana Coding's mission to share programming knowledge, tips, and tech insights for aspiring developers."
 keywords: ["about", "buana coding", "programming", "developer", "tech", "learn coding"]
 draft: false
+disable_comments: true
 ---
 
 **buanacoding.com** is a website dedicated to sharing tips, tricks, and insights about coding. It serves as a platform to exchange knowledge and personal experiences in the world of programming.

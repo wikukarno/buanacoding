@@ -4,6 +4,7 @@ date: 2023-04-09
 description: "Disclaimer for Buana Coding — Learn more about our responsibility and external links policy."
 keywords: ["disclaimer", "terms", "responsibility", "external links"]
 draft: false
+disable_comments: true
 ---
 If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at hi@wikukarno.com
 

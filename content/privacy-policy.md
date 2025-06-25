@@ -4,6 +4,7 @@ date: 2023-04-09
 description: "Learn about Buana Coding's privacy policy regarding the collection and use of personal information."
 keywords: ["privacy policy", "buana coding", "data protection", "cookies"]
 draft: false
+disable_comments: true
 ---
 
 At **BuanaCoding**, accessible from [https://www.buanacoding.com](https://www.buanacoding.com), one of our main priorities is the privacy of our visitors. This Privacy Policy document contains the types of information that are collected and recorded by BuanaCoding and how we use it.

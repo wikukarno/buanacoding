@@ -12,6 +12,10 @@ TAILWIND_CMD=./bin/tailwindcss
 dev:
 	hugo server -D
 
+dev-watch:
+	@echo "Running Hugo and Tailwind watcher..."
+	@make -j2 dev css
+
 ## Run Hugo dev server with --disableFastRender (useful when updating partials/layouts)
 dev-full:
 	hugo server -D --disableFastRender
