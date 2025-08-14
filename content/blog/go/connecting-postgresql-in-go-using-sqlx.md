@@ -6,7 +6,7 @@ url: /2025/05/connecting-postgresql-in-go-using-sqlx.html
 tags:
     - Go
 description: "Learn how to connect to PostgreSQL in Go using the sqlx library. This guide covers installation, basic queries, and best practices for working with PostgreSQL in Go applications."
-keywords: "Go, PostgreSQL, sqlx, database connection, Go database library"
+keywords: ["Go", "PostgreSQL", "sqlx", "database connection", "Go database library"]
 ---
 
 In modern web applications, storing and retrieving data from a database is a fundamental requirement. Go provides a low-level database/sql package, but using it directly can be verbose and repetitive. Thankfully, sqlx extends database/sql by adding useful features like struct scanning and named queries, making database operations in Go much easier.

@@ -4,9 +4,9 @@ date: 2025-05-18T10:00:00+07:00
 draft: false
 url: /2025/05/structuring-go-projects-clean-architecture.html
 tags:
-    - go
+    - Go
 description: "Learn how to structure your Go projects effectively with best practices and clean architecture principles. Discover the ideal directory structure, package organization, and tips for maintainable code."
-keywords: "Go, project structure, clean architecture, best practices, Go modules"
+keywords: ["Go", "project structure", "clean architecture", "best practices", "Go modules"]
 ---
 
 When you start building larger applications in Go, having a clean and maintainable project structure is essential. Unlike some other languages or frameworks that enforce certain patterns, Go gives you a lot of freedom in how you organize your code. While this is powerful, it can also lead to messy projects if not handled carefully.

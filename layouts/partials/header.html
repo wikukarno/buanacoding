@@ -8,13 +8,34 @@
     <nav
       class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"
     >
-      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-      <a
-        href="/tags/{{ $name | urlize }}"
-        class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-      >
-        {{ $name }}
-      </a>
+      {{/* Prefer an explicit allowlist from params.navTags; fallback to top tags */}}
+      {{ $navTags := .Site.Params.navTags }}
+      {{ if $navTags }}
+        {{ range $tag := $navTags }}
+          {{ $key := lower $tag }}
+          {{ with (index $.Site.Taxonomies.tags $key) }}
+            <a
+              href="/tags/{{ $key | urlize }}"
+              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+            >
+              {{ $tag }}
+            </a>
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        {{/* Show up to 6 tags that have at least 2 posts */}}
+        {{ $.Scratch.Set "shown" 0 }}
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+          {{ if and (ge (len $taxonomy) 2) (lt ($.Scratch.Get "shown") 6) }}
+            <a
+              href="/tags/{{ $name | urlize }}"
+              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+            >
+              {{ $name }}
+            </a>
+            {{ $.Scratch.Add "shown" 1 }}
+          {{ end }}
+        {{ end }}
       {{ end }}
 
       <!-- 🔍 Search Icon Button (dipindah ke dalam nav) -->
@@ -46,13 +67,32 @@
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
-    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-    <a
-      href="/tags/{{ $name | urlize }}"
-      class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-    >
-      {{ $name }}
-    </a>
+    {{ $navTags := .Site.Params.navTags }}
+    {{ if $navTags }}
+      {{ range $tag := $navTags }}
+        {{ $key := lower $tag }}
+        {{ with (index $.Site.Taxonomies.tags $key) }}
+        <a
+          href="/tags/{{ $key | urlize }}"
+          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+        >
+          {{ $tag }}
+        </a>
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ $.Scratch.Set "shown" 0 }}
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        {{ if and (ge (len $taxonomy) 2) (lt ($.Scratch.Get "shown") 6) }}
+        <a
+          href="/tags/{{ $name | urlize }}"
+          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+        >
+          {{ $name }}
+        </a>
+        {{ $.Scratch.Add "shown" 1 }}
+        {{ end }}
+      {{ end }}
     {{ end }}
 
     <div class="flex flex-col items-start gap-4 mt-2">

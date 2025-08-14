@@ -5,6 +5,8 @@ draft: false
 url: /2025/04/benchmarking-in-go-measuring.html
 tags: 
 - Go
+description: "Learn how to benchmark Go code using the testing package: writing benchmarks, interpreting results, controlling timers, and best practices."
+keywords: ["Go", "benchmark", "testing.B", "performance", "go test", "optimization"]
 ---
 
 Benchmarking is the process of measuring the performance of code. In Go, benchmarking is built into the standard `testing` package, making it easy to test how fast your functions run. Whether you're comparing two algorithms, optimizing critical sections of code, or experimenting with concurrency, benchmarking helps you make informed decisions.

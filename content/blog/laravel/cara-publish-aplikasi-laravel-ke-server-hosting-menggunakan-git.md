@@ -3,7 +3,10 @@ title: 'Cara publish aplikasi laravel ke server hosting menggunakan git'
 date: 2023-04-23T14:19:00.001+07:00
 draft: true
 url: /2023/04/cara-publish-aplikasi-laravel-ke-server.html
-tags: Laravel
+tags:
+  - Laravel
+description: "Panduan langkah demi langkah mem-publish aplikasi Laravel ke server hosting menggunakan Git: clone, install dependencies, konfigurasi .env, dan deploy."
+keywords: ["laravel", "deploy laravel", "publish laravel", "git deploy", "hosting laravel"]
 ---
 
 Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.

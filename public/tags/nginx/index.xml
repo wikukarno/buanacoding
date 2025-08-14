@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on Buana Coding</title>
+    <link>http://localhost:1313/tags/nginx/</link>
+    <description>Recent content in Nginx on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 14 Aug 2025 11:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</title>
+      <link>http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</link>
+      <pubDate>Thu, 14 Aug 2025 11:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</guid>
+      <description>&lt;p&gt;Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration.&lt;/p&gt;&#xA;&lt;p&gt;What you’ll do&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Point your domain to your server via DNS (A/AAAA records)&lt;/li&gt;&#xA;&lt;li&gt;Install Nginx from Ubuntu repositories&lt;/li&gt;&#xA;&lt;li&gt;Allow HTTP/HTTPS through the firewall&lt;/li&gt;&#xA;&lt;li&gt;Install Certbot and issue a Let’s Encrypt certificate&lt;/li&gt;&#xA;&lt;li&gt;Auto-renew the certificate and verify renewal&lt;/li&gt;&#xA;&lt;li&gt;Redirect HTTP to HTTPS and harden TLS settings&lt;/li&gt;&#xA;&lt;li&gt;Test, troubleshoot, and (optionally) revoke/uninstall&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Prerequisites&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

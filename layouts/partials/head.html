@@ -22,7 +22,11 @@
   <link rel="canonical" href="{{ .Permalink }}" />
 
   <!-- Open Graph / Facebook -->
+  {{ if and .IsPage (eq .Section "blog") }}
+  <meta property="og:type" content="article" />
+  {{ else }}
   <meta property="og:type" content="website" />
+  {{ end }}
   <meta property="og:title" content="{{ $title }}" />
   <meta property="og:description" content="{{ $desc | plainify }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
@@ -34,13 +38,43 @@
   <meta name="twitter:description" content="{{ $desc | plainify }}" />
   <meta name="twitter:image" content="{{ $image }}" />
 
+  {{/* Structured Data: JSON-LD for blog posts */}}
+  {{ if and .IsPage (eq .Section "blog") }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ $title | plainify }}",
+    "description": "{{ $desc | plainify }}",
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ .Site.Params.author }}"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
+    },
+    "image": "{{ $image }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}"
+    }
+  }
+  </script>
+  {{ end }}
+
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
   <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dracula.min.css">
   <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/css/overrides.css" />
   <link rel="stylesheet" href="/css/syntax.css" />
 
   <!-- Google tag (gtag.js) -->
