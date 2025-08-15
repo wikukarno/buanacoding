@@ -1,811 +1,147 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  
-  
-  
-  
-
-  
-  <title>Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding</title>
-
-  
-  <meta name="description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting." />
-
-  
-  
-    <meta name="keywords" content="ubuntu 24.04, nginx, certbot, let&#39;s encrypt, https, ssl, tls, ubuntu nginx ssl" />
-  
-
-  
-  <link rel="canonical" href="http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" />
-
-  
-  
-  <meta property="og:type" content="article" />
-  
-  <meta property="og:title" content="Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding" />
-  <meta property="og:description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting." />
-  <meta property="og:url" content="http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" />
-  <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
-
-  
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding" />
-  <meta name="twitter:description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting." />
-  <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
-
-  
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Nginx \u002b Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding",
-    "description": "Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting.",
-    "datePublished": "2025-08-14T11:00:00\u002b07:00",
-    "dateModified": "2025-08-14T11:00:00\u002b07:00",
-    "author": {
-      "@type": "Person",
-      "name": "Wiku Karno"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "http:\/\/localhost:1313\/2025\/08\/nginx-certbot-ubuntu-24-04-free-https.html"
-    },
-    "image": "https:\/\/www.buanacoding.com\/images\/og-image.jpg",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Buana Coding"
-    }
-  }
-  </script>
-  
-
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dracula.min.css">
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="/css/overrides.css" />
-  <link rel="stylesheet" href="/css/syntax.css" />
-
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EN9J73FXF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0EN9J73FXF');
-</script>
-
-
-<script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149036684216973"></script>
-
-</head>
-
-  <body
-    class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col"
-  >
-    
-    <header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-extrabold tracking-wide">
-      <a href="/" class="hover:opacity-90">BUANACODING</a>
-    </h1>
-
-    
-    <nav
-      class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"
-    >
-      
-      
-      
-        
-          
-          
-            <a
-              href="/tags/go"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Go
-            </a>
-          
-        
-          
-          
-            <a
-              href="/tags/laravel"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Laravel
-            </a>
-          
-        
-          
-          
-            <a
-              href="/tags/linux"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Linux
-            </a>
-          
-        
-      
-
-      
-      <button
-        id="openSearchModal"
-        class="text-white transition duration-300 cursor-pointer focus:outline-none dark:hover:text-[#0f7ea9] hover:text-cyan-300"
-        aria-label="Search"
-      >
-        <i data-feather="search" class="w-5 h-5"></i>
-      </button>
-
-      
-      <button
-        id="theme-toggle"
-        class="ml-2 text-white hover:text-yellow-300 transition duration-300 focus:outline-none cursor-pointer"
-        aria-label="Toggle Dark Mode"
-      >
-        
-        <i id="icon-sun" data-feather="sun" class="w-5 h-5 hidden"></i>
-        <i id="icon-moon" data-feather="moon" class="w-5 h-5"></i>
-      </button>
-    </nav>
-
-    
-    <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
-      ☰
-    </button>
-  </div>
-
-  
-  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
-    
-    
-      
-        
-        
-        <a
-          href="/tags/go"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Go
-        </a>
-        
-      
-        
-        
-        <a
-          href="/tags/laravel"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Laravel
-        </a>
-        
-      
-        
-        
-        <a
-          href="/tags/linux"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Linux
-        </a>
-        
-      
-    
-
-    <div class="flex flex-col items-start gap-4 mt-2">
-      
-      <button
-        id="openSearchModalMobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
-        aria-label="Search"
-      >
-        <i data-feather="search" class="w-5 h-5"></i>
-      </button>
-
-      
-      <button
-        id="theme-toggle-mobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
-        aria-label="Toggle Dark Mode"
-      >
-        <i id="icon-sun-mobile" data-feather="sun" class="w-5 h-5 hidden"></i>
-        <i id="icon-moon-mobile" data-feather="moon" class="w-5 h-5"></i>
-      </button>
-    </div>
-  </div>
-</header>
-
-
-<div
-  id="searchModal"
-  class="fixed inset-0 z-50 hidden flex justify-center items-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4"
->
-  <div
-    class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl w-full max-w-xl p-6 relative"
-  >
-    
-    <button
-      id="closeSearchModal"
-      class="absolute -top-4 -right-4 bg-white dark:bg-[#374151] rounded-full p-1 shadow hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-200 ease-in-out transform hover:scale-110"
-    >
-      <i
-        data-feather="x"
-        class="w-5 h-5 text-gray-600 dark:text-white hover:text-red-500"
-      ></i>
-    </button>
-
-    
-    <input
-      type="text"
-      id="searchBox"
-      placeholder="Search articles..."
-      class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
-    />
-
-    
-    <ul
-      id="results"
-      class="bg-white dark:bg-[#1f2937] rounded-lg shadow max-h-60 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-600"
-    ></ul>
-  </div>
-</div>
-
-
-    
-    <main class="flex-1 w-full">
-      <div class="max-w-7xl mx-auto py-8 px-4">
-        
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8">
-  
-  <article class="prose prose-blue dark:prose-invert lg:col-span-2">
-    <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-      <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
-      <span class="mx-2">/</span>
-      
-        
-        
-          <a href="/tags/linux" class="hover:text-[#0f7ea9] font-medium">#Linux</a>
-        
-      
-    </nav>
-
-
-    <h1>Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</h1>
-
-    
-      <p>Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: /2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</p>
-<p>What you’ll do</p>
-<ul>
-<li>Point your domain to your server via DNS (A/AAAA records)</li>
-<li>Install Nginx from Ubuntu repositories</li>
-<li>Allow HTTP/HTTPS through the firewall</li>
-<li>Install Certbot and issue a Let’s Encrypt certificate</li>
-<li>Auto-renew the certificate and verify renewal</li>
-<li>Redirect HTTP to HTTPS and harden TLS settings</li>
-<li>Test, troubleshoot, and (optionally) revoke/uninstall</li>
-</ul>
-<p>Prerequisites</p>
-<ul>
-<li>Ubuntu 24.04 LTS (Noble) with sudo access</li>
-<li>A domain name (e.g., example.com) you control</li>
-<li>DNS A/AAAA records pointing to your server’s public IP</li>
-</ul>
-<ol>
-<li>Configure DNS
-Make sure your domain points to your server. At your DNS provider, set:</li>
-</ol>
-<ul>
-<li>A record: example.com → YOUR_IPV4</li>
-<li>AAAA record: example.com → YOUR_IPV6 (optional)</li>
-<li>Optional: wildcard or subdomain records (e.g., <a href="https://www.example.com">www.example.com</a>)</li>
-</ul>
-<p>Propagation can take minutes to hours. You can check resolution with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig +short example.com
-</span></span><span class="line"><span class="cl">dig +short www.example.com
-</span></span></code></pre></div><ol start="2">
-<li>Install Nginx</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install -y nginx
-</span></span></code></pre></div><p>Validate Nginx is running:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl status nginx --no-pager
-</span></span></code></pre></div><p>Open your server’s IP in a browser; you should see the default Nginx welcome page.</p>
-<ol start="3">
-<li>Open the firewall (UFW)
-If UFW is enabled, allow Nginx traffic:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw allow <span class="s1">&#39;Nginx Full&#39;</span>   <span class="c1"># opens 80/tcp and 443/tcp</span>
-</span></span><span class="line"><span class="cl">sudo ufw status
-</span></span></code></pre></div><p>If UFW is disabled, you can skip this step. For cloud providers, also ensure security groups allow ports 80 and 443.</p>
-<ol start="4">
-<li>Create a basic server block (optional but recommended)
-By default, Nginx serves the default site. Create a server block for your domain to keep things organized:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir -p /var/www/example.com/html
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;&lt;h1&gt;It works!&lt;/h1&gt;&#39;</span> <span class="p">|</span> sudo tee /var/www/example.com/html/index.html &gt; /dev/null
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo tee /etc/nginx/sites-available/example.com &gt;/dev/null <span class="s">&lt;&lt;&#39;NGINX&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s">server {
-</span></span></span><span class="line"><span class="cl"><span class="s">    listen 80;
-</span></span></span><span class="line"><span class="cl"><span class="s">    listen [::]:80;
-</span></span></span><span class="line"><span class="cl"><span class="s">    server_name example.com www.example.com;
-</span></span></span><span class="line"><span class="cl"><span class="s">    root /var/www/example.com/html;
-</span></span></span><span class="line"><span class="cl"><span class="s">    index index.html;
-</span></span></span><span class="line"><span class="cl"><span class="s">    location / {
-</span></span></span><span class="line"><span class="cl"><span class="s">        try_files $uri $uri/ =404;
-</span></span></span><span class="line"><span class="cl"><span class="s">    }
-</span></span></span><span class="line"><span class="cl"><span class="s">}
-</span></span></span><span class="line"><span class="cl"><span class="s">NGINX</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
-</span></span><span class="line"><span class="cl">sudo nginx -t <span class="o">&amp;&amp;</span> sudo systemctl reload nginx
-</span></span></code></pre></div><p>Visit <a href="http://example.com">http://example.com</a> to confirm it serves your content.</p>
-<ol start="5">
-<li>Install Certbot (recommended via snap)
-The Certbot team recommends snap for the latest version.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -y snapd
-</span></span><span class="line"><span class="cl">sudo snap install core<span class="p">;</span> sudo snap refresh core
-</span></span><span class="line"><span class="cl">sudo snap install --classic certbot
-</span></span><span class="line"><span class="cl">sudo ln -s /snap/bin/certbot /usr/bin/certbot <span class="o">||</span> <span class="nb">true</span>
-</span></span></code></pre></div><ol start="6">
-<li>Obtain and install a certificate (Nginx plugin)
-Use the Nginx plugin to edit config and reload automatically:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot --nginx -d example.com -d www.example.com
-</span></span></code></pre></div><p>Follow the prompts (email, ToS). Choose the redirect option when asked so HTTP automatically redirects to HTTPS.</p>
-<p>Alternative: Webroot method (if you prefer manual control)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot certonly --webroot -w /var/www/example.com/html -d example.com -d www.example.com
-</span></span></code></pre></div><p>If you used webroot, add SSL directives to your server block and reload Nginx (see step 8 for TLS settings).</p>
-<ol start="7">
-<li>Auto-renewal
-Snap installs a systemd timer for Certbot. Verify it:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl list-timers <span class="p">|</span> grep certbot
-</span></span><span class="line"><span class="cl">sudo certbot renew --dry-run
-</span></span></code></pre></div><p>Dry-run should complete without errors. Certificates renew automatically ~30 days before expiry.</p>
-<ol start="8">
-<li>Force HTTP→HTTPS and apply TLS best practices
-If you didn’t choose the redirect option during Certbot run or you used webroot, update your Nginx config. A sane baseline (based on Mozilla’s “intermediate” profile) is:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">example.com</span> <span class="s">www.example.com</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">example.com</span> <span class="s">www.example.com</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">root</span> <span class="s">/var/www/example.com/html</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/example.com/fullchain.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/example.com/privkey.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_session_timeout</span> <span class="s">1d</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_session_cache</span> <span class="s">shared:SSL:10m</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_session_tickets</span> <span class="no">off</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_protocols</span> <span class="s">TLSv1.2</span> <span class="s">TLSv1.3</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_ciphers</span> <span class="s">&#39;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">off</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">Strict-Transport-Security</span> <span class="s">&#34;max-age=31536000</span><span class="p">;</span> <span class="kn">includeSubDomains</span><span class="p">;</span> <span class="kn">preload&#34;</span> <span class="s">always</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">X-Content-Type-Options</span> <span class="s">nosniff</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">DENY</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">Referrer-Policy</span> <span class="s">no-referrer-when-downgrade</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Then test and reload:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nginx -t <span class="o">&amp;&amp;</span> sudo systemctl reload nginx
-</span></span></code></pre></div><p>Use SSL Labs (Qualys) to analyze: <a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a></p>
-<p>Canonical redirect (optional)
-If you want to force a single hostname (e.g., redirect www→apex), add a dedicated server block:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">www.example.com</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/example.com/fullchain.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/example.com/privkey.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://example.com</span><span class="nv">$request_uri</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>OCSP stapling (recommended)
-Reduce TLS handshake latency and improve scores with OCSP stapling:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">ssl_stapling</span> <span class="no">on</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">ssl_stapling_verify</span> <span class="no">on</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">ssl_trusted_certificate</span> <span class="s">/etc/letsencrypt/live/example.com/chain.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">resolver</span> <span class="n">1.1.1.1</span> <span class="n">1.0.0.1</span> <span class="s">valid=300s</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">resolver_timeout</span> <span class="s">5s</span><span class="p">;</span>
-</span></span></code></pre></div><p>Place these inside the TLS server block (port 443) after your <code>ssl_certificate</code> lines.</p>
-<p>Compression (performance)
-Enable gzip (widely available) for text assets:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">gzip</span> <span class="no">on</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_comp_level</span> <span class="mi">5</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_min_length</span> <span class="mi">256</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_types</span> <span class="s">text/plain</span> <span class="s">text/css</span> <span class="s">application/json</span> <span class="s">application/javascript</span> <span class="s">text/xml</span> <span class="s">application/xml</span> <span class="s">application/xml+rss</span> <span class="s">text/javascript</span> <span class="s">image/svg+xml</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_vary</span> <span class="no">on</span><span class="p">;</span>
-</span></span></code></pre></div><p>Note: Brotli offers better compression but may not be compiled by default in Ubuntu’s Nginx. If you install a Brotli-enabled build, you can use:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="c1"># brotli on;
-</span></span></span><span class="line"><span class="cl"><span class="c1"># brotli_comp_level 5;
-</span></span></span><span class="line"><span class="cl"><span class="c1"># brotli_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;
-</span></span></span></code></pre></div><ol start="9">
-<li>Test your HTTPS setup</li>
-</ol>
-<ul>
-<li>Browser: go to <a href="https://example.com">https://example.com</a> and inspect the lock icon</li>
-<li>CLI: <code>curl -I https://example.com</code> should return <code>HTTP/2 200</code> (or 301 → 200 if redirecting from www)</li>
-<li>Check Nginx logs: <code>/var/log/nginx/access.log</code> and <code>/var/log/nginx/error.log</code></li>
-</ul>
-<p>Troubleshooting</p>
-<ul>
-<li>DNS/Challenge failed: Ensure your A/AAAA records point to this server and port 80 is reachable from the internet. Temporarily disable any reverse proxy or CDN during issuance.</li>
-<li>Firewall blocks: Open ports 80 and 443 in UFW/security groups. <code>nc -vz your.ip 80</code> from an external host can help verify reachability.</li>
-<li>Nginx conflicts: Run <code>sudo nginx -t</code> to find syntax errors or duplicated server_name blocks.</li>
-<li>Rate limits: Let’s Encrypt enforces rate limits. Use <code>--dry-run</code> for testing or wait before re-issuing.</li>
-<li>Webroot path mismatch: If using <code>--webroot</code>, ensure the <code>-w</code> path matches your server root and that Nginx serves <code>/.well-known/acme-challenge/</code>.</li>
-<li>Apt update/upgrade errors when installing snap/certbot
-<ul>
-<li>Lihat: How to fix broken update error in Linux (Terminal) → /2023/11/how-to-fix-broken-update-error-in-linux.html</li>
-</ul>
-</li>
-</ul>
-<p>Multiple sites tip</p>
-<ul>
-<li>Untuk beberapa domain, buat satu file di <code>sites-available/</code> per domain. Hindari overlap <code>server_name</code> agar Certbot dan Nginx bisa memilih blok yang tepat.</li>
-</ul>
-<p>Renewal and maintenance tips</p>
-<ul>
-<li>Certificates renew automatically; review logs in <code>/var/log/letsencrypt/</code>.</li>
-<li>After major Nginx changes, run <code>sudo certbot renew --dry-run</code> to confirm hooks still work.</li>
-<li>Consider enabling OCSP stapling and caching for further optimization if you terminate high traffic.</li>
-</ul>
-<p>Revoke or uninstall (if needed)
-Revoke a cert (compromised key or domain transfer):</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot revoke --cert-path /etc/letsencrypt/live/example.com/fullchain.pem
-</span></span></code></pre></div><p>Remove cert files:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot delete --cert-name example.com
-</span></span></code></pre></div><p>Remove Certbot (snap) and Nginx:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo snap remove certbot
-</span></span><span class="line"><span class="cl">sudo apt purge -y nginx* <span class="o">&amp;&amp;</span> sudo apt autoremove -y
-</span></span></code></pre></div><p>That’s it—your site now serves a trusted HTTPS certificate with automatic renewal on Ubuntu 24.04. Enjoy the speed and security of Nginx + Let’s Encrypt!</p>
-
-
-    
-    <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
-      <h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2>
-      <ul class="list-disc list-inside">
-        
-        <li>
-          <a
-            href="/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a
-          >
-        </li>
-        
-        <li>
-          <a
-            href="/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a
-          >
-        </li>
-        
-        <li>
-          <a
-            href="/2025/05/connecting-postgresql-in-go-using-sqlx.html"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Connecting to PostgreSQL in Go using sqlx</a
-          >
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    
-  </article>
-
-  
-  <aside class="space-y-10">
-    
-    <div>
-      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-        Popular Post
-      </h3>
-      <ul
-        class="space-y-3 list-disc list-inside text-sm text-gray-800 dark:text-gray-200"
-      >
-        
-        <li>
-          <a href="/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" class="hover:text-[#0f7ea9] transition"
-            >Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html" class="hover:text-[#0f7ea9] transition"
-            >Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/05/connecting-postgresql-in-go-using-sqlx.html" class="hover:text-[#0f7ea9] transition"
-            >Connecting to PostgreSQL in Go using sqlx</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/05/structuring-go-projects-clean-architecture.html" class="hover:text-[#0f7ea9] transition"
-            >Structuring Go Projects: Clean Project Structure and Best Practices</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/05/how-to-build-rest-api-in-go-using-net-http.html" class="hover:text-[#0f7ea9] transition"
-            >How to Build a REST API in Go using net/http</a
-          >
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    
-  </aside>
-</div>
-
-
-<section id="comments" class="mt-12">
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="wikukarno/buanacoding"
-    data-repo-id="R_kgD0Oj4jAw"
-    data-category="General"
-    data-category-id="DIC_kwD0Oj4jA84Cr_fx"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async
-  ></script>
-</section>
-
-
-
-      </div>
-    </main>
-
-    
-<div class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-4 transition-colors duration-300">
-  <div class="text-center space-x-4 text-sm font-medium">
-    <a href="/about" class="hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
-    <span>-</span>
-    <a href="/contact" class="hover:text-cyan-500 dark:hover:text-cyan-400">Contact</a>
-    <span>-</span>
-    <a href="/privacy-policy" class="hover:text-cyan-500 dark:hover:text-cyan-400">Privacy Policy</a>
-    <span>-</span>
-    <a href="/disclaimer" class="hover:text-cyan-500 dark:hover:text-cyan-400">Disclaimer</a>
-  </div>
-</div>
-
-
-<footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-4 border-t border-gray-200 dark:border-gray-700">
-  &copy; 2025 buanacoding.com &mdash; Crafted with ❤️ by <a href="https://www.wikukarno.com" class="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400" target="_blank">
-    Wiku Karno
-  </a>
-</footer>
-
-
-
-    
-<button
-  id="scrollToTop"
-  class="fixed bottom-6 right-6 bg-[#0f7ea9] hover:bg-cyan-600 text-white p-3 rounded-full shadow transition duration-300"
-  aria-label="Scroll to top"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    class="w-4 h-4"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M5 15l7-7 7 7"
-    />
-  </svg>
+<!doctype html><html lang=en data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding</title><meta name=description content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."><meta name=keywords content="ubuntu 24.04,nginx,certbot,let's encrypt,https,ssl,tls,ubuntu nginx ssl"><link rel=canonical href=https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html><meta property="og:type" content="article"><meta property="og:title" content="Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding"><meta property="og:description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."><meta property="og:url" content="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"><meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding"><meta name=twitter:description content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."><meta name=twitter:image content="https://www.buanacoding.com/images/og-image.jpg"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nginx \u002b Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding","description":"Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting.","datePublished":"2025-08-15T10:00:00\u002b07:00","dateModified":"2025-08-15T10:00:00\u002b07:00","author":{"@type":"Person","name":"Wiku Karno"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.buanacoding.com\/2025\/08\/nginx-certbot-ubuntu-24-04-free-https.html"},"image":"https:\/\/www.buanacoding.com\/images\/og-image.jpg","publisher":{"@type":"Organization","name":"Buana Coding"}}</script><link rel=icon href=/favicon.ico type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dracula.min.css><link rel=stylesheet href=/style.css><link rel=stylesheet href=/css/overrides.css><link rel=stylesheet href=/css/syntax.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EN9J73FXF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-0EN9J73FXF")</script><script async crossorigin=anonymous src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149036684216973"></script></head><body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col"><header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow"><div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"><h1 class="text-2xl font-extrabold tracking-wide"><a href=/ class=hover:opacity-90>BUANACODING</a></h1><nav class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"><a href=/tags/go class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Go
+</a><a href=/tags/laravel class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Laravel
+</a><a href=/tags/linux class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Linux
+</a><button id=openSearchModal class="text-white transition duration-300 cursor-pointer focus:outline-none dark:hover:text-[#0f7ea9] hover:text-cyan-300" aria-label=Search>
+<i data-feather=search class="w-5 h-5"></i>
 </button>
-
-
-    <script src="https://unpkg.com/feather-icons"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
-
-<script>
-  feather.replace();
-  const btn = document.getElementById("scrollToTop");
-  const html = document.documentElement;
-  const toggleBtn = document.getElementById("theme-toggle");
-  const toggleBtnMobile = document.getElementById("theme-toggle-mobile");
-  const iconSun = document.getElementById("icon-sun");
-  const iconMoon = document.getElementById("icon-moon");
-  const iconSunMobile = document.getElementById("icon-sun-mobile");
-  const iconMoonMobile = document.getElementById("icon-moon-mobile");
-
-  document.getElementById("menu-toggle")?.addEventListener("click", () => {
-    document.getElementById("mobile-menu")?.classList.toggle("hidden");
-  });
-
-  btn.style.display = "none";
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      btn.style.display = "flex";
-    } else {
-      btn.style.display = "none";
-    }
-  });
-
-  btn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  function updateIcons(isDark) {
-    iconSun.classList.toggle("hidden", !isDark);
-    iconMoon.classList.toggle("hidden", isDark);
-    iconSunMobile.classList.toggle("hidden", !isDark);
-    iconMoonMobile.classList.toggle("hidden", isDark);
-  }
-
-  function setDarkMode(isDark) {
-    html.setAttribute("data-theme", isDark ? "dark" : "light");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    updateIcons(isDark);
-  }
-
-  const userPref = localStorage.getItem("theme");
-  const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const isDark = userPref === "dark" || (!userPref && systemPref);
-  setDarkMode(isDark);
-
-  toggleBtn?.addEventListener("click", () => {
-    const currentlyDark = html.getAttribute("data-theme") === "dark";
-    setDarkMode(!currentlyDark);
-  });
-  toggleBtnMobile?.addEventListener("click", () => {
-    const currentlyDark = html.getAttribute("data-theme") === "dark";
-    setDarkMode(!currentlyDark);
-  });
-
-  document.querySelectorAll("pre").forEach((pre) => {
-    const button = document.createElement("button");
-    button.innerHTML = `
+<button id=theme-toggle class="ml-2 text-white hover:text-yellow-300 transition duration-300 focus:outline-none cursor-pointer" aria-label="Toggle Dark Mode">
+<i id=icon-sun data-feather=sun class="w-5 h-5 hidden"></i>
+<i id=icon-moon data-feather=moon class="w-5 h-5"></i></button></nav><button id=menu-toggle class="md:hidden text-2xl focus:outline-none">
+☰</button></div><div id=mobile-menu class="hidden md:hidden px-4 pb-4 space-y-2"><a href=/tags/go class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Go
+</a><a href=/tags/laravel class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Laravel
+</a><a href=/tags/linux class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Linux</a><div class="flex flex-col items-start gap-4 mt-2"><button id=openSearchModalMobile class="text-white hover:text-[#0f7ea9] transition duration-300" aria-label=Search>
+<i data-feather=search class="w-5 h-5"></i>
+</button>
+<button id=theme-toggle-mobile class="text-white hover:text-[#0f7ea9] transition duration-300" aria-label="Toggle Dark Mode">
+<i id=icon-sun-mobile data-feather=sun class="w-5 h-5 hidden"></i>
+<i id=icon-moon-mobile data-feather=moon class="w-5 h-5"></i></button></div></div></header><div id=searchModal class="fixed inset-0 z-50 hidden flex justify-center items-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4"><div class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl w-full max-w-xl p-6 relative"><button id=closeSearchModal class="absolute -top-4 -right-4 bg-white dark:bg-[#374151] rounded-full p-1 shadow hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-200 ease-in-out transform hover:scale-110">
+<i data-feather=x class="w-5 h-5 text-gray-600 dark:text-white hover:text-red-500"></i>
+</button>
+<input type=text id=searchBox placeholder="Search articles..." class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"><ul id=results class="bg-white dark:bg-[#1f2937] rounded-lg shadow max-h-60 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-600"></ul></div></div><main class="flex-1 w-full"><div class="max-w-7xl mx-auto py-8 px-4"><div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8"><article class="prose prose-blue dark:prose-invert lg:col-span-2"><nav class="text-sm text-gray-500 dark:text-gray-400 mb-4"><a href=/ class="hover:text-[#0f7ea9] font-medium">Home</a>
+<span class=mx-2>/</span>
+<a href=/tags/linux class="hover:text-[#0f7ea9] font-medium">#Linux</a></nav><h1>Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</h1><p>Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: /2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</p><p>What you’ll do</p><ul><li>Point your domain to your server via DNS (A/AAAA records)</li><li>Install Nginx from Ubuntu repositories</li><li>Allow HTTP/HTTPS through the firewall</li><li>Install Certbot and issue a Let’s Encrypt certificate</li><li>Auto-renew the certificate and verify renewal</li><li>Redirect HTTP to HTTPS and harden TLS settings</li><li>Test, troubleshoot, and (optionally) revoke/uninstall</li></ul><p>Prerequisites</p><ul><li>Ubuntu 24.04 LTS (Noble) with sudo access</li><li>A domain name (e.g., example.com) you control</li><li>DNS A/AAAA records pointing to your server’s public IP</li></ul><ol><li>Configure DNS
+Make sure your domain points to your server. At your DNS provider, set:</li></ol><ul><li>A record: example.com → YOUR_IPV4</li><li>AAAA record: example.com → YOUR_IPV6 (optional)</li><li>Optional: wildcard or subdomain records (e.g., <a href=https://www.example.com>www.example.com</a>)</li></ul><p>Propagation can take minutes to hours. You can check resolution with:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>dig +short example.com
+</span></span><span class=line><span class=cl>dig +short www.example.com
+</span></span></code></pre></div><ol start=2><li>Install Nginx</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>sudo apt install -y nginx
+</span></span></code></pre></div><p>Validate Nginx is running:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>systemctl status nginx --no-pager
+</span></span></code></pre></div><p>Open your server’s IP in a browser; you should see the default Nginx welcome page.</p><ol start=3><li>Open the firewall (UFW)
+If UFW is enabled, allow Nginx traffic:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ufw allow <span class=s1>&#39;Nginx Full&#39;</span>   <span class=c1># opens 80/tcp and 443/tcp</span>
+</span></span><span class=line><span class=cl>sudo ufw status
+</span></span></code></pre></div><p>If UFW is disabled, you can skip this step. For cloud providers, also ensure security groups allow ports 80 and 443.</p><ol start=4><li>Create a basic server block (optional but recommended)
+By default, Nginx serves the default site. Create a server block for your domain to keep things organized:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo mkdir -p /var/www/example.com/html
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;&lt;h1&gt;It works!&lt;/h1&gt;&#39;</span> <span class=p>|</span> sudo tee /var/www/example.com/html/index.html &gt; /dev/null
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo tee /etc/nginx/sites-available/example.com &gt;/dev/null <span class=s>&lt;&lt;&#39;NGINX&#39;
+</span></span></span><span class=line><span class=cl><span class=s>server {
+</span></span></span><span class=line><span class=cl><span class=s>    listen 80;
+</span></span></span><span class=line><span class=cl><span class=s>    listen [::]:80;
+</span></span></span><span class=line><span class=cl><span class=s>    server_name example.com www.example.com;
+</span></span></span><span class=line><span class=cl><span class=s>    root /var/www/example.com/html;
+</span></span></span><span class=line><span class=cl><span class=s>    index index.html;
+</span></span></span><span class=line><span class=cl><span class=s>    location / {
+</span></span></span><span class=line><span class=cl><span class=s>        try_files $uri $uri/ =404;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>NGINX</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+</span></span><span class=line><span class=cl>sudo nginx -t <span class=o>&amp;&amp;</span> sudo systemctl reload nginx
+</span></span></code></pre></div><p>Visit <a href=http://example.com>http://example.com</a> to confirm it serves your content.</p><ol start=5><li>Install Certbot (recommended via snap)
+The Certbot team recommends snap for the latest version.</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install -y snapd
+</span></span><span class=line><span class=cl>sudo snap install core<span class=p>;</span> sudo snap refresh core
+</span></span><span class=line><span class=cl>sudo snap install --classic certbot
+</span></span><span class=line><span class=cl>sudo ln -s /snap/bin/certbot /usr/bin/certbot <span class=o>||</span> <span class=nb>true</span>
+</span></span></code></pre></div><ol start=6><li>Obtain and install a certificate (Nginx plugin)
+Use the Nginx plugin to edit config and reload automatically:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot --nginx -d example.com -d www.example.com
+</span></span></code></pre></div><p>Follow the prompts (email, ToS). Choose the redirect option when asked so HTTP automatically redirects to HTTPS.</p><p>Alternative: Webroot method (if you prefer manual control)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot certonly --webroot -w /var/www/example.com/html -d example.com -d www.example.com
+</span></span></code></pre></div><p>If you used webroot, add SSL directives to your server block and reload Nginx (see step 8 for TLS settings).</p><ol start=7><li>Auto-renewal
+Snap installs a systemd timer for Certbot. Verify it:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>systemctl list-timers <span class=p>|</span> grep certbot
+</span></span><span class=line><span class=cl>sudo certbot renew --dry-run
+</span></span></code></pre></div><p>Dry-run should complete without errors. Certificates renew automatically ~30 days before expiry.</p><ol start=8><li>Force HTTP→HTTPS and apply TLS best practices
+If you didn’t choose the redirect option during Certbot run or you used webroot, update your Nginx config. A sane baseline (based on Mozilla’s “intermediate” profile) is:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>server</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=mi>80</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=s>[::]:80</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>server_name</span> <span class=s>example.com</span> <span class=s>www.example.com</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>return</span> <span class=mi>301</span> <span class=s>https://</span><span class=nv>$host$request_uri</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>server</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=mi>443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=s>[::]:443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>server_name</span> <span class=s>example.com</span> <span class=s>www.example.com</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>root</span> <span class=s>/var/www/example.com/html</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>index</span> <span class=s>index.html</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate</span> <span class=s>/etc/letsencrypt/live/example.com/fullchain.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate_key</span> <span class=s>/etc/letsencrypt/live/example.com/privkey.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_session_timeout</span> <span class=s>1d</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_session_cache</span> <span class=s>shared:SSL:10m</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_session_tickets</span> <span class=no>off</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_protocols</span> <span class=s>TLSv1.2</span> <span class=s>TLSv1.3</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_ciphers</span> <span class=s>&#39;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_prefer_server_ciphers</span> <span class=no>off</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>Strict-Transport-Security</span> <span class=s>&#34;max-age=31536000</span><span class=p>;</span> <span class=kn>includeSubDomains</span><span class=p>;</span> <span class=kn>preload&#34;</span> <span class=s>always</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>X-Content-Type-Options</span> <span class=s>nosniff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>X-Frame-Options</span> <span class=s>DENY</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>Referrer-Policy</span> <span class=s>no-referrer-when-downgrade</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>location</span> <span class=s>/</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kn>try_files</span> <span class=nv>$uri</span> <span class=nv>$uri/</span> <span class=p>=</span><span class=mi>404</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Then test and reload:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo nginx -t <span class=o>&amp;&amp;</span> sudo systemctl reload nginx
+</span></span></code></pre></div><p>Use SSL Labs (Qualys) to analyze: <a href=https://www.ssllabs.com/ssltest/>https://www.ssllabs.com/ssltest/</a></p><p>Canonical redirect (optional)
+If you want to force a single hostname (e.g., redirect www→apex), add a dedicated server block:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>server</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=mi>443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=s>[::]:443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>server_name</span> <span class=s>www.example.com</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate</span> <span class=s>/etc/letsencrypt/live/example.com/fullchain.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate_key</span> <span class=s>/etc/letsencrypt/live/example.com/privkey.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>return</span> <span class=mi>301</span> <span class=s>https://example.com</span><span class=nv>$request_uri</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>OCSP stapling (recommended)
+Reduce TLS handshake latency and improve scores with OCSP stapling:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>ssl_stapling</span> <span class=no>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>ssl_stapling_verify</span> <span class=no>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>ssl_trusted_certificate</span> <span class=s>/etc/letsencrypt/live/example.com/chain.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>resolver</span> <span class=n>1.1.1.1</span> <span class=n>1.0.0.1</span> <span class=s>valid=300s</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>resolver_timeout</span> <span class=s>5s</span><span class=p>;</span>
+</span></span></code></pre></div><p>Place these inside the TLS server block (port 443) after your <code>ssl_certificate</code> lines.</p><p>Compression (performance)
+Enable gzip (widely available) for text assets:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>gzip</span> <span class=no>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_comp_level</span> <span class=mi>5</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_min_length</span> <span class=mi>256</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_types</span> <span class=s>text/plain</span> <span class=s>text/css</span> <span class=s>application/json</span> <span class=s>application/javascript</span> <span class=s>text/xml</span> <span class=s>application/xml</span> <span class=s>application/xml+rss</span> <span class=s>text/javascript</span> <span class=s>image/svg+xml</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_vary</span> <span class=no>on</span><span class=p>;</span>
+</span></span></code></pre></div><p>Note: Brotli offers better compression but may not be compiled by default in Ubuntu’s Nginx. If you install a Brotli-enabled build, you can use:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=c1># brotli on;
+</span></span></span><span class=line><span class=cl><span class=c1># brotli_comp_level 5;
+</span></span></span><span class=line><span class=cl><span class=c1># brotli_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;
+</span></span></span></code></pre></div><ol start=9><li>Test your HTTPS setup</li></ol><ul><li>Browser: go to <a href=https://example.com>https://example.com</a> and inspect the lock icon</li><li>CLI: <code>curl -I https://example.com</code> should return <code>HTTP/2 200</code> (or 301 → 200 if redirecting from www)</li><li>Check Nginx logs: <code>/var/log/nginx/access.log</code> and <code>/var/log/nginx/error.log</code></li></ul><p>Troubleshooting</p><ul><li>DNS/Challenge failed: Ensure your A/AAAA records point to this server and port 80 is reachable from the internet. Temporarily disable any reverse proxy or CDN during issuance.</li><li>Firewall blocks: Open ports 80 and 443 in UFW/security groups. <code>nc -vz your.ip 80</code> from an external host can help verify reachability.</li><li>Nginx conflicts: Run <code>sudo nginx -t</code> to find syntax errors or duplicated server_name blocks.</li><li>Rate limits: Let’s Encrypt enforces rate limits. Use <code>--dry-run</code> for testing or wait before re-issuing.</li><li>Webroot path mismatch: If using <code>--webroot</code>, ensure the <code>-w</code> path matches your server root and that Nginx serves <code>/.well-known/acme-challenge/</code>.</li><li>Apt update/upgrade errors when installing snap/certbot<ul><li>Lihat: How to fix broken update error in Linux (Terminal) → /2023/11/how-to-fix-broken-update-error-in-linux.html</li></ul></li></ul><p>Multiple sites tip</p><ul><li>Untuk beberapa domain, buat satu file di <code>sites-available/</code> per domain. Hindari overlap <code>server_name</code> agar Certbot dan Nginx bisa memilih blok yang tepat.</li></ul><p>Renewal and maintenance tips</p><ul><li>Certificates renew automatically; review logs in <code>/var/log/letsencrypt/</code>.</li><li>After major Nginx changes, run <code>sudo certbot renew --dry-run</code> to confirm hooks still work.</li><li>Consider enabling OCSP stapling and caching for further optimization if you terminate high traffic.</li></ul><p>Revoke or uninstall (if needed)
+Revoke a cert (compromised key or domain transfer):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot revoke --cert-path /etc/letsencrypt/live/example.com/fullchain.pem
+</span></span></code></pre></div><p>Remove cert files:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot delete --cert-name example.com
+</span></span></code></pre></div><p>Remove Certbot (snap) and Nginx:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo snap remove certbot
+</span></span><span class=line><span class=cl>sudo apt purge -y nginx* <span class=o>&amp;&amp;</span> sudo apt autoremove -y
+</span></span></code></pre></div><p>That’s it—your site now serves a trusted HTTPS certificate with automatic renewal on Ubuntu 24.04. Enjoy the speed and security of Nginx + Let’s Encrypt!</p><div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded"><h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2><ul class="list-disc list-inside"><li><a href=/2025/08/nginx-certbot-ubuntu-24-04-free-https.html class="text-blue-600 dark:text-blue-400 hover:underline">Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a></li><li><a href=/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html class="text-blue-600 dark:text-blue-400 hover:underline">Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a></li><li><a href=/2025/05/connecting-postgresql-in-go-using-sqlx.html class="text-blue-600 dark:text-blue-400 hover:underline">Connecting to PostgreSQL in Go using sqlx</a></li></ul></div></article><aside class=space-y-10><div><h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Popular Post</h3><ul class="space-y-3 list-disc list-inside text-sm text-gray-800 dark:text-gray-200"><li><a href=/2025/08/nginx-certbot-ubuntu-24-04-free-https.html class="hover:text-[#0f7ea9] transition">Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a></li><li><a href=/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html class="hover:text-[#0f7ea9] transition">Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a></li><li><a href=/2025/05/connecting-postgresql-in-go-using-sqlx.html class="hover:text-[#0f7ea9] transition">Connecting to PostgreSQL in Go using sqlx</a></li><li><a href=/2025/05/structuring-go-projects-clean-architecture.html class="hover:text-[#0f7ea9] transition">Structuring Go Projects: Clean Project Structure and Best Practices</a></li><li><a href=/2025/05/how-to-build-rest-api-in-go-using-net-http.html class="hover:text-[#0f7ea9] transition">How to Build a REST API in Go using net/http</a></li></ul></div></aside></div><section id=comments class=mt-12><script src=https://giscus.app/client.js data-repo=wikukarno/buanacoding data-repo-id=R_kgD0Oj4jAw data-category=General data-category-id=DIC_kwD0Oj4jA84Cr_fx data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=en data-loading=lazy crossorigin=anonymous async></script></section></div></main><div class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-4 transition-colors duration-300"><div class="text-center space-x-4 text-sm font-medium"><a href=/about class="hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
+<span>-</span>
+<a href=/contact class="hover:text-cyan-500 dark:hover:text-cyan-400">Contact</a>
+<span>-</span>
+<a href=/privacy-policy class="hover:text-cyan-500 dark:hover:text-cyan-400">Privacy Policy</a>
+<span>-</span>
+<a href=/disclaimer class="hover:text-cyan-500 dark:hover:text-cyan-400">Disclaimer</a></div></div><footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-4 border-t border-gray-200 dark:border-gray-700">&copy; 2025 buanacoding.com &mdash; Crafted with ❤️ by <a href=https://www.wikukarno.com class="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400" target=_blank>Wiku Karno</a></footer><button id=scrollToTop class="fixed bottom-6 right-6 bg-[#0f7ea9] hover:bg-cyan-600 text-white p-3 rounded-full shadow transition duration-300" aria-label="Scroll to top">
+<svg fill="none" class="w-4 h-4" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+<script src=https://unpkg.com/feather-icons></script><script src=https://cdn.jsdelivr.net/npm/fuse.js@6.4.6></script><script>feather.replace();const btn=document.getElementById("scrollToTop"),html=document.documentElement,toggleBtn=document.getElementById("theme-toggle"),toggleBtnMobile=document.getElementById("theme-toggle-mobile"),iconSun=document.getElementById("icon-sun"),iconMoon=document.getElementById("icon-moon"),iconSunMobile=document.getElementById("icon-sun-mobile"),iconMoonMobile=document.getElementById("icon-moon-mobile");document.getElementById("menu-toggle")?.addEventListener("click",()=>{document.getElementById("mobile-menu")?.classList.toggle("hidden")}),btn.style.display="none",window.addEventListener("scroll",()=>{window.scrollY>300?btn.style.display="flex":btn.style.display="none"}),btn.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});function updateIcons(e){iconSun.classList.toggle("hidden",!e),iconMoon.classList.toggle("hidden",e),iconSunMobile.classList.toggle("hidden",!e),iconMoonMobile.classList.toggle("hidden",e)}function setDarkMode(e){html.setAttribute("data-theme",e?"dark":"light"),localStorage.setItem("theme",e?"dark":"light"),updateIcons(e)}const userPref=localStorage.getItem("theme"),systemPref=window.matchMedia("(prefers-color-scheme: dark)").matches,isDark=userPref==="dark"||!userPref&&systemPref;setDarkMode(isDark),toggleBtn?.addEventListener("click",()=>{const e=html.getAttribute("data-theme")==="dark";setDarkMode(!e)}),toggleBtnMobile?.addEventListener("click",()=>{const e=html.getAttribute("data-theme")==="dark";setDarkMode(!e)}),document.querySelectorAll("pre").forEach(e=>{const t=document.createElement("button");t.innerHTML=`
       <span>Copy</span>
-    `;
-    button.className = `
+    `,t.className=`
     copy-btn absolute top-2 right-2
     text-xs px-2 py-1 rounded flex items-center gap-1
     transition-colors duration-200
     bg-gray-200 text-gray-800 hover:bg-gray-300
     dark:bg-white/10 dark:text-white dark:hover:bg-white/20
-  `.trim();
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "relative";
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-    wrapper.appendChild(button);
-
-    button.addEventListener("click", () => {
-      const code = pre.innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        button.querySelector("span").innerText = "Copied!";
-        setTimeout(() => {
-          button.querySelector("span").innerText = "Copy";
-        }, 2000);
-      });
-    });
-  });
-
-  const openBtn = document.getElementById("openSearchModal");
-  const closeBtn = document.getElementById("closeSearchModal");
-  const modal = document.getElementById("searchModal");
-
-  openBtn.addEventListener("click", () => {
-    console.log("Search modal opened");
-    modal.classList.remove("hidden");
-    document.getElementById("searchBox").focus();
-  });
-
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") modal.classList.add("hidden");
-  });
-
-  fetch("/index.json")
-    .then((res) => res.json())
-    .then((data) => {
-      const fuse = new Fuse(data, {
-        keys: ["title", "content"],
-        threshold: 0.3,
-      });
-
-      const searchBox = document.getElementById("searchBox");
-      const resultBox = document.getElementById("results");
-
-      searchBox.addEventListener("input", function (e) {
-        const query = e.target.value.trim();
-        if (query.length < 2) {
-          resultBox.innerHTML = "";
-          return;
-        }
-
-        const results = fuse.search(query);
-        if (results.length === 0) {
-          resultBox.innerHTML = "<li class='px-4 py-2'>No results found.</li>";
-        } else {
-          resultBox.innerHTML = results
-            .map(
-              (r) => `
+  `.trim();const n=document.createElement("div");n.className="relative",e.parentNode.insertBefore(n,e),n.appendChild(e),n.appendChild(t),t.addEventListener("click",()=>{const n=e.innerText;navigator.clipboard.writeText(n).then(()=>{t.querySelector("span").innerText="Copied!",setTimeout(()=>{t.querySelector("span").innerText="Copy"},2e3)})})});const openBtn=document.getElementById("openSearchModal"),closeBtn=document.getElementById("closeSearchModal"),modal=document.getElementById("searchModal");openBtn.addEventListener("click",()=>{console.log("Search modal opened"),modal.classList.remove("hidden"),document.getElementById("searchBox").focus()}),closeBtn.addEventListener("click",()=>{modal.classList.add("hidden")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&modal.classList.add("hidden")}),fetch("/index.json").then(e=>e.json()).then(e=>{const n=new Fuse(e,{keys:["title","content"],threshold:.3}),s=document.getElementById("searchBox"),t=document.getElementById("results");s.addEventListener("input",function(e){const s=e.target.value.trim();if(s.length<2){t.innerHTML="";return}const o=n.search(s);o.length===0?t.innerHTML="<li class='px-4 py-2'>No results found.</li>":t.innerHTML=o.map(e=>`
                     <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-                    <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white">${r.item.title}</a>
+                    <a href="${e.item.href}" class="block font-semibold text-gray-900 dark:text-white">${e.item.title}</a>
                   </li>
-                  `,
-            )
-            .join("");
-        }
-      });
-    });
-
-    const openBtnMobile = document.getElementById("openSearchModalMobile");
-    const closeBtnMobile = document.getElementById("closeSearchModal");
-    const modalMobile = document.getElementById("searchModal");
-
-    openBtnMobile.addEventListener("click", () => {
-      console.log("Search modal opened (mobile)");
-      modalMobile.classList.remove("hidden");
-      document.getElementById("searchBox").focus();
-    });
-    closeBtnMobile.addEventListener("click", () => {
-      modalMobile.classList.add("hidden");
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") modalMobile.classList.add("hidden");
-    });
-</script>
-
-
-    
-  </body>
-</html>
+                  `).join("")})});const openBtnMobile=document.getElementById("openSearchModalMobile"),closeBtnMobile=document.getElementById("closeSearchModal"),modalMobile=document.getElementById("searchModal");openBtnMobile.addEventListener("click",()=>{console.log("Search modal opened (mobile)"),modalMobile.classList.remove("hidden"),document.getElementById("searchBox").focus()}),closeBtnMobile.addEventListener("click",()=>{modalMobile.classList.add("hidden")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&modalMobile.classList.add("hidden")})</script></body></html>
