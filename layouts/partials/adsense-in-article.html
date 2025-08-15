@@ -1,0 +1,24 @@
+<!-- Ad: In-Article (Native & Non-intrusive) -->
+<div class="my-8 flex justify-center">
+  <div class="w-full max-w-2xl">
+    {{ if hugo.IsServer }}
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-6 rounded-lg text-gray-500 dark:text-gray-400">
+      📢 Ad placeholder: In‑Article (native style)
+    </div>
+    {{ else }}
+    <!-- Label Iklan -->
+    <div class="text-center mb-2">
+      <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span>
+    </div>
+    <!-- Ad Unit -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-3149036684216973"
+         data-ad-slot="4727606040"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    {{ end }}
+  </div>
+</div>
+

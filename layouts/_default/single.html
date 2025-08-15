@@ -21,8 +21,25 @@
     <h1>{{ .Title }}</h1>
 
     <!-- Artikel Content -->
-    {{ $p := .Content }} {{ $split := split $p "<!--readmore-->" }} {{ index
-    $split 0 | safeHTML }}
+    {{ $content := .Content }}
+    {{ $paragraphs := split $content "</p>" }}
+    
+    {{/* Tampilkan 3 paragraf pertama */}}
+    {{ range first 3 $paragraphs }}
+      {{ . | safeHTML }}{{ if not (strings.HasSuffix . "</p>") }}</p>{{ end }}
+    {{ end }}
+    
+    {{/* AdSense: Mid-Article (setelah 3 paragraf) */}}
+    {{ if gt (len $paragraphs) 3 }}
+      {{ partial "adsense-in-article.html" . }}
+    {{ end }}
+    
+    {{/* Tampilkan sisa paragraf */}}
+    {{ if gt (len $paragraphs) 3 }}
+      {{ range after 3 $paragraphs }}
+        {{ . | safeHTML }}{{ if not (strings.HasSuffix . "</p>") }}</p>{{ end }}
+      {{ end }}
+    {{ end }}
 
     <!-- Baca Juga -->
     <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
@@ -40,8 +57,8 @@
       </ul>
     </div>
 
-    <!-- Sisa Konten -->
-    {{ if gt (len $split) 1 }} {{ index $split 1 | safeHTML }} {{ end }}
+    {{/* AdSense: Responsive unit after related block */}}
+    {{ partial "adsense-unit.html" . }}
   </article>
 
   <!-- ==== RIGHT: SIDEBAR ==== -->
@@ -64,15 +81,10 @@
       </ul>
     </div>
 
-    <!-- Ads -->
-    <!-- <div
-      class="bg-white dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-600 p-6 rounded text-center text-gray-400"
-    >
-      <span class="block text-sm font-medium mb-2 dark:text-gray-300"
-        >🔖 Iklan</span
-      >
-      <p class="text-xs dark:text-gray-400">Space untuk banner 300x250</p>
-    </div> -->
+    <!-- Ads: Sidebar (desktop only) -->
+    <div class="hidden lg:block mt-8">
+      {{ partial "adsense-sidebar-300x250.html" . }}
+    </div>
   </aside>
 </div>
 {{ if not .Params.disable_comments }}

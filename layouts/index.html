@@ -22,6 +22,9 @@
         </a>
       {{ end }}
 
+      {{/* AdSense: Mobile banner after featured post */}}
+      {{ partial "adsense-mobile-banner.html" . }}
+
       <!-- TAGS (MOBILE ONLY) -->
       <div class="block lg:hidden mb-10">
         <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Tags</h3>
@@ -42,50 +45,90 @@
       {{ $pages := sort (where .Site.RegularPages "Type" "blog") "Date" "desc" }}
       {{ $paginator := .Paginate $pages 6 }}
       <div class="grid gap-6 sm:grid-cols-2">
-        {{ range $paginator.Pages }}
-          <a href="{{ .RelPermalink }}"
+        {{ range $index, $page := $paginator.Pages }}
+          <a href="{{ $page.RelPermalink }}"
             class="bg-white dark:bg-gray-800 p-4 rounded shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-            <h3 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ .Title }}</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">{{ .Summary | truncate 100 }}</p>
-            <span class="text-xs text-gray-400 block mt-2">{{ .Date.Format "02 Jan 2006" }}</span>
+            <h3 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ $page.Title }}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">{{ $page.Summary | truncate 100 }}</p>
+            <span class="text-xs text-gray-400 block mt-2">{{ $page.Date.Format "02 Jan 2006" }}</span>
           </a>
+          
+          {{/* AdSense: In-feed ad after 2nd article */}}
+          {{ if eq $index 1 }}
+            <div class="sm:col-span-2">
+              {{ partial "adsense-in-feed.html" . }}
+            </div>
+          {{ end }}
         {{ end }}
       </div>
 
       <!-- PAGINATION -->
       {{ if gt $paginator.TotalPages 1 }}
-        <div class="mt-12 flex justify-center">
-          <nav class="flex items-center space-x-1 text-sm">
+        <div class="mt-12 flex justify-center px-2">
+          <nav class="flex items-center gap-1 text-sm">
             {{ if $paginator.HasPrev }}
               <a href="{{ $paginator.Prev.URL }}"
-                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600">
-                ← Prev
+                class="px-2 sm:px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 text-xs sm:text-sm">
+                <span class="hidden sm:inline">← Prev</span>
+                <span class="sm:hidden">←</span>
               </a>
+            {{ else }}
+              <span class="px-2 sm:px-3 py-2 text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 cursor-not-allowed text-xs sm:text-sm">
+                <span class="hidden sm:inline">← Prev</span>
+                <span class="sm:hidden">←</span>
+              </span>
             {{ end }}
 
-            {{ range $page := $paginator.Pagers }}
-              <a href="{{ $page.URL }}"
-                class="px-3 py-2 rounded border border-gray-300 dark:border-gray-600
-                {{ if eq $page $paginator }}
-                  bg-[#0f7ea9] text-white
-                {{ else }}
-                  text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700
-                {{ end }}">
-                {{ $page.PageNumber }}
+            <!-- Show first page if not in range -->
+            {{ if gt $paginator.PageNumber 3 }}
+              <a href="{{ (index $paginator.Pagers 0).URL }}" 
+                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">
+                1
+              </a>
+              {{ if gt $paginator.PageNumber 4 }}
+                <span class="px-2 text-gray-400 dark:text-gray-500">...</span>
+              {{ end }}
+            {{ end }}
+
+            <!-- Show page numbers around current page -->
+            {{ $currentPage := $paginator.PageNumber }}
+            {{ $totalPages := $paginator.TotalPages }}
+            {{ range $paginator.Pagers }}
+              {{ if and (ge .PageNumber (sub $currentPage 2)) (le .PageNumber (add $currentPage 2)) }}
+                <a href="{{ .URL }}"
+                  class="px-3 py-2 rounded border border-gray-300 dark:border-gray-600
+                  {{ if eq . $paginator }}
+                    bg-[#0f7ea9] text-white
+                  {{ else }}
+                    text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700
+                  {{ end }}">
+                  {{ .PageNumber }}
+                </a>
+              {{ end }}
+            {{ end }}
+
+            <!-- Show last page if not in range -->
+            {{ if lt $paginator.PageNumber (sub $totalPages 2) }}
+              {{ if lt $paginator.PageNumber (sub $totalPages 3) }}
+                <span class="px-2 text-gray-400 dark:text-gray-500">...</span>
+              {{ end }}
+              <a href="{{ (index $paginator.Pagers (sub $totalPages 1)).URL }}" 
+                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">
+                {{ $totalPages }}
               </a>
             {{ end }}
 
             {{ if $paginator.HasNext }}
               <a href="{{ $paginator.Next.URL }}"
-                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600">
-                Next →
+                class="px-2 sm:px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 text-xs sm:text-sm">
+                <span class="hidden sm:inline">Next →</span>
+                <span class="sm:hidden">→</span>
               </a>
-              {{ with index $paginator.Pagers (sub $paginator.TotalPages 1) }}
-                <a href="{{ .URL }}"
-                  class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600">
-                  Last
-                </a>
-              {{ end }}
+            {{ else }}
+              <span class="px-2 sm:px-3 py-2 text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 cursor-not-allowed text-xs sm:text-sm">
+                <span class="hidden sm:inline">Next →</span>
+                <span class="sm:hidden">→</span>
+              </span>
             {{ end }}
           </nav>
         </div>
@@ -108,11 +151,8 @@
         </div>
       </div>
 
-      <!-- ADS -->
-      <!-- <div class="bg-white dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-600 p-6 rounded text-center text-gray-400">
-        <span class="block text-sm font-medium mb-2 dark:text-gray-300">🔖 Iklan</span>
-        <p class="text-xs dark:text-gray-400">Space untuk banner 300x250</p>
-      </div> -->
+      <!-- ADS: Sidebar (desktop only) -->
+      {{ partial "adsense-sidebar-300x250.html" . }}
 
     </aside>
 
