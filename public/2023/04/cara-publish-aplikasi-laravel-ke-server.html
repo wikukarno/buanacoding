@@ -152,6 +152,16 @@
             </a>
           
         
+          
+          
+            <a
+              href="/tags/python"
+              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+            >
+              Python
+            </a>
+          
+        
       
 
       
@@ -213,6 +223,16 @@
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
         >
           Linux
+        </a>
+        
+      
+        
+        
+        <a
+          href="/tags/python"
+          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+        >
+          Python
         </a>
         
       
@@ -297,57 +317,107 @@
 
 
     <h1>Cara publish aplikasi laravel ke server hosting menggunakan git</h1>
+
     
-    <div class="my-8">
-  
-  <div class="w-full border border-dashed border-gray-400 dark:border-gray-600 bg-white/30 dark:bg-black/10 text-center text-sm py-6 rounded">
-    Ad placeholder: In‑Article (fluid)
+    
+    
+    
+    
+    
+      <p>Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.</p>
+    
+      
+<p>Tentunya kita harus memiliki server untuk menyimpan file aplikasi kita supaya bisa di lihat oleh orang lain.</p>
+    
+      
+<p>Pada artikel sebelumnya kita telah mengetahui bagaimana cara menjalankan project laravel clone dari git untuk lebih jelas nya bisa di lihat <a href="https://www.buanacoding.com/blog/cara-menjalankan-project-laravel-clone.html">disini</a>.</p>
+    
+    
+    
+    
+      
+<div class="my-8 flex justify-center">
+  <div class="w-full max-w-2xl">
+    
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-6 rounded-lg text-gray-500 dark:text-gray-400">
+      📢 Ad placeholder: In‑Article (native style)
+    </div>
+    
   </div>
-  
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center;"
-       data-ad-layout="in-article"
-       data-ad-format="fluid"
-       data-ad-client="ca-pub-3149036684216973"
-       data-ad-slot="YOUR_SLOT_ID_IN_ARTICLE"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 
-
     
-      <p>Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.</p>
-<p>Tentunya kita harus memiliki server untuk menyimpan file aplikasi kita supaya bisa di lihat oleh orang lain.</p>
-<p>Pada artikel sebelumnya kita telah mengetahui bagaimana cara menjalankan project laravel clone dari git untuk lebih jelas nya bisa di lihat <a href="https://www.buanacoding.com/blog/cara-menjalankan-project-laravel-clone.html">disini</a>.</p>
+    
+    
+    
+      
+        
 <p>Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan git, sebenernya ada beberapa cara untuk upload aplikasi ke server, tapi kali ini saya akan menggunakan git terlebih dahulu.</p>
+      
+        
 <ol>
 <li>Siapkan Domain atau subdomain</li>
 </ol>
 <p>Siapkan terlebih dahulu domain atau subdomain untuk menyimpan file aplikasi, pada artikel ini saya menggunakan subdomain, namun jangan takut cara dan kegunaannya sama saja.</p>
+      
+        
 <ol start="2">
 <li>Clone project</li>
 </ol>
 <p>Clone project dari git pada direktori domain atau subdomain yang sudah kamu buat sebelumnya, tambah sepasi titik agar file aplikasi diletakan pada folder domain atau subdomain, jika bingung silahkan lihat gambar di bawah ini.</p>
+      
+        
 <p>Jika proses cloning sudah selesai, langkah selanjutnya adalah menginstal dependensi yang dibutuhkan menggunakan cara <a href="https://www.buanacoding.com/blog/cara-menjalankan-project-laravel-clone.html">ini</a>, atau bisa menggunakan cara dibawah ini.</p>
+      
+        
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">composer install
 </span></span></code></pre></div><p>composer install ini digunakan untuk menginstall semua package yang digunakan di dalam aplikasi, biasanya dependesi ini tercatat di file composer.json dan semua dependensi yang ada akan di install menggunakan perintah diatas.</p>
+      
+        
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp .env.example .env
 </span></span></code></pre></div><p>Perintah diatas digunakan untuk copy file .env.axample menjadi file .env dimana file ini nantinya di gunakan untuk setup key, nama database dan konfigurasi lainnya.</p>
+      
+        
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php artisan key:generate
 </span></span></code></pre></div><p>Perintah diatas digunakan untuk generate app key pada file .env.</p>
+      
+        
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php artisan config:cache
 </span></span></code></pre></div><p>Perintah diatas digunakan untuk clear config ata cache yang ada pada aplikasi laravel, perintah ini tambahan dari saya boleh dilakukan dan boleh juga tidak, karena hanya opsional.</p>
+      
+        
 <p>Namun biasanya pada saat clone project biasanya ada beberapa fitur yang belum berjalan semua karena masih ada cache dari aplikasi yang ita clone, dan ini pernah saya alami, jadi saya tambahkan perintah di atas.</p>
+      
+        
 <p>Jika sudah selesai menjalankan dan menginstall semua dependensi yang dibutuhkan sekarang coba akses domain atau subdomain yang kamu buat maka aplikasi sekarang sudah bisa di akses semua orang yeeayyy.</p>
+      
+        
 <p>Gimana mudahkan publish aplikasi ke server hosting, oiya kamu juga tinggal git pull dan git push saja kalau ada perubahan di komputer lokal.</p>
+      
+        
 <p>Kamu juga bisa langsung sinkronkan tanpa perlu ngoding di dalam hosting dengan cara git pull pada terminal hosting atau bisa menggunakan ssh.</p>
+      
+        
 <p>Silahkan share artikel ini keteman kamu yang membutuhkan, semoga bermanfaat&hellip;</p>
-
+      
+        
+</p>
+      
+    
 
     
     <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
       <h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2>
       <ul class="list-disc list-inside">
+        
+        <li>
+          <a
+            href="/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html"
+            class="text-blue-600 dark:text-blue-400 hover:underline"
+            >Deploy FastAPI on Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)</a
+          >
+        </li>
         
         <li>
           <a
@@ -365,37 +435,22 @@
           >
         </li>
         
-        <li>
-          <a
-            href="/2025/05/connecting-postgresql-in-go-using-sqlx.html"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Connecting to PostgreSQL in Go using sqlx</a
-          >
-        </li>
-        
       </ul>
     </div>
 
     
-    <div class="my-6">
-  
-  <div class="w-full border border-dashed border-gray-400 dark:border-gray-600 bg-white/30 dark:bg-black/10 text-center text-sm py-4 rounded">
-    Ad placeholder: Responsive (auto)
+    
+<div class="my-8 py-6 border-t border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-4xl mx-auto">
+    
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-8 px-6 rounded-lg text-gray-500 dark:text-gray-400">
+      📱 Ad placeholder: Responsive Banner (adapts to screen size)
+    </div>
+    
   </div>
-  
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3149036684216973"
-       data-ad-slot="YOUR_SLOT_ID_RESPONSIVE"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 
-
-    
-    
   </article>
 
   
@@ -408,6 +463,12 @@
       <ul
         class="space-y-3 list-disc list-inside text-sm text-gray-800 dark:text-gray-200"
       >
+        
+        <li>
+          <a href="/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html" class="hover:text-[#0f7ea9] transition"
+            >Deploy FastAPI on Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)</a
+          >
+        </li>
         
         <li>
           <a href="/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" class="hover:text-[#0f7ea9] transition"
@@ -433,28 +494,20 @@
           >
         </li>
         
-        <li>
-          <a href="/2025/05/how-to-build-rest-api-in-go-using-net-http.html" class="hover:text-[#0f7ea9] transition"
-            >How to Build a REST API in Go using net/http</a
-          >
-        </li>
-        
       </ul>
     </div>
 
     
-    <div class="hidden lg:block">
-      <div class="my-6 flex justify-center">
+    <div class="hidden lg:block mt-8">
+      
+<div class="sticky top-8">
   
-  <div class="border border-dashed border-gray-400 dark:border-gray-600 bg-white/30 dark:bg-black/10 text-center text-sm w-[300px] h-[250px] flex items-center justify-center rounded">
-    Ad placeholder: 300×250 (sidebar)
+  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs w-[300px] h-[250px] flex flex-col items-center justify-center rounded-lg mx-auto text-gray-500 dark:text-gray-400">
+    <div class="text-lg mb-2">🎯</div>
+    <div>Ad placeholder</div>
+    <div class="text-xs opacity-70">300×250 (sidebar)</div>
   </div>
   
-  <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:250px"
-       data-ad-client="ca-pub-3149036684216973"
-       data-ad-slot="YOUR_SLOT_ID_SIDEBAR"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 

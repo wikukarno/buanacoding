@@ -43,4 +43,4 @@ title = "Buana Coding"
   keywords = ["coding", "programming", "web development", "app development", "tutorial", "developer tips"]
   defaultImage = "https://www.buanacoding.com/images/og-image.jpg"
   # Tags to show in navbar (allowlist). Fallback shows up to 6 popular tags.
-  navTags = ["Go", "Laravel", "Linux"]
+  navTags = ["Go", "Laravel", "Linux", "Python"]

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  
+  
+  
+
+  
+  <title> | Buana Coding</title>
+
+  
+  <meta name="description" content="title: &ldquo;Deploy FastAPI di Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)&rdquo; date: 2025-08-15T18:00:00&#43;07:00 draft: false url: /2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html tags:
+Python FastAPI Ubuntu Nginx Deploy HTTPS description: &ldquo;Panduan lengkap deploy FastAPI di Ubuntu 24.04 menggunakan Gunicorn sebagai ASGI server dan Nginx sebagai reverse proxy, plus HTTPS gratis via Certbot/Let’s Encrypt. Termasuk systemd service, firewall UFW, dan troubleshooting.&rdquo; keywords: [&ldquo;fastapi&rdquo;, &ldquo;deploy fastapi&rdquo;, &ldquo;ubuntu 24.04&rdquo;, &ldquo;gunicorn&rdquo;, &ldquo;uvicorn&rdquo;, &ldquo;nginx&rdquo;, &ldquo;certbot&rdquo;, &ldquo;let&rsquo;s encrypt&rdquo;, &ldquo;systemd&rdquo;, &ldquo;ufw&rdquo;] Ingin deploy FastAPI ke server Ubuntu 24.04 dengan setup yang rapi, aman, dan mudah di-maintain? Panduan ini memandu kamu men-setup Gunicorn (ASGI server), Nginx (reverse proxy), dan HTTPS gratis dari Let’s Encrypt memakai Certbot. Kita juga pakai systemd supaya service otomatis jalan saat boot dan gampang di-restart kalau ada update.
+" />
+
+  
+  
+    <meta name="keywords" content="coding, programming, web development, app development, tutorial, developer tips" />
+  
+
+  
+  <link rel="canonical" href="http://localhost:1313/blog/python/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot/" />
+
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:title" content=" | Buana Coding" />
+  <meta property="og:description" content="title: &ldquo;Deploy FastAPI di Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)&rdquo; date: 2025-08-15T18:00:00&#43;07:00 draft: false url: /2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html tags:
+Python FastAPI Ubuntu Nginx Deploy HTTPS description: &ldquo;Panduan lengkap deploy FastAPI di Ubuntu 24.04 menggunakan Gunicorn sebagai ASGI server dan Nginx sebagai reverse proxy, plus HTTPS gratis via Certbot/Let’s Encrypt. Termasuk systemd service, firewall UFW, dan troubleshooting.&rdquo; keywords: [&ldquo;fastapi&rdquo;, &ldquo;deploy fastapi&rdquo;, &ldquo;ubuntu 24.04&rdquo;, &ldquo;gunicorn&rdquo;, &ldquo;uvicorn&rdquo;, &ldquo;nginx&rdquo;, &ldquo;certbot&rdquo;, &ldquo;let&rsquo;s encrypt&rdquo;, &ldquo;systemd&rdquo;, &ldquo;ufw&rdquo;] Ingin deploy FastAPI ke server Ubuntu 24.04 dengan setup yang rapi, aman, dan mudah di-maintain? Panduan ini memandu kamu men-setup Gunicorn (ASGI server), Nginx (reverse proxy), dan HTTPS gratis dari Let’s Encrypt memakai Certbot. Kita juga pakai systemd supaya service otomatis jalan saat boot dan gampang di-restart kalau ada update.
+" />
+  <meta property="og:url" content="http://localhost:1313/blog/python/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot/" />
+  <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content=" | Buana Coding" />
+  <meta name="twitter:description" content="title: &ldquo;Deploy FastAPI di Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)&rdquo; date: 2025-08-15T18:00:00&#43;07:00 draft: false url: /2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html tags:
+Python FastAPI Ubuntu Nginx Deploy HTTPS description: &ldquo;Panduan lengkap deploy FastAPI di Ubuntu 24.04 menggunakan Gunicorn sebagai ASGI server dan Nginx sebagai reverse proxy, plus HTTPS gratis via Certbot/Let’s Encrypt. Termasuk systemd service, firewall UFW, dan troubleshooting.&rdquo; keywords: [&ldquo;fastapi&rdquo;, &ldquo;deploy fastapi&rdquo;, &ldquo;ubuntu 24.04&rdquo;, &ldquo;gunicorn&rdquo;, &ldquo;uvicorn&rdquo;, &ldquo;nginx&rdquo;, &ldquo;certbot&rdquo;, &ldquo;let&rsquo;s encrypt&rdquo;, &ldquo;systemd&rdquo;, &ldquo;ufw&rdquo;] Ingin deploy FastAPI ke server Ubuntu 24.04 dengan setup yang rapi, aman, dan mudah di-maintain? Panduan ini memandu kamu men-setup Gunicorn (ASGI server), Nginx (reverse proxy), dan HTTPS gratis dari Let’s Encrypt memakai Certbot. Kita juga pakai systemd supaya service otomatis jalan saat boot dan gampang di-restart kalau ada update.
+" />
+  <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
+
+  
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": " | Buana Coding",
+    "description": "title: \u0026ldquo;Deploy FastAPI di Ubuntu 24.04: Gunicorn \u002b Nginx \u002b Certbot (HTTPS)\u0026rdquo; date: 2025-08-15T18:00:00\u002b07:00 draft: false url: \/2025\/08\/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html tags:\nPython FastAPI Ubuntu Nginx Deploy HTTPS description: \u0026ldquo;Panduan lengkap deploy FastAPI di Ubuntu 24.04 menggunakan Gunicorn sebagai ASGI server dan Nginx sebagai reverse proxy, plus HTTPS gratis via Certbot\/Let’s Encrypt. Termasuk systemd service, firewall UFW, dan troubleshooting.\u0026rdquo; keywords: [\u0026ldquo;fastapi\u0026rdquo;, \u0026ldquo;deploy fastapi\u0026rdquo;, \u0026ldquo;ubuntu 24.04\u0026rdquo;, \u0026ldquo;gunicorn\u0026rdquo;, \u0026ldquo;uvicorn\u0026rdquo;, \u0026ldquo;nginx\u0026rdquo;, \u0026ldquo;certbot\u0026rdquo;, \u0026ldquo;let\u0026rsquo;s encrypt\u0026rdquo;, \u0026ldquo;systemd\u0026rdquo;, \u0026ldquo;ufw\u0026rdquo;] Ingin deploy FastAPI ke server Ubuntu 24.04 dengan setup yang rapi, aman, dan mudah di-maintain? Panduan ini memandu kamu men-setup Gunicorn (ASGI server), Nginx (reverse proxy), dan HTTPS gratis dari Let’s Encrypt memakai Certbot. Kita juga pakai systemd supaya service otomatis jalan saat boot dan gampang di-restart kalau ada update.\n",
+    "datePublished": "0001-01-01T00:00:00Z",
+    "dateModified": "0001-01-01T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "Wiku Karno"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/blog\/python\/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot\/"
+    },
+    "image": "https:\/\/www.buanacoding.com\/images\/og-image.jpg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Buana Coding"
+    }
+  }
+  </script>
+  
+
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dracula.min.css">
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/css/overrides.css" />
+  <link rel="stylesheet" href="/css/syntax.css" />
+
+  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EN9J73FXF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EN9J73FXF');
+</script>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149036684216973"
+     crossorigin="anonymous"></script>
+</head>
+
+  <body
+    class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col"
+  >
+    
+    <header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-extrabold tracking-wide">
+      <a href="/" class="hover:opacity-90">BUANACODING</a>
+    </h1>
+
+    
+    <nav
+      class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"
+    >
+      
+      
+      
+        
+          
+          
+            <a
+              href="/tags/go"
+              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+            >
+              Go
+            </a>
+          
+        
+          
+          
+            <a
+              href="/tags/laravel"
+              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+            >
+              Laravel
+            </a>
+          
+        
+          
+          
+            <a
+              href="/tags/linux"
+              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+            >
+              Linux
+            </a>
+          
+        
+      
+
+      
+      <button
+        id="openSearchModal"
+        class="text-white transition duration-300 cursor-pointer focus:outline-none dark:hover:text-[#0f7ea9] hover:text-cyan-300"
+        aria-label="Search"
+      >
+        <i data-feather="search" class="w-5 h-5"></i>
+      </button>
+
+      
+      <button
+        id="theme-toggle"
+        class="ml-2 text-white hover:text-yellow-300 transition duration-300 focus:outline-none cursor-pointer"
+        aria-label="Toggle Dark Mode"
+      >
+        
+        <i id="icon-sun" data-feather="sun" class="w-5 h-5 hidden"></i>
+        <i id="icon-moon" data-feather="moon" class="w-5 h-5"></i>
+      </button>
+    </nav>
+
+    
+    <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+      ☰
+    </button>
+  </div>
+
+  
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
+    
+    
+      
+        
+        
+        <a
+          href="/tags/go"
+          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+        >
+          Go
+        </a>
+        
+      
+        
+        
+        <a
+          href="/tags/laravel"
+          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+        >
+          Laravel
+        </a>
+        
+      
+        
+        
+        <a
+          href="/tags/linux"
+          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+        >
+          Linux
+        </a>
+        
+      
+    
+
+    <div class="flex flex-col items-start gap-4 mt-2">
+      
+      <button
+        id="openSearchModalMobile"
+        class="text-white hover:text-[#0f7ea9] transition duration-300"
+        aria-label="Search"
+      >
+        <i data-feather="search" class="w-5 h-5"></i>
+      </button>
+
+      
+      <button
+        id="theme-toggle-mobile"
+        class="text-white hover:text-[#0f7ea9] transition duration-300"
+        aria-label="Toggle Dark Mode"
+      >
+        <i id="icon-sun-mobile" data-feather="sun" class="w-5 h-5 hidden"></i>
+        <i id="icon-moon-mobile" data-feather="moon" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div
+  id="searchModal"
+  class="fixed inset-0 z-50 hidden flex justify-center items-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4"
+>
+  <div
+    class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl w-full max-w-xl p-6 relative"
+  >
+    
+    <button
+      id="closeSearchModal"
+      class="absolute -top-4 -right-4 bg-white dark:bg-[#374151] rounded-full p-1 shadow hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-200 ease-in-out transform hover:scale-110"
+    >
+      <i
+        data-feather="x"
+        class="w-5 h-5 text-gray-600 dark:text-white hover:text-red-500"
+      ></i>
+    </button>
+
+    
+    <input
+      type="text"
+      id="searchBox"
+      placeholder="Search articles..."
+      class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
+    />
+
+    
+    <ul
+      id="results"
+      class="bg-white dark:bg-[#1f2937] rounded-lg shadow max-h-60 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-600"
+    ></ul>
+  </div>
+</div>
+
+
+    
+    <main class="flex-1 w-full">
+      <div class="max-w-7xl mx-auto py-8 px-4">
+        
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8">
+  
+  <article class="prose prose-blue dark:prose-invert lg:col-span-2">
+    <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
+      <span class="mx-2">/</span>
+      
+        
+        
+          <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#blog</a>
+        
+      
+    </nav>
+
+
+    <h1></h1>
+
+    
+    
+    
+    
+    
+    
+      <p>title: &ldquo;Deploy FastAPI di Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)&rdquo;
+date: 2025-08-15T18:00:00+07:00
+draft: false
+url: /2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html
+tags:</p>
+    
+      
+<ul>
+<li>Python</li>
+<li>FastAPI</li>
+<li>Ubuntu</li>
+<li>Nginx</li>
+<li>Deploy</li>
+<li>HTTPS
+description: &ldquo;Panduan lengkap deploy FastAPI di Ubuntu 24.04 menggunakan Gunicorn sebagai ASGI server dan Nginx sebagai reverse proxy, plus HTTPS gratis via Certbot/Let’s Encrypt. Termasuk systemd service, firewall UFW, dan troubleshooting.&rdquo;
+keywords: [&ldquo;fastapi&rdquo;, &ldquo;deploy fastapi&rdquo;, &ldquo;ubuntu 24.04&rdquo;, &ldquo;gunicorn&rdquo;, &ldquo;uvicorn&rdquo;, &ldquo;nginx&rdquo;, &ldquo;certbot&rdquo;, &ldquo;let&rsquo;s encrypt&rdquo;, &ldquo;systemd&rdquo;, &ldquo;ufw&rdquo;]</li>
+</ul>
+<hr>
+<p>Ingin deploy FastAPI ke server Ubuntu 24.04 dengan setup yang rapi, aman, dan mudah di-maintain? Panduan ini memandu kamu men-setup Gunicorn (ASGI server), Nginx (reverse proxy), dan HTTPS gratis dari Let’s Encrypt memakai Certbot. Kita juga pakai systemd supaya service otomatis jalan saat boot dan gampang di-restart kalau ada update.</p>
+    
+      
+<p>Ringkasan yang kamu dapat:</p>
+    
+    
+    
+    
+      
+<div class="my-8 flex justify-center">
+  <div class="w-full max-w-2xl">
+    
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-6 rounded-lg text-gray-500 dark:text-gray-400">
+      📢 Ad placeholder: In‑Article (native style)
+    </div>
+    
+  </div>
+</div>
+
+
+    
+    
+    
+    
+      
+        
+<ul>
+<li>Struktur proyek sederhana FastAPI</li>
+<li>Menjalankan app dengan Gunicorn (worker Uvicorn)</li>
+<li>systemd service untuk start/stop/restart</li>
+<li>Nginx reverse proxy ke Gunicorn</li>
+<li>HTTPS otomatis (Certbot) + auto-renew</li>
+<li>Firewall UFW (buka 80/443), log, dan tips troubleshooting</li>
+</ul>
+<h2 id="prasyarat">Prasyarat</h2>
+<ul>
+<li>Server Ubuntu 24.04 (akses sudo)</li>
+<li>Domain yang mengarah ke server (A/AAAA record)</li>
+<li>Python 3.10+ (bawaan Ubuntu 24.04 sudah cukup)</li>
+</ul>
+<ol>
+<li>Siapkan struktur proyek di server</li>
+</ol>
+<hr>
+<p>Direktori yang rapi memudahkan otomatisasi.</p>
+      
+        
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir -p /opt/fastapi/app
+</span></span><span class="line"><span class="cl">sudo adduser --system --group --home /opt/fastapi fastapi
+</span></span><span class="line"><span class="cl">sudo chown -R fastapi:fastapi /opt/fastapi
+</span></span></code></pre></div><ol start="2">
+<li>Buat virtualenv dan install dependency</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install -y python3-venv
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo -u fastapi python3 -m venv /opt/fastapi/venv
+</span></span><span class="line"><span class="cl">sudo -u fastapi /opt/fastapi/venv/bin/pip install --upgrade pip
+</span></span><span class="line"><span class="cl">sudo -u fastapi /opt/fastapi/venv/bin/pip install fastapi uvicorn gunicorn
+</span></span></code></pre></div><ol start="3">
+<li>Buat aplikasi FastAPI minimal</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u fastapi tee /opt/fastapi/app/main.py &gt;/dev/null <span class="s">&lt;&lt;&#39;PY&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">from fastapi import FastAPI
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">app = FastAPI()
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">@app.get(&#34;/healthz&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s">def healthz():
+</span></span></span><span class="line"><span class="cl"><span class="s">    return {&#34;status&#34;: &#34;ok&#34;}
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">@app.get(&#34;/&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s">def root():
+</span></span></span><span class="line"><span class="cl"><span class="s">    return {&#34;message&#34;: &#34;Hello from FastAPI on Ubuntu 24.04!&#34;}
+</span></span></span><span class="line"><span class="cl"><span class="s">PY</span>
+</span></span></code></pre></div><p>Uji lokal (opsional):</p>
+      
+        
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u fastapi /opt/fastapi/venv/bin/uvicorn app.main:app --reload --host 0.0.0.0 --port <span class="m">8000</span>
+</span></span></code></pre></div><p>Kunjungi <code>http://SERVER_IP:8000</code> untuk cek.</p>
+      
+        
+<ol start="4">
+<li>Jalankan via Gunicorn (ASGI) secara manual (tes)</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u fastapi /opt/fastapi/venv/bin/gunicorn <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -k uvicorn.workers.UvicornWorker <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -w <span class="m">2</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -b 127.0.0.1:8000 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  app.main:app
+</span></span></code></pre></div><p>Kalau output terlihat normal dan port 8000 menerima request (coba <code>curl 127.0.0.1:8000/healthz</code>), lanjut ke pembuatan service.</p>
+      
+        
+<ol start="5">
+<li>Buat systemd service untuk Gunicorn</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo tee /etc/systemd/system/fastapi.service &gt;/dev/null <span class="s">&lt;&lt;&#39;SERVICE&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">[Unit]
+</span></span></span><span class="line"><span class="cl"><span class="s">Description=FastAPI app with Gunicorn
+</span></span></span><span class="line"><span class="cl"><span class="s">After=network.target
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[Service]
+</span></span></span><span class="line"><span class="cl"><span class="s">User=fastapi
+</span></span></span><span class="line"><span class="cl"><span class="s">Group=fastapi
+</span></span></span><span class="line"><span class="cl"><span class="s">WorkingDirectory=/opt/fastapi
+</span></span></span><span class="line"><span class="cl"><span class="s">Environment=&#34;PATH=/opt/fastapi/venv/bin&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">ExecStart=/opt/fastapi/venv/bin/gunicorn -k uvicorn.workers.UvicornWorker -w 2 -b 127.0.0.1:8000 app.main:app
+</span></span></span><span class="line"><span class="cl"><span class="s">Restart=always
+</span></span></span><span class="line"><span class="cl"><span class="s">RestartSec=5
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[Install]
+</span></span></span><span class="line"><span class="cl"><span class="s">WantedBy=multi-user.target
+</span></span></span><span class="line"><span class="cl"><span class="s">SERVICE</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> --now fastapi
+</span></span><span class="line"><span class="cl">sudo systemctl status fastapi --no-pager
+</span></span></code></pre></div><ol start="6">
+<li>Pasang dan konfigurasi Nginx (reverse proxy)</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -y nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo tee /etc/nginx/sites-available/example.com &gt;/dev/null <span class="s">&lt;&lt;&#39;NGINX&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">server {
+</span></span></span><span class="line"><span class="cl"><span class="s">    listen 80;
+</span></span></span><span class="line"><span class="cl"><span class="s">    listen [::]:80;
+</span></span></span><span class="line"><span class="cl"><span class="s">    server_name example.com www.example.com;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">    location / {
+</span></span></span><span class="line"><span class="cl"><span class="s">        proxy_pass http://127.0.0.1:8000;
+</span></span></span><span class="line"><span class="cl"><span class="s">        proxy_set_header Host $host;
+</span></span></span><span class="line"><span class="cl"><span class="s">        proxy_set_header X-Real-IP $remote_addr;
+</span></span></span><span class="line"><span class="cl"><span class="s">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span></span></span><span class="line"><span class="cl"><span class="s">        proxy_set_header X-Forwarded-Proto $scheme;
+</span></span></span><span class="line"><span class="cl"><span class="s">        proxy_read_timeout 60s;
+</span></span></span><span class="line"><span class="cl"><span class="s">    }
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">NGINX</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+</span></span><span class="line"><span class="cl">sudo nginx -t <span class="o">&amp;&amp;</span> sudo systemctl reload nginx
+</span></span></code></pre></div><ol start="7">
+<li>Buka firewall (UFW) untuk HTTP/HTTPS</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw allow <span class="s1">&#39;Nginx Full&#39;</span>   <span class="c1"># membuka 80/tcp dan 443/tcp</span>
+</span></span><span class="line"><span class="cl">sudo ufw status
+</span></span></code></pre></div><ol start="8">
+<li>Pasang HTTPS gratis dengan Certbot</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -y certbot python3-certbot-nginx
+</span></span><span class="line"><span class="cl">sudo certbot --nginx -d example.com -d www.example.com
+</span></span></code></pre></div><p>Certbot akan mengonfigurasi blok server 443 dan menambahkan auto‑renew. Kamu bisa cek simulasi perpanjangan:</p>
+      
+        
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot renew --dry-run
+</span></span></code></pre></div><ol start="9">
+<li>Cek dan monitoring</li>
+</ol>
+<hr>
+<ul>
+<li>Coba: <code>curl -I https://example.com/healthz</code></li>
+<li>Log app: <code>journalctl -u fastapi -f</code></li>
+<li>Log Nginx: <code>/var/log/nginx/access.log</code> dan <code>error.log</code></li>
+</ul>
+<ol start="10">
+<li>Update aplikasi (rolling manual)</li>
+</ol>
+<hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u fastapi /opt/fastapi/venv/bin/pip install -U -r /opt/fastapi/requirements.txt <span class="o">||</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">sudo systemctl restart fastapi
+</span></span></code></pre></div><p>Kalau kamu deploy dari Git:</p>
+      
+        
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/fastapi
+</span></span><span class="line"><span class="cl">sudo -u fastapi git pull
+</span></span><span class="line"><span class="cl">sudo systemctl restart fastapi
+</span></span></code></pre></div><h2 id="tips--troubleshooting">Tips &amp; Troubleshooting</h2>
+<ul>
+<li>502 Bad Gateway: cek <code>systemctl status fastapi</code> dan <code>journalctl -u fastapi -f</code>.</li>
+<li>Port konflik: pastikan hanya satu service yang bind ke <code>127.0.0.1:8000</code>.</li>
+<li>Timeouts: tingkatkan <code>proxy_read_timeout</code> atau optimalkan handler.</li>
+<li>Keamanan: tambahkan security headers di Nginx, batasi body size jika perlu (<code>client_max_body_size</code>).</li>
+</ul>
+<h2 id="lanjutan-yang-direkomendasikan">Lanjutan yang direkomendasikan</h2>
+<ul>
+<li>Monitoring ringan dengan Docker Compose: Node Exporter + Prometheus + Grafana.</li>
+<li>Hardening Nginx + otomatisasi backup TLS. Lihat juga: Nginx + Certbot Ubuntu 24.04 → /2025/08/nginx-certbot-ubuntu-24-04-free-https.html</li>
+<li>CI/CD sederhana (GitHub Actions) untuk build/test, lalu SSH deploy ke server.</li>
+</ul>
+<p>Itu dia! Dengan setup ini, FastAPI kamu berjalan di belakang Nginx dengan HTTPS, otomatis start saat boot, dan mudah di‑restart ketika ada update. Selamat mencoba!</p>
+      
+        
+</p>
+      
+    
+
+    
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
+      <h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2>
+      <ul class="list-disc list-inside">
+        
+        <li>
+          <a
+            href="/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"
+            class="text-blue-600 dark:text-blue-400 hover:underline"
+            >Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a
+          >
+        </li>
+        
+        <li>
+          <a
+            href="/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html"
+            class="text-blue-600 dark:text-blue-400 hover:underline"
+            >Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a
+          >
+        </li>
+        
+        <li>
+          <a
+            href="/2025/05/connecting-postgresql-in-go-using-sqlx.html"
+            class="text-blue-600 dark:text-blue-400 hover:underline"
+            >Connecting to PostgreSQL in Go using sqlx</a
+          >
+        </li>
+        
+      </ul>
+    </div>
+
+    
+    
+<div class="my-8 py-6 border-t border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-4xl mx-auto">
+    
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-8 px-6 rounded-lg text-gray-500 dark:text-gray-400">
+      📱 Ad placeholder: Responsive Banner (adapts to screen size)
+    </div>
+    
+  </div>
+</div>
+
+
+  </article>
+
+  
+  <aside class="space-y-10">
+    
+    <div>
+      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+        Popular Post
+      </h3>
+      <ul
+        class="space-y-3 list-disc list-inside text-sm text-gray-800 dark:text-gray-200"
+      >
+        
+        <li>
+          <a href="/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" class="hover:text-[#0f7ea9] transition"
+            >Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a
+          >
+        </li>
+        
+        <li>
+          <a href="/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html" class="hover:text-[#0f7ea9] transition"
+            >Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a
+          >
+        </li>
+        
+        <li>
+          <a href="/2025/05/connecting-postgresql-in-go-using-sqlx.html" class="hover:text-[#0f7ea9] transition"
+            >Connecting to PostgreSQL in Go using sqlx</a
+          >
+        </li>
+        
+        <li>
+          <a href="/2025/05/structuring-go-projects-clean-architecture.html" class="hover:text-[#0f7ea9] transition"
+            >Structuring Go Projects: Clean Project Structure and Best Practices</a
+          >
+        </li>
+        
+        <li>
+          <a href="/2025/05/how-to-build-rest-api-in-go-using-net-http.html" class="hover:text-[#0f7ea9] transition"
+            >How to Build a REST API in Go using net/http</a
+          >
+        </li>
+        
+      </ul>
+    </div>
+
+    
+    <div class="hidden lg:block mt-8">
+      
+<div class="sticky top-8">
+  
+  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs w-[300px] h-[250px] flex flex-col items-center justify-center rounded-lg mx-auto text-gray-500 dark:text-gray-400">
+    <div class="text-lg mb-2">🎯</div>
+    <div>Ad placeholder</div>
+    <div class="text-xs opacity-70">300×250 (sidebar)</div>
+  </div>
+  
+</div>
+
+
+    </div>
+  </aside>
+</div>
+
+
+<section id="comments" class="mt-12">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="wikukarno/buanacoding"
+    data-repo-id="R_kgD0Oj4jAw"
+    data-category="General"
+    data-category-id="DIC_kwD0Oj4jA84Cr_fx"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</section>
+
+
+
+      </div>
+    </main>
+
+    
+<div class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-4 transition-colors duration-300">
+  <div class="text-center space-x-4 text-sm font-medium">
+    <a href="/about" class="hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
+    <span>-</span>
+    <a href="/contact" class="hover:text-cyan-500 dark:hover:text-cyan-400">Contact</a>
+    <span>-</span>
+    <a href="/privacy-policy" class="hover:text-cyan-500 dark:hover:text-cyan-400">Privacy Policy</a>
+    <span>-</span>
+    <a href="/disclaimer" class="hover:text-cyan-500 dark:hover:text-cyan-400">Disclaimer</a>
+  </div>
+</div>
+
+
+<footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-4 border-t border-gray-200 dark:border-gray-700">
+  &copy; 2025 buanacoding.com &mdash; Crafted with ❤️ by <a href="https://www.wikukarno.com" class="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400" target="_blank">
+    Wiku Karno
+  </a>
+</footer>
+
+
+
+    
+<button
+  id="scrollToTop"
+  class="fixed bottom-6 right-6 bg-[#0f7ea9] hover:bg-cyan-600 text-white p-3 rounded-full shadow transition duration-300"
+  aria-label="Scroll to top"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    class="w-4 h-4"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 15l7-7 7 7"
+    />
+  </svg>
+</button>
+
+
+    <script src="https://unpkg.com/feather-icons"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+
+<script>
+  feather.replace();
+  const btn = document.getElementById("scrollToTop");
+  const html = document.documentElement;
+  const toggleBtn = document.getElementById("theme-toggle");
+  const toggleBtnMobile = document.getElementById("theme-toggle-mobile");
+  const iconSun = document.getElementById("icon-sun");
+  const iconMoon = document.getElementById("icon-moon");
+  const iconSunMobile = document.getElementById("icon-sun-mobile");
+  const iconMoonMobile = document.getElementById("icon-moon-mobile");
+
+  document.getElementById("menu-toggle")?.addEventListener("click", () => {
+    document.getElementById("mobile-menu")?.classList.toggle("hidden");
+  });
+
+  btn.style.display = "none";
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btn.style.display = "flex";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  function updateIcons(isDark) {
+    iconSun.classList.toggle("hidden", !isDark);
+    iconMoon.classList.toggle("hidden", isDark);
+    iconSunMobile.classList.toggle("hidden", !isDark);
+    iconMoonMobile.classList.toggle("hidden", isDark);
+  }
+
+  function setDarkMode(isDark) {
+    html.setAttribute("data-theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    updateIcons(isDark);
+  }
+
+  const userPref = localStorage.getItem("theme");
+  const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const isDark = userPref === "dark" || (!userPref && systemPref);
+  setDarkMode(isDark);
+
+  toggleBtn?.addEventListener("click", () => {
+    const currentlyDark = html.getAttribute("data-theme") === "dark";
+    setDarkMode(!currentlyDark);
+  });
+  toggleBtnMobile?.addEventListener("click", () => {
+    const currentlyDark = html.getAttribute("data-theme") === "dark";
+    setDarkMode(!currentlyDark);
+  });
+
+  document.querySelectorAll("pre").forEach((pre) => {
+    const button = document.createElement("button");
+    button.innerHTML = `
+      <span>Copy</span>
+    `;
+    button.className = `
+    copy-btn absolute top-2 right-2
+    text-xs px-2 py-1 rounded flex items-center gap-1
+    transition-colors duration-200
+    bg-gray-200 text-gray-800 hover:bg-gray-300
+    dark:bg-white/10 dark:text-white dark:hover:bg-white/20
+  `.trim();
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "relative";
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+    wrapper.appendChild(button);
+
+    button.addEventListener("click", () => {
+      const code = pre.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        button.querySelector("span").innerText = "Copied!";
+        setTimeout(() => {
+          button.querySelector("span").innerText = "Copy";
+        }, 2000);
+      });
+    });
+  });
+
+  const openBtn = document.getElementById("openSearchModal");
+  const closeBtn = document.getElementById("closeSearchModal");
+  const modal = document.getElementById("searchModal");
+
+  openBtn.addEventListener("click", () => {
+    console.log("Search modal opened");
+    modal.classList.remove("hidden");
+    document.getElementById("searchBox").focus();
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") modal.classList.add("hidden");
+  });
+
+  fetch("/index.json")
+    .then((res) => res.json())
+    .then((data) => {
+      const fuse = new Fuse(data, {
+        keys: ["title", "content"],
+        threshold: 0.3,
+      });
+
+      const searchBox = document.getElementById("searchBox");
+      const resultBox = document.getElementById("results");
+
+      searchBox.addEventListener("input", function (e) {
+        const query = e.target.value.trim();
+        if (query.length < 2) {
+          resultBox.innerHTML = "";
+          return;
+        }
+
+        const results = fuse.search(query);
+        if (results.length === 0) {
+          resultBox.innerHTML = "<li class='px-4 py-2'>No results found.</li>";
+        } else {
+          resultBox.innerHTML = results
+            .map(
+              (r) => `
+                    <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white">${r.item.title}</a>
+                  </li>
+                  `,
+            )
+            .join("");
+        }
+      });
+    });
+
+    const openBtnMobile = document.getElementById("openSearchModalMobile");
+    const closeBtnMobile = document.getElementById("closeSearchModal");
+    const modalMobile = document.getElementById("searchModal");
+
+    openBtnMobile.addEventListener("click", () => {
+      console.log("Search modal opened (mobile)");
+      modalMobile.classList.remove("hidden");
+      document.getElementById("searchBox").focus();
+    });
+    closeBtnMobile.addEventListener("click", () => {
+      modalMobile.classList.add("hidden");
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") modalMobile.classList.add("hidden");
+    });
+</script>
+
+
+    
+  </body>
+</html>

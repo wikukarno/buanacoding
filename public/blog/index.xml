@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs on Buana Coding</title><link>https://www.buanacoding.com/blog/</link><description>Recent content in Blogs on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 15 Aug 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</title><link>https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</link><pubDate>Fri, 15 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</guid><description>&lt;p>Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: /2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs on Buana Coding</title><link>https://www.buanacoding.com/blog/</link><description>Recent content in Blogs on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 15 Aug 2025 18:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)</title><link>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</link><pubDate>Fri, 15 Aug 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</guid><description>&lt;p>Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.&lt;/p>
+&lt;p>What you’ll build:&lt;/p>
+&lt;ul>
+&lt;li>A minimal FastAPI project structure&lt;/li>
+&lt;li>Running the app with Gunicorn (Uvicorn worker)&lt;/li>
+&lt;li>A systemd service for start/stop/restart&lt;/li>
+&lt;li>Nginx reverse proxy to Gunicorn&lt;/li>
+&lt;li>HTTPS (Certbot) with auto‑renewal&lt;/li>
+&lt;li>UFW firewall (open 80/443), logs, and troubleshooting tips&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>Ubuntu 24.04 server (sudo access)&lt;/li>
+&lt;li>A domain pointing to the server (A/AAAA records)&lt;/li>
+&lt;li>Python 3.10+ (Ubuntu 24.04 default is fine)&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Prepare the project structure on the server&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>A tidy layout makes automation easier.&lt;/p></description></item><item><title>Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</title><link>https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</link><pubDate>Fri, 15 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</guid><description>&lt;p>Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: /2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html&lt;/p>
 &lt;p>What you’ll do&lt;/p></description></item><item><title>Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</title><link>https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</link><pubDate>Thu, 14 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</guid><description>&lt;p>This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: Nginx + Certbot on Ubuntu 24.04 → /2025/08/nginx-certbot-ubuntu-24-04-free-https.html&lt;/p>
 &lt;p>What you’ll do&lt;/p>
 &lt;ul>

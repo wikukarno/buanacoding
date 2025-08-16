@@ -1,0 +1,395 @@
+<!doctype html><html lang=en data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS) | Buana Coding</title><meta name=description content="A complete guide to deploying FastAPI on Ubuntu 24.04 using Gunicorn as the ASGI server and Nginx as a reverse proxy, plus free HTTPS via Certbot/Let’s Encrypt. Includes a systemd service, UFW firewall, and troubleshooting."><meta name=keywords content="fastapi,deploy fastapi,ubuntu 24.04,gunicorn,uvicorn,nginx,certbot,let's encrypt,systemd,ufw"><link rel=canonical href=https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html><meta property="og:type" content="article"><meta property="og:title" content="Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS) | Buana Coding"><meta property="og:description" content="A complete guide to deploying FastAPI on Ubuntu 24.04 using Gunicorn as the ASGI server and Nginx as a reverse proxy, plus free HTTPS via Certbot/Let’s Encrypt. Includes a systemd service, UFW firewall, and troubleshooting."><meta property="og:url" content="https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html"><meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS) | Buana Coding"><meta name=twitter:description content="A complete guide to deploying FastAPI on Ubuntu 24.04 using Gunicorn as the ASGI server and Nginx as a reverse proxy, plus free HTTPS via Certbot/Let’s Encrypt. Includes a systemd service, UFW firewall, and troubleshooting."><meta name=twitter:image content="https://www.buanacoding.com/images/og-image.jpg"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploy FastAPI on Ubuntu 24.04: Gunicorn \u002b Nginx \u002b Certbot (HTTPS) | Buana Coding","description":"A complete guide to deploying FastAPI on Ubuntu 24.04 using Gunicorn as the ASGI server and Nginx as a reverse proxy, plus free HTTPS via Certbot\/Let’s Encrypt. Includes a systemd service, UFW firewall, and troubleshooting.","datePublished":"2025-08-15T18:00:00\u002b07:00","dateModified":"2025-08-15T18:00:00\u002b07:00","author":{"@type":"Person","name":"Wiku Karno"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.buanacoding.com\/2025\/08\/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html"},"image":"https:\/\/www.buanacoding.com\/images\/og-image.jpg","publisher":{"@type":"Organization","name":"Buana Coding"}}</script><link rel=icon href=/favicon.ico type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dracula.min.css><link rel=stylesheet href=/style.css><link rel=stylesheet href=/css/overrides.css><link rel=stylesheet href=/css/syntax.css><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"denied"})</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EN9J73FXF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-0EN9J73FXF")</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149036684216973" crossorigin=anonymous></script></head><body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col"><header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow"><div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"><h1 class="text-2xl font-extrabold tracking-wide"><a href=/ class=hover:opacity-90>BUANACODING</a></h1><nav class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"><a href=/tags/go class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Go
+</a><a href=/tags/laravel class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Laravel
+</a><a href=/tags/linux class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Linux
+</a><a href=/tags/python class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Python
+</a><button id=openSearchModal class="text-white transition duration-300 cursor-pointer focus:outline-none dark:hover:text-[#0f7ea9] hover:text-cyan-300" aria-label=Search>
+<i data-feather=search class="w-5 h-5"></i>
+</button>
+<button id=theme-toggle class="ml-2 text-white hover:text-yellow-300 transition duration-300 focus:outline-none cursor-pointer" aria-label="Toggle Dark Mode">
+<i id=icon-sun data-feather=sun class="w-5 h-5 hidden"></i>
+<i id=icon-moon data-feather=moon class="w-5 h-5"></i></button></nav><button id=menu-toggle class="md:hidden text-2xl focus:outline-none">
+☰</button></div><div id=mobile-menu class="hidden md:hidden px-4 pb-4 space-y-2"><a href=/tags/go class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Go
+</a><a href=/tags/laravel class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Laravel
+</a><a href=/tags/linux class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Linux
+</a><a href=/tags/python class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Python</a><div class="flex flex-col items-start gap-4 mt-2"><button id=openSearchModalMobile class="text-white hover:text-[#0f7ea9] transition duration-300" aria-label=Search>
+<i data-feather=search class="w-5 h-5"></i>
+</button>
+<button id=theme-toggle-mobile class="text-white hover:text-[#0f7ea9] transition duration-300" aria-label="Toggle Dark Mode">
+<i id=icon-sun-mobile data-feather=sun class="w-5 h-5 hidden"></i>
+<i id=icon-moon-mobile data-feather=moon class="w-5 h-5"></i></button></div></div></header><div id=searchModal class="fixed inset-0 z-50 hidden flex justify-center items-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4"><div class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl w-full max-w-xl p-6 relative"><button id=closeSearchModal class="absolute -top-4 -right-4 bg-white dark:bg-[#374151] rounded-full p-1 shadow hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-200 ease-in-out transform hover:scale-110">
+<i data-feather=x class="w-5 h-5 text-gray-600 dark:text-white hover:text-red-500"></i>
+</button>
+<input type=text id=searchBox placeholder="Search articles..." class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"><ul id=results class="bg-white dark:bg-[#1f2937] rounded-lg shadow max-h-60 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-600"></ul></div></div><main class="flex-1 w-full"><div class="max-w-7xl mx-auto py-8 px-4"><div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8"><article class="prose prose-blue dark:prose-invert lg:col-span-2"><nav class="text-sm text-gray-500 dark:text-gray-400 mb-4"><a href=/ class="hover:text-[#0f7ea9] font-medium">Home</a>
+<span class=mx-2>/</span>
+<a href=/tags/python class="hover:text-[#0f7ea9] font-medium">#Python</a></nav><h1>Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)</h1><p>Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.</p><p>What you’ll build:</p><ul><li>A minimal FastAPI project structure</li><li>Running the app with Gunicorn (Uvicorn worker)</li><li>A systemd service for start/stop/restart</li><li>Nginx reverse proxy to Gunicorn</li><li>HTTPS (Certbot) with auto‑renewal</li><li>UFW firewall (open 80/443), logs, and troubleshooting tips</li></ul><h2 id=prerequisites>Prerequisites</h2><ul><li>Ubuntu 24.04 server (sudo access)</li><li>A domain pointing to the server (A/AAAA records)</li><li>Python 3.10+ (Ubuntu 24.04 default is fine)</li></ul><ol><li>Prepare the project structure on the server</li></ol><hr><p>A tidy layout makes automation easier.</p><div class="my-8 flex justify-center"><div class="w-full max-w-2xl"><div class="text-center mb-2"><span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span></div><ins class=adsbygoogle style=display:block;text-align:center data-ad-layout=in-article data-ad-format=fluid data-ad-client=ca-pub-3149036684216973 data-ad-slot=4727606040></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo mkdir -p /opt/fastapi/app
+</span></span><span class=line><span class=cl>sudo adduser --system --group --home /opt/fastapi fastapi
+</span></span><span class=line><span class=cl>sudo chown -R fastapi:fastapi /opt/fastapi
+</span></span></code></pre></div><ol start=2><li>Create a virtualenv and install dependencies</li></ol><hr><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>sudo apt install -y python3-venv
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo -u fastapi python3 -m venv /opt/fastapi/venv
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/pip install --upgrade pip
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/pip install fastapi uvicorn gunicorn
+</span></span></code></pre></div><p>Create a requirements.txt for easier dependency management:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo -u fastapi tee /opt/fastapi/requirements.txt &gt;/dev/null <span class=s>&lt;&lt;&#39;REQS&#39;
+</span></span></span><span class=line><span class=cl><span class=s>fastapi==0.104.1
+</span></span></span><span class=line><span class=cl><span class=s>uvicorn[standard]==0.24.0
+</span></span></span><span class=line><span class=cl><span class=s>gunicorn==21.2.0
+</span></span></span><span class=line><span class=cl><span class=s>pydantic==2.5.0
+</span></span></span><span class=line><span class=cl><span class=s>REQS</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/pip install -r /opt/fastapi/requirements.txt
+</span></span></code></pre></div><ol start=3><li>Create a minimal FastAPI app</li></ol><hr><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo -u fastapi tee /opt/fastapi/app/main.py &gt;/dev/null <span class=s>&lt;&lt;&#39;PY&#39;
+</span></span></span><span class=line><span class=cl><span class=s>from fastapi import FastAPI
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>app = FastAPI()
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>@app.get(&#34;/healthz&#34;)
+</span></span></span><span class=line><span class=cl><span class=s>def healthz():
+</span></span></span><span class=line><span class=cl><span class=s>    return {&#34;status&#34;: &#34;ok&#34;}
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>@app.get(&#34;/&#34;)
+</span></span></span><span class=line><span class=cl><span class=s>def root():
+</span></span></span><span class=line><span class=cl><span class=s>    return {&#34;message&#34;: &#34;Hello from FastAPI on Ubuntu 24.04!&#34;}
+</span></span></span><span class=line><span class=cl><span class=s>PY</span>
+</span></span></code></pre></div><p>Optional: quick local test</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># IMPORTANT: Change to app directory first to avoid permission errors</span>
+</span></span><span class=line><span class=cl><span class=nb>cd</span> /opt/fastapi
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/uvicorn app.main:app --reload --host 0.0.0.0 --port <span class=m>8000</span>
+</span></span></code></pre></div><p>Visit <code>http://SERVER_IP:8000</code> to verify it works.</p><p><strong>Common Error Fix:</strong>
+If you get <code>PermissionError: Permission denied (os error 13) about ["/root"]</code>, it means uvicorn is trying to watch the wrong directory. Always <code>cd /opt/fastapi</code> first before running the command.</p><ol start=4><li>Run with Gunicorn (ASGI) manually for testing</li></ol><hr><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/gunicorn <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -k uvicorn.workers.UvicornWorker <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -w <span class=m>2</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -b 0.0.0.0:8000 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  app.main:app
+</span></span></code></pre></div><p>If logs look healthy and port 8000 serves requests (try <code>curl http://SERVER_IP:8000/healthz</code> or <code>curl 127.0.0.1:8000/healthz</code>), proceed to the service setup.</p><ol start=5><li>Choose your process manager (pick one)
+===========================================</li></ol><p>You need to choose how to run your FastAPI app as a service. Pick <strong>either</strong> Option A (systemd) <strong>or</strong> Option B (PM2):</p><h2 id=option-a-create-a-systemd-service-for-gunicorn-recommended>Option A: Create a systemd service for Gunicorn (Recommended)</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo tee /etc/systemd/system/fastapi.service &gt;/dev/null <span class=s>&lt;&lt;&#39;SERVICE&#39;
+</span></span></span><span class=line><span class=cl><span class=s>[Unit]
+</span></span></span><span class=line><span class=cl><span class=s>Description=FastAPI app with Gunicorn
+</span></span></span><span class=line><span class=cl><span class=s>After=network.target
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Service]
+</span></span></span><span class=line><span class=cl><span class=s>User=fastapi
+</span></span></span><span class=line><span class=cl><span class=s>Group=fastapi
+</span></span></span><span class=line><span class=cl><span class=s>WorkingDirectory=/opt/fastapi
+</span></span></span><span class=line><span class=cl><span class=s>Environment=&#34;PATH=/opt/fastapi/venv/bin&#34;
+</span></span></span><span class=line><span class=cl><span class=s>ExecStart=/opt/fastapi/venv/bin/gunicorn -k uvicorn.workers.UvicornWorker -w 2 -b 0.0.0.0:8000 app.main:app
+</span></span></span><span class=line><span class=cl><span class=s>Restart=always
+</span></span></span><span class=line><span class=cl><span class=s>RestartSec=5
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Install]
+</span></span></span><span class=line><span class=cl><span class=s>WantedBy=multi-user.target
+</span></span></span><span class=line><span class=cl><span class=s>SERVICE</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo systemctl daemon-reload
+</span></span><span class=line><span class=cl>sudo systemctl <span class=nb>enable</span> --now fastapi
+</span></span><span class=line><span class=cl>sudo systemctl status fastapi --no-pager
+</span></span></code></pre></div><h2 id=option-b-using-pm2-alternative-process-manager>Option B: Using PM2 (Alternative Process Manager)</h2><p>PM2 is great for Node.js but also works excellently with Python apps. It provides easy clustering, monitoring, and log management.</p><p><strong>Install PM2:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Install Node.js and PM2</span>
+</span></span><span class=line><span class=cl>curl -fsSL https://deb.nodesource.com/setup_20.x <span class=p>|</span> sudo -E bash -
+</span></span><span class=line><span class=cl>sudo apt-get install -y nodejs
+</span></span><span class=line><span class=cl>sudo npm install -g pm2
+</span></span></code></pre></div><p><strong>Create PM2 ecosystem config:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo -u fastapi tee /opt/fastapi/ecosystem.config.js &gt;/dev/null <span class=s>&lt;&lt;&#39;JS&#39;
+</span></span></span><span class=line><span class=cl><span class=s>module.exports = {
+</span></span></span><span class=line><span class=cl><span class=s>  apps: [{
+</span></span></span><span class=line><span class=cl><span class=s>    name: &#39;fastapi-app&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    script: &#39;/opt/fastapi/venv/bin/gunicorn&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    args: &#39;-k uvicorn.workers.UvicornWorker -w 2 -b 127.0.0.1:8000 app.main:app&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    cwd: &#39;/opt/fastapi&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    instances: 1,
+</span></span></span><span class=line><span class=cl><span class=s>    autorestart: true,
+</span></span></span><span class=line><span class=cl><span class=s>    watch: false,
+</span></span></span><span class=line><span class=cl><span class=s>    max_memory_restart: &#39;1G&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    env: {
+</span></span></span><span class=line><span class=cl><span class=s>      NODE_ENV: &#39;production&#39;
+</span></span></span><span class=line><span class=cl><span class=s>    },
+</span></span></span><span class=line><span class=cl><span class=s>    error_file: &#39;/opt/fastapi/logs/err.log&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    out_file: &#39;/opt/fastapi/logs/out.log&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    log_file: &#39;/opt/fastapi/logs/combined.log&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    time: true
+</span></span></span><span class=line><span class=cl><span class=s>  }]
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>JS</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Create logs directory</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi mkdir -p /opt/fastapi/logs
+</span></span></code></pre></div><p><strong>Start with PM2:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Start the application</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 start /opt/fastapi/ecosystem.config.js
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Save PM2 process list</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 save
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Setup PM2 to start on boot</span>
+</span></span><span class=line><span class=cl>sudo env <span class=nv>PATH</span><span class=o>=</span><span class=nv>$PATH</span>:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u fastapi --hp /opt/fastapi
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Check status</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 status
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 logs fastapi-app
+</span></span></code></pre></div><p><strong>PM2 Management Commands:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Restart app</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 restart fastapi-app
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Stop app</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 stop fastapi-app
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Monitor in real-time</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 monit
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># View logs</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 logs fastapi-app --lines <span class=m>50</span>
+</span></span></code></pre></div><p><strong>Systemd vs PM2 Comparison:</strong></p><table><thead><tr><th>Feature</th><th>Systemd</th><th>PM2</th></tr></thead><tbody><tr><td>Built-in Ubuntu</td><td>Yes</td><td>Requires Node.js</td></tr><tr><td>Memory usage</td><td>Lower</td><td>Higher (Node.js overhead)</td></tr><tr><td>Monitoring UI</td><td>Command line only</td><td>pm2 monit dashboard</td></tr><tr><td>Log management</td><td>journalctl</td><td>Built-in log rotation</td></tr><tr><td>Clustering</td><td>Manual setup</td><td>Easy clustering</td></tr><tr><td>Learning curve</td><td>Moderate</td><td>Easier</td></tr><tr><td>Production ready</td><td>Enterprise grade</td><td>Battle tested</td></tr></tbody></table><p><strong>Choose systemd if:</strong> You want minimal overhead and native Ubuntu integration.
+<strong>Choose PM2 if:</strong> You want easier monitoring, log management, and plan to scale horizontally.</p><p><strong>IMPORTANT:</strong> You must complete either Option A or Option B above before proceeding to Nginx setup!</p><ol start=6><li>Install and configure Nginx (reverse proxy)</li></ol><hr><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install -y nginx
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo tee /etc/nginx/sites-available/example.com &gt;/dev/null <span class=s>&lt;&lt;&#39;NGINX&#39;
+</span></span></span><span class=line><span class=cl><span class=s>server {
+</span></span></span><span class=line><span class=cl><span class=s>    listen 80;
+</span></span></span><span class=line><span class=cl><span class=s>    listen [::]:80;
+</span></span></span><span class=line><span class=cl><span class=s>    server_name example.com www.example.com;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>    location / {
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_pass http://127.0.0.1:8000;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header Host $host;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header X-Real-IP $remote_addr;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header X-Forwarded-Proto $scheme;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_read_timeout 60s;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>NGINX</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+</span></span><span class=line><span class=cl>sudo nginx -t <span class=o>&amp;&amp;</span> sudo systemctl reload nginx
+</span></span></code></pre></div><ol start=7><li>Open the firewall (UFW) for HTTP/HTTPS</li></ol><hr><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ufw allow <span class=s1>&#39;Nginx Full&#39;</span>   <span class=c1># opens 80/tcp and 443/tcp</span>
+</span></span><span class=line><span class=cl>sudo ufw allow <span class=m>8000</span>           <span class=c1># allow direct access to FastAPI for testing</span>
+</span></span><span class=line><span class=cl>sudo ufw status
+</span></span></code></pre></div><ol start=8><li>Issue free HTTPS with Certbot</li></ol><hr><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install -y certbot python3-certbot-nginx
+</span></span><span class=line><span class=cl>sudo certbot --nginx -d example.com -d www.example.com
+</span></span></code></pre></div><p>Certbot will configure the 443 server block and set up auto‑renewal. You can test renewal with:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot renew --dry-run
+</span></span></code></pre></div><ol start=9><li>Checks and monitoring</li></ol><hr><ul><li>Try: <code>curl -I https://example.com/healthz</code></li><li>App logs: <code>journalctl -u fastapi -f</code></li><li>Nginx logs: <code>/var/log/nginx/access.log</code> and <code>error.log</code></li></ul><ol start=10><li>Production optimizations</li></ol><hr><p>Add some production-ready configurations:</p><p><strong>Gunicorn production config:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo -u fastapi tee /opt/fastapi/gunicorn.conf.py &gt;/dev/null <span class=s>&lt;&lt;&#39;GUNICORN&#39;
+</span></span></span><span class=line><span class=cl><span class=s># Gunicorn configuration file
+</span></span></span><span class=line><span class=cl><span class=s>bind = &#34;0.0.0.0:8000&#34;
+</span></span></span><span class=line><span class=cl><span class=s>worker_class = &#34;uvicorn.workers.UvicornWorker&#34;
+</span></span></span><span class=line><span class=cl><span class=s>workers = 2
+</span></span></span><span class=line><span class=cl><span class=s>worker_connections = 1000
+</span></span></span><span class=line><span class=cl><span class=s>max_requests = 1000
+</span></span></span><span class=line><span class=cl><span class=s>max_requests_jitter = 100
+</span></span></span><span class=line><span class=cl><span class=s>preload_app = True
+</span></span></span><span class=line><span class=cl><span class=s>keepalive = 2
+</span></span></span><span class=line><span class=cl><span class=s>timeout = 30
+</span></span></span><span class=line><span class=cl><span class=s>graceful_timeout = 30
+</span></span></span><span class=line><span class=cl><span class=s>GUNICORN</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Update systemd service to use config file</span>
+</span></span><span class=line><span class=cl>sudo sed -i <span class=s1>&#39;s|ExecStart=.*|ExecStart=/opt/fastapi/venv/bin/gunicorn -c /opt/fastapi/gunicorn.conf.py app.main:app|&#39;</span> /etc/systemd/system/fastapi.service
+</span></span><span class=line><span class=cl>sudo systemctl daemon-reload
+</span></span><span class=line><span class=cl>sudo systemctl restart fastapi
+</span></span></code></pre></div><p><strong>Enhanced Nginx config with security headers:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo tee /etc/nginx/sites-available/example.com &gt;/dev/null <span class=s>&lt;&lt;&#39;NGINX&#39;
+</span></span></span><span class=line><span class=cl><span class=s>server {
+</span></span></span><span class=line><span class=cl><span class=s>    listen 80;
+</span></span></span><span class=line><span class=cl><span class=s>    listen [::]:80;
+</span></span></span><span class=line><span class=cl><span class=s>    server_name example.com www.example.com;
+</span></span></span><span class=line><span class=cl><span class=s>    return 301 https://$server_name$request_uri;
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>server {
+</span></span></span><span class=line><span class=cl><span class=s>    listen 443 ssl http2;
+</span></span></span><span class=line><span class=cl><span class=s>    listen [::]:443 ssl http2;
+</span></span></span><span class=line><span class=cl><span class=s>    server_name example.com www.example.com;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>    # SSL configuration (handled by Certbot)
+</span></span></span><span class=line><span class=cl><span class=s>    
+</span></span></span><span class=line><span class=cl><span class=s>    # Security headers
+</span></span></span><span class=line><span class=cl><span class=s>    add_header X-Frame-Options DENY;
+</span></span></span><span class=line><span class=cl><span class=s>    add_header X-Content-Type-Options nosniff;
+</span></span></span><span class=line><span class=cl><span class=s>    add_header X-XSS-Protection &#34;1; mode=block&#34;;
+</span></span></span><span class=line><span class=cl><span class=s>    add_header Strict-Transport-Security &#34;max-age=31536000; includeSubDomains&#34; always;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>    # Gzip compression
+</span></span></span><span class=line><span class=cl><span class=s>    gzip on;
+</span></span></span><span class=line><span class=cl><span class=s>    gzip_vary on;
+</span></span></span><span class=line><span class=cl><span class=s>    gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>    location / {
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_pass http://127.0.0.1:8000;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header Host $host;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header X-Real-IP $remote_addr;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_set_header X-Forwarded-Proto $scheme;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_read_timeout 60s;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_connect_timeout 60s;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_send_timeout 60s;
+</span></span></span><span class=line><span class=cl><span class=s>        
+</span></span></span><span class=line><span class=cl><span class=s>        # Buffer settings
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_buffering on;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_buffer_size 4k;
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_buffers 8 4k;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>    # Health check endpoint (no logging)
+</span></span></span><span class=line><span class=cl><span class=s>    location /healthz {
+</span></span></span><span class=line><span class=cl><span class=s>        proxy_pass http://127.0.0.1:8000;
+</span></span></span><span class=line><span class=cl><span class=s>        access_log off;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>NGINX</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo nginx -t <span class=o>&amp;&amp;</span> sudo systemctl reload nginx
+</span></span></code></pre></div><ol start=11><li>Update and deployment strategies</li></ol><hr><p><strong>For systemd deployments:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Create deployment script</span>
+</span></span><span class=line><span class=cl>sudo tee /opt/fastapi/deploy.sh &gt;/dev/null <span class=s>&lt;&lt;&#39;DEPLOY&#39;
+</span></span></span><span class=line><span class=cl><span class=s>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=s>set -e
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>echo &#34;Starting deployment...&#34;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># Pull latest code (if using git)
+</span></span></span><span class=line><span class=cl><span class=s>cd /opt/fastapi
+</span></span></span><span class=line><span class=cl><span class=s>sudo -u fastapi git pull origin main
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># Update dependencies
+</span></span></span><span class=line><span class=cl><span class=s>sudo -u fastapi /opt/fastapi/venv/bin/pip install -r requirements.txt
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># Run any migrations or setup scripts here
+</span></span></span><span class=line><span class=cl><span class=s># sudo -u fastapi /opt/fastapi/venv/bin/python manage.py migrate
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># Test the app syntax
+</span></span></span><span class=line><span class=cl><span class=s>sudo -u fastapi /opt/fastapi/venv/bin/python -c &#34;import app.main&#34;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># Restart the service
+</span></span></span><span class=line><span class=cl><span class=s>sudo systemctl restart fastapi
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s># Wait a moment and check if it&#39;s running
+</span></span></span><span class=line><span class=cl><span class=s>sleep 5
+</span></span></span><span class=line><span class=cl><span class=s>sudo systemctl is-active --quiet fastapi &amp;&amp; echo &#34;Deployment successful!&#34; || echo &#34;Deployment failed!&#34;
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>echo &#34;Checking app health...&#34;
+</span></span></span><span class=line><span class=cl><span class=s>curl -f http://127.0.0.1:8000/healthz || echo &#34;Health check failed&#34;
+</span></span></span><span class=line><span class=cl><span class=s>DEPLOY</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo chmod +x /opt/fastapi/deploy.sh
+</span></span></code></pre></div><p><strong>For PM2 deployments:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># PM2 deployment</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 stop fastapi-app
+</span></span><span class=line><span class=cl><span class=nb>cd</span> /opt/fastapi
+</span></span><span class=line><span class=cl>sudo -u fastapi git pull origin main
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/pip install -r requirements.txt
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 restart fastapi-app
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 save
+</span></span></code></pre></div><p><strong>Zero-downtime deployment with PM2:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Update ecosystem.config.js for zero-downtime</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi tee /opt/fastapi/ecosystem.config.js &gt;/dev/null <span class=s>&lt;&lt;&#39;JS&#39;
+</span></span></span><span class=line><span class=cl><span class=s>module.exports = {
+</span></span></span><span class=line><span class=cl><span class=s>  apps: [{
+</span></span></span><span class=line><span class=cl><span class=s>    name: &#39;fastapi-app&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    script: &#39;/opt/fastapi/venv/bin/gunicorn&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    args: &#39;-c /opt/fastapi/gunicorn.conf.py app.main:app&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    cwd: &#39;/opt/fastapi&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    instances: 2,  // Multiple instances for zero-downtime
+</span></span></span><span class=line><span class=cl><span class=s>    exec_mode: &#39;fork&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    autorestart: true,
+</span></span></span><span class=line><span class=cl><span class=s>    watch: false,
+</span></span></span><span class=line><span class=cl><span class=s>    max_memory_restart: &#39;1G&#39;,
+</span></span></span><span class=line><span class=cl><span class=s>    kill_timeout: 5000,
+</span></span></span><span class=line><span class=cl><span class=s>    wait_ready: true,
+</span></span></span><span class=line><span class=cl><span class=s>    listen_timeout: 10000,
+</span></span></span><span class=line><span class=cl><span class=s>    env: {
+</span></span></span><span class=line><span class=cl><span class=s>      NODE_ENV: &#39;production&#39;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>  }]
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>JS</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Reload with zero downtime</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 reload fastapi-app
+</span></span></code></pre></div><ol start=12><li>Monitoring and logging</li></ol><hr><p><strong>Basic monitoring with systemd:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Check service status</span>
+</span></span><span class=line><span class=cl>sudo systemctl status fastapi
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># View logs in real-time</span>
+</span></span><span class=line><span class=cl>sudo journalctl -u fastapi -f
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Check resource usage</span>
+</span></span><span class=line><span class=cl>sudo systemctl show fastapi --property<span class=o>=</span>MainPID
+</span></span><span class=line><span class=cl>ps aux <span class=p>|</span> grep <span class=k>$(</span>sudo systemctl show fastapi --property<span class=o>=</span>MainPID --value<span class=k>)</span>
+</span></span></code></pre></div><p><strong>Basic monitoring with PM2:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Real-time monitoring dashboard</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 monit
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Check memory and CPU usage</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 list
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># View detailed process info</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 describe fastapi-app
+</span></span></code></pre></div><p><strong>Log rotation setup:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># For systemd logs</span>
+</span></span><span class=line><span class=cl>sudo tee /etc/logrotate.d/fastapi &gt;/dev/null <span class=s>&lt;&lt;&#39;LOGROTATE&#39;
+</span></span></span><span class=line><span class=cl><span class=s>/var/log/nginx/access.log {
+</span></span></span><span class=line><span class=cl><span class=s>    daily
+</span></span></span><span class=line><span class=cl><span class=s>    missingok
+</span></span></span><span class=line><span class=cl><span class=s>    rotate 30
+</span></span></span><span class=line><span class=cl><span class=s>    compress
+</span></span></span><span class=line><span class=cl><span class=s>    delaycompress
+</span></span></span><span class=line><span class=cl><span class=s>    notifempty
+</span></span></span><span class=line><span class=cl><span class=s>    create 644 www-data www-data
+</span></span></span><span class=line><span class=cl><span class=s>    postrotate
+</span></span></span><span class=line><span class=cl><span class=s>        sudo systemctl reload nginx &gt; /dev/null 2&gt;&amp;1
+</span></span></span><span class=line><span class=cl><span class=s>    endscript
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>LOGROTATE</span>
+</span></span></code></pre></div><h2 id=tips--troubleshooting>Tips & troubleshooting</h2><p><strong>Common issues and solutions:</strong></p><p><strong>Permission denied error when testing uvicorn:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Wrong: This will cause permission error if run from /root</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/uvicorn app.main:app --reload
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Correct: Always change directory first</span>
+</span></span><span class=line><span class=cl><span class=nb>cd</span> /opt/fastapi
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/uvicorn app.main:app --reload --host 0.0.0.0 --port <span class=m>8000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Or run without reload flag for testing</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi /opt/fastapi/venv/bin/uvicorn app.main:app --host 0.0.0.0 --port <span class=m>8000</span>
+</span></span></code></pre></div><p><strong>Root cause:</strong> Uvicorn with <code>--reload</code> tries to watch the current working directory. If you run from <code>/root</code>, the <code>fastapi</code> user cannot access it.</p><p><strong>502 Bad Gateway:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Check if FastAPI service is running</span>
+</span></span><span class=line><span class=cl>sudo systemctl status fastapi
+</span></span><span class=line><span class=cl><span class=c1># or for PM2</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 status
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Check application logs</span>
+</span></span><span class=line><span class=cl>sudo journalctl -u fastapi -f --since <span class=s2>&#34;10 minutes ago&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># or for PM2</span>
+</span></span><span class=line><span class=cl>sudo -u fastapi pm2 logs fastapi-app --lines <span class=m>50</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Test direct connection to Gunicorn</span>
+</span></span><span class=line><span class=cl>curl -I http://127.0.0.1:8000/healthz
+</span></span><span class=line><span class=cl><span class=c1># Or test from outside</span>
+</span></span><span class=line><span class=cl>curl -I http://SERVER_IP:8000/healthz
+</span></span></code></pre></div><p><strong>High memory usage:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Check memory consumption</span>
+</span></span><span class=line><span class=cl>sudo systemctl show fastapi --property<span class=o>=</span>MemoryCurrent
+</span></span><span class=line><span class=cl><span class=c1># Restart if memory is too high</span>
+</span></span><span class=line><span class=cl>sudo systemctl restart fastapi
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># For PM2 - automatic restart on high memory</span>
+</span></span><span class=line><span class=cl><span class=c1># Already configured with max_memory_restart: &#39;1G&#39;</span>
+</span></span></code></pre></div><p><strong>Performance tuning:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Adjust workers based on CPU cores</span>
+</span></span><span class=line><span class=cl><span class=c1># Rule of thumb: (2 x CPU cores) + 1</span>
+</span></span><span class=line><span class=cl>nproc  <span class=c1># Check CPU cores</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Update gunicorn workers in config</span>
+</span></span><span class=line><span class=cl>sudo sed -i <span class=s1>&#39;s/workers = 2/workers = 3/&#39;</span> /opt/fastapi/gunicorn.conf.py
+</span></span><span class=line><span class=cl>sudo systemctl restart fastapi
+</span></span></code></pre></div><p><strong>SSL certificate issues:</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Test certificate renewal</span>
+</span></span><span class=line><span class=cl>sudo certbot renew --dry-run
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Check certificate expiry</span>
+</span></span><span class=line><span class=cl>sudo certbot certificates
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Manual renewal if needed</span>
+</span></span><span class=line><span class=cl>sudo certbot renew --force-renewal -d example.com
+</span></span></code></pre></div><p><strong>Security hardening checklist:</strong></p><ul><li>Non-root user (fastapi)</li><li>Firewall (UFW) configured</li><li>SSL/TLS encryption</li><li>Security headers in Nginx</li><li>No direct access to Gunicorn port</li><li>Consider: fail2ban, regular security updates</li><li>Consider: database connection encryption</li><li>Consider: rate limiting in Nginx</li></ul><h2 id=recommended-next-steps>Recommended next steps</h2><ul><li><strong>Monitoring</strong>: Set up Prometheus + Grafana for advanced metrics</li><li><strong>Backup</strong>: Database backups, SSL certificate backups</li><li><strong>CI/CD</strong>: GitHub Actions for automated testing and deployment</li><li><strong>Load balancing</strong>: Multiple app servers behind Nginx for high availability</li><li><strong>Caching</strong>: Redis for session storage and caching</li><li><strong>Database</strong>: PostgreSQL with connection pooling (SQLAlchemy + asyncpg)</li></ul><p>Related articles:</p><ul><li><a href=/2025/08/nginx-certbot-ubuntu-24-04-free-https.html>Nginx + Certbot on Ubuntu 24.04</a> - SSL setup guide</li><li><a href=/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html>Install Docker on Ubuntu 24.04</a> - Containerized deployment option</li></ul><p>That&rsquo;s it! You now have a production-ready FastAPI deployment on Ubuntu 24.04 with multiple process management options (systemd vs PM2), HTTPS encryption, and comprehensive monitoring. Choose the approach that best fits your infrastructure and scaling needs. Happy coding!</p></p><div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded"><h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2><ul class="list-disc list-inside"><li><a href=/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html class="text-blue-600 dark:text-blue-400 hover:underline">Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)</a></li><li><a href=/2025/08/nginx-certbot-ubuntu-24-04-free-https.html class="text-blue-600 dark:text-blue-400 hover:underline">Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a></li><li><a href=/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html class="text-blue-600 dark:text-blue-400 hover:underline">Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a></li></ul></div><div class="my-8 py-6 border-t border-b border-gray-200 dark:border-gray-700"><div class="max-w-4xl mx-auto"><div class="text-center mb-3"><span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span></div><div class="flex justify-center"><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-3149036684216973 data-ad-slot=3879195288 data-ad-format=auto data-full-width-responsive=true></ins></div><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></article><aside class=space-y-10><div><h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Popular Post</h3><ul class="space-y-3 list-disc list-inside text-sm text-gray-800 dark:text-gray-200"><li><a href=/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html class="hover:text-[#0f7ea9] transition">Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)</a></li><li><a href=/2025/08/nginx-certbot-ubuntu-24-04-free-https.html class="hover:text-[#0f7ea9] transition">Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</a></li><li><a href=/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html class="hover:text-[#0f7ea9] transition">Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a></li><li><a href=/2025/05/connecting-postgresql-in-go-using-sqlx.html class="hover:text-[#0f7ea9] transition">Connecting to PostgreSQL in Go using sqlx</a></li><li><a href=/2025/05/structuring-go-projects-clean-architecture.html class="hover:text-[#0f7ea9] transition">Structuring Go Projects: Clean Project Structure and Best Practices</a></li></ul></div><div class="hidden lg:block mt-8"><div class="sticky top-8"><div class="text-center mb-3"><span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span></div><div class="bg-white dark:bg-gray-800 rounded-lg p-2 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300"><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-3149036684216973 data-ad-slot=3879195288 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></div></aside></div><section id=comments class=mt-12><script src=https://giscus.app/client.js data-repo=wikukarno/buanacoding data-repo-id=R_kgD0Oj4jAw data-category=General data-category-id=DIC_kwD0Oj4jA84Cr_fx data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=en data-loading=lazy crossorigin=anonymous async></script></section></div></main><div class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-4 transition-colors duration-300"><div class="text-center space-x-4 text-sm font-medium"><a href=/about class="hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
+<span>-</span>
+<a href=/contact class="hover:text-cyan-500 dark:hover:text-cyan-400">Contact</a>
+<span>-</span>
+<a href=/privacy-policy class="hover:text-cyan-500 dark:hover:text-cyan-400">Privacy Policy</a>
+<span>-</span>
+<a href=/disclaimer class="hover:text-cyan-500 dark:hover:text-cyan-400">Disclaimer</a></div></div><footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-4 border-t border-gray-200 dark:border-gray-700">&copy; 2025 buanacoding.com &mdash; Crafted with ❤️ by <a href=https://www.wikukarno.com class="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400" target=_blank>Wiku Karno</a></footer><button id=scrollToTop class="fixed bottom-6 right-6 bg-[#0f7ea9] hover:bg-cyan-600 text-white p-3 rounded-full shadow transition duration-300" aria-label="Scroll to top">
+<svg fill="none" class="w-4 h-4" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+<script src=https://unpkg.com/feather-icons></script><script src=https://cdn.jsdelivr.net/npm/fuse.js@6.4.6></script><script>feather.replace();const btn=document.getElementById("scrollToTop"),html=document.documentElement,toggleBtn=document.getElementById("theme-toggle"),toggleBtnMobile=document.getElementById("theme-toggle-mobile"),iconSun=document.getElementById("icon-sun"),iconMoon=document.getElementById("icon-moon"),iconSunMobile=document.getElementById("icon-sun-mobile"),iconMoonMobile=document.getElementById("icon-moon-mobile");document.getElementById("menu-toggle")?.addEventListener("click",()=>{document.getElementById("mobile-menu")?.classList.toggle("hidden")}),btn.style.display="none",window.addEventListener("scroll",()=>{window.scrollY>300?btn.style.display="flex":btn.style.display="none"}),btn.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});function updateIcons(e){iconSun.classList.toggle("hidden",!e),iconMoon.classList.toggle("hidden",e),iconSunMobile.classList.toggle("hidden",!e),iconMoonMobile.classList.toggle("hidden",e)}function setDarkMode(e){html.setAttribute("data-theme",e?"dark":"light"),localStorage.setItem("theme",e?"dark":"light"),updateIcons(e)}const userPref=localStorage.getItem("theme"),systemPref=window.matchMedia("(prefers-color-scheme: dark)").matches,isDark=userPref==="dark"||!userPref&&systemPref;setDarkMode(isDark),toggleBtn?.addEventListener("click",()=>{const e=html.getAttribute("data-theme")==="dark";setDarkMode(!e)}),toggleBtnMobile?.addEventListener("click",()=>{const e=html.getAttribute("data-theme")==="dark";setDarkMode(!e)}),document.querySelectorAll("pre").forEach(e=>{const t=document.createElement("button");t.innerHTML=`
+      <span>Copy</span>
+    `,t.className=`
+    copy-btn absolute top-2 right-2
+    text-xs px-2 py-1 rounded flex items-center gap-1
+    transition-colors duration-200
+    bg-gray-200 text-gray-800 hover:bg-gray-300
+    dark:bg-white/10 dark:text-white dark:hover:bg-white/20
+  `.trim();const n=document.createElement("div");n.className="relative",e.parentNode.insertBefore(n,e),n.appendChild(e),n.appendChild(t),t.addEventListener("click",()=>{const n=e.innerText;navigator.clipboard.writeText(n).then(()=>{t.querySelector("span").innerText="Copied!",setTimeout(()=>{t.querySelector("span").innerText="Copy"},2e3)})})});const openBtn=document.getElementById("openSearchModal"),closeBtn=document.getElementById("closeSearchModal"),modal=document.getElementById("searchModal");openBtn.addEventListener("click",()=>{console.log("Search modal opened"),modal.classList.remove("hidden"),document.getElementById("searchBox").focus()}),closeBtn.addEventListener("click",()=>{modal.classList.add("hidden")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&modal.classList.add("hidden")}),fetch("/index.json").then(e=>e.json()).then(e=>{const n=new Fuse(e,{keys:["title","content"],threshold:.3}),s=document.getElementById("searchBox"),t=document.getElementById("results");s.addEventListener("input",function(e){const s=e.target.value.trim();if(s.length<2){t.innerHTML="";return}const o=n.search(s);o.length===0?t.innerHTML="<li class='px-4 py-2'>No results found.</li>":t.innerHTML=o.map(e=>`
+                    <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <a href="${e.item.href}" class="block font-semibold text-gray-900 dark:text-white">${e.item.title}</a>
+                  </li>
+                  `).join("")})});const openBtnMobile=document.getElementById("openSearchModalMobile"),closeBtnMobile=document.getElementById("closeSearchModal"),modalMobile=document.getElementById("searchModal");openBtnMobile.addEventListener("click",()=>{console.log("Search modal opened (mobile)"),modalMobile.classList.remove("hidden"),document.getElementById("searchBox").focus()}),closeBtnMobile.addEventListener("click",()=>{modalMobile.classList.add("hidden")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&modalMobile.classList.add("hidden")})</script></body></html>
