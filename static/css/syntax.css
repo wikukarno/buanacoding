@@ -1,14 +1,21 @@
 /* Responsive Syntax Highlighting for Light/Dark Mode */
 
 /* Light Mode (Default) - GitHub Style */
-/* Background */ .bg { background-color:#fff; }
+/* Background */ .bg { 
+  background-color: transparent !important; 
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
 /* PreWrapper */ .chroma { 
-  background-color:#fff; 
-  color:#24292f;
-  border-radius: 0.5rem; 
+  background-color:#fff !important; 
+  color:#24292f !important;
+  border-radius: 0; 
   padding: 1rem; 
   margin: 1.5rem 0; 
-  border: 1px solid #d1d9e0; 
+  border: none !important; 
+  box-shadow: none !important;
+  outline: none !important;
   overflow-x: auto;
 }
 
@@ -19,8 +26,8 @@
 /* LineTableTD */ .chroma .lntd { vertical-align:top;padding:0;margin:0;border:0; }
 /* LineTable */ .chroma .lntable { border-spacing:0;padding:0;margin:0;border:0; }
 /* LineHighlight */ .chroma .hl { background-color:#e5e5e5 }
-/* LineNumbersTable */ .chroma .lnt { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f }
-/* LineNumbers */ .chroma .ln { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f }
+/* LineNumbersTable */ .chroma .lnt { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#959da5 }
+/* LineNumbers */ .chroma .ln { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#959da5 }
 /* Line */ .chroma .line { display:flex; }
 /* Keyword */ .chroma .k { color:#cf222e }
 /* KeywordConstant */ .chroma .kc { color:#cf222e }
@@ -99,10 +106,10 @@
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
-  /* Background */ .bg { background-color:#282a36; }
+  /* Background */ .bg { background-color:#282a36 !important; }
   /* PreWrapper */ .chroma { 
-    background-color:#282a36; 
-    color:#f8f8f2;
+    background-color:#282a36 !important; 
+    color:#f8f8f2 !important;
     border: 1px solid #44475a; 
   }
   /* LineHighlight */ .chroma .hl { background-color:#44475a }
@@ -160,10 +167,10 @@
 }
 
 /* Dark class override for manual theme switching */
-.dark .bg { background-color:#282a36; }
+.dark .bg { background-color:#282a36 !important; }
 .dark .chroma { 
-  background-color:#282a36; 
-  color:#f8f8f2;
+  background-color:#282a36 !important; 
+  color:#f8f8f2 !important;
   border: 1px solid #44475a; 
 }
 .dark .chroma .hl { background-color:#44475a }

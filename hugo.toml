@@ -6,7 +6,10 @@ title = "Buana Coding"
 [markup]
   [markup.highlight]
     noClasses = false
-    style = "dracula"
+    style = "github"
+    lineNos = false
+    lineNumbersInTable = false
+    tabWidth = 2
 
 [params.giscus]
   repo = "wikukarno/buanacoding"
