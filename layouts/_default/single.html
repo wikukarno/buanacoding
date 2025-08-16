@@ -20,6 +20,9 @@
 
     <h1>{{ .Title }}</h1>
 
+    {{/* Social Share Icons under Title */}}
+    {{ partial "social-share-header.html" . }}
+
     <!-- Artikel Content -->
     {{ $content := .Content }}
     {{ $paragraphs := split $content "</p>" }}
@@ -57,6 +60,9 @@
       </ul>
     </div>
 
+    {{/* Social Share Buttons */}}
+    {{ partial "social-share.html" . }}
+
     {{/* AdSense: Responsive unit after related block */}}
     {{ partial "adsense-unit.html" . }}
   </article>
@@ -90,4 +96,8 @@
 {{ if not .Params.disable_comments }}
 {{ partial "comments.html" . }}
 {{ end }}
+
+{{/* Floating Share Button for Mobile */}}
+{{ partial "social-share-compact.html" . }}
+
 {{ end }}
