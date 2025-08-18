@@ -60,8 +60,13 @@
       </ul>
     </div>
 
-    {{/* AdSense: Responsive unit after related block */}}
-    {{ partial "adsense-unit.html" . }}
+    {{/* AdSense: Responsive unit after related block (desktop only) */}}
+    <div class="hidden lg:block">
+      {{ partial "adsense-unit.html" . }}
+    </div>
+
+    {{/* AdSense: Mobile-only banner under article */}}
+    {{ partial "adsense-mobile-banner.html" . }}
   </article>
 
   <!-- ==== RIGHT: SIDEBAR ==== -->
