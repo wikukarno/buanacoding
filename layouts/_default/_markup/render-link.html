@@ -1,0 +1,18 @@
+{{/*
+  Render hook for Markdown links.
+  - External links (absolute, not this site): target="_blank" + rel="nofollow noopener noreferrer"
+  - Internal/relative/anchors: default behavior
+*/}}
+{{- $href := .Destination | safeURL -}}
+{{- $hrefStr := printf "%s" $href -}}
+{{- $siteBase := .Page.Site.BaseURL -}}
+{{- $isHTTP := or (strings.HasPrefix $hrefStr "http://") (strings.HasPrefix $hrefStr "https://") -}}
+{{- $isMail := strings.HasPrefix $hrefStr "mailto:" -}}
+{{- $isTel := strings.HasPrefix $hrefStr "tel:" -}}
+{{- $isAnchor := strings.HasPrefix $hrefStr "#" -}}
+{{- $isSameSite := and $isHTTP (strings.HasPrefix $hrefStr $siteBase) -}}
+{{- $isExternal := and (and $isHTTP (not $isSameSite)) (not (or $isMail $isTel $isAnchor)) -}}
+
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $isExternal }} target="_blank" rel="nofollow noopener noreferrer"{{ end }}>
+  {{ .Text | safeHTML }}
+</a>

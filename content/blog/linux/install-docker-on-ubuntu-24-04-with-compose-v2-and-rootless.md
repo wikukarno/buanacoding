@@ -10,7 +10,7 @@ description: "Step-by-step guide to install Docker Engine on Ubuntu 24.04 (Noble
 keywords: ["ubuntu 24.04", "install docker", "docker compose v2", "rootless docker", "docker ubuntu", "docker installation", "noble"]
 ---
 
-This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: Nginx + Certbot on Ubuntu 24.04 → /2025/08/nginx-certbot-ubuntu-24-04-free-https.html
+This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: [Nginx + Certbot on Ubuntu 24.04]({{< relref "blog/linux/nginx-certbot-ubuntu-24-04-free-https-with-letsencrypt.md" >}})
 
 What you’ll do
 - Add the official Docker repository for Ubuntu 24.04 (Noble)

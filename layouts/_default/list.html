@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="py-8">
+  <div class="max-w-7xl mx-auto px-4">
+    <h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">{{ .Title }}</h1>
+    {{ $p := .Paginate .Pages }}
+    <div class="grid gap-6 sm:grid-cols-2">
+      {{ range $p.Pages }}
+        <a href="{{ .RelPermalink }}" class="block bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          <h2 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ .Title }}</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300">{{ .Summary | truncate 120 }}</p>
+          <span class="text-xs text-gray-400 block mt-2">{{ .Date.Format "02 Jan 2006" }}</span>
+        </a>
+      {{ end }}
+    </div>
+
+    {{ if gt $p.TotalPages 1 }}
+      <div class="mt-10 flex justify-center gap-2 text-sm">
+        {{ if $p.HasPrev }}<a href="{{ $p.Prev.URL }}" class="px-3 py-2 border rounded">← Prev</a>{{ end }}
+        {{ range $pg := $p.Pagers }}
+          <a href="{{ $pg.URL }}" class="px-3 py-2 border rounded {{ if eq $pg $p }}bg-[#0f7ea9] text-white{{ end }}">{{ $pg.PageNumber }}</a>
+        {{ end }}
+        {{ if $p.HasNext }}<a href="{{ $p.Next.URL }}" class="px-3 py-2 border rounded">Next →</a>{{ end }}
+      </div>
+    {{ end }}
+  </div>
+  
+</section>
+{{ end }}
+

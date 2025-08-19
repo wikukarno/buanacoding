@@ -12,7 +12,7 @@ description: "Step-by-step guide to install Nginx and secure it with a free Let�
 keywords: ["ubuntu 24.04", "nginx", "certbot", "let's encrypt", "https", "ssl", "tls", "ubuntu nginx ssl"]
 ---
 
-Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: /2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html
+Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: [Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2]({{< relref "blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.md" >}})
 
 What you’ll do
 - Point your domain to your server via DNS (A/AAAA records)

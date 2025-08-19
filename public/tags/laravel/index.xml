@@ -4,8 +4,14 @@
 &lt;p>Yajra DataTables is a powerful and versatile jQuery-based plugin for Laravel, designed to simplify the process of displaying data in tabular form with advanced features such as filtering, sorting, pagination, and more. It empowers developers to create interactive and dynamic data tables effortlessly, significantly improving how data is showcased to end users.&lt;/p></description></item><item><title>Cara Menjalankan Project Laravel Clone dari GitHub</title><link>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</link><pubDate>Sun, 09 Apr 2023 23:08:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</guid><description>&lt;p>Sebelum kita melakukan cloning project Laravel dari GitHub, pastikan kamu telah menginstal tools berikut agar proses berjalan lancar.&lt;/p>
 &lt;p>Tools di bawah ini sangat penting. Tanpa keduanya, kamu tidak akan bisa menjalankan project Laravel dengan benar.&lt;/p>
 &lt;ol>
-&lt;li>&lt;a href="https://git-scm.com/">Git&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://getcomposer.org/download/">Composer&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://git-scm.com/" target="_blank" rel="nofollow noopener noreferrer">
+ Git
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://getcomposer.org/download/" target="_blank" rel="nofollow noopener noreferrer">
+ Composer
+&lt;/a>
+&lt;/li>
 &lt;/ol>
 &lt;p>Untuk mendapatkan project Laravel dari GitHub, ada dua cara:&lt;/p>
 &lt;ol>
