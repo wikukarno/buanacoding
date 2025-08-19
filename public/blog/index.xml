@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs on Buana Coding</title><link>https://www.buanacoding.com/blog/</link><description>Recent content in Blogs on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 19 Aug 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</title><link>https://www.buanacoding.com/2025/08/install-ollama-openwebui-ubuntu-24-04.html</link><pubDate>Tue, 19 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/install-ollama-openwebui-ubuntu-24-04.html</guid><description>&lt;p>Want to run AI models locally on Ubuntu 24.04 with a clean web UI? This guide walks you through installing &lt;a href="https://ollama.com" target="_blank" rel="nofollow noopener noreferrer">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs on Buana Coding</title><link>https://www.buanacoding.com/blog/</link><description>Recent content in Blogs on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 19 Aug 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</title><link>https://www.buanacoding.com/2025/08/install-ollama-openwebui-ubuntu-24-04.html</link><pubDate>Tue, 19 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/install-ollama-openwebui-ubuntu-24-04.html</guid><description>&lt;p>If you want to run AI models locally on Ubuntu 24.04 with a clean web UI, this guide is for you. We’ll install &lt;a href="https://ollama.com" target="_blank" rel="nofollow noopener noreferrer">
  Ollama
 &lt;/a>
-, pulling a model, and using &lt;a href="https://github.com/open-webui/open-webui" target="_blank" rel="nofollow noopener noreferrer">
+, pull a model, and use &lt;a href="https://github.com/open-webui/open-webui" target="_blank" rel="nofollow noopener noreferrer">
  Open WebUI
 &lt;/a>
- for a modern chat interface. It includes CPU-only and NVIDIA GPU notes, optional systemd services, and practical troubleshooting.&lt;/p>
+ for a modern chat interface. The steps cover CPU‑only and NVIDIA GPU notes, optional systemd services, and practical troubleshooting.&lt;/p>
 &lt;p>What you&amp;rsquo;ll do&lt;/p>
 &lt;ul>
 &lt;li>Install Ollama on Ubuntu 24.04 (Noble)&lt;/li>

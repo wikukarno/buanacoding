@@ -12,7 +12,7 @@ description: "Step-by-step guide to install Ollama and Open WebUI on Ubuntu 24.0
 keywords: ["ubuntu 24.04", "ollama", "open webui", "local llm", "cuda", "nvidia", "ai on ubuntu"]
 ---
 
-Want to run AI models locally on Ubuntu 24.04 with a clean web UI? This guide walks you through installing [Ollama](https://ollama.com), pulling a model, and using [Open WebUI](https://github.com/open-webui/open-webui) for a modern chat interface. It includes CPU-only and NVIDIA GPU notes, optional systemd services, and practical troubleshooting.
+If you want to run AI models locally on Ubuntu 24.04 with a clean web UI, this guide is for you. We’ll install [Ollama](https://ollama.com), pull a model, and use [Open WebUI](https://github.com/open-webui/open-webui) for a modern chat interface. The steps cover CPU‑only and NVIDIA GPU notes, optional systemd services, and practical troubleshooting.
 
 What you'll do
 - Install Ollama on Ubuntu 24.04 (Noble)

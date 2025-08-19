@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQLAlchemy on Buana Coding</title>
+    <link>http://localhost:1313/tags/sqlalchemy/</link>
+    <description>Recent content in SQLAlchemy on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 19 Aug 2025 11:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sqlalchemy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</title>
+      <link>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link>
+      <pubDate>Tue, 19 Aug 2025 11:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid>
+      <description>&lt;p&gt;Need a clean, production‑friendly way to add login to your FastAPI app? In this guide, you’ll build username/password authentication using the OAuth2 Password flow and issue JSON Web Tokens (JWTs) for stateless access. We’ll use Pydantic v2 for data validation and SQLAlchemy 2.0 for persistence. Along the way, you’ll see how to hash passwords securely, create/verify tokens, protect routes, and test your endpoints.&lt;/p&gt;&#xA;&lt;p&gt;If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: /2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -26,6 +26,8 @@ What you’ll build:
 - HTTPS (Certbot) with auto‑renewal
 - UFW firewall (open 80/443), logs, and troubleshooting tips
 
+
+
 Prerequisites
 -------------
 - Ubuntu 24.04 server (sudo access)
@@ -577,4 +579,3 @@ Related articles:
 - [Install Docker on Ubuntu 24.04](/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html) - Containerized deployment option
 
 That's it! You now have a production-ready FastAPI deployment on Ubuntu 24.04 with multiple process management options (systemd vs PM2), HTTPS encryption, and comprehensive monitoring. Choose the approach that best fits your infrastructure and scaling needs. Happy coding!
-
