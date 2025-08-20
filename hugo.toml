@@ -51,6 +51,18 @@ defaultContentLanguageInSubdir = false
   # Tags to show in navbar (allowlist). Fallback shows up to 6 popular tags.
   navTags = ["Go", "Laravel", "Linux", "Python", "Security"]
 
+  # Ads and consent configuration
+  [params.ads]
+    # If true, render real AdSense units even when using `hugo server`
+    forceLive = false
+
+  [params.consent]
+    # Default Consent Mode values. Set to "granted" to allow ads to load.
+    ad_storage = "granted"
+    ad_user_data = "granted"
+    ad_personalization = "granted"
+    analytics_storage = "granted"
+
 [languages]
   [languages.en]
     languageName = "English"

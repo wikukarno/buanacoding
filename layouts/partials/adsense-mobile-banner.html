@@ -1,6 +1,7 @@
 <!-- Ad: Mobile Banner (Small screens only) -->
 <div class="block lg:hidden my-8 px-2 mb-10">
-  {{ if hugo.IsServer }}
+  {{ $forceLive := or .Site.Params.ads.forceLive false }}
+  {{ if and hugo.IsServer (not $forceLive) }}
   <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-6 rounded-lg text-gray-500 dark:text-gray-400">
     📱 Ad placeholder: Mobile Banner (320×100)
   </div>

@@ -89,15 +89,15 @@
   <link rel="stylesheet" href="/css/overrides.css?v={{ now.Unix }}" />
   <link rel="stylesheet" href="/css/syntax.css?v={{ now.Unix }}" />
 
-  <!-- Google Consent Mode v2 (default) -->
+  <!-- Google Consent Mode v2 (configurable via params.consent) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied'
+      'ad_storage': '{{ or .Site.Params.consent.ad_storage "denied" }}',
+      'ad_user_data': '{{ or .Site.Params.consent.ad_user_data "denied" }}',
+      'ad_personalization': '{{ or .Site.Params.consent.ad_personalization "denied" }}',
+      'analytics_storage': '{{ or .Site.Params.consent.analytics_storage "denied" }}'
     });
   </script>
 
@@ -111,7 +111,10 @@
   gtag('config', 'G-0EN9J73FXF');
 </script>
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149036684216973"
-     crossorigin="anonymous"></script>
+<!-- Google AdSense (only load in production or if forceLive) -->
+{{ $forceLive := or .Site.Params.ads.forceLive false }}
+{{ if or (not hugo.IsServer) $forceLive }}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149036684216973"
+       crossorigin="anonymous"></script>
+{{ end }}
 </head>

@@ -1,26 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>FastAPI on Buana Coding</title>
-    <link>http://localhost:1313/tags/fastapi/</link>
-    <description>Recent content in FastAPI on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 20 Aug 2025 07:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/fastapi/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</title>
-      <link>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link>
-      <pubDate>Wed, 20 Aug 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid>
-      <description>&lt;p&gt;Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.&lt;/p&gt;&#xA;&lt;p&gt;If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: &lt;a href=&#34;http://localhost:1313/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html&#34;&gt;&#xA;  Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Deploy FastAPI on Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)</title>
-      <link>http://localhost:1313/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</link>
-      <pubDate>Fri, 15 Aug 2025 18:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</guid>
-      <description>&lt;p&gt;Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.&lt;/p&gt;&#xA;&lt;p&gt;What you’ll build:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A minimal FastAPI project structure&lt;/li&gt;&#xA;&lt;li&gt;Running the app with Gunicorn (Uvicorn worker)&lt;/li&gt;&#xA;&lt;li&gt;A systemd service for start/stop/restart&lt;/li&gt;&#xA;&lt;li&gt;Nginx reverse proxy to Gunicorn&lt;/li&gt;&#xA;&lt;li&gt;HTTPS (Certbot) with auto‑renewal&lt;/li&gt;&#xA;&lt;li&gt;UFW firewall (open 80/443), logs, and troubleshooting tips&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Ubuntu 24.04 server (sudo access)&lt;/li&gt;&#xA;&lt;li&gt;A domain pointing to the server (A/AAAA records)&lt;/li&gt;&#xA;&lt;li&gt;Python 3.10+ (Ubuntu 24.04 default is fine)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Prepare the project structure on the server&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;A tidy layout makes automation easier.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FastAPI on Buana Coding</title><link>https://www.buanacoding.com/tags/fastapi/</link><description>Recent content in FastAPI on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 20 Aug 2025 07:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/fastapi/index.xml" rel="self" type="application/rss+xml"/><item><title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 + SQLAlchemy 2.0)</title><link>https://www.buanacoding.com/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link><pubDate>Wed, 20 Aug 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid><description>&lt;p>Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.&lt;/p>
+&lt;p>If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: &lt;a href="https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html">
+ Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot
+&lt;/a>
+.&lt;/p></description></item><item><title>Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)</title><link>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</link><pubDate>Fri, 15 Aug 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</guid><description>&lt;p>Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.&lt;/p>
+&lt;p>What you’ll build:&lt;/p>
+&lt;ul>
+&lt;li>A minimal FastAPI project structure&lt;/li>
+&lt;li>Running the app with Gunicorn (Uvicorn worker)&lt;/li>
+&lt;li>A systemd service for start/stop/restart&lt;/li>
+&lt;li>Nginx reverse proxy to Gunicorn&lt;/li>
+&lt;li>HTTPS (Certbot) with auto‑renewal&lt;/li>
+&lt;li>UFW firewall (open 80/443), logs, and troubleshooting tips&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>Ubuntu 24.04 server (sudo access)&lt;/li>
+&lt;li>A domain pointing to the server (A/AAAA records)&lt;/li>
+&lt;li>Python 3.10+ (Ubuntu 24.04 default is fine)&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Prepare the project structure on the server&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>A tidy layout makes automation easier.&lt;/p></description></item></channel></rss>
