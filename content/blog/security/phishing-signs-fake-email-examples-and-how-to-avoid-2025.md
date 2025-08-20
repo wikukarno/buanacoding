@@ -6,6 +6,7 @@ publishDate: 2025-08-20T00:00:00+07:00
 draft: false
 tags: ["Security", "Phishing", "Cybersecurity"]
 slug: "phishing-signs-fake-email-examples-how-to-avoid"
+url: "/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html"
 ---
 
 Staying safe online is getting harder. Scammers use convincing emails, text messages, websites, and even mobile apps to trick people into giving away passwords, banking details, or installing malware. This plain-English guide explains the most common phishing signs, shows realistic (safe) examples, and gives you clear steps to protect yourself.

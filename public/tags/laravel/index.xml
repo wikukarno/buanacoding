@@ -1,25 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Laravel on Buana Coding</title><link>https://www.buanacoding.com/tags/laravel/</link><description>Recent content in Laravel on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 19 Apr 2024 15:58:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/laravel/index.xml" rel="self" type="application/rss+xml"/><item><title>Belajar Membuat Aplikasi Pertama Anda dengan Laravel</title><link>https://www.buanacoding.com/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</link><pubDate>Fri, 19 Apr 2024 15:58:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</guid><description>&lt;p>Ketika kita pertama kali melangkah ke dalam dunia pengembangan web, rasanya seperti memasuki sebuah labirin yang penuh dengan kode dan logika yang rumit. Namun, ada sesuatu yang menarik tentang proses belajar bagaimana segala sesuatu terhubung dan bekerja bersama untuk membentuk sebuah aplikasi web.&lt;/p>
-&lt;p>Apakah Anda sedang mencari hobi baru atau ingin mengejar karier sebagai pengembang web, membangun aplikasi pertama Anda adalah pengalaman yang sangat berharga. Dengan memahami dasar-dasar pengembangan web, Anda akan memiliki dasar yang kuat untuk mempelajari teknologi-teknologi baru dan membangun aplikasi yang lebih kompleks di masa depan.&lt;/p></description></item><item><title>5 Laravel extensions that you must install on your Visual Studio Code</title><link>https://www.buanacoding.com/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</link><pubDate>Thu, 21 Mar 2024 21:23:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</guid><description>&lt;p>If you&amp;rsquo;re just getting started with Laravel or even if you&amp;rsquo;ve been working with it for a while, using the right tools can make a big difference. Visual Studio Code (VS Code) is one of the most popular code editors among web developers, and thankfully, it has a great ecosystem of extensions that can help boost your productivity when working with Laravel.&lt;/p>
-&lt;p>In this article, we&amp;rsquo;ll go through five essential VS Code extensions that you should install if you&amp;rsquo;re working with Laravel. These tools will help you write code faster, reduce bugs, and improve your workflow overall.&lt;/p></description></item><item><title>how to install and configure yajra datatable in Laravel</title><link>https://www.buanacoding.com/2023/08/how-to-install-and-configure-yajra.html</link><pubDate>Sun, 06 Aug 2023 00:13:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/08/how-to-install-and-configure-yajra.html</guid><description>&lt;p>In the realm of modern web development, providing a seamless user experience and enhancing the overall performance of your web applications is paramount. One essential aspect that plays a pivotal role in achieving these goals is efficient data presentation and manipulation. This is where Yajra DataTables comes into the picture.&lt;/p>
-&lt;p>Yajra DataTables is a powerful and versatile jQuery-based plugin for Laravel, designed to simplify the process of displaying data in tabular form with advanced features such as filtering, sorting, pagination, and more. It empowers developers to create interactive and dynamic data tables effortlessly, significantly improving how data is showcased to end users.&lt;/p></description></item><item><title>Cara Menjalankan Project Laravel Clone dari GitHub</title><link>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</link><pubDate>Sun, 09 Apr 2023 23:08:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</guid><description>&lt;p>Sebelum kita melakukan cloning project Laravel dari GitHub, pastikan kamu telah menginstal tools berikut agar proses berjalan lancar.&lt;/p>
-&lt;p>Tools di bawah ini sangat penting. Tanpa keduanya, kamu tidak akan bisa menjalankan project Laravel dengan benar.&lt;/p>
-&lt;ol>
-&lt;li>&lt;a href="https://git-scm.com/" target="_blank" rel="nofollow noopener noreferrer">
- Git
-&lt;/a>
-&lt;/li>
-&lt;li>&lt;a href="https://getcomposer.org/download/" target="_blank" rel="nofollow noopener noreferrer">
- Composer
-&lt;/a>
-&lt;/li>
-&lt;/ol>
-&lt;p>Untuk mendapatkan project Laravel dari GitHub, ada dua cara:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Menggunakan Git&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>Mengunduh via file ZIP&lt;/strong>&lt;/li>
-&lt;/ol>
-&lt;p>Tidak ada perbedaan signifikan, hanya beda cara ambilnya. Kita bahas dua-duanya.&lt;/p>
-&lt;h2 id="-cara-clone-menggunakan-git">💻 Cara Clone Menggunakan Git&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>Salin URL repository dari GitHub (HTTPS atau SSH).&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on Buana Coding</title>
+    <link>http://localhost:1313/tags/laravel/</link>
+    <description>Recent content in Laravel on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 19 Apr 2024 15:58:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Belajar Membuat Aplikasi Pertama Anda dengan Laravel</title>
+      <link>http://localhost:1313/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</link>
+      <pubDate>Fri, 19 Apr 2024 15:58:00 +0700</pubDate>
+      <guid>http://localhost:1313/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</guid>
+      <description>&lt;p&gt;Ketika kita pertama kali melangkah ke dalam dunia pengembangan web, rasanya seperti memasuki sebuah labirin yang penuh dengan kode dan logika yang rumit. Namun, ada sesuatu yang menarik tentang proses belajar bagaimana segala sesuatu terhubung dan bekerja bersama untuk membentuk sebuah aplikasi web.&lt;/p&gt;&#xA;&lt;p&gt;Apakah Anda sedang mencari hobi baru atau ingin mengejar karier sebagai pengembang web, membangun aplikasi pertama Anda adalah pengalaman yang sangat berharga. Dengan memahami dasar-dasar pengembangan web, Anda akan memiliki dasar yang kuat untuk mempelajari teknologi-teknologi baru dan membangun aplikasi yang lebih kompleks di masa depan.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>5 Laravel extensions that you must install on your Visual Studio Code</title>
+      <link>http://localhost:1313/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</link>
+      <pubDate>Thu, 21 Mar 2024 21:23:00 +0700</pubDate>
+      <guid>http://localhost:1313/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re just getting started with Laravel or even if you&amp;rsquo;ve been working with it for a while, using the right tools can make a big difference. Visual Studio Code (VS Code) is one of the most popular code editors among web developers, and thankfully, it has a great ecosystem of extensions that can help boost your productivity when working with Laravel.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll go through five essential VS Code extensions that you should install if you&amp;rsquo;re working with Laravel. These tools will help you write code faster, reduce bugs, and improve your workflow overall.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>how to install and configure yajra datatable in Laravel </title>
+      <link>http://localhost:1313/2023/08/how-to-install-and-configure-yajra.html</link>
+      <pubDate>Sun, 06 Aug 2023 00:13:00 +0700</pubDate>
+      <guid>http://localhost:1313/2023/08/how-to-install-and-configure-yajra.html</guid>
+      <description>&lt;p&gt;In the realm of modern web development, providing a seamless user experience and enhancing the overall performance of your web applications is paramount. One essential aspect that plays a pivotal role in achieving these goals is efficient data presentation and manipulation. This is where Yajra DataTables comes into the picture.&lt;/p&gt;&#xA;&lt;p&gt;Yajra DataTables is a powerful and versatile jQuery-based plugin for Laravel, designed to simplify the process of displaying data in tabular form with advanced features such as filtering, sorting, pagination, and more. It empowers developers to create interactive and dynamic data tables effortlessly, significantly improving how data is showcased to end users.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cara publish aplikasi laravel ke server hosting menggunakan git</title>
+      <link>http://localhost:1313/2023/04/cara-publish-aplikasi-laravel-ke-server.html</link>
+      <pubDate>Sun, 23 Apr 2023 14:19:00 +0700</pubDate>
+      <guid>http://localhost:1313/2023/04/cara-publish-aplikasi-laravel-ke-server.html</guid>
+      <description>&lt;p&gt;Setelah kita membuat sebuah aplikasi tentunya kita ingin aplikasi yang kita buat bisa di lihat oleh orang lain.&lt;/p&gt;&#xA;&lt;p&gt;Tentunya kita harus memiliki server untuk menyimpan file aplikasi kita supaya bisa di lihat oleh orang lain.&lt;/p&gt;&#xA;&lt;p&gt;Pada artikel sebelumnya kita telah mengetahui bagaimana cara menjalankan project laravel clone dari git untuk lebih jelas nya bisa di lihat &lt;a href=&#34;https://www.buanacoding.com/blog/cara-menjalankan-project-laravel-clone.html&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  disini&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;&#xA;&lt;p&gt;Sekarang kita akan belajar cara publish aplikasi laravel keserver menggunakan git, sebenernya ada beberapa cara untuk upload aplikasi ke server, tapi kali ini saya akan menggunakan git terlebih dahulu.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cara Menjalankan Project Laravel Clone dari GitHub</title>
+      <link>http://localhost:1313/2023/04/cara-menjalankan-project-laravel-clone.html</link>
+      <pubDate>Sun, 09 Apr 2023 23:08:00 +0700</pubDate>
+      <guid>http://localhost:1313/2023/04/cara-menjalankan-project-laravel-clone.html</guid>
+      <description>&lt;p&gt;Sebelum kita melakukan cloning project Laravel dari GitHub, pastikan kamu telah menginstal tools berikut agar proses berjalan lancar.&lt;/p&gt;&#xA;&lt;p&gt;Tools di bawah ini sangat penting. Tanpa keduanya, kamu tidak akan bisa menjalankan project Laravel dengan benar.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://git-scm.com/&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  Git&#xA;&lt;/a&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://getcomposer.org/download/&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  Composer&#xA;&lt;/a&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Untuk mendapatkan project Laravel dari GitHub, ada dua cara:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Menggunakan Git&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mengunduh via file ZIP&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Tidak ada perbedaan signifikan, hanya beda cara ambilnya. Kita bahas dua-duanya.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-cara-clone-menggunakan-git&#34;&gt;💻 Cara Clone Menggunakan Git&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Salin URL repository dari GitHub (HTTPS atau SSH).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
