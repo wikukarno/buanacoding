@@ -16,3 +16,9 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
+/* Hide Google Translate banner/frame and keep layout stable */
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+#google_translate_element { display: none !important; }
+.goog-te-gadget-icon { display: none !important; }
+iframe[id^=":1.container"] { display: none !important; }

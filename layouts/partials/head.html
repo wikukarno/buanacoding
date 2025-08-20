@@ -21,6 +21,19 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ .Permalink }}" />
 
+  <!-- Hreflang Alternates for Multilingual -->
+  {{ $self := . }}
+  {{ $alts := slice $self }}
+  {{ if .IsTranslated }}
+    {{ $alts = $alts | append .AllTranslations }}
+  {{ end }}
+  {{ range $alts }}
+    <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+  {{ end }}
+  {{ if .IsHome }}
+    <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+  {{ end }}
+
   <!-- Open Graph / Facebook -->
   {{ if and .IsPage (eq .Section "blog") }}
   <meta property="og:type" content="article" />

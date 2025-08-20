@@ -1,3 +1,4 @@
+<div id="google_translate_element" style="display:none"></div>
 <script src="https://unpkg.com/feather-icons"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
 
@@ -155,4 +156,99 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") modalMobile.classList.add("hidden");
     });
+
+  // --- Auto Translate Fallback when translation is missing ---
+  (function () {
+    function loadGoogleTranslate(cb, onfail) {
+      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
+        cb && cb();
+        return;
+      }
+      window.__gtReadyCallbacks = window.__gtReadyCallbacks || [];
+      if (cb) window.__gtReadyCallbacks.push(cb);
+      if (window.__gtLoading) return;
+      window.__gtLoading = true;
+      window.initGoogleTranslate = function () {
+        try {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'id',
+            autoDisplay: false,
+          }, 'google_translate_element');
+        } catch (e) {}
+        (window.__gtReadyCallbacks || []).forEach(function (fn) { try { fn(); } catch (e) {} });
+        window.__gtReadyCallbacks = [];
+      };
+      var s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=initGoogleTranslate';
+      s.defer = true;
+      var failed = false;
+      s.onerror = function(){ failed = true; onfail && onfail(); };
+      setTimeout(function(){ if(!window.google || !window.google.translate){ failed = true; onfail && onfail(); } }, 4000);
+      document.head.appendChild(s);
+    }
+
+    function setCookie(name, value) {
+      document.cookie = name + '=' + value + '; path=/; expires=' + new Date(Date.now() + 365*24*3600*1000).toUTCString();
+    }
+    function deleteCookie(name) {
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    }
+
+    function showTranslateFallback() {
+      if (document.getElementById('translate-fallback')) return;
+      var bar = document.createElement('div');
+      bar.id = 'translate-fallback';
+      bar.style.cssText = 'position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;background:#111827;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;gap:10px;align-items:center;';
+      bar.innerHTML = '<span style="font-size:13px">Auto-translate tidak tersedia di perangkat ini.</span>' +
+        '<button id="btnTryId" style="background:#0ea5e9;color:#fff;border:none;padding:6px 10px;border-radius:8px;font-size:12px">Coba versi Indonesia</button>' +
+        '<button id="btnCloseTf" style="background:transparent;color:#fff;border:1px solid #fff3;padding:6px 10px;border-radius:8px;font-size:12px">Tutup</button>';
+      document.body.appendChild(bar);
+      document.getElementById('btnCloseTf').onclick = function(){ bar.remove(); };
+      document.getElementById('btnTryId').onclick = function(){
+        var idUrl = new URL(location.href);
+        var p = location.pathname;
+        if (!p.startsWith('/id/')) {
+          idUrl.pathname = '/id' + (p.startsWith('/') ? p : '/' + p);
+        }
+        fetch(idUrl, { method: 'HEAD' }).then(function(r){
+          if (r.ok) location.href = idUrl; else location.href = '/id/';
+        }).catch(function(){ location.href = '/id/'; });
+      };
+    }
+
+    function translateTo(lang) {
+      loadGoogleTranslate(function () {
+        var combo = document.querySelector('.goog-te-combo');
+        if (combo) {
+          combo.value = lang;
+          combo.dispatchEvent(new Event('change'));
+        } else {
+          // Fallback via cookie if combo not injected yet
+          setCookie('googtrans', '/en/' + lang);
+          location.reload();
+        }
+      }, showTranslateFallback);
+    }
+
+    function resetTranslate() {
+      deleteCookie('googtrans');
+      deleteCookie('GOOGTRANS');
+    }
+
+    document.querySelectorAll('.js-lang-link').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var lang = a.getAttribute('data-lang');
+        var has = a.getAttribute('data-has-trans') === 'true';
+        if (lang === 'en') {
+          resetTranslate();
+          return; // let navigation proceed
+        }
+        if (!has) {
+          e.preventDefault();
+          translateTo(lang);
+        }
+      });
+    });
+  })();
 </script>

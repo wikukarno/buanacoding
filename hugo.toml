@@ -1,6 +1,9 @@
 baseURL = "https://www.buanacoding.com/"
 languageCode = "en"
 title = "Buana Coding"
+defaultContentLanguage = "en"
+# Keep default language (English) at root URL, non-default languages under subfolders (e.g., /id/)
+defaultContentLanguageInSubdir = false
 
 # Theme settings
 [markup]
@@ -47,3 +50,13 @@ title = "Buana Coding"
   defaultImage = "https://www.buanacoding.com/images/og-image.jpg"
   # Tags to show in navbar (allowlist). Fallback shows up to 6 popular tags.
   navTags = ["Go", "Laravel", "Linux", "Python", "Security"]
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    title = "Buana Coding"
+  [languages.id]
+    languageName = "Indonesia"
+    weight = 2
+    title = "Buana Coding"

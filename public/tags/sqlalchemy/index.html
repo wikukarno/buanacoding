@@ -25,6 +25,15 @@
 
   
   
+  
+  
+  
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/tags/sqlalchemy/" />
+  
+  
+
+  
+  
   <meta property="og:type" content="website" />
   
   <meta property="og:title" content="SQLAlchemy | Buana Coding" />
@@ -48,9 +57,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=1755601877" />
-  <link rel="stylesheet" href="/css/overrides.css?v=1755601877" />
-  <link rel="stylesheet" href="/css/syntax.css?v=1755601877" />
+  <link rel="stylesheet" href="/style.css?v=1755684873" />
+  <link rel="stylesheet" href="/css/overrides.css?v=1755684873" />
+  <link rel="stylesheet" href="/css/syntax.css?v=1755684873" />
 
   
   <script>
@@ -150,6 +159,45 @@
       
 
       
+      <div class="hidden md:flex items-center">
+        
+        
+        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
+          
+            
+            
+            
+            
+              
+              
+            
+            
+            <a href="/tags/sqlalchemy/"
+               data-lang="en" data-has-trans="true"
+               class="js-lang-link px-2 py-1 bg-white/20 text-white">
+              EN
+            </a>
+          
+            
+            
+            
+            
+            
+              
+              
+                
+              
+            
+            <a href="/id/"
+               data-lang="id" data-has-trans="false"
+               class="js-lang-link px-2 py-1 bg-transparent hover:bg-white/10 text-white/80">
+              ID
+            </a>
+          
+        </div>
+      </div>
+
+      
       <button
         id="openSearchModal"
         class="text-white transition duration-300 cursor-pointer focus:outline-none dark:hover:text-[#0f7ea9] hover:text-cyan-300"
@@ -235,6 +283,18 @@
 
     <div class="flex flex-col items-start gap-4 mt-2">
       
+      <div class="flex items-center gap-3">
+        <span class="text-xs opacity-80">English</span>
+        
+          
+            <a href="/" class="text-white hover:text-[#0f7ea9] text-sm">English</a>
+          
+            <a href="/id/" class="text-white hover:text-[#0f7ea9] text-sm">Indonesia</a>
+          
+        
+      </div>
+
+      
       <button
         id="openSearchModalMobile"
         class="text-white hover:text-[#0f7ea9] transition duration-300"
@@ -242,6 +302,45 @@
       >
         <i data-feather="search" class="w-5 h-5"></i>
       </button>
+
+      
+      <div class="flex items-center">
+        
+        
+        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
+          
+            
+            
+            
+            
+              
+              
+            
+            
+            <a href="/tags/sqlalchemy/"
+               data-lang="en" data-has-trans="true"
+               class="js-lang-link px-2 py-1 bg-white/20 text-white">
+              EN
+            </a>
+          
+            
+            
+            
+            
+            
+              
+              
+                
+              
+            
+            <a href="/id/"
+               data-lang="id" data-has-trans="false"
+               class="js-lang-link px-2 py-1 bg-transparent hover:bg-white/10 text-white/80">
+              ID
+            </a>
+          
+        </div>
+      </div>
 
       
       <button
@@ -308,8 +407,8 @@
         
           <a href="/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html" class="block bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
             <h2 class="text-lg font-semibold text-[#0f7ea9] mb-1">FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-300"><p>Need a clean, production‑friendly way to add login to your FastAPI app? In this guide, you’ll build …</p></p>
-            <span class="text-xs text-gray-400 block mt-2">📅 19 Aug 2025</span>
+            <p class="text-sm text-gray-600 dark:text-gray-300"><p>Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, …</p></p>
+            <span class="text-xs text-gray-400 block mt-2">📅 20 Aug 2025</span>
           </a>
         
       </div>
@@ -372,7 +471,8 @@
 </button>
 
 
-    <script src="https://unpkg.com/feather-icons"></script>
+    <div id="google_translate_element" style="display:none"></div>
+<script src="https://unpkg.com/feather-icons"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
 
 <script>
@@ -529,6 +629,101 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") modalMobile.classList.add("hidden");
     });
+
+  
+  (function () {
+    function loadGoogleTranslate(cb, onfail) {
+      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
+        cb && cb();
+        return;
+      }
+      window.__gtReadyCallbacks = window.__gtReadyCallbacks || [];
+      if (cb) window.__gtReadyCallbacks.push(cb);
+      if (window.__gtLoading) return;
+      window.__gtLoading = true;
+      window.initGoogleTranslate = function () {
+        try {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'id',
+            autoDisplay: false,
+          }, 'google_translate_element');
+        } catch (e) {}
+        (window.__gtReadyCallbacks || []).forEach(function (fn) { try { fn(); } catch (e) {} });
+        window.__gtReadyCallbacks = [];
+      };
+      var s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=initGoogleTranslate';
+      s.defer = true;
+      var failed = false;
+      s.onerror = function(){ failed = true; onfail && onfail(); };
+      setTimeout(function(){ if(!window.google || !window.google.translate){ failed = true; onfail && onfail(); } }, 4000);
+      document.head.appendChild(s);
+    }
+
+    function setCookie(name, value) {
+      document.cookie = name + '=' + value + '; path=/; expires=' + new Date(Date.now() + 365*24*3600*1000).toUTCString();
+    }
+    function deleteCookie(name) {
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    }
+
+    function showTranslateFallback() {
+      if (document.getElementById('translate-fallback')) return;
+      var bar = document.createElement('div');
+      bar.id = 'translate-fallback';
+      bar.style.cssText = 'position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;background:#111827;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;gap:10px;align-items:center;';
+      bar.innerHTML = '<span style="font-size:13px">Auto-translate tidak tersedia di perangkat ini.</span>' +
+        '<button id="btnTryId" style="background:#0ea5e9;color:#fff;border:none;padding:6px 10px;border-radius:8px;font-size:12px">Coba versi Indonesia</button>' +
+        '<button id="btnCloseTf" style="background:transparent;color:#fff;border:1px solid #fff3;padding:6px 10px;border-radius:8px;font-size:12px">Tutup</button>';
+      document.body.appendChild(bar);
+      document.getElementById('btnCloseTf').onclick = function(){ bar.remove(); };
+      document.getElementById('btnTryId').onclick = function(){
+        var idUrl = new URL(location.href);
+        var p = location.pathname;
+        if (!p.startsWith('/id/')) {
+          idUrl.pathname = '/id' + (p.startsWith('/') ? p : '/' + p);
+        }
+        fetch(idUrl, { method: 'HEAD' }).then(function(r){
+          if (r.ok) location.href = idUrl; else location.href = '/id/';
+        }).catch(function(){ location.href = '/id/'; });
+      };
+    }
+
+    function translateTo(lang) {
+      loadGoogleTranslate(function () {
+        var combo = document.querySelector('.goog-te-combo');
+        if (combo) {
+          combo.value = lang;
+          combo.dispatchEvent(new Event('change'));
+        } else {
+          
+          setCookie('googtrans', '/en/' + lang);
+          location.reload();
+        }
+      }, showTranslateFallback);
+    }
+
+    function resetTranslate() {
+      deleteCookie('googtrans');
+      deleteCookie('GOOGTRANS');
+    }
+
+    document.querySelectorAll('.js-lang-link').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var lang = a.getAttribute('data-lang');
+        var has = a.getAttribute('data-has-trans') === 'true';
+        if (lang === 'en') {
+          resetTranslate();
+          return; 
+        }
+        if (!has) {
+          e.preventDefault();
+          translateTo(lang);
+        }
+      });
+    });
+  })();
 </script>
 
 

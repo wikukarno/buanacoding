@@ -1,0 +1,10 @@
+ - id: read_more
+   translation: "Baca selengkapnya"
+ - id: tags
+   translation: "Tag"
+ - id: comments
+   translation: "Komentar"
+ - id: search_placeholder
+   translation: "Cari artikel..."
+ - id: language
+   translation: "Bahasa"

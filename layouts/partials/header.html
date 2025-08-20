@@ -1,7 +1,7 @@
 <header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <h1 class="text-2xl font-extrabold tracking-wide">
-      <a href="/" class="hover:opacity-90">BUANACODING</a>
+      <a href="{{ "/" | relLangURL }}" class="hover:opacity-90">BUANACODING</a>
     </h1>
 
     <!-- DESKTOP NAV -->
@@ -15,7 +15,7 @@
           {{ $key := lower $tag }}
           {{ with (index $.Site.Taxonomies.tags $key) }}
             <a
-              href="/tags/{{ $key | urlize }}"
+              href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
               class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
             >
               {{ $tag }}
@@ -28,7 +28,7 @@
         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
           {{ if and (ge (len $taxonomy) 2) (lt ($.Scratch.Get "shown") 6) }}
             <a
-              href="/tags/{{ $name | urlize }}"
+              href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
               class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
             >
               {{ $name }}
@@ -37,6 +37,40 @@
           {{ end }}
         {{ end }}
       {{ end }}
+
+      <!-- Language Switcher (Desktop as Button Group) -->
+      <div class="hidden md:flex items-center">
+        {{ $root := . }}
+        {{ $homeAlts := $root.Site.Home.AllTranslations }}
+        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
+          {{ range $lang := $root.Site.Languages }}
+            {{ $isCur := eq $lang.Lang $root.Site.Language.Lang }}
+            {{ $url := "" }}
+            {{ $has := false }}
+            {{ if $isCur }}
+              {{ $url = $root.RelPermalink }}
+              {{ $has = true }}
+            {{ else if $root.IsTranslated }}
+              {{ $match := where $root.AllTranslations "Lang" $lang.Lang }}
+              {{ with index $match 0 }}
+                {{ $url = .RelPermalink }}
+                {{ $has = true }}
+              {{ end }}
+            {{ end }}
+            {{ if eq $url "" }}
+              {{ $home := where $homeAlts "Lang" $lang.Lang }}
+              {{ with index $home 0 }}
+                {{ $url = .RelPermalink }}
+              {{ end }}
+            {{ end }}
+            <a href="{{ $url }}"
+               data-lang="{{ $lang.Lang }}" data-has-trans="{{ $has }}"
+               class="js-lang-link px-2 py-1 {{ if $isCur }}bg-white/20 text-white{{ else }}bg-transparent hover:bg-white/10 text-white/80{{ end }}">
+              {{ upper $lang.Lang }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
 
       <!-- 🔍 Search Icon Button (dipindah ke dalam nav) -->
       <button
@@ -73,7 +107,7 @@
         {{ $key := lower $tag }}
         {{ with (index $.Site.Taxonomies.tags $key) }}
         <a
-          href="/tags/{{ $key | urlize }}"
+          href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
         >
           {{ $tag }}
@@ -85,7 +119,7 @@
       {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
         {{ if and (ge (len $taxonomy) 2) (lt ($.Scratch.Get "shown") 6) }}
         <a
-          href="/tags/{{ $name | urlize }}"
+          href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
         >
           {{ $name }}
@@ -96,6 +130,20 @@
     {{ end }}
 
     <div class="flex flex-col items-start gap-4 mt-2">
+      <!-- 🌐 Language Switcher (Mobile) -->
+      <div class="flex items-center gap-3">
+        <span class="text-xs opacity-80">{{ .Site.Language.LanguageName }}</span>
+        {{ if .IsTranslated }}
+          {{ range .AllTranslations }}
+            <a href="{{ .RelPermalink }}" class="text-white hover:text-[#0f7ea9] text-sm">{{ .Site.Language.LanguageName }}</a>
+          {{ end }}
+        {{ else }}
+          {{ range .Site.Home.AllTranslations }}
+            <a href="{{ .RelPermalink }}" class="text-white hover:text-[#0f7ea9] text-sm">{{ .Site.Language.LanguageName }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+
       <!-- 🔍 Search Button (Mobile) -->
       <button
         id="openSearchModalMobile"
@@ -104,6 +152,40 @@
       >
         <i data-feather="search" class="w-5 h-5"></i>
       </button>
+
+      <!-- 🌐 Language Switcher (Mobile as Button Group) -->
+      <div class="flex items-center">
+        {{ $root := . }}
+        {{ $homeAlts := $root.Site.Home.AllTranslations }}
+        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
+          {{ range $lang := $root.Site.Languages }}
+            {{ $isCur := eq $lang.Lang $root.Site.Language.Lang }}
+            {{ $url := "" }}
+            {{ $has := false }}
+            {{ if $isCur }}
+              {{ $url = $root.RelPermalink }}
+              {{ $has = true }}
+            {{ else if $root.IsTranslated }}
+              {{ $match := where $root.AllTranslations "Lang" $lang.Lang }}
+              {{ with index $match 0 }}
+                {{ $url = .RelPermalink }}
+                {{ $has = true }}
+              {{ end }}
+            {{ end }}
+            {{ if eq $url "" }}
+              {{ $home := where $homeAlts "Lang" $lang.Lang }}
+              {{ with index $home 0 }}
+                {{ $url = .RelPermalink }}
+              {{ end }}
+            {{ end }}
+            <a href="{{ $url }}"
+               data-lang="{{ $lang.Lang }}" data-has-trans="{{ $has }}"
+               class="js-lang-link px-2 py-1 {{ if $isCur }}bg-white/20 text-white{{ else }}bg-transparent hover:bg-white/10 text-white/80{{ end }}">
+              {{ upper $lang.Lang }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
 
       <!-- 🌗 Theme Toggle Mobile -->
       <button
@@ -141,7 +223,7 @@
     <input
       type="text"
       id="searchBox"
-      placeholder="Search articles..."
+      placeholder="{{ i18n "search_placeholder" }}"
       class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
     />
 

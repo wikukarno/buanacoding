@@ -6,14 +6,14 @@
     <description>Recent content in JWT on Buana Coding</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 19 Aug 2025 11:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 20 Aug 2025 07:00:00 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/jwt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</title>
       <link>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link>
-      <pubDate>Tue, 19 Aug 2025 11:00:00 +0700</pubDate>
+      <pubDate>Wed, 20 Aug 2025 07:00:00 +0700</pubDate>
       <guid>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid>
-      <description>&lt;p&gt;Need a clean, production‑friendly way to add login to your FastAPI app? In this guide, you’ll build username/password authentication using the OAuth2 Password flow and issue JSON Web Tokens (JWTs) for stateless access. We’ll use Pydantic v2 for data validation and SQLAlchemy 2.0 for persistence. Along the way, you’ll see how to hash passwords securely, create/verify tokens, protect routes, and test your endpoints.&lt;/p&gt;&#xA;&lt;p&gt;If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: /2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.&lt;/p&gt;&#xA;&lt;p&gt;If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: &lt;a href=&#34;http://localhost:1313/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html&#34;&gt;&#xA;  Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
