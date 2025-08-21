@@ -1,1393 +1,170 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  
-  
-  
-  
-
-  
-  <title>Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding</title>
-
-  
-  <meta name="description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting." />
-
-  
-  
-    <meta name="keywords" content="ubuntu 24.04, nginx, certbot, let&#39;s encrypt, https, ssl, tls, ubuntu nginx ssl" />
-  
-
-  
-  <link rel="canonical" href="http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" />
-
-  
-  
-  
-  
-  
-    <link rel="alternate" hreflang="en" href="http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" />
-  
-  
-
-  
-  
-  <meta property="og:type" content="article" />
-  
-  <meta property="og:title" content="Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding" />
-  <meta property="og:description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting." />
-  <meta property="og:url" content="http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html" />
-  <meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg" />
-
-  
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding" />
-  <meta name="twitter:description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting." />
-  <meta name="twitter:image" content="https://www.buanacoding.com/images/og-image.jpg" />
-
-  
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Nginx \u002b Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding",
-    "description": "Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting.",
-    "datePublished": "2025-08-15T10:00:00\u002b07:00",
-    "dateModified": "2025-08-15T10:00:00\u002b07:00",
-    "author": {
-      "@type": "Person",
-      "name": "Wiku Karno"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "http:\/\/localhost:1313\/2025\/08\/nginx-certbot-ubuntu-24-04-free-https.html"
-    },
-    "image": "https:\/\/www.buanacoding.com\/images\/og-image.jpg",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Buana Coding"
-    }
-  }
-  </script>
-  
-
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=1755687404" />
-  <link rel="stylesheet" href="/css/overrides.css?v=1755687404" />
-  <link rel="stylesheet" href="/css/syntax.css?v=1755687404" />
-
-  
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted',
-      'analytics_storage': 'granted'
-    });
-  </script>
-
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EN9J73FXF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0EN9J73FXF');
-</script>
-
-
-
-
-</head>
-
-  <body
-    class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col"
-  >
-    
-    <header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-extrabold tracking-wide">
-      <a href="/" class="hover:opacity-90">BUANACODING</a>
-    </h1>
-
-    
-    <nav
-      class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"
-    >
-      
-      
-      
-        
-          
-          
-            <a
-              href="/tags/go"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Go
-            </a>
-          
-        
-          
-          
-            <a
-              href="/tags/laravel"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Laravel
-            </a>
-          
-        
-          
-          
-            <a
-              href="/tags/linux"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Linux
-            </a>
-          
-        
-          
-          
-            <a
-              href="/tags/python"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Python
-            </a>
-          
-        
-          
-          
-            <a
-              href="/tags/security"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              Security
-            </a>
-          
-        
-      
-
-      
-      <div class="hidden md:flex items-center">
-        
-        
-        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
-          
-            
-            
-            
-            
-              
-              
-            
-            
-            <a href="/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"
-               data-lang="en" data-has-trans="true"
-               class="js-lang-link px-2 py-1 bg-white/20 text-white">
-              EN
-            </a>
-          
-            
-            
-            
-            
-            
-              
-              
-                
-              
-            
-            <a href="/id/"
-               data-lang="id" data-has-trans="false"
-               class="js-lang-link px-2 py-1 bg-transparent hover:bg-white/10 text-white/80">
-              ID
-            </a>
-          
-        </div>
-      </div>
-
-      
-      <button
-        id="openSearchModal"
-        class="text-white transition duration-300 cursor-pointer focus:outline-none dark:hover:text-[#0f7ea9] hover:text-cyan-300"
-        aria-label="Search"
-      >
-        <i data-feather="search" class="w-5 h-5"></i>
-      </button>
-
-      
-      <button
-        id="theme-toggle"
-        class="ml-2 text-white hover:text-yellow-300 transition duration-300 focus:outline-none cursor-pointer"
-        aria-label="Toggle Dark Mode"
-      >
-        
-        <i id="icon-sun" data-feather="sun" class="w-5 h-5 hidden"></i>
-        <i id="icon-moon" data-feather="moon" class="w-5 h-5"></i>
-      </button>
-    </nav>
-
-    
-    <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
-      ☰
-    </button>
-  </div>
-
-  
-  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
-    
-    
-      
-        
-        
-        <a
-          href="/tags/go"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Go
-        </a>
-        
-      
-        
-        
-        <a
-          href="/tags/laravel"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Laravel
-        </a>
-        
-      
-        
-        
-        <a
-          href="/tags/linux"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Linux
-        </a>
-        
-      
-        
-        
-        <a
-          href="/tags/python"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Python
-        </a>
-        
-      
-        
-        
-        <a
-          href="/tags/security"
-          class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-        >
-          Security
-        </a>
-        
-      
-    
-
-    <div class="flex flex-col items-start gap-4 mt-2">
-      
-      <div class="flex items-center gap-3">
-        <span class="text-xs opacity-80">English</span>
-        
-          
-            <a href="/" class="text-white hover:text-[#0f7ea9] text-sm">English</a>
-          
-            <a href="/id/" class="text-white hover:text-[#0f7ea9] text-sm">Indonesia</a>
-          
-        
-      </div>
-
-      
-      <button
-        id="openSearchModalMobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
-        aria-label="Search"
-      >
-        <i data-feather="search" class="w-5 h-5"></i>
-      </button>
-
-      
-      <div class="flex items-center">
-        
-        
-        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
-          
-            
-            
-            
-            
-              
-              
-            
-            
-            <a href="/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"
-               data-lang="en" data-has-trans="true"
-               class="js-lang-link px-2 py-1 bg-white/20 text-white">
-              EN
-            </a>
-          
-            
-            
-            
-            
-            
-              
-              
-                
-              
-            
-            <a href="/id/"
-               data-lang="id" data-has-trans="false"
-               class="js-lang-link px-2 py-1 bg-transparent hover:bg-white/10 text-white/80">
-              ID
-            </a>
-          
-        </div>
-      </div>
-
-      
-      <button
-        id="theme-toggle-mobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
-        aria-label="Toggle Dark Mode"
-      >
-        <i id="icon-sun-mobile" data-feather="sun" class="w-5 h-5 hidden"></i>
-        <i id="icon-moon-mobile" data-feather="moon" class="w-5 h-5"></i>
-      </button>
-    </div>
-  </div>
-</header>
-
-
-<div
-  id="searchModal"
-  class="fixed inset-0 z-50 hidden flex justify-center items-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4"
->
-  <div
-    class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl w-full max-w-xl p-6 relative"
-  >
-    
-    <button
-      id="closeSearchModal"
-      class="absolute -top-4 -right-4 bg-white dark:bg-[#374151] rounded-full p-1 shadow hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-200 ease-in-out transform hover:scale-110"
-    >
-      <i
-        data-feather="x"
-        class="w-5 h-5 text-gray-600 dark:text-white hover:text-red-500"
-      ></i>
-    </button>
-
-    
-    <input
-      type="text"
-      id="searchBox"
-      placeholder="Search articles..."
-      class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
-    />
-
-    
-    <ul
-      id="results"
-      class="bg-white dark:bg-[#1f2937] rounded-lg shadow max-h-60 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-600"
-    ></ul>
-  </div>
-</div>
-
-
-    
-    <main class="flex-1 w-full">
-      <div class="max-w-7xl mx-auto py-8 px-4">
-        
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8">
-  
-  <article class="prose prose-blue dark:prose-invert lg:col-span-2">
-    <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-      <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
-      <span class="mx-2">/</span>
-      
-        
-        
-          <a href="/tags/linux" class="hover:text-[#0f7ea9] font-medium">#Linux</a>
-        
-      
-    </nav>
-
-
-    <h1>Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</h1>
-
-    
-    
-
-
-
-<div class="flex items-center gap-4 my-4 py-3 border-b border-gray-200 dark:border-gray-700">
-  <span class="text-sm text-gray-500 dark:text-gray-400 font-medium mr-2">Share:</span>
-  
-  
-  <a href="https://twitter.com/intent/tweet?text=Nginx&#43;%2B&#43;Certbot&#43;on&#43;Ubuntu&#43;24.04%3A&#43;Free&#43;HTTPS&#43;with&#43;Let%E2%80%99s&#43;Encrypt&url=http%3A%2F%2Flocalhost%3A1313%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html&via=buanacoding" 
-     target="_blank" rel="noopener"
-     class="p-2 text-gray-500 dark:text-gray-400 hover:text-black hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-700 rounded-full transition-all duration-200"
-     title="Share on Twitter">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-    </svg>
-  </a>
-
-  
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" 
-     target="_blank" rel="noopener"
-     class="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:text-blue-400 dark:hover:bg-blue-900/20 rounded-full transition-all duration-200"
-     title="Share on Facebook">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-    </svg>
-  </a>
-
-  
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A1313%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" 
-     target="_blank" rel="noopener"
-     class="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-700 hover:bg-blue-50 dark:hover:text-blue-400 dark:hover:bg-blue-900/20 rounded-full transition-all duration-200"
-     title="Share on LinkedIn">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-    </svg>
-  </a>
-
-  
-  <a href="https://wa.me/?text=Nginx&#43;%2B&#43;Certbot&#43;on&#43;Ubuntu&#43;24.04%3A&#43;Free&#43;HTTPS&#43;with&#43;Let%E2%80%99s&#43;Encrypt%20http%3A%2F%2Flocalhost%3A1313%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" 
-     target="_blank" rel="noopener"
-     class="p-2 text-gray-500 dark:text-gray-400 hover:text-green-600 hover:bg-green-50 dark:hover:text-green-400 dark:hover:bg-green-900/20 rounded-full transition-all duration-200"
-     title="Share on WhatsApp">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
-    </svg>
-  </a>
-
-  
-  <button onclick="copyLinkHeader('http:\/\/localhost:1313\/2025\/08\/nginx-certbot-ubuntu-24-04-free-https.html')" 
-          class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-800 hover:bg-gray-100 dark:hover:text-gray-200 dark:hover:bg-gray-700 rounded-full transition-all duration-200"
-          title="Copy Link">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-    </svg>
-  </button>
-
-  
-  <span id="copy-header-success" class="hidden text-xs text-green-600 dark:text-green-400 font-medium">
-    Copied!
-  </span>
-</div>
-
-<script>
-function copyLinkHeader(url) {
-  navigator.clipboard.writeText(url).then(function() {
-    showHeaderSuccess();
-  }).catch(function(err) {
-    
-    const textArea = document.createElement('textarea');
-    textArea.value = url;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-    showHeaderSuccess();
-  });
-}
-
-function showHeaderSuccess() {
-  const successMsg = document.getElementById('copy-header-success');
-  successMsg.classList.remove('hidden');
-  
-  
-  setTimeout(function() {
-    successMsg.classList.add('hidden');
-  }, 2000);
-}
-</script>
-
-    
-    
-    
-    
-    
-    
-      <p>Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: <a href="/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html">
-  Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2
-</a>
-</p>
-    
-      
-<p>What you’ll do</p>
-    
-      
-<ul>
-<li>Point your domain to your server via DNS (A/AAAA records)</li>
-<li>Install Nginx from Ubuntu repositories</li>
-<li>Allow HTTP/HTTPS through the firewall</li>
-<li>Install Certbot and issue a Let’s Encrypt certificate</li>
-<li>Auto-renew the certificate and verify renewal</li>
-<li>Redirect HTTP to HTTPS and harden TLS settings</li>
-<li>Test, troubleshoot, and (optionally) revoke/uninstall</li>
-</ul>
-<p>Prerequisites</p>
-    
-    
-    
-    
-      
-<div class="my-8 flex justify-center">
-  <div class="w-full max-w-2xl">
-    
-    
-    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-6 rounded-lg text-gray-500 dark:text-gray-400">
-      📢 Ad placeholder: In‑Article (native style)
-    </div>
-    
-  </div>
-</div>
-
-    
-    
-    
-    
-      
-        
-<ul>
-<li>Ubuntu 24.04 LTS (Noble) with sudo access</li>
-<li>A domain name (e.g., example.com) you control</li>
-<li>DNS A/AAAA records pointing to your server’s public IP</li>
-</ul>
-<ol>
-<li>Configure DNS
-Make sure your domain points to your server. At your DNS provider, set:</li>
-</ol>
-<ul>
-<li>A record: example.com → YOUR_IPV4</li>
-<li>AAAA record: example.com → YOUR_IPV6 (optional)</li>
-<li>Optional: wildcard or subdomain records (e.g., <a href="https://www.example.com" target="_blank" rel="nofollow noopener noreferrer">
-  www.example.com
-</a>
-)</li>
-</ul>
-<p>Propagation can take minutes to hours. You can check resolution with:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig +short example.com
-</span></span><span class="line"><span class="cl">dig +short www.example.com
-</span></span></code></pre></div><ol start="2">
-<li>Install Nginx</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install -y nginx
-</span></span></code></pre></div><p>Validate Nginx is running:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl status nginx --no-pager
-</span></span></code></pre></div><p>Open your server’s IP in a browser; you should see the default Nginx welcome page.</p>
-      
-        
-<ol start="3">
-<li>Open the firewall (UFW)
-If UFW is enabled, allow Nginx traffic:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw allow <span class="s1">&#39;Nginx Full&#39;</span>   <span class="c1"># opens 80/tcp and 443/tcp</span>
-</span></span><span class="line"><span class="cl">sudo ufw status
-</span></span></code></pre></div><p>If UFW is disabled, you can skip this step. For cloud providers, also ensure security groups allow ports 80 and 443.</p>
-      
-        
-<ol start="4">
-<li>Create a basic server block (optional but recommended)
-By default, Nginx serves the default site. Create a server block for your domain to keep things organized:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir -p /var/www/example.com/html
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;&lt;h1&gt;It works!&lt;/h1&gt;&#39;</span> <span class="p">|</span> sudo tee /var/www/example.com/html/index.html &gt; /dev/null
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo tee /etc/nginx/sites-available/example.com &gt;/dev/null <span class="s">&lt;&lt;&#39;NGINX&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s">server {
-</span></span></span><span class="line"><span class="cl"><span class="s">    listen 80;
-</span></span></span><span class="line"><span class="cl"><span class="s">    listen [::]:80;
-</span></span></span><span class="line"><span class="cl"><span class="s">    server_name example.com www.example.com;
-</span></span></span><span class="line"><span class="cl"><span class="s">    root /var/www/example.com/html;
-</span></span></span><span class="line"><span class="cl"><span class="s">    index index.html;
-</span></span></span><span class="line"><span class="cl"><span class="s">    location / {
-</span></span></span><span class="line"><span class="cl"><span class="s">        try_files $uri $uri/ =404;
-</span></span></span><span class="line"><span class="cl"><span class="s">    }
-</span></span></span><span class="line"><span class="cl"><span class="s">}
-</span></span></span><span class="line"><span class="cl"><span class="s">NGINX</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
-</span></span><span class="line"><span class="cl">sudo nginx -t <span class="o">&amp;&amp;</span> sudo systemctl reload nginx
-</span></span></code></pre></div><p>Visit <a href="http://example.com" target="_blank" rel="nofollow noopener noreferrer">
-  http://example.com
-</a>
- to confirm it serves your content.</p>
-      
-        
-<ol start="5">
-<li>Install Certbot (recommended via snap)
-The Certbot team recommends snap for the latest version.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install -y snapd
-</span></span><span class="line"><span class="cl">sudo snap install core<span class="p">;</span> sudo snap refresh core
-</span></span><span class="line"><span class="cl">sudo snap install --classic certbot
-</span></span><span class="line"><span class="cl">sudo ln -s /snap/bin/certbot /usr/bin/certbot <span class="o">||</span> <span class="nb">true</span>
-</span></span></code></pre></div><ol start="6">
-<li>Obtain and install a certificate (Nginx plugin)
-Use the Nginx plugin to edit config and reload automatically:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot --nginx -d example.com -d www.example.com
-</span></span></code></pre></div><p>Follow the prompts (email, ToS). Choose the redirect option when asked so HTTP automatically redirects to HTTPS.</p>
-      
-        
-<p>Alternative: Webroot method (if you prefer manual control)</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot certonly --webroot -w /var/www/example.com/html -d example.com -d www.example.com
-</span></span></code></pre></div><p>If you used webroot, add SSL directives to your server block and reload Nginx (see step 8 for TLS settings).</p>
-      
-        
-<ol start="7">
-<li>Auto-renewal
-Snap installs a systemd timer for Certbot. Verify it:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl list-timers <span class="p">|</span> grep certbot
-</span></span><span class="line"><span class="cl">sudo certbot renew --dry-run
-</span></span></code></pre></div><p>Dry-run should complete without errors. Certificates renew automatically ~30 days before expiry.</p>
-      
-        
-<ol start="8">
-<li>Force HTTP→HTTPS and apply TLS best practices
-If you didn’t choose the redirect option during Certbot run or you used webroot, update your Nginx config. A sane baseline (based on Mozilla’s “intermediate” profile) is:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">example.com</span> <span class="s">www.example.com</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">example.com</span> <span class="s">www.example.com</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">root</span> <span class="s">/var/www/example.com/html</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/example.com/fullchain.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/example.com/privkey.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_session_timeout</span> <span class="s">1d</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_session_cache</span> <span class="s">shared:SSL:10m</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_session_tickets</span> <span class="no">off</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_protocols</span> <span class="s">TLSv1.2</span> <span class="s">TLSv1.3</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_ciphers</span> <span class="s">&#39;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">off</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">Strict-Transport-Security</span> <span class="s">&#34;max-age=31536000</span><span class="p">;</span> <span class="kn">includeSubDomains</span><span class="p">;</span> <span class="kn">preload&#34;</span> <span class="s">always</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">X-Content-Type-Options</span> <span class="s">nosniff</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">DENY</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">Referrer-Policy</span> <span class="s">no-referrer-when-downgrade</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Then test and reload:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nginx -t <span class="o">&amp;&amp;</span> sudo systemctl reload nginx
-</span></span></code></pre></div><p>Use SSL Labs (Qualys) to analyze: <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="nofollow noopener noreferrer">
-  https://www.ssllabs.com/ssltest/
-</a>
-</p>
-      
-        
-<p>Canonical redirect (optional)
-If you want to force a single hostname (e.g., redirect www→apex), add a dedicated server block:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">www.example.com</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/example.com/fullchain.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/example.com/privkey.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://example.com</span><span class="nv">$request_uri</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>OCSP stapling (recommended)
-Reduce TLS handshake latency and improve scores with OCSP stapling:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">ssl_stapling</span> <span class="no">on</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">ssl_stapling_verify</span> <span class="no">on</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">ssl_trusted_certificate</span> <span class="s">/etc/letsencrypt/live/example.com/chain.pem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">resolver</span> <span class="n">1.1.1.1</span> <span class="n">1.0.0.1</span> <span class="s">valid=300s</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">resolver_timeout</span> <span class="s">5s</span><span class="p">;</span>
-</span></span></code></pre></div><p>Place these inside the TLS server block (port 443) after your <code>ssl_certificate</code> lines.</p>
-      
-        
-<p>Compression (performance)
-Enable gzip (widely available) for text assets:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">gzip</span> <span class="no">on</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_comp_level</span> <span class="mi">5</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_min_length</span> <span class="mi">256</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_types</span> <span class="s">text/plain</span> <span class="s">text/css</span> <span class="s">application/json</span> <span class="s">application/javascript</span> <span class="s">text/xml</span> <span class="s">application/xml</span> <span class="s">application/xml+rss</span> <span class="s">text/javascript</span> <span class="s">image/svg+xml</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">gzip_vary</span> <span class="no">on</span><span class="p">;</span>
-</span></span></code></pre></div><p>Note: Brotli offers better compression but may not be compiled by default in Ubuntu’s Nginx. If you install a Brotli-enabled build, you can use:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="c1"># brotli on;
-</span></span></span><span class="line"><span class="cl"><span class="c1"># brotli_comp_level 5;
-</span></span></span><span class="line"><span class="cl"><span class="c1"># brotli_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;
-</span></span></span></code></pre></div><ol start="9">
-<li>Test your HTTPS setup</li>
-</ol>
-<ul>
-<li>Browser: go to <a href="https://example.com" target="_blank" rel="nofollow noopener noreferrer">
-  https://example.com
-</a>
- and inspect the lock icon</li>
-<li>CLI: <code>curl -I https://example.com</code> should return <code>HTTP/2 200</code> (or 301 → 200 if redirecting from www)</li>
-<li>Check Nginx logs: <code>/var/log/nginx/access.log</code> and <code>/var/log/nginx/error.log</code></li>
-</ul>
-<p>Troubleshooting</p>
-      
-        
-<ul>
-<li>DNS/Challenge failed: Ensure your A/AAAA records point to this server and port 80 is reachable from the internet. Temporarily disable any reverse proxy or CDN during issuance.</li>
-<li>Firewall blocks: Open ports 80 and 443 in UFW/security groups. <code>nc -vz your.ip 80</code> from an external host can help verify reachability.</li>
-<li>Nginx conflicts: Run <code>sudo nginx -t</code> to find syntax errors or duplicated server_name blocks.</li>
-<li>Rate limits: Let’s Encrypt enforces rate limits. Use <code>--dry-run</code> for testing or wait before re-issuing.</li>
-<li>Webroot path mismatch: If using <code>--webroot</code>, ensure the <code>-w</code> path matches your server root and that Nginx serves <code>/.well-known/acme-challenge/</code>.</li>
-<li>Apt update/upgrade errors when installing snap/certbot
-<ul>
-<li>Lihat: How to fix broken update error in Linux (Terminal) → /2023/11/how-to-fix-broken-update-error-in-linux.html</li>
-</ul>
-</li>
-</ul>
-<p>Multiple sites tip</p>
-      
-        
-<ul>
-<li>Untuk beberapa domain, buat satu file di <code>sites-available/</code> per domain. Hindari overlap <code>server_name</code> agar Certbot dan Nginx bisa memilih blok yang tepat.</li>
-</ul>
-<p>Renewal and maintenance tips</p>
-      
-        
-<ul>
-<li>Certificates renew automatically; review logs in <code>/var/log/letsencrypt/</code>.</li>
-<li>After major Nginx changes, run <code>sudo certbot renew --dry-run</code> to confirm hooks still work.</li>
-<li>Consider enabling OCSP stapling and caching for further optimization if you terminate high traffic.</li>
-</ul>
-<p>Revoke or uninstall (if needed)
-Revoke a cert (compromised key or domain transfer):</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot revoke --cert-path /etc/letsencrypt/live/example.com/fullchain.pem
-</span></span></code></pre></div><p>Remove cert files:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo certbot delete --cert-name example.com
-</span></span></code></pre></div><p>Remove Certbot (snap) and Nginx:</p>
-      
-        
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo snap remove certbot
-</span></span><span class="line"><span class="cl">sudo apt purge -y nginx* <span class="o">&amp;&amp;</span> sudo apt autoremove -y
-</span></span></code></pre></div><p>That’s it—your site now serves a trusted HTTPS certificate with automatic renewal on Ubuntu 24.04. Enjoy the speed and security of Nginx + Let’s Encrypt!</p>
-      
-        
-</p>
-      
-    
-
-    
-    <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
-      <h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2>
-      <ul class="list-disc list-inside">
-        
-        <li>
-          <a
-            href="/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</a
-          >
-        </li>
-        
-        <li>
-          <a
-            href="/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</a
-          >
-        </li>
-        
-        <li>
-          <a
-            href="/2025/08/install-ollama-openwebui-ubuntu-24-04.html"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</a
-          >
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    <div class="hidden lg:block">
-      
-<div class="my-8 py-6 border-t border-b border-gray-200 dark:border-gray-700">
-  <div class="max-w-4xl mx-auto">
-    
-    
-    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-8 px-6 rounded-lg text-gray-500 dark:text-gray-400">
-      📱 Ad placeholder: Responsive Banner (adapts to screen size)
-    </div>
-    
-  </div>
-</div>
-
-    </div>
-
-    
-    
-<div class="block lg:hidden my-8 px-2 mb-10">
-  
-  
-  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-6 rounded-lg text-gray-500 dark:text-gray-400">
-    📱 Ad placeholder: Mobile Banner (320×100)
-  </div>
-  
-</div>
-
-  </article>
-
-  
-  <aside class="space-y-10">
-    
-    <div>
-      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-        Popular Post
-      </h3>
-      <ul
-        class="space-y-3 list-disc list-outside pl-5 text-sm text-gray-800 dark:text-gray-200"
-      >
-        
-        <li>
-          <a href="/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html" class="hover:text-[#0f7ea9] transition"
-            >Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html" class="hover:text-[#0f7ea9] transition"
-            >FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/08/install-ollama-openwebui-ubuntu-24-04.html" class="hover:text-[#0f7ea9] transition"
-            >Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/08/stop-reusing-passwords-practical-password-manager-guide.html" class="hover:text-[#0f7ea9] transition"
-            >Stop Reusing Passwords: A Practical Guide to Password Managers</a
-          >
-        </li>
-        
-        <li>
-          <a href="/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html" class="hover:text-[#0f7ea9] transition"
-            >Deploy FastAPI on Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)</a
-          >
-        </li>
-        
-      </ul>
-    </div>
-
-    
-    <div class="hidden lg:block mt-8">
-      
-<div class="sticky top-8">
-  
-  
-  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs w-[300px] h-[250px] flex flex-col items-center justify-center rounded-lg mx-auto text-gray-500 dark:text-gray-400">
-    <div class="text-lg mb-2">🎯</div>
-    <div>Ad placeholder</div>
-    <div class="text-xs opacity-70">300×250 (sidebar)</div>
-  </div>
-  
-</div>
-
-    </div>
-  </aside>
-</div>
-
-
-<section id="comments" class="mt-12">
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="wikukarno/buanacoding"
-    data-repo-id="R_kgD0Oj4jAw"
-    data-category="General"
-    data-category-id="DIC_kwD0Oj4jA84Cr_fx"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="en"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async
-  ></script>
-</section>
-
-
-
-
-
-
-
-
-<div class="fixed bottom-6 right-6 z-50 lg:hidden">
-  
-  <button id="share-toggle" 
-          class="bg-[#0f7ea9] text-white p-3 rounded-full shadow-lg hover:bg-[#094d66] transition-all duration-300">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
-    </svg>
-  </button>
-
-  
-  <div id="share-options" class="hidden absolute bottom-16 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 min-w-[200px] border border-gray-200 dark:border-gray-700">
-    <div class="space-y-2">
-      
-      <a href="https://twitter.com/intent/tweet?text=Nginx&#43;%2B&#43;Certbot&#43;on&#43;Ubuntu&#43;24.04%3A&#43;Free&#43;HTTPS&#43;with&#43;Let%E2%80%99s&#43;Encrypt&url=http%3A%2F%2Flocalhost%3A1313%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html&via=buanacoding" 
-         target="_blank" rel="noopener"
-         class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
-        Twitter
-      </a>
-
-      
-      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" 
-         target="_blank" rel="noopener"
-         class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-        </svg>
-        Facebook
-      </a>
-
-      
-      <a href="https://wa.me/?text=Nginx&#43;%2B&#43;Certbot&#43;on&#43;Ubuntu&#43;24.04%3A&#43;Free&#43;HTTPS&#43;with&#43;Let%E2%80%99s&#43;Encrypt%20http%3A%2F%2Flocalhost%3A1313%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" 
-         target="_blank" rel="noopener"
-         class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
-        </svg>
-        WhatsApp
-      </a>
-
-      
-      <button onclick="copyToClipboard('http:\/\/localhost:1313\/2025\/08\/nginx-certbot-ubuntu-24-04-free-https.html')" 
-              class="flex items-center w-full p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-        </svg>
-        Copy Link
-      </button>
-    </div>
-  </div>
-
-  
-  <div id="copy-toast" class="hidden absolute bottom-16 right-0 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg text-sm">
-    Link copied!
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const shareToggle = document.getElementById('share-toggle');
-  const shareOptions = document.getElementById('share-options');
-  
-  shareToggle.addEventListener('click', function() {
-    shareOptions.classList.toggle('hidden');
-  });
-
-  
-  document.addEventListener('click', function(event) {
-    if (!shareToggle.contains(event.target) && !shareOptions.contains(event.target)) {
-      shareOptions.classList.add('hidden');
-    }
-  });
-});
-
-function copyToClipboard(url) {
-  navigator.clipboard.writeText(url).then(function() {
-    showToast();
-  }).catch(function(err) {
-    
-    const textArea = document.createElement('textarea');
-    textArea.value = url;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-    showToast();
-  });
-}
-
-function showToast() {
-  const toast = document.getElementById('copy-toast');
-  const shareOptions = document.getElementById('share-options');
-  
-  
-  shareOptions.classList.add('hidden');
-  
-  
-  toast.classList.remove('hidden');
-  
-  
-  setTimeout(function() {
-    toast.classList.add('hidden');
-  }, 2000);
-}
-</script>
-
-
-      </div>
-    </main>
-
-    
-<div class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-4 transition-colors duration-300">
-  <div class="text-center space-x-4 text-sm font-medium">
-    <a href="/about" class="hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
-    <span>-</span>
-    <a href="/contact" class="hover:text-cyan-500 dark:hover:text-cyan-400">Contact</a>
-    <span>-</span>
-    <a href="/privacy-policy" class="hover:text-cyan-500 dark:hover:text-cyan-400">Privacy Policy</a>
-    <span>-</span>
-    <a href="/disclaimer" class="hover:text-cyan-500 dark:hover:text-cyan-400">Disclaimer</a>
-  </div>
-</div>
-
-
-<footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-4 border-t border-gray-200 dark:border-gray-700">
-  &copy; 2025 buanacoding.com &mdash; Crafted with ❤️ by <a href="https://www.wikukarno.com" class="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400" target="_blank">
-    Wiku Karno
-  </a>
-</footer>
-
-
-
-    
-<button
-  id="scrollToTop"
-  class="fixed bottom-6 right-6 bg-[#0f7ea9] hover:bg-cyan-600 text-white p-3 rounded-full shadow transition duration-300"
-  aria-label="Scroll to top"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    class="w-4 h-4"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M5 15l7-7 7 7"
-    />
-  </svg>
+<!doctype html><html lang=en data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding</title><meta name=description content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."><meta name=keywords content="ubuntu 24.04,nginx,certbot,let's encrypt,https,ssl,tls,ubuntu nginx ssl"><link rel=canonical href=https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html><link rel=alternate hreflang=en href=https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html><meta property="og:type" content="article"><meta property="og:title" content="Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding"><meta property="og:description" content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."><meta property="og:url" content="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"><meta property="og:image" content="https://www.buanacoding.com/images/og-image.jpg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding"><meta name=twitter:description content="Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."><meta name=twitter:image content="https://www.buanacoding.com/images/og-image.jpg"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nginx \u002b Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt | Buana Coding","description":"Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting.","datePublished":"2025-08-15T10:00:00\u002b07:00","dateModified":"2025-08-15T10:00:00\u002b07:00","author":{"@type":"Person","name":"Wiku Karno"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.buanacoding.com\/2025\/08\/nginx-certbot-ubuntu-24-04-free-https.html"},"image":"https:\/\/www.buanacoding.com\/images\/og-image.jpg","publisher":{"@type":"Organization","name":"Buana Coding"}}</script><link rel=icon href=/favicon.ico type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel=stylesheet><link rel=stylesheet href="/style.css?v=1755759879"><link rel=stylesheet href="/css/overrides.css?v=1755759879"><link rel=stylesheet href="/css/syntax.css?v=1755759879"><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("consent","default",{ad_storage:"granted",ad_user_data:"granted",ad_personalization:"granted",analytics_storage:"granted"})</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EN9J73FXF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-0EN9J73FXF")</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3149036684216973" crossorigin=anonymous></script></head><body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col"><header class="bg-[#0f7ea9] dark:bg-[#094d66] text-white shadow"><div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"><h1 class="text-2xl font-extrabold tracking-wide"><a href=/ class=hover:opacity-90>BUANACODING</a></h1><nav class="hidden md:flex items-center space-x-6 font-semibold uppercase tracking-wide"><a href=/tags/go class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Go
+</a><a href=/tags/laravel class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Laravel
+</a><a href=/tags/linux class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Linux
+</a><a href=/tags/python class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Python
+</a><a href=/tags/security class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Security</a><div class="hidden md:flex items-center"><div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium"><a href=/2025/08/nginx-certbot-ubuntu-24-04-free-https.html data-lang=en data-has-trans=true class="js-lang-link px-2 py-1 bg-white/20 text-white">EN
+</a><a href=/id/ data-lang=id data-has-trans=false class="js-lang-link px-2 py-1 bg-transparent hover:bg-white/10 text-white/80">ID</a></div></div><button id=openSearchModal class="text-white transition duration-300 cursor-pointer focus:outline-none dark:hover:text-[#0f7ea9] hover:text-cyan-300" aria-label=Search>
+<i data-feather=search class="w-5 h-5"></i>
 </button>
-
-
-    <div id="google_translate_element" style="display:none"></div>
-<script src="https://unpkg.com/feather-icons"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
-
-<script>
-  feather.replace();
-  const btn = document.getElementById("scrollToTop");
-  const html = document.documentElement;
-  const toggleBtn = document.getElementById("theme-toggle");
-  const toggleBtnMobile = document.getElementById("theme-toggle-mobile");
-  const iconSun = document.getElementById("icon-sun");
-  const iconMoon = document.getElementById("icon-moon");
-  const iconSunMobile = document.getElementById("icon-sun-mobile");
-  const iconMoonMobile = document.getElementById("icon-moon-mobile");
-
-  document.getElementById("menu-toggle")?.addEventListener("click", () => {
-    document.getElementById("mobile-menu")?.classList.toggle("hidden");
-  });
-
-  btn.style.display = "none";
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      btn.style.display = "flex";
-    } else {
-      btn.style.display = "none";
-    }
-  });
-
-  btn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  function updateIcons(isDark) {
-    iconSun.classList.toggle("hidden", !isDark);
-    iconMoon.classList.toggle("hidden", isDark);
-    iconSunMobile.classList.toggle("hidden", !isDark);
-    iconMoonMobile.classList.toggle("hidden", isDark);
-  }
-
-  function setDarkMode(isDark) {
-    html.setAttribute("data-theme", isDark ? "dark" : "light");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    updateIcons(isDark);
-  }
-
-  const userPref = localStorage.getItem("theme");
-  const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const isDark = userPref === "dark" || (!userPref && systemPref);
-  setDarkMode(isDark);
-
-  toggleBtn?.addEventListener("click", () => {
-    const currentlyDark = html.getAttribute("data-theme") === "dark";
-    setDarkMode(!currentlyDark);
-  });
-  toggleBtnMobile?.addEventListener("click", () => {
-    const currentlyDark = html.getAttribute("data-theme") === "dark";
-    setDarkMode(!currentlyDark);
-  });
-
-  document.querySelectorAll("pre").forEach((pre) => {
-    const button = document.createElement("button");
-    button.innerHTML = `
+<button id=theme-toggle class="ml-2 text-white hover:text-yellow-300 transition duration-300 focus:outline-none cursor-pointer" aria-label="Toggle Dark Mode">
+<i id=icon-sun data-feather=sun class="w-5 h-5 hidden"></i>
+<i id=icon-moon data-feather=moon class="w-5 h-5"></i></button></nav><button id=menu-toggle class="md:hidden text-2xl focus:outline-none">
+☰</button></div><div id=mobile-menu class="hidden md:hidden px-4 pb-4 space-y-2"><a href=/tags/go class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Go
+</a><a href=/tags/laravel class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Laravel
+</a><a href=/tags/linux class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Linux
+</a><a href=/tags/python class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Python
+</a><a href=/tags/security class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize">Security</a><div class="flex flex-col items-start gap-4 mt-2"><div class="flex items-center gap-3"><span class="text-xs opacity-80">English</span>
+<a href=/ class="text-white hover:text-[#0f7ea9] text-sm">English</a>
+<a href=/id/ class="text-white hover:text-[#0f7ea9] text-sm">Indonesia</a></div><button id=openSearchModalMobile class="text-white hover:text-[#0f7ea9] transition duration-300" aria-label=Search>
+<i data-feather=search class="w-5 h-5"></i></button><div class="flex items-center"><div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium"><a href=/2025/08/nginx-certbot-ubuntu-24-04-free-https.html data-lang=en data-has-trans=true class="js-lang-link px-2 py-1 bg-white/20 text-white">EN
+</a><a href=/id/ data-lang=id data-has-trans=false class="js-lang-link px-2 py-1 bg-transparent hover:bg-white/10 text-white/80">ID</a></div></div><button id=theme-toggle-mobile class="text-white hover:text-[#0f7ea9] transition duration-300" aria-label="Toggle Dark Mode">
+<i id=icon-sun-mobile data-feather=sun class="w-5 h-5 hidden"></i>
+<i id=icon-moon-mobile data-feather=moon class="w-5 h-5"></i></button></div></div></header><div id=searchModal class="fixed inset-0 z-50 hidden flex justify-center items-center bg-black/30 dark:bg-black/60 backdrop-blur-md p-4"><div class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl w-full max-w-xl p-6 relative"><button id=closeSearchModal class="absolute -top-4 -right-4 bg-white dark:bg-[#374151] rounded-full p-1 shadow hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-200 ease-in-out transform hover:scale-110">
+<i data-feather=x class="w-5 h-5 text-gray-600 dark:text-white hover:text-red-500"></i>
+</button>
+<input type=text id=searchBox placeholder="Search articles..." class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"><ul id=results class="bg-white dark:bg-[#1f2937] rounded-lg shadow max-h-60 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-600"></ul></div></div><main class="flex-1 w-full"><div class="max-w-7xl mx-auto py-8 px-4"><div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8"><article class="prose prose-blue dark:prose-invert lg:col-span-2"><nav class="text-sm text-gray-500 dark:text-gray-400 mb-4"><a href=/ class="hover:text-[#0f7ea9] font-medium">Home</a>
+<span class=mx-2>/</span>
+<a href=/tags/linux class="hover:text-[#0f7ea9] font-medium">#Linux</a></nav><h1>Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</h1><div class="flex items-center gap-4 my-4 py-3 border-b border-gray-200 dark:border-gray-700"><span class="text-sm text-gray-500 dark:text-gray-400 font-medium mr-2">Share:</span>
+<a href="https://twitter.com/intent/tweet?text=Nginx+%2B+Certbot+on+Ubuntu+24.04%3A+Free+HTTPS+with+Let%E2%80%99s+Encrypt&url=https%3A%2F%2Fwww.buanacoding.com%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html&via=buanacoding" target=_blank rel=noopener class="p-2 text-gray-500 dark:text-gray-400 hover:text-black hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-700 rounded-full transition-all duration-200" title="Share on Twitter"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.buanacoding.com%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" target=_blank rel=noopener class="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:text-blue-400 dark:hover:bg-blue-900/20 rounded-full transition-all duration-200" title="Share on Facebook"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312.0 2.686.235 2.686.235v2.953H15.83c-1.491.0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.buanacoding.com%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" target=_blank rel=noopener class="p-2 text-gray-500 dark:text-gray-400 hover:text-blue-700 hover:bg-blue-50 dark:hover:text-blue-400 dark:hover:bg-blue-900/20 rounded-full transition-all duration-200" title="Share on LinkedIn"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853.0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601.0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144.0-2.063-.926-2.063-2.065.0-1.138.92-2.063 2.063-2.063 1.14.0 2.064.925 2.064 2.063.0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225.0H1.771C.792.0.0.774.0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2.0 22.222.0h.003z"/></svg>
+</a><a href="https://wa.me/?text=Nginx+%2B+Certbot+on+Ubuntu+24.04%3A+Free+HTTPS+with+Let%E2%80%99s+Encrypt%20https%3A%2F%2Fwww.buanacoding.com%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" target=_blank rel=noopener class="p-2 text-gray-500 dark:text-gray-400 hover:text-green-600 hover:bg-green-50 dark:hover:text-green-400 dark:hover:bg-green-900/20 rounded-full transition-all duration-200" title="Share on WhatsApp"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198.0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479.0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87.0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86.0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64.0 5.122 1.03 6.988 2.898a9.825 9.825.0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815.0 0012.05.0C5.495.0.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882.0 005.683 1.448h.005c6.554.0 11.89-5.335 11.893-11.893A11.821 11.821.0 0020.484 3.488"/></svg>
+</a><button onclick='copyLinkHeader("https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html")' class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-800 hover:bg-gray-100 dark:hover:text-gray-200 dark:hover:bg-gray-700 rounded-full transition-all duration-200" title="Copy Link">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+</button>
+<span id=copy-header-success class="hidden text-xs text-green-600 dark:text-green-400 font-medium">Copied!</span></div><script>function copyLinkHeader(e){navigator.clipboard.writeText(e).then(function(){showHeaderSuccess()}).catch(function(){const n=document.createElement("textarea");n.value=e,document.body.appendChild(n),n.select(),document.execCommand("copy"),document.body.removeChild(n),showHeaderSuccess()})}function showHeaderSuccess(){const e=document.getElementById("copy-header-success");e.classList.remove("hidden"),setTimeout(function(){e.classList.add("hidden")},2e3)}</script><p>Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: <a href=/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html>Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</a></p><p>What you’ll do</p><ul><li>Point your domain to your server via DNS (A/AAAA records)</li><li>Install Nginx from Ubuntu repositories</li><li>Allow HTTP/HTTPS through the firewall</li><li>Install Certbot and issue a Let’s Encrypt certificate</li><li>Auto-renew the certificate and verify renewal</li><li>Redirect HTTP to HTTPS and harden TLS settings</li><li>Test, troubleshoot, and (optionally) revoke/uninstall</li></ul><p>Prerequisites</p><div class="my-8 flex justify-center"><div class="w-full max-w-2xl"><div class="text-center mb-2"><span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span></div><ins class=adsbygoogle style=display:block;text-align:center data-ad-layout=in-article data-ad-format=fluid data-ad-client=ca-pub-3149036684216973 data-ad-slot=2492895769></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div><ul><li>Ubuntu 24.04 LTS (Noble) with sudo access</li><li>A domain name (e.g., example.com) you control</li><li>DNS A/AAAA records pointing to your server’s public IP</li></ul><ol><li>Configure DNS
+Make sure your domain points to your server. At your DNS provider, set:</li></ol><ul><li>A record: example.com → YOUR_IPV4</li><li>AAAA record: example.com → YOUR_IPV6 (optional)</li><li>Optional: wildcard or subdomain records (e.g., <a href=https://www.example.com target=_blank rel="nofollow noopener noreferrer">www.example.com
+</a>)</li></ul><p>Propagation can take minutes to hours. You can check resolution with:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>dig +short example.com
+</span></span><span class=line><span class=cl>dig +short www.example.com
+</span></span></code></pre></div><ol start=2><li>Install Nginx</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>sudo apt install -y nginx
+</span></span></code></pre></div><p>Validate Nginx is running:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>systemctl status nginx --no-pager
+</span></span></code></pre></div><p>Open your server’s IP in a browser; you should see the default Nginx welcome page.</p><ol start=3><li>Open the firewall (UFW)
+If UFW is enabled, allow Nginx traffic:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ufw allow <span class=s1>&#39;Nginx Full&#39;</span>   <span class=c1># opens 80/tcp and 443/tcp</span>
+</span></span><span class=line><span class=cl>sudo ufw status
+</span></span></code></pre></div><p>If UFW is disabled, you can skip this step. For cloud providers, also ensure security groups allow ports 80 and 443.</p><ol start=4><li>Create a basic server block (optional but recommended)
+By default, Nginx serves the default site. Create a server block for your domain to keep things organized:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo mkdir -p /var/www/example.com/html
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;&lt;h1&gt;It works!&lt;/h1&gt;&#39;</span> <span class=p>|</span> sudo tee /var/www/example.com/html/index.html &gt; /dev/null
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo tee /etc/nginx/sites-available/example.com &gt;/dev/null <span class=s>&lt;&lt;&#39;NGINX&#39;
+</span></span></span><span class=line><span class=cl><span class=s>server {
+</span></span></span><span class=line><span class=cl><span class=s>    listen 80;
+</span></span></span><span class=line><span class=cl><span class=s>    listen [::]:80;
+</span></span></span><span class=line><span class=cl><span class=s>    server_name example.com www.example.com;
+</span></span></span><span class=line><span class=cl><span class=s>    root /var/www/example.com/html;
+</span></span></span><span class=line><span class=cl><span class=s>    index index.html;
+</span></span></span><span class=line><span class=cl><span class=s>    location / {
+</span></span></span><span class=line><span class=cl><span class=s>        try_files $uri $uri/ =404;
+</span></span></span><span class=line><span class=cl><span class=s>    }
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>NGINX</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+</span></span><span class=line><span class=cl>sudo nginx -t <span class=o>&amp;&amp;</span> sudo systemctl reload nginx
+</span></span></code></pre></div><p>Visit <a href=http://example.com target=_blank rel="nofollow noopener noreferrer">http://example.com
+</a>to confirm it serves your content.</p><ol start=5><li>Install Certbot (recommended via snap)
+The Certbot team recommends snap for the latest version.</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install -y snapd
+</span></span><span class=line><span class=cl>sudo snap install core<span class=p>;</span> sudo snap refresh core
+</span></span><span class=line><span class=cl>sudo snap install --classic certbot
+</span></span><span class=line><span class=cl>sudo ln -s /snap/bin/certbot /usr/bin/certbot <span class=o>||</span> <span class=nb>true</span>
+</span></span></code></pre></div><ol start=6><li>Obtain and install a certificate (Nginx plugin)
+Use the Nginx plugin to edit config and reload automatically:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot --nginx -d example.com -d www.example.com
+</span></span></code></pre></div><p>Follow the prompts (email, ToS). Choose the redirect option when asked so HTTP automatically redirects to HTTPS.</p><p>Alternative: Webroot method (if you prefer manual control)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot certonly --webroot -w /var/www/example.com/html -d example.com -d www.example.com
+</span></span></code></pre></div><p>If you used webroot, add SSL directives to your server block and reload Nginx (see step 8 for TLS settings).</p><ol start=7><li>Auto-renewal
+Snap installs a systemd timer for Certbot. Verify it:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>systemctl list-timers <span class=p>|</span> grep certbot
+</span></span><span class=line><span class=cl>sudo certbot renew --dry-run
+</span></span></code></pre></div><p>Dry-run should complete without errors. Certificates renew automatically ~30 days before expiry.</p><ol start=8><li>Force HTTP→HTTPS and apply TLS best practices
+If you didn’t choose the redirect option during Certbot run or you used webroot, update your Nginx config. A sane baseline (based on Mozilla’s “intermediate” profile) is:</li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>server</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=mi>80</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=s>[::]:80</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>server_name</span> <span class=s>example.com</span> <span class=s>www.example.com</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>return</span> <span class=mi>301</span> <span class=s>https://</span><span class=nv>$host$request_uri</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>server</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=mi>443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=s>[::]:443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>server_name</span> <span class=s>example.com</span> <span class=s>www.example.com</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>root</span> <span class=s>/var/www/example.com/html</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>index</span> <span class=s>index.html</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate</span> <span class=s>/etc/letsencrypt/live/example.com/fullchain.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate_key</span> <span class=s>/etc/letsencrypt/live/example.com/privkey.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_session_timeout</span> <span class=s>1d</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_session_cache</span> <span class=s>shared:SSL:10m</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_session_tickets</span> <span class=no>off</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_protocols</span> <span class=s>TLSv1.2</span> <span class=s>TLSv1.3</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_ciphers</span> <span class=s>&#39;ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_prefer_server_ciphers</span> <span class=no>off</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>Strict-Transport-Security</span> <span class=s>&#34;max-age=31536000</span><span class=p>;</span> <span class=kn>includeSubDomains</span><span class=p>;</span> <span class=kn>preload&#34;</span> <span class=s>always</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>X-Content-Type-Options</span> <span class=s>nosniff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>X-Frame-Options</span> <span class=s>DENY</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>add_header</span> <span class=s>Referrer-Policy</span> <span class=s>no-referrer-when-downgrade</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kn>location</span> <span class=s>/</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kn>try_files</span> <span class=nv>$uri</span> <span class=nv>$uri/</span> <span class=p>=</span><span class=mi>404</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Then test and reload:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo nginx -t <span class=o>&amp;&amp;</span> sudo systemctl reload nginx
+</span></span></code></pre></div><p>Use SSL Labs (Qualys) to analyze: <a href=https://www.ssllabs.com/ssltest/ target=_blank rel="nofollow noopener noreferrer">https://www.ssllabs.com/ssltest/</a></p><p>Canonical redirect (optional)
+If you want to force a single hostname (e.g., redirect www→apex), add a dedicated server block:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>server</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=mi>443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>listen</span> <span class=s>[::]:443</span> <span class=s>ssl</span> <span class=s>http2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>server_name</span> <span class=s>www.example.com</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate</span> <span class=s>/etc/letsencrypt/live/example.com/fullchain.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>ssl_certificate_key</span> <span class=s>/etc/letsencrypt/live/example.com/privkey.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kn>return</span> <span class=mi>301</span> <span class=s>https://example.com</span><span class=nv>$request_uri</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>OCSP stapling (recommended)
+Reduce TLS handshake latency and improve scores with OCSP stapling:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>ssl_stapling</span> <span class=no>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>ssl_stapling_verify</span> <span class=no>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>ssl_trusted_certificate</span> <span class=s>/etc/letsencrypt/live/example.com/chain.pem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>resolver</span> <span class=n>1.1.1.1</span> <span class=n>1.0.0.1</span> <span class=s>valid=300s</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>resolver_timeout</span> <span class=s>5s</span><span class=p>;</span>
+</span></span></code></pre></div><p>Place these inside the TLS server block (port 443) after your <code>ssl_certificate</code> lines.</p><p>Compression (performance)
+Enable gzip (widely available) for text assets:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>gzip</span> <span class=no>on</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_comp_level</span> <span class=mi>5</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_min_length</span> <span class=mi>256</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_types</span> <span class=s>text/plain</span> <span class=s>text/css</span> <span class=s>application/json</span> <span class=s>application/javascript</span> <span class=s>text/xml</span> <span class=s>application/xml</span> <span class=s>application/xml+rss</span> <span class=s>text/javascript</span> <span class=s>image/svg+xml</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>gzip_vary</span> <span class=no>on</span><span class=p>;</span>
+</span></span></code></pre></div><p>Note: Brotli offers better compression but may not be compiled by default in Ubuntu’s Nginx. If you install a Brotli-enabled build, you can use:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=c1># brotli on;
+</span></span></span><span class=line><span class=cl><span class=c1># brotli_comp_level 5;
+</span></span></span><span class=line><span class=cl><span class=c1># brotli_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;
+</span></span></span></code></pre></div><ol start=9><li>Test your HTTPS setup</li></ol><ul><li>Browser: go to <a href=https://example.com target=_blank rel="nofollow noopener noreferrer">https://example.com
+</a>and inspect the lock icon</li><li>CLI: <code>curl -I https://example.com</code> should return <code>HTTP/2 200</code> (or 301 → 200 if redirecting from www)</li><li>Check Nginx logs: <code>/var/log/nginx/access.log</code> and <code>/var/log/nginx/error.log</code></li></ul><p>Troubleshooting</p><ul><li>DNS/Challenge failed: Ensure your A/AAAA records point to this server and port 80 is reachable from the internet. Temporarily disable any reverse proxy or CDN during issuance.</li><li>Firewall blocks: Open ports 80 and 443 in UFW/security groups. <code>nc -vz your.ip 80</code> from an external host can help verify reachability.</li><li>Nginx conflicts: Run <code>sudo nginx -t</code> to find syntax errors or duplicated server_name blocks.</li><li>Rate limits: Let’s Encrypt enforces rate limits. Use <code>--dry-run</code> for testing or wait before re-issuing.</li><li>Webroot path mismatch: If using <code>--webroot</code>, ensure the <code>-w</code> path matches your server root and that Nginx serves <code>/.well-known/acme-challenge/</code>.</li><li>Apt update/upgrade errors when installing snap/certbot<ul><li>Lihat: How to fix broken update error in Linux (Terminal) → /2023/11/how-to-fix-broken-update-error-in-linux.html</li></ul></li></ul><p>Multiple sites tip</p><ul><li>Untuk beberapa domain, buat satu file di <code>sites-available/</code> per domain. Hindari overlap <code>server_name</code> agar Certbot dan Nginx bisa memilih blok yang tepat.</li></ul><p>Renewal and maintenance tips</p><ul><li>Certificates renew automatically; review logs in <code>/var/log/letsencrypt/</code>.</li><li>After major Nginx changes, run <code>sudo certbot renew --dry-run</code> to confirm hooks still work.</li><li>Consider enabling OCSP stapling and caching for further optimization if you terminate high traffic.</li></ul><p>Revoke or uninstall (if needed)
+Revoke a cert (compromised key or domain transfer):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot revoke --cert-path /etc/letsencrypt/live/example.com/fullchain.pem
+</span></span></code></pre></div><p>Remove cert files:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo certbot delete --cert-name example.com
+</span></span></code></pre></div><p>Remove Certbot (snap) and Nginx:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo snap remove certbot
+</span></span><span class=line><span class=cl>sudo apt purge -y nginx* <span class=o>&amp;&amp;</span> sudo apt autoremove -y
+</span></span></code></pre></div><p>That’s it—your site now serves a trusted HTTPS certificate with automatic renewal on Ubuntu 24.04. Enjoy the speed and security of Nginx + Let’s Encrypt!</p></p><div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded"><h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2><ul class="list-disc list-inside"><li><a href=/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html class="text-blue-600 dark:text-blue-400 hover:underline">Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</a></li><li><a href=/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html class="text-blue-600 dark:text-blue-400 hover:underline">FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 + SQLAlchemy 2.0)</a></li><li><a href=/2025/08/install-ollama-openwebui-ubuntu-24-04.html class="text-blue-600 dark:text-blue-400 hover:underline">Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</a></li></ul></div><div class="hidden lg:block"><div class="my-8 py-6 border-t border-b border-gray-200 dark:border-gray-700"><div class="max-w-4xl mx-auto"><div class="text-center mb-3"><span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span></div><div class="flex justify-center min-h-[90px]"><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-3149036684216973 data-ad-slot=3879195288 data-ad-format=auto data-full-width-responsive=true></ins></div><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></div><div class="block lg:hidden my-8 px-2 mb-10"><div class="text-center mb-2"><span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span></div><div class="flex justify-center"><div class="bg-white dark:bg-gray-800 rounded-lg p-2 shadow-sm border border-gray-200 dark:border-gray-700"><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-3149036684216973 data-ad-slot=3879195288 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></div></article><aside class=space-y-10><div><h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Popular Post</h3><ul class="space-y-3 list-disc list-outside pl-5 text-sm text-gray-800 dark:text-gray-200"><li><a href=/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html class="hover:text-[#0f7ea9] transition">Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</a></li><li><a href=/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html class="hover:text-[#0f7ea9] transition">FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 + SQLAlchemy 2.0)</a></li><li><a href=/2025/08/install-ollama-openwebui-ubuntu-24-04.html class="hover:text-[#0f7ea9] transition">Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</a></li><li><a href=/2025/08/stop-reusing-passwords-practical-password-manager-guide.html class="hover:text-[#0f7ea9] transition">Stop Reusing Passwords: A Practical Guide to Password Managers</a></li><li><a href=/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html class="hover:text-[#0f7ea9] transition">Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)</a></li></ul></div><div class="hidden lg:block mt-8"><div class="sticky top-8"><div class="text-center mb-3"><span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span></div><div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300 mx-auto w-[300px] min-h-[250px]"><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-3149036684216973 data-ad-slot=3879195288 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></div></aside></div><section id=comments class=mt-12><script src=https://giscus.app/client.js data-repo=wikukarno/buanacoding data-repo-id=R_kgD0Oj4jAw data-category=General data-category-id=DIC_kwD0Oj4jA84Cr_fx data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=en data-loading=lazy crossorigin=anonymous async></script></section><div class="fixed bottom-6 right-6 z-50 lg:hidden"><button id=share-toggle class="bg-[#0f7ea9] text-white p-3 rounded-full shadow-lg hover:bg-[#094d66] transition-all duration-300">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684 6.632 3.316m-6.632-6 6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/></svg></button><div id=share-options class="hidden absolute bottom-16 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 min-w-[200px] border border-gray-200 dark:border-gray-700"><div class=space-y-2><a href="https://twitter.com/intent/tweet?text=Nginx+%2B+Certbot+on+Ubuntu+24.04%3A+Free+HTTPS+with+Let%E2%80%99s+Encrypt&url=https%3A%2F%2Fwww.buanacoding.com%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html&via=buanacoding" target=_blank rel=noopener class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"><svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+Twitter
+</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.buanacoding.com%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" target=_blank rel=noopener class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"><svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312.0 2.686.235 2.686.235v2.953H15.83c-1.491.0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+Facebook
+</a><a href="https://wa.me/?text=Nginx+%2B+Certbot+on+Ubuntu+24.04%3A+Free+HTTPS+with+Let%E2%80%99s+Encrypt%20https%3A%2F%2Fwww.buanacoding.com%2F2025%2F08%2Fnginx-certbot-ubuntu-24-04-free-https.html" target=_blank rel=noopener class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"><svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198.0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479.0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87.0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86.0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64.0 5.122 1.03 6.988 2.898a9.825 9.825.0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815.0 0012.05.0C5.495.0.16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882.0 005.683 1.448h.005c6.554.0 11.89-5.335 11.893-11.893A11.821 11.821.0 0020.484 3.488"/></svg>
+WhatsApp
+</a><button onclick='copyToClipboard("https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html")' class="flex items-center w-full p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
+<svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+Copy Link</button></div></div><div id=copy-toast class="hidden absolute bottom-16 right-0 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg text-sm">Link copied!</div></div><script>document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("share-toggle"),e=document.getElementById("share-options");t.addEventListener("click",function(){e.classList.toggle("hidden")}),document.addEventListener("click",function(n){!t.contains(n.target)&&!e.contains(n.target)&&e.classList.add("hidden")})});function copyToClipboard(e){navigator.clipboard.writeText(e).then(function(){showToast()}).catch(function(){const n=document.createElement("textarea");n.value=e,document.body.appendChild(n),n.select(),document.execCommand("copy"),document.body.removeChild(n),showToast()})}function showToast(){const e=document.getElementById("copy-toast"),t=document.getElementById("share-options");t.classList.add("hidden"),e.classList.remove("hidden"),setTimeout(function(){e.classList.add("hidden")},2e3)}</script></div></main><div class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-4 transition-colors duration-300"><div class="text-center space-x-4 text-sm font-medium"><a href=/about class="hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
+<span>-</span>
+<a href=/contact class="hover:text-cyan-500 dark:hover:text-cyan-400">Contact</a>
+<span>-</span>
+<a href=/privacy-policy class="hover:text-cyan-500 dark:hover:text-cyan-400">Privacy Policy</a>
+<span>-</span>
+<a href=/disclaimer class="hover:text-cyan-500 dark:hover:text-cyan-400">Disclaimer</a></div></div><footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-4 border-t border-gray-200 dark:border-gray-700">&copy; 2025 buanacoding.com &mdash; Crafted with ❤️ by <a href=https://www.wikukarno.com class="text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400" target=_blank>Wiku Karno</a></footer><button id=scrollToTop class="fixed bottom-6 right-6 bg-[#0f7ea9] hover:bg-cyan-600 text-white p-3 rounded-full shadow transition duration-300" aria-label="Scroll to top">
+<svg fill="none" class="w-4 h-4" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg></button><div id=google_translate_element style=display:none></div><script src=https://unpkg.com/feather-icons></script><script src=https://cdn.jsdelivr.net/npm/fuse.js@6.4.6></script><script>feather.replace();const btn=document.getElementById("scrollToTop"),html=document.documentElement,toggleBtn=document.getElementById("theme-toggle"),toggleBtnMobile=document.getElementById("theme-toggle-mobile"),iconSun=document.getElementById("icon-sun"),iconMoon=document.getElementById("icon-moon"),iconSunMobile=document.getElementById("icon-sun-mobile"),iconMoonMobile=document.getElementById("icon-moon-mobile");document.getElementById("menu-toggle")?.addEventListener("click",()=>{document.getElementById("mobile-menu")?.classList.toggle("hidden")}),btn.style.display="none",window.addEventListener("scroll",()=>{window.scrollY>300?btn.style.display="flex":btn.style.display="none"}),btn.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});function updateIcons(e){iconSun.classList.toggle("hidden",!e),iconMoon.classList.toggle("hidden",e),iconSunMobile.classList.toggle("hidden",!e),iconMoonMobile.classList.toggle("hidden",e)}function setDarkMode(e){html.setAttribute("data-theme",e?"dark":"light"),localStorage.setItem("theme",e?"dark":"light"),updateIcons(e)}const userPref=localStorage.getItem("theme"),systemPref=window.matchMedia("(prefers-color-scheme: dark)").matches,isDark=userPref==="dark"||!userPref&&systemPref;setDarkMode(isDark),toggleBtn?.addEventListener("click",()=>{const e=html.getAttribute("data-theme")==="dark";setDarkMode(!e)}),toggleBtnMobile?.addEventListener("click",()=>{const e=html.getAttribute("data-theme")==="dark";setDarkMode(!e)}),document.querySelectorAll("pre").forEach(e=>{const t=document.createElement("button");t.innerHTML=`
       <span>Copy</span>
-    `;
-    button.className = `
+    `,t.className=`
     copy-btn absolute top-2 right-2
     text-xs px-2 py-1 rounded flex items-center gap-1
     transition-colors duration-200
     bg-gray-200 text-gray-800 hover:bg-gray-300
     dark:bg-white/10 dark:text-white dark:hover:bg-white/20
-  `.trim();
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "relative";
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-    wrapper.appendChild(button);
-
-    button.addEventListener("click", () => {
-      const code = pre.innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        button.querySelector("span").innerText = "Copied!";
-        setTimeout(() => {
-          button.querySelector("span").innerText = "Copy";
-        }, 2000);
-      });
-    });
-  });
-
-  const openBtn = document.getElementById("openSearchModal");
-  const closeBtn = document.getElementById("closeSearchModal");
-  const modal = document.getElementById("searchModal");
-
-  openBtn.addEventListener("click", () => {
-    console.log("Search modal opened");
-    modal.classList.remove("hidden");
-    document.getElementById("searchBox").focus();
-  });
-
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") modal.classList.add("hidden");
-  });
-
-  fetch("/index.json")
-    .then((res) => res.json())
-    .then((data) => {
-      const fuse = new Fuse(data, {
-        keys: ["title", "content"],
-        threshold: 0.3,
-      });
-
-      const searchBox = document.getElementById("searchBox");
-      const resultBox = document.getElementById("results");
-
-      searchBox.addEventListener("input", function (e) {
-        const query = e.target.value.trim();
-        if (query.length < 2) {
-          resultBox.innerHTML = "";
-          return;
-        }
-
-        const results = fuse.search(query);
-        if (results.length === 0) {
-          resultBox.innerHTML = "<li class='px-4 py-2'>No results found.</li>";
-        } else {
-          resultBox.innerHTML = results
-            .map(
-              (r) => `
+  `.trim();const n=document.createElement("div");n.className="relative",e.parentNode.insertBefore(n,e),n.appendChild(e),n.appendChild(t),t.addEventListener("click",()=>{const n=e.innerText;navigator.clipboard.writeText(n).then(()=>{t.querySelector("span").innerText="Copied!",setTimeout(()=>{t.querySelector("span").innerText="Copy"},2e3)})})});const openBtn=document.getElementById("openSearchModal"),closeBtn=document.getElementById("closeSearchModal"),modal=document.getElementById("searchModal");openBtn.addEventListener("click",()=>{console.log("Search modal opened"),modal.classList.remove("hidden"),document.getElementById("searchBox").focus()}),closeBtn.addEventListener("click",()=>{modal.classList.add("hidden")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&modal.classList.add("hidden")}),fetch("/index.json").then(e=>e.json()).then(e=>{const n=new Fuse(e,{keys:["title","content"],threshold:.3}),s=document.getElementById("searchBox"),t=document.getElementById("results");s.addEventListener("input",function(e){const s=e.target.value.trim();if(s.length<2){t.innerHTML="";return}const o=n.search(s);o.length===0?t.innerHTML="<li class='px-4 py-2'>No results found.</li>":t.innerHTML=o.map(e=>`
                     <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-                    <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white">${r.item.title}</a>
+                    <a href="${e.item.href}" class="block font-semibold text-gray-900 dark:text-white">${e.item.title}</a>
                   </li>
-                  `,
-            )
-            .join("");
-        }
-      });
-    });
-
-    const openBtnMobile = document.getElementById("openSearchModalMobile");
-    const closeBtnMobile = document.getElementById("closeSearchModal");
-    const modalMobile = document.getElementById("searchModal");
-
-    openBtnMobile.addEventListener("click", () => {
-      console.log("Search modal opened (mobile)");
-      modalMobile.classList.remove("hidden");
-      document.getElementById("searchBox").focus();
-    });
-    closeBtnMobile.addEventListener("click", () => {
-      modalMobile.classList.add("hidden");
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") modalMobile.classList.add("hidden");
-    });
-
-  
-  (function () {
-    function loadGoogleTranslate(cb, onfail) {
-      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
-        cb && cb();
-        return;
-      }
-      window.__gtReadyCallbacks = window.__gtReadyCallbacks || [];
-      if (cb) window.__gtReadyCallbacks.push(cb);
-      if (window.__gtLoading) return;
-      window.__gtLoading = true;
-      window.initGoogleTranslate = function () {
-        try {
-          new window.google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'id',
-            autoDisplay: false,
-          }, 'google_translate_element');
-        } catch (e) {}
-        (window.__gtReadyCallbacks || []).forEach(function (fn) { try { fn(); } catch (e) {} });
-        window.__gtReadyCallbacks = [];
-      };
-      var s = document.createElement('script');
-      s.src = 'https://translate.google.com/translate_a/element.js?cb=initGoogleTranslate';
-      s.defer = true;
-      var failed = false;
-      s.onerror = function(){ failed = true; onfail && onfail(); };
-      setTimeout(function(){ if(!window.google || !window.google.translate){ failed = true; onfail && onfail(); } }, 4000);
-      document.head.appendChild(s);
-    }
-
-    function setCookie(name, value) {
-      document.cookie = name + '=' + value + '; path=/; expires=' + new Date(Date.now() + 365*24*3600*1000).toUTCString();
-    }
-    function deleteCookie(name) {
-      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
-    }
-
-    function showTranslateFallback() {
-      if (document.getElementById('translate-fallback')) return;
-      var bar = document.createElement('div');
-      bar.id = 'translate-fallback';
-      bar.style.cssText = 'position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;background:#111827;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;gap:10px;align-items:center;';
-      bar.innerHTML = '<span style="font-size:13px">Auto-translate tidak tersedia di perangkat ini.</span>' +
-        '<button id="btnTryId" style="background:#0ea5e9;color:#fff;border:none;padding:6px 10px;border-radius:8px;font-size:12px">Coba versi Indonesia</button>' +
-        '<button id="btnCloseTf" style="background:transparent;color:#fff;border:1px solid #fff3;padding:6px 10px;border-radius:8px;font-size:12px">Tutup</button>';
-      document.body.appendChild(bar);
-      document.getElementById('btnCloseTf').onclick = function(){ bar.remove(); };
-      document.getElementById('btnTryId').onclick = function(){
-        var idUrl = new URL(location.href);
-        var p = location.pathname;
-        if (!p.startsWith('/id/')) {
-          idUrl.pathname = '/id' + (p.startsWith('/') ? p : '/' + p);
-        }
-        fetch(idUrl, { method: 'HEAD' }).then(function(r){
-          if (r.ok) location.href = idUrl; else location.href = '/id/';
-        }).catch(function(){ location.href = '/id/'; });
-      };
-    }
-
-    function translateTo(lang) {
-      loadGoogleTranslate(function () {
-        var combo = document.querySelector('.goog-te-combo');
-        if (combo) {
-          combo.value = lang;
-          combo.dispatchEvent(new Event('change'));
-        } else {
-          
-          setCookie('googtrans', '/en/' + lang);
-          location.reload();
-        }
-      }, showTranslateFallback);
-    }
-
-    function resetTranslate() {
-      deleteCookie('googtrans');
-      deleteCookie('GOOGTRANS');
-    }
-
-    document.querySelectorAll('.js-lang-link').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var lang = a.getAttribute('data-lang');
-        var has = a.getAttribute('data-has-trans') === 'true';
-        if (lang === 'en') {
-          resetTranslate();
-          return; 
-        }
-        if (!has) {
-          e.preventDefault();
-          translateTo(lang);
-        }
-      });
-    });
-  })();
-</script>
-
-
-    
-  </body>
-</html>
+                  `).join("")})});const openBtnMobile=document.getElementById("openSearchModalMobile"),closeBtnMobile=document.getElementById("closeSearchModal"),modalMobile=document.getElementById("searchModal");openBtnMobile.addEventListener("click",()=>{console.log("Search modal opened (mobile)"),modalMobile.classList.remove("hidden"),document.getElementById("searchBox").focus()}),closeBtnMobile.addEventListener("click",()=>{modalMobile.classList.add("hidden")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&modalMobile.classList.add("hidden")}),function(){function t(e,t){if(window.google&&window.google.translate&&window.google.translate.TranslateElement){e&&e();return}if(window.__gtReadyCallbacks=window.__gtReadyCallbacks||[],e&&window.__gtReadyCallbacks.push(e),window.__gtLoading)return;window.__gtLoading=!0,window.initGoogleTranslate=function(){try{new window.google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"id",autoDisplay:!1},"google_translate_element")}catch{}(window.__gtReadyCallbacks||[]).forEach(function(e){try{e()}catch{}}),window.__gtReadyCallbacks=[]};var s,n=document.createElement("script");n.src="https://translate.google.com/translate_a/element.js?cb=initGoogleTranslate",n.defer=!0,s=!1,n.onerror=function(){s=!0,t&&t()},setTimeout(function(){(!window.google||!window.google.translate)&&(s=!0,t&&t())},4e3),document.head.appendChild(n)}function n(e,t){document.cookie=e+"="+t+"; path=/; expires="+new Date(Date.now()+365*24*3600*1e3).toUTCString()}function e(e){document.cookie=e+"=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"}function s(){if(document.getElementById("translate-fallback"))return;var e=document.createElement("div");e.id="translate-fallback",e.style.cssText="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:9999;background:#111827;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.25);display:flex;gap:10px;align-items:center;",e.innerHTML='<span style="font-size:13px">Auto-translate tidak tersedia di perangkat ini.</span><button id="btnTryId" style="background:#0ea5e9;color:#fff;border:none;padding:6px 10px;border-radius:8px;font-size:12px">Coba versi Indonesia</button><button id="btnCloseTf" style="background:transparent;color:#fff;border:1px solid #fff3;padding:6px 10px;border-radius:8px;font-size:12px">Tutup</button>',document.body.appendChild(e),document.getElementById("btnCloseTf").onclick=function(){e.remove()},document.getElementById("btnTryId").onclick=function(){var t=new URL(location.href),e=location.pathname;e.startsWith("/id/")||(t.pathname="/id"+(e.startsWith("/")?e:"/"+e)),fetch(t,{method:"HEAD"}).then(function(e){e.ok?location.href=t:location.href="/id/"}).catch(function(){location.href="/id/"})}}function o(e){t(function(){var t=document.querySelector(".goog-te-combo");t?(t.value=e,t.dispatchEvent(new Event("change"))):(n("googtrans","/en/"+e),location.reload())},s)}function i(){e("googtrans"),e("GOOGTRANS")}document.querySelectorAll(".js-lang-link").forEach(function(e){e.addEventListener("click",function(t){var n=e.getAttribute("data-lang"),s=e.getAttribute("data-has-trans")==="true";if(n==="en"){i();return}s||(t.preventDefault(),o(n))})})}()</script></body></html>
