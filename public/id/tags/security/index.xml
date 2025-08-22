@@ -6,14 +6,14 @@
     <description>Recent content in Security on Buana Coding</description>
     <generator>Hugo</generator>
     <language>id</language>
-    <lastBuildDate>Wed, 20 Aug 2025 17:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 22 Aug 2025 10:00:00 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/id/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Phishing: Ciri, Contoh Email Palsu, dan Cara Menghindarinya (Panduan 2025)</title>
-      <link>http://localhost:1313/id/blog/security/phishing-ciri-contoh-dan-cara-menghindari/</link>
-      <pubDate>Wed, 20 Aug 2025 00:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/id/blog/security/phishing-ciri-contoh-dan-cara-menghindari/</guid>
-      <description>&lt;p&gt;Penipuan online makin rapi dan meyakinkan. Pelaku menyamar sebagai bank, jasa kurir, marketplace, kantor pemerintah, bahkan rekan kerja untuk memancing kita mengklik tautan, membuka lampiran, atau memberikan data sensitif. Panduan singkat ini akan membantu kamu mengenali ciri-ciri phishing (email/tautan palsu), memahami risiko tautan dan aplikasi berbahaya, serta cara melindungi diri.&lt;/p&gt;&#xA;&lt;h2 id=&#34;apa-itu-phishing&#34;&gt;Apa Itu Phishing?&lt;/h2&gt;&#xA;&lt;p&gt;Phishing adalah serangan social engineering di mana penipu berpura-pura sebagai pihak tepercaya agar korban melakukan tindakan tertentu: mengklik tautan, membuka file, atau mengisi kredensial. Mereka memanfaatkan desain yang mirip resmi dan rasa urgensi — misalnya “Akun akan ditutup dalam 24 jam!” — agar korban bertindak tanpa sempat memeriksa lagi.&lt;/p&gt;</description>
+      <title>Apa Itu Passkey? Cara Mengaktifkan di Google, Apple, dan Password Manager (Panduan 2025)</title>
+      <link>http://localhost:1313/id/blog/security/apa-itu-passkey-cara-mengaktifkan-google-apple-password-manager/</link>
+      <pubDate>Fri, 22 Aug 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/id/blog/security/apa-itu-passkey-cara-mengaktifkan-google-apple-password-manager/</guid>
+      <description>&lt;p&gt;Catatan: Artikel ini juga tersedia dalam Bahasa Inggris — baca di sini: &lt;a href=&#34;http://localhost:1313/id/blog/security/apa-itu-passkey-cara-mengaktifkan-google-apple-password-manager/&#34;&gt;&#xA;  English version&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Passkey sedang naik daun karena menjanjikan login yang lebih aman, cepat, dan—yang terpenting—tahan terhadap phishing. Tidak ada lagi password yang mudah ditebak atau kode OTP yang bisa diambil lewat SIM swap. Artikel ini menjelaskan konsep passkey dengan bahasa sederhana, membandingkannya dengan metode 2FA lama, lalu memberi panduan langkah demi langkah untuk mengaktifkannya di Google, Apple, dan password manager populer seperti 1Password dan Bitwarden.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

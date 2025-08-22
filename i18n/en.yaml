@@ -8,3 +8,21 @@
    translation: "Search articles..."
  - id: language
    translation: "Language"
+ - id: home
+   translation: "Home"
+ - id: blog
+   translation: "Blog"
+ - id: pages
+   translation: "Pages"
+ - id: read_also
+   translation: "Read Also"
+ - id: popular_post
+   translation: "Popular Posts"
+ - id: advertisement
+   translation: "Advertisement"
+ - id: prev
+   translation: "Prev"
+ - id: next
+   translation: "Next"
+ - id: available_in
+   translation: "Available in:"

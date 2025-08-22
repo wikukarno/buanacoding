@@ -8,3 +8,21 @@
    translation: "Cari artikel..."
  - id: language
    translation: "Bahasa"
+ - id: home
+   translation: "Beranda"
+ - id: blog
+   translation: "Blog"
+ - id: pages
+   translation: "Halaman"
+ - id: read_also
+   translation: "Baca Juga"
+ - id: popular_post
+   translation: "Artikel Populer"
+ - id: advertisement
+   translation: "Iklan"
+ - id: prev
+   translation: "Sebelumnya"
+ - id: next
+   translation: "Berikutnya"
+ - id: available_in
+   translation: "Tersedia dalam:"

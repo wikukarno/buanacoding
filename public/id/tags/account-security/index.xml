@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Account Security on Buana Coding</title>
+    <link>http://localhost:1313/id/tags/account-security/</link>
+    <description>Recent content in Account Security on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <lastBuildDate>Fri, 22 Aug 2025 10:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/id/tags/account-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apa Itu Passkey? Cara Mengaktifkan di Google, Apple, dan Password Manager (Panduan 2025)</title>
+      <link>http://localhost:1313/id/blog/security/apa-itu-passkey-cara-mengaktifkan-google-apple-password-manager/</link>
+      <pubDate>Fri, 22 Aug 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/id/blog/security/apa-itu-passkey-cara-mengaktifkan-google-apple-password-manager/</guid>
+      <description>&lt;p&gt;Catatan: Artikel ini juga tersedia dalam Bahasa Inggris — baca di sini: &lt;a href=&#34;http://localhost:1313/id/blog/security/apa-itu-passkey-cara-mengaktifkan-google-apple-password-manager/&#34;&gt;&#xA;  English version&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Passkey sedang naik daun karena menjanjikan login yang lebih aman, cepat, dan—yang terpenting—tahan terhadap phishing. Tidak ada lagi password yang mudah ditebak atau kode OTP yang bisa diambil lewat SIM swap. Artikel ini menjelaskan konsep passkey dengan bahasa sederhana, membandingkannya dengan metode 2FA lama, lalu memberi panduan langkah demi langkah untuk mengaktifkannya di Google, Apple, dan password manager populer seperti 1Password dan Bitwarden.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

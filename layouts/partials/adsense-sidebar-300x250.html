@@ -10,16 +10,19 @@
   {{ else }}
   <!-- Label Iklan -->
   <div class="text-center mb-3">
-    <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span>
+    <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
   </div>
   <!-- Sidebar Ad Unit (responsive as provided) -->
+  {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
+  {{ $adSlot := or .Params.ad_slot_sidebar "3879195288" }}
+  {{ $adChannel := .Params.ad_channel }}
   <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300 mx-auto w-[300px] min-h-[250px]">
     <ins class="adsbygoogle"
          style="display:block"
-         data-ad-client="ca-pub-3149036684216973"
-         data-ad-slot="3879195288"
+         data-ad-client="{{ $adClient }}"
+         data-ad-slot="{{ $adSlot }}"
          data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+         data-full-width-responsive="true"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
   {{ end }}

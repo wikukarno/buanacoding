@@ -3,22 +3,34 @@
   <!-- ==== LEFT: ARTICLE CONTENT ==== -->
   <article class="prose prose-blue dark:prose-invert lg:col-span-2">
     <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-      <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
+      <a href="{{ "/" | relLangURL }}" class="hover:text-[#0f7ea9] font-medium">{{ i18n "home" }}</a>
       <span class="mx-2">/</span>
       {{ if eq .Section "blog" }}
         {{ $tag := index .Params.tags 0 }}
         {{ if $tag }}
           <a href="/tags/{{ $tag | urlize }}" class="hover:text-[#0f7ea9] font-medium">#{{ $tag }}</a>
         {{ else }}
-          <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#blog</a>
+          <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#{{ i18n "blog" | lower }}</a>
         {{ end }}
       {{ else }}
-        <a href="/pages" class="hover:text-[#0f7ea9] font-medium">#pages</a>
+        <a href="/pages" class="hover:text-[#0f7ea9] font-medium">#{{ i18n "pages" | lower }}</a>
       {{ end }}
     </nav>
 
 
     <h1>{{ .Title }}</h1>
+
+    {{/* Language switcher for translated pages */}}
+    {{ if .IsTranslated }}
+    <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <span class="mr-2">{{ i18n "available_in" }}</span>
+      {{ range .Translations }}
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Lang }}" class="underline hover:text-[#0f7ea9] mr-2">
+          {{ if eq .Lang "id" }}Bahasa Indonesia{{ else if eq .Lang "en" }}English{{ else }}{{ upper .Lang }}{{ end }}
+        </a>
+      {{ end }}
+    </div>
+    {{ end }}
 
     {{/* Social Share Icons under Title */}}
     {{ partial "social-share-header.html" . }}
@@ -27,6 +39,14 @@
     {{ $content := .Content }}
     {{ $paragraphs := split $content "</p>" }}
     
+    {{/* Hero Image (optional) */}}
+    {{ $hero := or .Params.hero .Params.og_image }}
+    {{ with $hero }}
+    <figure class="mb-6 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">
+      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-auto block" loading="eager" />
+    </figure>
+    {{ end }}
+
     {{/* Tampilkan 3 paragraf pertama */}}
     {{ range first 3 $paragraphs }}
       {{ . | safeHTML }}{{ if not (strings.HasSuffix . "</p>") }}</p>{{ end }}
@@ -44,17 +64,22 @@
       {{ end }}
     {{ end }}
 
-    <!-- Baca Juga -->
+    <!-- Related/Read Also (prefer related by tag) -->
     <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
-      <h2 class="text-lg font-semibold mb-2">📌 Baca Juga</h2>
+      <h2 class="text-lg font-semibold mb-2">📌 {{ i18n "read_also" }}</h2>
+      {{ $current := . }}
+      {{ $firstTag := index .Params.tags 0 }}
+      {{ $related := where (where .Site.RegularPages "Type" "blog") "Permalink" "ne" .Permalink }}
+      {{ if $firstTag }}
+        {{ $related = where $related "Params.tags" "intersect" (slice $firstTag) }}
+      {{ end }}
+      {{ if lt (len $related) 1 }}
+        {{ $related = where (where .Site.RegularPages "Type" "blog") "Permalink" "ne" .Permalink }}
+      {{ end }}
       <ul class="list-disc list-inside">
-        {{ range first 3 (where .Site.RegularPages "Type" "blog") }}
+        {{ range first 3 $related }}
         <li>
-          <a
-            href="{{ .RelPermalink }}"
-            class="text-blue-600 dark:text-blue-400 hover:underline"
-            >{{ .Title }}</a
-          >
+          <a href="{{ .RelPermalink }}" class="text-blue-600 dark:text-blue-400 hover:underline">{{ .Title }}</a>
         </li>
         {{ end }}
       </ul>
@@ -73,9 +98,7 @@
   <aside class="space-y-10">
     <!-- POPULAR POST -->
     <div>
-      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-        Popular Post
-      </h3>
+      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">{{ i18n "popular_post" }}</h3>
       <ul
         class="space-y-3 list-disc list-outside pl-5 text-sm text-gray-800 dark:text-gray-200"
       >

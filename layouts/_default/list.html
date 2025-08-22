@@ -15,15 +15,14 @@
 
     {{ if gt $p.TotalPages 1 }}
       <div class="mt-10 flex justify-center gap-2 text-sm">
-        {{ if $p.HasPrev }}<a href="{{ $p.Prev.URL }}" class="px-3 py-2 border rounded">← Prev</a>{{ end }}
+        {{ if $p.HasPrev }}<a href="{{ $p.Prev.URL }}" class="px-3 py-2 border rounded">← {{ i18n "prev" }}</a>{{ end }}
         {{ range $pg := $p.Pagers }}
           <a href="{{ $pg.URL }}" class="px-3 py-2 border rounded {{ if eq $pg $p }}bg-[#0f7ea9] text-white{{ end }}">{{ $pg.PageNumber }}</a>
         {{ end }}
-        {{ if $p.HasNext }}<a href="{{ $p.Next.URL }}" class="px-3 py-2 border rounded">Next →</a>{{ end }}
+        {{ if $p.HasNext }}<a href="{{ $p.Next.URL }}" class="px-3 py-2 border rounded">{{ i18n "next" }} →</a>{{ end }}
       </div>
     {{ end }}
   </div>
   
 </section>
 {{ end }}
-

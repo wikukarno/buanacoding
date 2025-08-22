@@ -9,15 +9,18 @@
     {{ else }}
     <!-- Label Iklan -->
     <div class="text-center mb-2">
-      <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">Advertisement</span>
+      <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
     </div>
     <!-- Ad Unit: In-Article (uses global AdSense script from head.html) -->
+    {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
+    {{ $adSlot := or .Params.ad_slot_in_article "2492895769" }}
+    {{ $adChannel := .Params.ad_channel }}
     <ins class="adsbygoogle"
          style="display:block; text-align:center;"
          data-ad-layout="in-article"
          data-ad-format="fluid"
-         data-ad-client="ca-pub-3149036684216973"
-         data-ad-slot="2492895769"></ins>
+         data-ad-client="{{ $adClient }}"
+         data-ad-slot="{{ $adSlot }}"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     {{ end }}
   </div>
