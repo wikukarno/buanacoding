@@ -17,7 +17,7 @@
     {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
     {{ $adSlot := or .Params.ad_slot_sticky_sidebar "3879195288" }}
     {{ $adChannel := .Params.ad_channel }}
-    <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 mx-auto w-[300px] min-h-[250px] overflow-hidden sticky-ad-container">
+    <div class="mx-auto w-[300px] min-h-[250px] overflow-hidden sticky-ad-container">
       <!-- Close button (optional) -->
       <button id="closeStickyAd" class="absolute top-2 right-2 w-6 h-6 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full text-gray-400 hover:text-gray-600 text-xs transition-colors z-10 hidden">
         ×
