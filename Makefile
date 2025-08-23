@@ -6,7 +6,7 @@ TAILWIND_OUTPUT=./static/css/style.css
 TAILWIND_CMD=./bin/tailwindcss
 
 # Targets
-.PHONY: dev dev-full css build clean
+.PHONY: dev dev-full css build build-clean clean
 
 ## Run Hugo development server
 dev:
@@ -27,6 +27,10 @@ css:
 ## Build the site with minification
 build:
 	hugo --minify
+
+## Build the site with clean destination directory (fixes cache/duplicate issues)
+build-clean:
+	hugo --cleanDestinationDir --minify
 
 ## Clean the public directory
 clean:
