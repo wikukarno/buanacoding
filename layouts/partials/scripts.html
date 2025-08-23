@@ -119,24 +119,56 @@
 
       searchBox.addEventListener("input", function (e) {
         const query = e.target.value.trim();
+        const searchAdBanner = document.getElementById("searchAdBanner");
+        
         if (query.length < 2) {
           resultBox.innerHTML = "";
+          // Hide ad when no search
+          if (searchAdBanner) {
+            searchAdBanner.classList.remove("show");
+            searchAdBanner.classList.add("hide");
+            setTimeout(() => searchAdBanner.style.display = "none", 300);
+          }
           return;
+        }
+
+        // Show ad when user starts searching
+        if (searchAdBanner) {
+          searchAdBanner.style.display = "block";
+          searchAdBanner.classList.remove("hide");
+          searchAdBanner.classList.add("show");
         }
 
         const results = fuse.search(query);
         if (results.length === 0) {
-          resultBox.innerHTML = "<li class='px-4 py-2'>No results found.</li>";
+          resultBox.innerHTML = `
+            <li class='px-4 py-3 text-center text-gray-500 dark:text-gray-400'>
+              <div class="mb-2">📄 No results found for "${query}"</div>
+              <div class="text-xs">Try different keywords or browse categories below</div>
+            </li>
+          `;
         } else {
-          resultBox.innerHTML = results
-            .map(
-              (r) => `
-                    <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-                    <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white">${r.item.title}</a>
-                  </li>
-                  `,
-            )
-            .join("");
+          // Insert ad every 3 results for better integration
+          let resultHTML = "";
+          results.forEach((r, index) => {
+            resultHTML += `
+              <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white no-underline">${r.item.title}</a>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">${r.item.content.substring(0, 100)}...</p>
+              </li>
+            `;
+            
+            // Add promotional content every 3 results (but not actual ads to avoid policy violations)
+            if ((index + 1) % 3 === 0 && index < results.length - 1) {
+              resultHTML += `
+                <li class="px-4 py-2 bg-blue-50 dark:bg-gray-800 border-l-4 border-blue-400">
+                  <div class="text-xs text-blue-600 dark:text-blue-400 font-medium">📚 More related articles</div>
+                </li>
+              `;
+            }
+          });
+          
+          resultBox.innerHTML = resultHTML;
         }
       });
     });

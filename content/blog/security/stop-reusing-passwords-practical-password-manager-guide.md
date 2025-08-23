@@ -95,7 +95,7 @@ Things this does not solve (and what to do)
 - Public Wi‑Fi interception: Use HTTPS (default) and a reputable VPN if you must use untrusted networks.
 - Account recovery traps: Keep recovery emails/phones current; store backup codes offline.
 
-Five‑minute checklist (do it today)
+Quick Action Steps
 
 - Install a manager on desktop + phone
 - Set a long master passphrase and enable 2FA on the vault

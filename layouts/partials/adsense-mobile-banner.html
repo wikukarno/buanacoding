@@ -15,9 +15,9 @@
   {{ $adSlot := or .Params.ad_slot_mobile "3879195288" }}
   {{ $adChannel := .Params.ad_channel }}
   <div class="flex justify-center">
-    <div class="bg-white dark:bg-gray-800 rounded-lg p-2 shadow-sm border border-gray-200 dark:border-gray-700">
+    <div class="bg-white dark:bg-gray-900 rounded-lg p-2 shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
       <ins class="adsbygoogle"
-           style="display:block"
+           style="display:block; background-color:inherit; min-height:50px;"
            data-ad-client="{{ $adClient }}"
            data-ad-slot="{{ $adSlot }}"
            data-ad-format="auto"

@@ -16,9 +16,9 @@
   {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
   {{ $adSlot := or .Params.ad_slot_sidebar "3879195288" }}
   {{ $adChannel := .Params.ad_channel }}
-  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300 mx-auto w-[300px] min-h-[250px]">
+  <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-300 mx-auto w-[300px] min-h-[250px] overflow-hidden">
     <ins class="adsbygoogle"
-         style="display:block"
+         style="display:block; background-color:inherit; min-height:250px;"
          data-ad-client="{{ $adClient }}"
          data-ad-slot="{{ $adSlot }}"
          data-ad-format="auto"

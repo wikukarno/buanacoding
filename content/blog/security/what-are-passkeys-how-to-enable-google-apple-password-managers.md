@@ -111,7 +111,7 @@ TOTP sits on top of passwords and can be entered on phishing sites. Passkeys rem
 **Do I need a hardware key?**
 Highly recommended for critical accounts as a robust backup, but not mandatory for every account.
 
-## Five‑Minute Checklist
+## Getting Started
 
 - Enable passkeys on your Google/Apple account.
 - Turn on passkey support in 1Password or Bitwarden (if you use them).

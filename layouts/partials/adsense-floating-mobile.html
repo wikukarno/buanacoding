@@ -1,0 +1,146 @@
+<!-- Ad: Floating Mobile Banner (Bottom Sticky) -->
+<div id="floatingMobileAd" class="lg:hidden fixed bottom-0 left-0 right-0 z-40 transform transition-transform duration-300 translate-y-0">
+  {{ $forceLive := or .Site.Params.ads.forceLive false }}
+  {{ if and hugo.IsServer (not $forceLive) }}
+  <div class="bg-gray-50 dark:bg-gray-800 border-t border-gray-300 dark:border-gray-600 p-2">
+    <div class="flex items-center justify-between max-w-sm mx-auto">
+      <div class="text-center flex-1">
+        <div class="text-xs text-gray-500 dark:text-gray-400">📱 Floating Mobile Ad (320×50)</div>
+      </div>
+      <button id="closeFloatingMobile" class="ml-2 p-1 text-gray-400 hover:text-gray-600">×</button>
+    </div>
+  </div>
+  {{ else }}
+  <div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+    <div class="flex items-center justify-between px-2 py-1 max-w-sm mx-auto">
+      <!-- Close button -->
+      <button id="closeFloatingMobile" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors flex-shrink-0">
+        <span class="text-lg leading-none">×</span>
+      </button>
+      
+      <!-- Ad container -->
+      <div class="flex-1 mx-2 min-h-[50px] flex items-center justify-center">
+        {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
+        {{ $adSlot := or .Params.ad_slot_floating_mobile "3879195288" }}
+        {{ $adChannel := .Params.ad_channel }}
+        <ins class="adsbygoogle floating-mobile-ad"
+             style="display:block; background-color:inherit; width:100%; max-width:320px; height:50px;"
+             data-ad-client="{{ $adClient }}"
+             data-ad-slot="{{ $adSlot }}"
+             data-ad-format="auto"
+             data-full-width-responsive="false"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      
+      <!-- Placeholder for balance -->
+      <div class="w-8 flex-shrink-0"></div>
+    </div>
+    
+    <!-- Optional: Small advertisement label -->
+    <div class="text-center pb-1">
+      <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide">Ad</span>
+    </div>
+  </div>
+  {{ end }}
+</div>
+
+<style>
+#floatingMobileAd {
+  /* Ensure it's above other elements but below modals */
+  z-index: 40;
+  /* Smooth animations */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#floatingMobileAd.hidden-mobile-ad {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* Add padding to body when floating ad is visible */
+body.floating-ad-active {
+  padding-bottom: 70px;
+}
+
+/* Prevent ad from interfering with scroll behavior */
+.floating-mobile-ad {
+  pointer-events: auto;
+}
+
+@media (min-width: 1024px) {
+  #floatingMobileAd {
+    display: none !important;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const floatingAd = document.getElementById('floatingMobileAd');
+  const closeButton = document.getElementById('closeFloatingMobile');
+  const body = document.body;
+  
+  // Add body padding when ad is visible
+  if (floatingAd && window.innerWidth < 1024) {
+    body.classList.add('floating-ad-active');
+  }
+  
+  // Close functionality
+  if (closeButton) {
+    closeButton.addEventListener('click', function() {
+      if (floatingAd) {
+        floatingAd.classList.add('hidden-mobile-ad');
+        body.classList.remove('floating-ad-active');
+        // Remember user preference
+        localStorage.setItem('floatingMobileHidden', 'true');
+        
+        // Remove element after animation
+        setTimeout(() => {
+          floatingAd.style.display = 'none';
+        }, 300);
+      }
+    });
+  }
+  
+  // Check if user previously closed floating ad
+  if (localStorage.getItem('floatingMobileHidden') === 'true') {
+    if (floatingAd) {
+      floatingAd.style.display = 'none';
+      body.classList.remove('floating-ad-active');
+    }
+  }
+  
+  // Smart hiding on scroll down, showing on scroll up
+  let lastScrollTop = 0;
+  let scrollTimeout;
+  
+  if (floatingAd && localStorage.getItem('floatingMobileHidden') !== 'true') {
+    window.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      
+      scrollTimeout = setTimeout(() => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down - hide ad
+          floatingAd.style.transform = 'translateY(100%)';
+        } else if (scrollTop < lastScrollTop) {
+          // Scrolling up - show ad
+          floatingAd.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      }, 50);
+    });
+  }
+  
+  // Handle resize events
+  window.addEventListener('resize', function() {
+    if (window.innerWidth >= 1024) {
+      body.classList.remove('floating-ad-active');
+    } else if (floatingAd && localStorage.getItem('floatingMobileHidden') !== 'true') {
+      body.classList.add('floating-ad-active');
+    }
+  });
+});
+</script>

@@ -555,7 +555,7 @@ sudo certbot certificates
 sudo certbot renew --force-renewal -d example.com
 ```
 
-**Security hardening checklist:**
+**Security Best Practices:**
 - Non-root user (fastapi)
 - Firewall (UFW) configured
 - SSL/TLS encryption

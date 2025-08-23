@@ -2,18 +2,18 @@
 <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8">
   <!-- ==== LEFT: ARTICLE CONTENT ==== -->
   <article class="prose prose-blue dark:prose-invert lg:col-span-2">
-    <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-      <a href="{{ "/" | relLangURL }}" class="hover:text-[#0f7ea9] font-medium">{{ i18n "home" }}</a>
-      <span class="mx-2">/</span>
+    <nav class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+      <a href="{{ "/" | relLangURL }}" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">{{ i18n "home" }}</a>
+      <span class="mx-2 text-gray-400 dark:text-gray-500">/</span>
       {{ if eq .Section "blog" }}
         {{ $tag := index .Params.tags 0 }}
         {{ if $tag }}
-          <a href="/tags/{{ $tag | urlize }}" class="hover:text-[#0f7ea9] font-medium">#{{ $tag }}</a>
+          <a href="/tags/{{ $tag | urlize }}" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">#{{ $tag }}</a>
         {{ else }}
-          <a href="/blog" class="hover:text-[#0f7ea9] font-medium">#{{ i18n "blog" | lower }}</a>
+          <a href="/blog" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">#{{ i18n "blog" | lower }}</a>
         {{ end }}
       {{ else }}
-        <a href="/pages" class="hover:text-[#0f7ea9] font-medium">#{{ i18n "pages" | lower }}</a>
+        <a href="/pages" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">#{{ i18n "pages" | lower }}</a>
       {{ end }}
     </nav>
 
@@ -76,10 +76,10 @@
       {{ if lt (len $related) 1 }}
         {{ $related = where (where .Site.RegularPages "Type" "blog") "Permalink" "ne" .Permalink }}
       {{ end }}
-      <ul class="list-disc list-inside">
+      <ul class="list-disc list-outside ml-5">
         {{ range first 3 $related }}
         <li>
-          <a href="{{ .RelPermalink }}" class="text-blue-600 dark:text-blue-400 hover:underline">{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}" class="text-gray-900 dark:text-white hover:text-[#0f7ea9] no-underline">{{ .Title }}</a>
         </li>
         {{ end }}
       </ul>
@@ -92,10 +92,23 @@
 
     {{/* AdSense: Mobile-only banner under article */}}
     {{ partial "adsense-mobile-banner.html" . }}
+    
+    <!-- POPULAR POST (Mobile Only) -->
+    <div class="lg:hidden mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">{{ i18n "popular_post" }}</h3>
+      <div class="grid gap-3">
+        {{ range first 5 (where .Site.RegularPages "Type" "blog") }}
+        <a href="{{ .RelPermalink }}" class="block py-2 hover:text-[#0f7ea9] transition no-underline">
+          <h4 class="font-medium text-gray-900 dark:text-white text-sm mb-1">{{ .Title }}</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ .Date.Format "02 Jan 2006" }}</p>
+        </a>
+        {{ end }}
+      </div>
+    </div>
   </article>
 
-  <!-- ==== RIGHT: SIDEBAR ==== -->
-  <aside class="space-y-10">
+  <!-- ==== RIGHT: SIDEBAR (Desktop Only) ==== -->
+  <aside class="space-y-10 hidden lg:block">
     <!-- POPULAR POST -->
     <div>
       <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">{{ i18n "popular_post" }}</h3>
@@ -104,17 +117,15 @@
       >
         {{ range first 5 (where .Site.RegularPages "Type" "blog") }}
         <li>
-          <a href="{{ .RelPermalink }}" class="hover:text-[#0f7ea9] transition"
-            >{{ .Title }}</a
-          >
+          <a href="{{ .RelPermalink }}" class="hover:text-[#0f7ea9] transition">{{ .Title }}</a>
         </li>
         {{ end }}
       </ul>
     </div>
 
-    <!-- Ads: Sidebar (desktop only) -->
-    <div class="hidden lg:block mt-8">
-      {{ partial "adsense-sidebar-300x250.html" . }}
+    <!-- Ads: Enhanced Sticky Sidebar (desktop only) -->
+    <div class="mt-8">
+      {{ partial "adsense-sticky-sidebar.html" . }}
     </div>
   </aside>
 </div>
@@ -122,7 +133,5 @@
 {{ partial "comments.html" . }}
 {{ end }}
 
-{{/* Floating Share Button for Mobile */}}
-{{ partial "social-share-compact.html" . }}
 
 {{ end }}

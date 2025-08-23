@@ -129,35 +129,28 @@
       {{ end }}
     {{ end }}
 
-    <div class="flex flex-col items-start gap-4 mt-2">
-      <!-- 🌐 Language Switcher (Mobile) -->
-      <div class="flex items-center gap-3">
-        <span class="text-xs opacity-80">{{ .Site.Language.LanguageName }}</span>
-        {{ if .IsTranslated }}
-          {{ range .AllTranslations }}
-            <a href="{{ .RelPermalink }}" class="text-white hover:text-[#0f7ea9] text-sm">{{ .Site.Language.LanguageName }}</a>
-          {{ end }}
-        {{ else }}
-          {{ range .Site.Home.AllTranslations }}
-            <a href="{{ .RelPermalink }}" class="text-white hover:text-[#0f7ea9] text-sm">{{ .Site.Language.LanguageName }}</a>
-          {{ end }}
-        {{ end }}
-      </div>
-
-      <!-- 🔍 Search Button (Mobile) -->
+    <!-- Mobile Menu Actions -->
+    <div class="mt-8 space-y-6">
+      
+      <!-- Search Button -->
       <button
         id="openSearchModalMobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
+        class="w-full text-left text-white hover:text-cyan-300 transition duration-300 flex items-center gap-4 py-2"
         aria-label="Search"
       >
         <i data-feather="search" class="w-5 h-5"></i>
+        <span class="text-sm font-medium">Search</span>
       </button>
 
-      <!-- 🌐 Language Switcher (Mobile as Button Group) -->
-      <div class="flex items-center">
-        {{ $root := . }}
-        {{ $homeAlts := $root.Site.Home.AllTranslations }}
-        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
+      <!-- Language Switcher -->
+      <div class="flex items-center justify-between py-2">
+        <div class="flex items-center gap-4">
+          <i data-feather="globe" class="w-5 h-5 text-white/80"></i>
+          <span class="text-sm font-medium text-white">Language</span>
+        </div>
+        <div class="flex text-xs">
+          {{ $root := . }}
+          {{ $homeAlts := $root.Site.Home.AllTranslations }}
           {{ range $lang := $root.Site.Languages }}
             {{ $isCur := eq $lang.Lang $root.Site.Language.Lang }}
             {{ $url := "" }}
@@ -180,25 +173,30 @@
             {{ end }}
             <a href="{{ $url }}"
                data-lang="{{ $lang.Lang }}" data-has-trans="{{ $has }}"
-               class="js-lang-link px-2 py-1 {{ if $isCur }}bg-white/20 text-white{{ else }}bg-transparent hover:bg-white/10 text-white/80{{ end }}">
+               class="js-lang-link px-3 py-1.5 {{ if $isCur }}text-white font-medium{{ else }}text-white/60 hover:text-white{{ end }}">
               {{ upper $lang.Lang }}
             </a>
           {{ end }}
         </div>
       </div>
 
-      <!-- 🌗 Theme Toggle Mobile -->
+      <!-- Theme Toggle -->
       <button
         id="theme-toggle-mobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
+        class="w-full text-left text-white hover:text-cyan-300 transition duration-300 flex items-center gap-4 py-2"
         aria-label="Toggle Dark Mode"
       >
         <i id="icon-sun-mobile" data-feather="sun" class="w-5 h-5 hidden"></i>
         <i id="icon-moon-mobile" data-feather="moon" class="w-5 h-5"></i>
+        <span class="text-sm font-medium">Theme</span>
       </button>
+      
     </div>
   </div>
 </header>
+
+<!-- Header Leaderboard Ad -->
+{{ partial "adsense-header-leaderboard.html" . }}
 
 <!-- Search Modal -->
 <div
@@ -226,6 +224,9 @@
       placeholder="{{ i18n "search_placeholder" }}"
       class="w-full px-4 py-3 mb-4 border border-cyan-400 text-gray-800 dark:text-white dark:bg-[#374151] placeholder-gray-400 dark:placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
     />
+
+    <!-- Search Results Ad Banner -->
+    {{ partial "adsense-search-banner.html" . }}
 
     <!-- Result List -->
     <ul
