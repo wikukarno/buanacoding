@@ -131,6 +131,6 @@ Conclusion
 
 Goroutines and channels are the foundation of concurrency in Go. With them, you can build scalable and efficient programs without the complexity of traditional multithreading. Start small, experiment with simple patterns, and scale your knowledge step by step.
 
-Next, we'll explore advanced concurrency control using `sync.Mutex`, `sync.Once`, and [context](https://www.buanacoding.com/blog/using-context-in-go-cancellation.html) for cancellation and timeouts.
+Next, we'll explore advanced concurrency control using `sync.Mutex`, `sync.Once`, and [context]({{< relref "blog/go/using-context-in-go-cancellation-timeout-and-deadlines-explained.md" >}}) for cancellation and timeouts.
 
 Happy coding!

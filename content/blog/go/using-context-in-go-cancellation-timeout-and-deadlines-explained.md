@@ -128,6 +128,6 @@ Conclusion
 
 Understanding `context` is essential for writing responsive, well-behaved concurrent programs in Go. Whether you're managing goroutines, dealing with timeouts, or handling request chains in a web server, context gives you the tools to do it cleanly and safely.
 
-Next, we’ll cover `sync.Mutex` and other tools for [synchronizing](https://www.buanacoding.com/blog/synchronizing-goroutines-in-go-using.html) data between goroutines.
+Next, we'll cover `sync.Mutex` and other tools for [synchronizing]({{< relref "blog/go/synchronizing-goroutines-in-go-using-syncmutex-and-synconce.md" >}}) data between goroutines.
 
 Happy coding!

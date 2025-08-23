@@ -82,9 +82,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=1755941933" />
-  <link rel="stylesheet" href="/css/overrides.css?v=1755941933" />
-  <link rel="stylesheet" href="/css/syntax.css?v=1755941933" />
+  <link rel="stylesheet" href="/style.css?v=1755959690" />
+  <link rel="stylesheet" href="/css/overrides.css?v=1755959690" />
+  <link rel="stylesheet" href="/css/syntax.css?v=1755959690" />
 
   
   <script>
@@ -306,33 +306,28 @@
       
     
 
-    <div class="flex flex-col items-start gap-4 mt-2">
+    
+    <div class="mt-8 space-y-6">
       
-      <div class="flex items-center gap-3">
-        <span class="text-xs opacity-80">English</span>
-        
-          
-            <a href="/" class="text-white hover:text-[#0f7ea9] text-sm">English</a>
-          
-            <a href="/id/" class="text-white hover:text-[#0f7ea9] text-sm">Indonesia</a>
-          
-        
-      </div>
-
       
       <button
         id="openSearchModalMobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
+        class="w-full text-left text-white hover:text-cyan-300 transition duration-300 flex items-center gap-4 py-2"
         aria-label="Search"
       >
         <i data-feather="search" class="w-5 h-5"></i>
+        <span class="text-sm font-medium">Search</span>
       </button>
 
       
-      <div class="flex items-center">
-        
-        
-        <div class="flex border border-white/30 rounded overflow-hidden text-xs font-medium">
+      <div class="flex items-center justify-between py-2">
+        <div class="flex items-center gap-4">
+          <i data-feather="globe" class="w-5 h-5 text-white/80"></i>
+          <span class="text-sm font-medium text-white">Language</span>
+        </div>
+        <div class="flex text-xs">
+          
+          
           
             
             
@@ -344,7 +339,7 @@
             
             <a href="/2023/04/cara-publish-aplikasi-laravel-ke-server.html"
                data-lang="en" data-has-trans="true"
-               class="js-lang-link px-2 py-1 bg-white/20 text-white">
+               class="js-lang-link px-3 py-1.5 text-white font-medium">
               EN
             </a>
           
@@ -360,7 +355,7 @@
             
             <a href="/id/"
                data-lang="id" data-has-trans="false"
-               class="js-lang-link px-2 py-1 bg-transparent hover:bg-white/10 text-white/80">
+               class="js-lang-link px-3 py-1.5 text-white/60 hover:text-white">
               ID
             </a>
           
@@ -370,15 +365,30 @@
       
       <button
         id="theme-toggle-mobile"
-        class="text-white hover:text-[#0f7ea9] transition duration-300"
+        class="w-full text-left text-white hover:text-cyan-300 transition duration-300 flex items-center gap-4 py-2"
         aria-label="Toggle Dark Mode"
       >
         <i id="icon-sun-mobile" data-feather="sun" class="w-5 h-5 hidden"></i>
         <i id="icon-moon-mobile" data-feather="moon" class="w-5 h-5"></i>
+        <span class="text-sm font-medium">Theme</span>
       </button>
+      
     </div>
   </div>
 </header>
+
+
+
+<div class="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 py-2">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-center text-xs py-6 px-4 rounded text-gray-500 dark:text-gray-400">
+      📢 Ad placeholder: Header Leaderboard (728×90 desktop, 320×50 mobile)
+    </div>
+    
+  </div>
+</div>
 
 
 <div
@@ -408,6 +418,40 @@
     />
 
     
+    
+<div id="searchAdBanner" class="my-4 hidden">
+  
+  
+  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-center text-xs py-4 px-4 rounded text-gray-500 dark:text-gray-400">
+    🔍 Ad placeholder: Search Results Banner (320×100)
+  </div>
+  
+</div>
+
+<style>
+#searchAdBanner {
+   
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#searchAdBanner.show {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#searchAdBanner.hide {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.search-results-ad {
+  max-height: 100px;
+  overflow: hidden;
+}
+</style>
+
+    
     <ul
       id="results"
       class="bg-white dark:bg-[#1f2937] rounded-lg shadow max-h-60 overflow-y-auto divide-y divide-gray-200 dark:divide-gray-600"
@@ -423,13 +467,13 @@
 <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-8">
   
   <article class="prose prose-blue dark:prose-invert lg:col-span-2">
-    <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-      <a href="/" class="hover:text-[#0f7ea9] font-medium">Home</a>
-      <span class="mx-2">/</span>
+    <nav class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+      <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">Home</a>
+      <span class="mx-2 text-gray-400 dark:text-gray-500">/</span>
       
         
         
-          <a href="/tags/laravel" class="hover:text-[#0f7ea9] font-medium">#Laravel</a>
+          <a href="/tags/laravel" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">#Laravel</a>
         
       
     </nav>
@@ -638,18 +682,18 @@ function showHeaderSuccess() {
         
       
       
-      <ul class="list-disc list-inside">
+      <ul class="list-disc list-outside ml-5">
         
         <li>
-          <a href="/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html" class="text-blue-600 dark:text-blue-400 hover:underline">Belajar Membuat Aplikasi Pertama Anda dengan Laravel</a>
+          <a href="/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html" class="text-gray-900 dark:text-white hover:text-[#0f7ea9] no-underline">Belajar Membuat Aplikasi Pertama Anda dengan Laravel</a>
         </li>
         
         <li>
-          <a href="/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html" class="text-blue-600 dark:text-blue-400 hover:underline">5 Laravel extensions that you must install on your Visual Studio Code</a>
+          <a href="/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html" class="text-gray-900 dark:text-white hover:text-[#0f7ea9] no-underline">5 Laravel extensions that you must install on your Visual Studio Code</a>
         </li>
         
         <li>
-          <a href="/2023/08/how-to-install-and-configure-yajra.html" class="text-blue-600 dark:text-blue-400 hover:underline">how to install and configure yajra datatable in Laravel </a>
+          <a href="/2023/08/how-to-install-and-configure-yajra.html" class="text-gray-900 dark:text-white hover:text-[#0f7ea9] no-underline">how to install and configure yajra datatable in Laravel </a>
         </li>
         
       </ul>
@@ -682,10 +726,43 @@ function showHeaderSuccess() {
   
 </div>
 
+    
+    
+    <div class="lg:hidden mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Popular Posts</h3>
+      <div class="grid gap-3">
+        
+        <a href="/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html" class="block py-2 hover:text-[#0f7ea9] transition no-underline">
+          <h4 class="font-medium text-gray-900 dark:text-white text-sm mb-1">Uninstall Docker on Ubuntu 24.04: Complete Clean Removal</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400">23 Aug 2025</p>
+        </a>
+        
+        <a href="/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.html" class="block py-2 hover:text-[#0f7ea9] transition no-underline">
+          <h4 class="font-medium text-gray-900 dark:text-white text-sm mb-1">What Are Passkeys? How to Enable Them on Google, Apple, and Password Managers (2025 Guide)</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400">22 Aug 2025</p>
+        </a>
+        
+        <a href="/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html" class="block py-2 hover:text-[#0f7ea9] transition no-underline">
+          <h4 class="font-medium text-gray-900 dark:text-white text-sm mb-1">Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400">20 Aug 2025</p>
+        </a>
+        
+        <a href="/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html" class="block py-2 hover:text-[#0f7ea9] transition no-underline">
+          <h4 class="font-medium text-gray-900 dark:text-white text-sm mb-1">FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400">20 Aug 2025</p>
+        </a>
+        
+        <a href="/2025/08/install-ollama-openwebui-ubuntu-24-04.html" class="block py-2 hover:text-[#0f7ea9] transition no-underline">
+          <h4 class="font-medium text-gray-900 dark:text-white text-sm mb-1">Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400">19 Aug 2025</p>
+        </a>
+        
+      </div>
+    </div>
   </article>
 
   
-  <aside class="space-y-10">
+  <aside class="space-y-10 hidden lg:block">
     
     <div>
       <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Popular Posts</h3>
@@ -694,52 +771,103 @@ function showHeaderSuccess() {
       >
         
         <li>
-          <a href="/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html" class="hover:text-[#0f7ea9] transition"
-            >Uninstall Docker on Ubuntu 24.04: Complete Clean Removal</a
-          >
+          <a href="/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html" class="hover:text-[#0f7ea9] transition">Uninstall Docker on Ubuntu 24.04: Complete Clean Removal</a>
         </li>
         
         <li>
-          <a href="/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.html" class="hover:text-[#0f7ea9] transition"
-            >What Are Passkeys? How to Enable Them on Google, Apple, and Password Managers (2025 Guide)</a
-          >
+          <a href="/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.html" class="hover:text-[#0f7ea9] transition">What Are Passkeys? How to Enable Them on Google, Apple, and Password Managers (2025 Guide)</a>
         </li>
         
         <li>
-          <a href="/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html" class="hover:text-[#0f7ea9] transition"
-            >Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</a
-          >
+          <a href="/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html" class="hover:text-[#0f7ea9] transition">Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</a>
         </li>
         
         <li>
-          <a href="/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html" class="hover:text-[#0f7ea9] transition"
-            >FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</a
-          >
+          <a href="/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html" class="hover:text-[#0f7ea9] transition">FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</a>
         </li>
         
         <li>
-          <a href="/2025/08/install-ollama-openwebui-ubuntu-24-04.html" class="hover:text-[#0f7ea9] transition"
-            >Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</a
-          >
+          <a href="/2025/08/install-ollama-openwebui-ubuntu-24-04.html" class="hover:text-[#0f7ea9] transition">Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</a>
         </li>
         
       </ul>
     </div>
 
     
-    <div class="hidden lg:block mt-8">
+    <div class="mt-8">
       
-<div class="sticky top-8">
-  
-  
-  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs w-[300px] h-[250px] flex flex-col items-center justify-center rounded-lg mx-auto text-gray-500 dark:text-gray-400">
-    <div class="text-lg mb-2">🎯</div>
-    <div>Ad placeholder</div>
-    <div class="text-xs opacity-70">300×250 (sidebar)</div>
+<div class="hidden lg:block">
+  <div id="stickySidebarAd" class="sticky top-8 transition-all duration-300">
+    
+    
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-center text-xs w-[300px] h-[250px] flex flex-col items-center justify-center rounded-lg mx-auto text-gray-500 dark:text-gray-400">
+      <div class="text-lg mb-2">📌</div>
+      <div>Sticky Sidebar Ad</div>
+      <div class="text-xs opacity-70">300×250 (always visible)</div>
+    </div>
+    
   </div>
-  
 </div>
 
+<style>
+.sticky-ad-container {
+  position: relative;
+}
+
+.sticky-ad-container:hover #closeStickyAd {
+  display: block;
+}
+
+ 
+#stickySidebarAd {
+  will-change: transform;
+}
+
+ 
+@media (min-width: 1024px) {
+  #stickySidebarAd {
+    max-height: calc(100vh - 120px);
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const stickyAd = document.getElementById('stickySidebarAd');
+  const closeButton = document.getElementById('closeStickyAd');
+  
+  if (closeButton) {
+    closeButton.addEventListener('click', function() {
+      if (stickyAd) {
+        stickyAd.style.display = 'none';
+        
+        localStorage.setItem('stickySidebarHidden', 'true');
+      }
+    });
+  }
+  
+  
+  if (localStorage.getItem('stickySidebarHidden') === 'true') {
+    if (stickyAd) stickyAd.style.display = 'none';
+  }
+  
+  
+  if (stickyAd && window.IntersectionObserver) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    observer.observe(stickyAd);
+  }
+});
+</script>
     </div>
   </aside>
 </div>
@@ -769,122 +897,25 @@ function showHeaderSuccess() {
 
 
 
-
-
-
-<div class="fixed bottom-6 right-6 z-50 lg:hidden">
-  
-  <button id="share-toggle" 
-          class="bg-[#0f7ea9] text-white p-3 rounded-full shadow-lg hover:bg-[#094d66] transition-all duration-300">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
-    </svg>
-  </button>
-
-  
-  <div id="share-options" class="hidden absolute bottom-16 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 min-w-[200px] border border-gray-200 dark:border-gray-700">
-    <div class="space-y-2">
-      
-      <a href="https://twitter.com/intent/tweet?text=Cara&#43;publish&#43;aplikasi&#43;laravel&#43;ke&#43;server&#43;hosting&#43;menggunakan&#43;git&url=http%3A%2F%2Flocalhost%3A1313%2F2023%2F04%2Fcara-publish-aplikasi-laravel-ke-server.html&via=buanacoding" 
-         target="_blank" rel="noopener"
-         class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
-        Twitter
-      </a>
-
-      
-      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2F2023%2F04%2Fcara-publish-aplikasi-laravel-ke-server.html" 
-         target="_blank" rel="noopener"
-         class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-        </svg>
-        Facebook
-      </a>
-
-      
-      <a href="https://wa.me/?text=Cara&#43;publish&#43;aplikasi&#43;laravel&#43;ke&#43;server&#43;hosting&#43;menggunakan&#43;git%20http%3A%2F%2Flocalhost%3A1313%2F2023%2F04%2Fcara-publish-aplikasi-laravel-ke-server.html" 
-         target="_blank" rel="noopener"
-         class="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
-        </svg>
-        WhatsApp
-      </a>
-
-      
-      <button onclick="copyToClipboard('http:\/\/localhost:1313\/2023\/04\/cara-publish-aplikasi-laravel-ke-server.html')" 
-              class="flex items-center w-full p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors">
-        <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-        </svg>
-        Copy Link
-      </button>
-    </div>
-  </div>
-
-  
-  <div id="copy-toast" class="hidden absolute bottom-16 right-0 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg text-sm">
-    Link copied!
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const shareToggle = document.getElementById('share-toggle');
-  const shareOptions = document.getElementById('share-options');
-  
-  shareToggle.addEventListener('click', function() {
-    shareOptions.classList.toggle('hidden');
-  });
-
-  
-  document.addEventListener('click', function(event) {
-    if (!shareToggle.contains(event.target) && !shareOptions.contains(event.target)) {
-      shareOptions.classList.add('hidden');
-    }
-  });
-});
-
-function copyToClipboard(url) {
-  navigator.clipboard.writeText(url).then(function() {
-    showToast();
-  }).catch(function(err) {
-    
-    const textArea = document.createElement('textarea');
-    textArea.value = url;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-    showToast();
-  });
-}
-
-function showToast() {
-  const toast = document.getElementById('copy-toast');
-  const shareOptions = document.getElementById('share-options');
-  
-  
-  shareOptions.classList.add('hidden');
-  
-  
-  toast.classList.remove('hidden');
-  
-  
-  setTimeout(function() {
-    toast.classList.add('hidden');
-  }, 2000);
-}
-</script>
-
-
       </div>
     </main>
 
     
+
+<div class="py-6">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-center text-xs py-8 px-4 rounded text-gray-500 dark:text-gray-400">
+      <div class="text-lg mb-2">📱</div>
+      <div>Ad placeholder: Footer Banner</div>
+      <div class="text-xs opacity-70 mt-1">Responsive (300×250 desktop, 320×50 mobile)</div>
+    </div>
+    
+  </div>
+</div>
+
+
 <div class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-4 transition-colors duration-300">
   <div class="text-center space-x-4 text-sm font-medium">
     <a href="/about" class="hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
@@ -928,6 +959,123 @@ function showToast() {
   </svg>
 </button>
 
+
+    
+    
+<div id="floatingMobileAd" class="lg:hidden fixed bottom-0 left-0 right-0 z-40 transform transition-transform duration-300 translate-y-0">
+  
+  
+  <div class="bg-gray-50 dark:bg-gray-800 border-t border-gray-300 dark:border-gray-600 p-2">
+    <div class="flex items-center justify-between max-w-sm mx-auto">
+      <div class="text-center flex-1">
+        <div class="text-xs text-gray-500 dark:text-gray-400">📱 Floating Mobile Ad (320×50)</div>
+      </div>
+      <button id="closeFloatingMobile" class="ml-2 p-1 text-gray-400 hover:text-gray-600">×</button>
+    </div>
+  </div>
+  
+</div>
+
+<style>
+#floatingMobileAd {
+   
+  z-index: 40;
+   
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#floatingMobileAd.hidden-mobile-ad {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+ 
+body.floating-ad-active {
+  padding-bottom: 70px;
+}
+
+ 
+.floating-mobile-ad {
+  pointer-events: auto;
+}
+
+@media (min-width: 1024px) {
+  #floatingMobileAd {
+    display: none !important;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const floatingAd = document.getElementById('floatingMobileAd');
+  const closeButton = document.getElementById('closeFloatingMobile');
+  const body = document.body;
+  
+  
+  if (floatingAd && window.innerWidth < 1024) {
+    body.classList.add('floating-ad-active');
+  }
+  
+  
+  if (closeButton) {
+    closeButton.addEventListener('click', function() {
+      if (floatingAd) {
+        floatingAd.classList.add('hidden-mobile-ad');
+        body.classList.remove('floating-ad-active');
+        
+        localStorage.setItem('floatingMobileHidden', 'true');
+        
+        
+        setTimeout(() => {
+          floatingAd.style.display = 'none';
+        }, 300);
+      }
+    });
+  }
+  
+  
+  if (localStorage.getItem('floatingMobileHidden') === 'true') {
+    if (floatingAd) {
+      floatingAd.style.display = 'none';
+      body.classList.remove('floating-ad-active');
+    }
+  }
+  
+  
+  let lastScrollTop = 0;
+  let scrollTimeout;
+  
+  if (floatingAd && localStorage.getItem('floatingMobileHidden') !== 'true') {
+    window.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      
+      scrollTimeout = setTimeout(() => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          
+          floatingAd.style.transform = 'translateY(100%)';
+        } else if (scrollTop < lastScrollTop) {
+          
+          floatingAd.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      }, 50);
+    });
+  }
+  
+  
+  window.addEventListener('resize', function() {
+    if (window.innerWidth >= 1024) {
+      body.classList.remove('floating-ad-active');
+    } else if (floatingAd && localStorage.getItem('floatingMobileHidden') !== 'true') {
+      body.classList.add('floating-ad-active');
+    }
+  });
+});
+</script>
 
     <div id="google_translate_element" style="display:none"></div>
 <script src="https://unpkg.com/feather-icons"></script>
@@ -1050,24 +1198,56 @@ function showToast() {
 
       searchBox.addEventListener("input", function (e) {
         const query = e.target.value.trim();
+        const searchAdBanner = document.getElementById("searchAdBanner");
+        
         if (query.length < 2) {
           resultBox.innerHTML = "";
+          
+          if (searchAdBanner) {
+            searchAdBanner.classList.remove("show");
+            searchAdBanner.classList.add("hide");
+            setTimeout(() => searchAdBanner.style.display = "none", 300);
+          }
           return;
+        }
+
+        
+        if (searchAdBanner) {
+          searchAdBanner.style.display = "block";
+          searchAdBanner.classList.remove("hide");
+          searchAdBanner.classList.add("show");
         }
 
         const results = fuse.search(query);
         if (results.length === 0) {
-          resultBox.innerHTML = "<li class='px-4 py-2'>No results found.</li>";
+          resultBox.innerHTML = `
+            <li class='px-4 py-3 text-center text-gray-500 dark:text-gray-400'>
+              <div class="mb-2">📄 No results found for "${query}"</div>
+              <div class="text-xs">Try different keywords or browse categories below</div>
+            </li>
+          `;
         } else {
-          resultBox.innerHTML = results
-            .map(
-              (r) => `
-                    <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-                    <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white">${r.item.title}</a>
-                  </li>
-                  `,
-            )
-            .join("");
+          
+          let resultHTML = "";
+          results.forEach((r, index) => {
+            resultHTML += `
+              <li class="px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                <a href="${r.item.href}" class="block font-semibold text-gray-900 dark:text-white no-underline">${r.item.title}</a>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">${r.item.content.substring(0, 100)}...</p>
+              </li>
+            `;
+            
+            
+            if ((index + 1) % 3 === 0 && index < results.length - 1) {
+              resultHTML += `
+                <li class="px-4 py-2 bg-blue-50 dark:bg-gray-800 border-l-4 border-blue-400">
+                  <div class="text-xs text-blue-600 dark:text-blue-400 font-medium">📚 More related articles</div>
+                </li>
+              `;
+            }
+          });
+          
+          resultBox.innerHTML = resultHTML;
         }
       });
     });

@@ -147,6 +147,6 @@ Conclusion
 
 Testing is not just a formality — it’s a mindset. Go makes it easy to write fast, reliable tests without third-party tools. By integrating testing into your daily development flow, you’ll gain confidence, spot bugs earlier, and create better software.
 
-In the next topic, we’ll explore how to [benchmark](https://www.buanacoding.com/blog/benchmarking-in-go-measuring.html) Go code and write performance tests.
+In the next topic, we'll explore how to [benchmark]({{< relref "blog/go/benchmarking-in-go-measuring-performance-with-testingb.md" >}}) Go code and write performance tests.
 
 Keep testing and happy coding!

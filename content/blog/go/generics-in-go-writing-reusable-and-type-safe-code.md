@@ -139,6 +139,6 @@ Conclusion
 
 Generics are a powerful addition to Go that let you write cleaner, more reusable code without giving up type safety. Whether you're building data structures, utility functions, or abstractions, generics help reduce duplication and improve flexibility.
 
-Now that you understand generics, you’re ready to explore Go’s concurrency model and build high-performance programs using [goroutines](https://www.buanacoding.com/blog/concurrency-in-go-goroutines-and.html) and channels.
+Now that you understand generics, you're ready to explore Go's concurrency model and build high-performance programs using [goroutines]({{< relref "blog/go/concurrency-in-go-goroutines-and-channels-explained.md" >}}) and channels.
 
 Happy coding!

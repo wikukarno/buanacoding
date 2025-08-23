@@ -148,6 +148,6 @@ Conclusion
 
 Go’s error handling may be explicit and repetitive, but it leads to clear and predictable code. By following best practices and understanding how to create, return, and wrap errors, you’ll build programs that are easier to maintain and debug.
 
-In the next topic, we’ll explore how to write tests in Go to verify the correctness of your code using go [test](https://www.buanacoding.com/blog/testing-in-go-writing-unit-tests-with.html) and the `testing` package.
+In the next topic, we'll explore how to write tests in Go to verify the correctness of your code using go [test]({{< relref "blog/go/testing-in-go-writing-unit-tests-with-the-testing-package.md" >}}) and the `testing` package.
 
 Happy coding!
