@@ -9,4 +9,4 @@ disable_comments: true
 
 If you would like to get in touch or collaborate with me — including freelance work — feel free to reach out via the contact information below.
 
-**Email:** [hi@wikukarno.com](mailto:hi@wikukarno.com)
+**Email:** [buanacoding@gmail.com](mailto:buanacoding@gmail.com)

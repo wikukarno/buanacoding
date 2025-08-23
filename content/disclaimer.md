@@ -6,7 +6,7 @@ keywords: ["disclaimer", "terms", "responsibility", "external links"]
 draft: false
 disable_comments: true
 ---
-If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at hi@wikukarno.com
+If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at buanacoding@gmail.com
 
 All the information on this website - https://www.buanacoding.com - is published in good faith and for general information purpose only. buanacoding does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (buanacoding), is strictly at your own risk. buanacoding will not be liable for any losses and/or damages in connection with the use of our website. Our disclaimer was generated with the help of the Disclaimer Generator.
 
