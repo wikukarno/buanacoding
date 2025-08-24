@@ -1,7 +1,17 @@
 User-agent: *
-Disallow: /search
-Disallow: /archives
-Disallow: /404.html
 Allow: /
 
+# Allow all important content
+Allow: /blog/
+Allow: /tags/
+Allow: /about/
+Allow: /contact/
+Allow: /privacy-policy/
+Allow: /disclaimer/
+
+# Disallow utility pages only
+Disallow: /search
+Disallow: /404.html
+
+# Sitemap
 Sitemap: {{ .Site.BaseURL }}sitemap.xml

@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/",
+      "source": "/:path*",
       "has": [
         {
           "type": "query",
@@ -9,7 +9,7 @@
           "value": "1"
         }
       ],
-      "destination": "/",
+      "destination": "/:path*",
       "permanent": true
     },
     {
@@ -23,5 +23,6 @@
       "destination": "https://www.buanacoding.com/:path*",
       "permanent": true
     }
-  ]
+  ],
+  "trailingSlash": true
 }
