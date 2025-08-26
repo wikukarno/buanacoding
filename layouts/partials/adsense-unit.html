@@ -15,15 +15,15 @@
     {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
     {{ $adSlot := or .Params.ad_slot_banner "3879195288" }}
     {{ $adChannel := .Params.ad_channel }}
-    <div class="flex justify-center min-h-[90px] bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 p-2">
+    <div class="flex justify-center">
       <ins class="adsbygoogle"
-           style="display:block; background-color:inherit; width:100%;"
+           style="display:block; min-height:90px; max-width:100%;"
            data-ad-client="{{ $adClient }}"
            data-ad-slot="{{ $adSlot }}"
            data-ad-format="auto"
            data-full-width-responsive="true"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     {{ end }}
   </div>
 </div>

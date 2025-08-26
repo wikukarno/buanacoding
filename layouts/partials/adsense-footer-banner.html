@@ -3,7 +3,7 @@
   <div class="max-w-7xl mx-auto px-4">
     {{ $forceLive := or .Site.Params.ads.forceLive false }}
     {{ if and hugo.IsServer (not $forceLive) }}
-    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-center text-xs py-8 px-4 rounded text-gray-500 dark:text-gray-400">
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-8 px-4 rounded text-gray-500 dark:text-gray-400">
       <div class="text-lg mb-2">📱</div>
       <div>Ad placeholder: Footer Banner</div>
       <div class="text-xs opacity-70 mt-1">Responsive (300×250 desktop, 320×50 mobile)</div>
@@ -18,15 +18,13 @@
     {{ $adSlot := or .Params.ad_slot_footer "3879195288" }}
     {{ $adChannel := .Params.ad_channel }}
     <div class="flex justify-center">
-      <div class="bg-white dark:bg-gray-900 rounded-lg p-3 shadow-sm border border-gray-200 dark:border-gray-700 max-w-full overflow-hidden">
-        <ins class="adsbygoogle"
-             style="display:block; min-height:90px; background-color:inherit;"
-             data-ad-client="{{ $adClient }}"
-             data-ad-slot="{{ $adSlot }}"
-             data-ad-format="auto"
-             data-full-width-responsive="true"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
+      <ins class="adsbygoogle"
+           style="display:block; min-height:90px; max-width:100%;"
+           data-ad-client="{{ $adClient }}"
+           data-ad-slot="{{ $adSlot }}"
+           data-ad-format="auto"
+           data-full-width-responsive="true"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
     {{ end }}
   </div>

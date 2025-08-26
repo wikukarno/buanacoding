@@ -15,15 +15,13 @@
   {{ $adSlot := or .Params.ad_slot_mobile "3879195288" }}
   {{ $adChannel := .Params.ad_channel }}
   <div class="flex justify-center">
-    <div class="bg-white dark:bg-gray-900 rounded-lg p-2 shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-      <ins class="adsbygoogle"
-           style="display:block; background-color:inherit; min-height:50px;"
-           data-ad-client="{{ $adClient }}"
-           data-ad-slot="{{ $adSlot }}"
-           data-ad-format="auto"
-           data-full-width-responsive="true"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    <ins class="adsbygoogle"
+         style="display:block; min-height:50px; max-width:100%;"
+         data-ad-client="{{ $adClient }}"
+         data-ad-slot="{{ $adSlot }}"
+         data-ad-format="auto"
+         data-full-width-responsive="true"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
   {{ end }}
 </div>
