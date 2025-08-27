@@ -292,9 +292,12 @@
 &lt;h2 id="-cara-clone-menggunakan-git">💻 Cara Clone Menggunakan Git&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Salin URL repository dari GitHub (HTTPS atau SSH).&lt;/p></description></item><item><title>About</title><link>https://www.buanacoding.com/about/</link><pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/about/</guid><description>&lt;p>&lt;strong>buanacoding.com&lt;/strong> is a website dedicated to sharing tips, tricks, and insights about coding. It serves as a platform to exchange knowledge and personal experiences in the world of programming.&lt;/p>
-&lt;p>This site also provides information related to technology and software development, aiming to help beginners who are curious about the tech and programming world.&lt;/p>
-&lt;p>Hopefully, this site can be a valuable resource — not only for the author but also for others who are eager to learn and grow as developers.&lt;/p></description></item><item><title>Contact</title><link>https://www.buanacoding.com/contact/</link><pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/contact/</guid><description>&lt;p>If you would like to get in touch or collaborate with me — including freelance work — feel free to reach out via the contact information below.&lt;/p>
+&lt;p>Salin URL repository dari GitHub (HTTPS atau SSH).&lt;/p></description></item><item><title>About</title><link>https://www.buanacoding.com/about/</link><pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/about/</guid><description>&lt;h1 id="hi-im-wiku-karno-">Hi, I&amp;rsquo;m Wiku Karno! 👋&lt;/h1>
+&lt;p>Welcome to &lt;strong>BuanaCoding&lt;/strong> – where I share my journey as a software developer and help others build better applications through practical tutorials and real-world insights.&lt;/p>
+&lt;h2 id="what-i-do">What I Do&lt;/h2>
+&lt;p>I&amp;rsquo;m a passionate software developer who loves diving deep into modern programming languages and frameworks. My expertise spans across several key areas:&lt;/p>
+&lt;h3 id="go-programming">&lt;strong>Go Programming&lt;/strong>&lt;/h3>
+&lt;p>Go is my primary language of choice. I&amp;rsquo;ve written extensively about Go fundamentals, advanced concepts like goroutines and channels, building REST APIs, working with databases, and following Go best practices. Whether you&amp;rsquo;re just starting with Go or looking to level up your skills, you&amp;rsquo;ll find comprehensive guides here.&lt;/p></description></item><item><title>Contact</title><link>https://www.buanacoding.com/contact/</link><pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/contact/</guid><description>&lt;p>If you would like to get in touch or collaborate with me — including freelance work — feel free to reach out via the contact information below.&lt;/p>
 &lt;p>&lt;strong>Email:&lt;/strong> &lt;a href="mailto:buanacoding@gmail.com">
  buanacoding@gmail.com
 &lt;/a>

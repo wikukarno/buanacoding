@@ -25,7 +25,8 @@ dateModified: "2025-08-26"
   "description": "Discover the 10 must-have VS Code extensions that will supercharge your development workflow in 2025. From AI assistants to debugging tools, these extensions are game-changers.",
   "author": {
     "@type": "Person",
-    "name": "BuanaCoding"
+    "name": "BuanaCoding",
+    "url": "https://buanacoding.com/about/"
   },
   "publisher": {
     "@type": "Organization",
