@@ -13,14 +13,12 @@
       {{ if $navTags }}
         {{ range $tag := $navTags }}
           {{ $key := lower $tag }}
-          {{ with (index $.Site.Taxonomies.tags $key) }}
-            <a
-              href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
-              class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            >
-              {{ $tag }}
-            </a>
-          {{ end }}
+          <a
+            href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
+            class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+          >
+            {{ $tag }}
+          </a>
         {{ end }}
       {{ else }}
         {{/* Show up to 6 tags that have at least 2 posts */}}
@@ -105,14 +103,12 @@
     {{ if $navTags }}
       {{ range $tag := $navTags }}
         {{ $key := lower $tag }}
-        {{ with (index $.Site.Taxonomies.tags $key) }}
         <a
           href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
         >
           {{ $tag }}
         </a>
-        {{ end }}
       {{ end }}
     {{ else }}
       {{ $.Scratch.Set "shown" 0 }}

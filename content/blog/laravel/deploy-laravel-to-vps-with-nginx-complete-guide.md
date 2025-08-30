@@ -447,7 +447,7 @@ nano ~/deploy.sh
 APP_DIR="/var/www/your-laravel-app"
 BRANCH="main"
 
-echo "🚀 Starting deployment..."
+echo "Starting deployment..."
 
 # Navigate to app directory
 cd $APP_DIR
@@ -483,7 +483,7 @@ sudo supervisorctl restart laravel-worker:*
 # Disable maintenance mode
 sudo -u www-data php artisan up
 
-echo "✅ Deployment completed successfully!"
+echo "Deployment completed successfully!"
 ```
 
 Make it executable:

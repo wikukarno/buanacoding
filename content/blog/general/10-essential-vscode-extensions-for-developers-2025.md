@@ -4,6 +4,7 @@ date: 2025-08-26T10:00:00+07:00
 draft: false
 url: /2025/08/10-essential-vscode-extensions-developers-2025.html
 tags: 
+    - General
     - VSCode
     - Extensions
     - Developer Tools

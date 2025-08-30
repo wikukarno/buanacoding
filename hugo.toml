@@ -49,7 +49,7 @@ defaultContentLanguageInSubdir = false
   keywords = ["coding", "programming", "web development", "app development", "tutorial", "developer tips"]
   defaultImage = "https://www.buanacoding.com/images/og-image.jpg"
   # Tags to show in navbar (allowlist). Fallback shows up to 6 popular tags.
-  navTags = ["Go", "Laravel", "Linux", "Python", "Security"]
+  navTags = ["Go", "Laravel", "Linux", "Python", "Security", "General"]
 
   # Ads and consent configuration
   [params.ads]
