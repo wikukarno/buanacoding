@@ -10,7 +10,7 @@ draft: false
 
 Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That's where gRPC comes in and absolutely crushes it. I've been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.
 
-If you've been building [REST APIs in Go](/blog/go/how-to-build-a-rest-api-in-go-using-net-http/) and wondering whether there's a better approach for service-to-service communication, you're in the right place. Today, we'll explore gRPC from the ground up, building a complete user management service that you can actually use in production.
+If you've been building [REST APIs in Go](/2025/05/how-to-build-rest-api-in-go-using-net-http.html) and wondering whether there's a better approach for service-to-service communication, you're in the right place. Today, we'll explore gRPC from the ground up, building a complete user management service that you can actually use in production.
 
 ## What Makes gRPC Special?
 
@@ -169,7 +169,7 @@ grpc-user-service/
 
 ## Implementing the gRPC Server
 
-Now we're getting to the fun part. Unlike [handling HTTP requests manually](/blog/go/how-to-build-a-rest-api-in-go-using-net-http/), gRPC generates most of the boilerplate for us. We just need to implement the business logic.
+Now we're getting to the fun part. Unlike [handling HTTP requests manually](/2025/05/how-to-build-rest-api-in-go-using-net-http.html), gRPC generates most of the boilerplate for us. We just need to implement the business logic.
 
 Create `server/user_server.go`:
 
@@ -472,7 +472,7 @@ go run client/main.go
 
 ## Production Considerations
 
-Alright, so when you want to actually deploy this thing to production, there's some stuff you need to think about. Unlike deploying a simple [REST API](/blog/go/how-to-build-a-rest-api-in-go-using-net-http/), gRPC services need a bit more thought around load balancing and TLS setup.
+Alright, so when you want to actually deploy this thing to production, there's some stuff you need to think about. Unlike deploying a simple [REST API](/2025/05/how-to-build-rest-api-in-go-using-net-http.html), gRPC services need a bit more thought around load balancing and TLS setup.
 
 First off, make sure you've got solid [error handling](/blog/go/error-handling-in-go-managing-errors-the-right-way/) throughout your service. gRPC gives you a bunch of useful status codes so your clients know exactly what went wrong.
 
