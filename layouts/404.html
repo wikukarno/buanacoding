@@ -6,10 +6,10 @@
     <div class="mb-12">
       <h1 class="text-6xl font-bold text-gray-900 dark:text-white mb-4">404</h1>
       <h2 class="text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-4">
-        {{ i18n "page_not_found" | default "Halaman Tidak Ditemukan" }}
+        {{ i18n "page_not_found" | default "Page Not Found" }}
       </h2>
       <p class="text-gray-600 dark:text-gray-400 mb-8">
-        {{ i18n "404_message" | default "Maaf, halaman yang Anda cari tidak dapat ditemukan. Mungkin halaman tersebut telah dipindahkan atau dihapus." }}
+        {{ i18n "404_message" | default "Sorry, the page you're looking for cannot be found. It may have been moved or deleted." }}
       </p>
     </div>
 
@@ -20,7 +20,7 @@
           <input 
             type="text" 
             id="search404"
-            placeholder="{{ i18n "search_placeholder" | default "Cari artikel..." }}"
+            placeholder="{{ i18n "search_placeholder" | default "Search articles..." }}"
             class="w-full px-4 py-3 pr-12 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0f7ea9] dark:bg-gray-800 dark:text-white"
           />
           <button class="absolute right-3 top-3 text-gray-400 hover:text-[#0f7ea9]">
@@ -41,7 +41,7 @@
       <!-- Popular Articles -->
       <div>
         <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-          📚 {{ i18n "popular_articles" | default "Artikel Populer" }}
+          📚 {{ i18n "popular_articles" | default "Popular Articles" }}
         </h3>
         <div class="space-y-3 text-left">
           {{ range first 5 (where .Site.RegularPages "Type" "blog") }}
@@ -56,7 +56,7 @@
       <!-- Categories -->
       <div>
         <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-          🏷️ {{ i18n "categories" | default "Kategori" }}
+          🏷️ {{ i18n "categories" | default "Categories" }}
         </h3>
         <div class="flex flex-wrap gap-2 justify-center">
           {{ $navTags := .Site.Params.navTags }}
@@ -88,11 +88,11 @@
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="{{ "/" | relLangURL }}" 
          class="bg-[#0f7ea9] hover:bg-[#0a5a7a] text-white px-6 py-3 rounded-lg transition font-medium">
-        🏠 {{ i18n "back_to_home" | default "Kembali ke Beranda" }}
+        🏠 {{ i18n "back_to_home" | default "Back to Home" }}
       </a>
       <a href="/contact" 
          class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg transition font-medium">
-        📧 {{ i18n "contact_us" | default "Hubungi Kami" }}
+        📧 {{ i18n "contact_us" | default "Contact Us" }}
       </a>
     </div>
 
