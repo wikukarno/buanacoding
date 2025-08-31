@@ -22,7 +22,7 @@ But here's the real kicker - type safety. When you define your service contract 
 
 ## Setting Up Your Go gRPC Environment
 
-First things first - let's get everything set up. First, make sure you have Go installed (if not, check out our guide on [installing Go on Linux](/blog/go/easiest-way-to-install-golang-on-linux/)).
+First things first - let's get everything set up. First, make sure you have Go installed (if not, check out our guide on [installing Go on Linux](/2024/04/easiest-way-install-golang-on-linux.html)).
 
 You'll need to install the Protocol Buffer compiler and the Go plugins:
 
