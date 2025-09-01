@@ -17,21 +17,75 @@
         {{ end }}
       </div>
 
-      <!-- PAGINATION -->
+      <!-- PAGINATION (match home style) -->
       {{ if gt $paginator.TotalPages 1 }}
-        <div class="mt-8 flex justify-center space-x-2 text-sm">
-          {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}" class="px-3 py-2 bg-white dark:bg-gray-700 border rounded hover:bg-gray-100 dark:hover:bg-gray-600">← Prev</a>
-          {{ end }}
-          {{ range $page := $paginator.Pagers }}
-            <a href="{{ $page.URL }}"
-              class="px-3 py-2 border rounded {{ if eq $page $paginator }}bg-[#0f7ea9] text-white{{ else }}bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600{{ end }}">
-              {{ $page.PageNumber }}
-            </a>
-          {{ end }}
-          {{ if $paginator.HasNext }}
-            <a href="{{ $paginator.Next.URL }}" class="px-3 py-2 bg-white dark:bg-gray-700 border rounded hover:bg-gray-100 dark:hover:bg-gray-600">Next →</a>
-          {{ end }}
+        <div class="mt-12 flex justify-center px-2">
+          <nav class="flex items-center gap-1 text-sm">
+            {{ if $paginator.HasPrev }}
+              <a href="{{ $paginator.Prev.URL }}"
+                class="px-2 sm:px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 text-xs sm:text-sm">
+                <span class="hidden sm:inline">← Prev</span>
+                <span class="sm:hidden">←</span>
+              </a>
+            {{ else }}
+              <span class="px-2 sm:px-3 py-2 text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 cursor-not-allowed text-xs sm:text-sm">
+                <span class="hidden sm:inline">← Prev</span>
+                <span class="sm:hidden">←</span>
+              </span>
+            {{ end }}
+
+            <!-- Show first page if not in range -->
+            {{ if gt $paginator.PageNumber 3 }}
+              <a href="{{ (index $paginator.Pagers 0).URL }}" 
+                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">
+                1
+              </a>
+              {{ if gt $paginator.PageNumber 4 }}
+                <span class="px-2 text-gray-400 dark:text-gray-500">...</span>
+              {{ end }}
+            {{ end }}
+
+            <!-- Show page numbers around current page -->
+            {{ $currentPage := $paginator.PageNumber }}
+            {{ $totalPages := $paginator.TotalPages }}
+            {{ range $paginator.Pagers }}
+              {{ if and (ge .PageNumber (sub $currentPage 2)) (le .PageNumber (add $currentPage 2)) }}
+                <a href="{{ .URL }}"
+                  class="px-3 py-2 rounded border border-gray-300 dark:border-gray-600
+                  {{ if eq . $paginator }}
+                    bg-[#0f7ea9] text-white
+                  {{ else }}
+                    text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700
+                  {{ end }}">
+                  {{ .PageNumber }}
+                </a>
+              {{ end }}
+            {{ end }}
+
+            <!-- Show last page if not in range -->
+            {{ if lt $paginator.PageNumber (sub $totalPages 2) }}
+              {{ if lt $paginator.PageNumber (sub $totalPages 3) }}
+                <span class="px-2 text-gray-400 dark:text-gray-500">...</span>
+              {{ end }}
+              <a href="{{ (index $paginator.Pagers (sub $totalPages 1)).URL }}" 
+                class="px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">
+                {{ $totalPages }}
+              </a>
+            {{ end }}
+
+            {{ if $paginator.HasNext }}
+              <a href="{{ $paginator.Next.URL }}"
+                class="px-2 sm:px-3 py-2 text-gray-700 dark:text-white bg-white dark:bg-gray-800 rounded hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600 text-xs sm:text-sm">
+                <span class="hidden sm:inline">Next →</span>
+                <span class="sm:hidden">→</span>
+              </a>
+            {{ else }}
+              <span class="px-2 sm:px-3 py-2 text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 cursor-not-allowed text-xs sm:text-sm">
+                <span class="hidden sm:inline">Next →</span>
+                <span class="sm:hidden">→</span>
+              </span>
+            {{ end }}
+          </nav>
         </div>
       {{ end }}
     </div>
