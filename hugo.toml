@@ -51,6 +51,15 @@ defaultContentLanguageInSubdir = false
   # Tags to show in navbar (allowlist). Fallback shows up to 6 popular tags.
   navTags = ["General", "Go", "Laravel", "Linux", "Python", "Security"]
 
+  # Sidebar tags behavior
+  [params.tags]
+    # Minimum number of posts for a tag to be shown in sidebar (fallback mode)
+    minCount = 2
+    # Maximum number of tags to show in sidebar (fallback mode)
+    maxSidebar = 20
+    # Optional curated allowlist for sidebar (uncomment to enforce)
+    # sidebarTags = ["Go", "Linux", "Laravel", "Python", "Security"]
+
   # Ads and consent configuration
   [params.ads]
     # If true, render real AdSense units even when using `hugo server`
