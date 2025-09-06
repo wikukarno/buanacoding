@@ -1,10 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on Buana Coding</title><link>https://www.buanacoding.com/tags/tutorial/</link><description>Recent content in Tutorial on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 02 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Computer Vision with OpenCV: Complete Guide to Object Detection and Face Recognition in Python</title><link>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid><description>&lt;p>Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p>
-&lt;p>The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p></description></item><item><title>Essential Linux Commands Every Developer Must Know in 2025</title><link>https://www.buanacoding.com/2025/08/essential-linux-commands-every-developer-must-know-2025.html</link><pubDate>Sun, 31 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/essential-linux-commands-every-developer-must-know-2025.html</guid><description>&lt;p>Whether you&amp;rsquo;re building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I&amp;rsquo;ve been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.&lt;/p>
-&lt;p>Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing &lt;a href="https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html">
- Docker containers
-&lt;/a>
- to setting up &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html">
- secure web servers with HTTPS
-&lt;/a>
-, these commands will be your daily companions.&lt;/p></description></item><item><title>gRPC in Go: Complete Guide from Basics to Production Ready Services</title><link>https://www.buanacoding.com/2025/08/grpc-in-go-complete-guide-basics-production.html</link><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/2025/08/grpc-in-go-complete-guide-basics-production.html</guid><description>&lt;p>Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That&amp;rsquo;s where gRPC comes in and absolutely crushes it. I&amp;rsquo;ve been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.&lt;/p></description></item><item><title>FastAPI Tutorial: Build REST API from Scratch (Beginner Guide)</title><link>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link><pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid><description>&lt;p>Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p>
-&lt;p>We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Buana Coding</title>
+    <link>http://localhost:63300/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 02 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:63300/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computer Vision with OpenCV: Complete Guide to Object Detection and Face Recognition in Python</title>
+      <link>http://localhost:63300/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link>
+      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:63300/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid>
+      <description>&lt;p&gt;Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p&gt;&#xA;&lt;p&gt;The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Essential Linux Commands Every Developer Must Know in 2025</title>
+      <link>http://localhost:63300/2025/08/essential-linux-commands-every-developer-must-know-2025.html</link>
+      <pubDate>Sun, 31 Aug 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:63300/2025/08/essential-linux-commands-every-developer-must-know-2025.html</guid>
+      <description>&lt;p&gt;Whether you&amp;rsquo;re building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I&amp;rsquo;ve been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.&lt;/p&gt;&#xA;&lt;p&gt;Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing &lt;a href=&#34;http://localhost:63300/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html&#34;&gt;&#xA;  Docker containers&#xA;&lt;/a&gt;&#xA; to setting up &lt;a href=&#34;http://localhost:63300/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  secure web servers with HTTPS&#xA;&lt;/a&gt;&#xA;, these commands will be your daily companions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>gRPC in Go: Complete Guide from Basics to Production Ready Services</title>
+      <link>http://localhost:63300/2025/08/grpc-in-go-complete-guide-basics-production.html</link>
+      <pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:63300/2025/08/grpc-in-go-complete-guide-basics-production.html</guid>
+      <description>&lt;p&gt;Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That&amp;rsquo;s where gRPC comes in and absolutely crushes it. I&amp;rsquo;ve been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>FastAPI Tutorial: Build REST API from Scratch (Beginner Guide)</title>
+      <link>http://localhost:63300/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link>
+      <pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate>
+      <guid>http://localhost:63300/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid>
+      <description>&lt;p&gt;Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
