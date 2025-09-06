@@ -1,334 +1,305 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Blogs on Buana Coding</title>
-    <link>http://localhost:63300/blog/</link>
-    <description>Recent content in Blogs on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 02 Sep 2025 19:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:63300/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Advanced Go Modules: Private Repos, Semantic Import v2&#43;, and go.work</title>
-      <link>http://localhost:63300/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</link>
-      <pubDate>Tue, 02 Sep 2025 19:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</guid>
-      <description>&lt;p&gt;Go modules revolutionized dependency management in the Go ecosystem when they were introduced in Go 1.11. While most developers are familiar with basic module operations like &lt;code&gt;go mod init&lt;/code&gt; and &lt;code&gt;go get&lt;/code&gt;, there are several advanced features that can significantly improve your development workflow. In this comprehensive guide, we&amp;rsquo;ll explore three critical advanced concepts: working with private repositories, handling semantic import versioning v2 and beyond, and leveraging go.work for multi-module projects.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Computer Vision with OpenCV: Complete Guide to Object Detection and Face Recognition in Python</title>
-      <link>http://localhost:63300/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link>
-      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:63300/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid>
-      <description>&lt;p&gt;Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p&gt;&#xA;&lt;p&gt;The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>The Complete Guide to slog (Go 1.21&#43;): Modern Structured Logging in Go (2025)</title>
-      <link>http://localhost:63300/2025/09/complete-guide-slog-go-structured-logging-2025.html</link>
-      <pubDate>Mon, 01 Sep 2025 08:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/09/complete-guide-slog-go-structured-logging-2025.html</guid>
-      <description>&lt;p&gt;Go 1.21 introduced &lt;code&gt;log/slog&lt;/code&gt;, a standard structured logging API that finally brings first‑class JSON and attribute‑based logging to the standard library. If you’ve used &lt;code&gt;zap&lt;/code&gt; or &lt;code&gt;logrus&lt;/code&gt;, the core ideas will feel familiar—just simpler and standardized.&lt;/p&gt;&#xA;&lt;p&gt;This guide takes you from zero to production-ready logging with &lt;code&gt;slog&lt;/code&gt;. We&amp;rsquo;ll start with basic setup, then gradually build up to advanced patterns like HTTP middleware, security, testing, and observability integration. Each section includes working examples you can run immediately.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>10 Best AI Coding Assistants Every Developer Should Try in 2025</title>
-      <link>http://localhost:63300/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</link>
-      <pubDate>Sun, 31 Aug 2025 15:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</guid>
-      <description>&lt;p&gt;The way we write code is changing dramatically. AI coding assistants have moved from experimental tools to essential companions that can genuinely transform your development workflow. I&amp;rsquo;ve been testing AI coding tools since they first emerged, and honestly, the progress in 2025 has been mind-blowing.&lt;/p&gt;&#xA;&lt;p&gt;What used to take hours of debugging, researching documentation, or writing boilerplate code can now be done in minutes. But with so many AI coding assistants flooding the market, choosing the right one feels overwhelming. That&amp;rsquo;s why I&amp;rsquo;ve spent months testing every major AI coding tool to bring you this comprehensive guide.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Essential Linux Commands Every Developer Must Know in 2025</title>
-      <link>http://localhost:63300/2025/08/essential-linux-commands-every-developer-must-know-2025.html</link>
-      <pubDate>Sun, 31 Aug 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/essential-linux-commands-every-developer-must-know-2025.html</guid>
-      <description>&lt;p&gt;Whether you&amp;rsquo;re building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I&amp;rsquo;ve been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.&lt;/p&gt;&#xA;&lt;p&gt;Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing &lt;a href=&#34;http://localhost:63300/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html&#34;&gt;&#xA;  Docker containers&#xA;&lt;/a&gt;&#xA; to setting up &lt;a href=&#34;http://localhost:63300/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  secure web servers with HTTPS&#xA;&lt;/a&gt;&#xA;, these commands will be your daily companions.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>gRPC in Go: Complete Guide from Basics to Production Ready Services</title>
-      <link>http://localhost:63300/2025/08/grpc-in-go-complete-guide-basics-production.html</link>
-      <pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:63300/2025/08/grpc-in-go-complete-guide-basics-production.html</guid>
-      <description>&lt;p&gt;Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That&amp;rsquo;s where gRPC comes in and absolutely crushes it. I&amp;rsquo;ve been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>10 Essential VS Code Extensions Every Developer Must Have in 2025</title>
-      <link>http://localhost:63300/2025/08/10-essential-vscode-extensions-developers-2025.html</link>
-      <pubDate>Tue, 26 Aug 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/10-essential-vscode-extensions-developers-2025.html</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s be honest – vanilla Visual Studio Code is good, but it&amp;rsquo;s not &lt;em&gt;amazing&lt;/em&gt;. What makes this popular code editor truly shine are the extensions that turn it into a powerhouse IDE. After years of coding and trying countless extensions, I&amp;rsquo;ve narrowed down the absolute essentials that every developer should have installed in 2025.&lt;/p&gt;&#xA;&lt;p&gt;Whether you&amp;rsquo;re a seasoned developer or just starting your coding journey, these extensions will save you hours of work, catch bugs before they happen, and make your coding experience so much smoother. Let&amp;rsquo;s dive into the tools that have become indispensable in modern development.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>FastAPI Tutorial: Build REST API from Scratch (Beginner Guide)</title>
-      <link>http://localhost:63300/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link>
-      <pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid>
-      <description>&lt;p&gt;Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Deploy Laravel Application to VPS with Nginx: Complete Production Guide</title>
-      <link>http://localhost:63300/2025/08/deploy-laravel-to-vps-with-nginx-complete-guide.html</link>
-      <pubDate>Sun, 24 Aug 2025 09:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/deploy-laravel-to-vps-with-nginx-complete-guide.html</guid>
-      <description>&lt;p&gt;Deploying a Laravel application to a VPS (Virtual Private Server) with Nginx gives you complete control over your hosting environment and superior performance compared to shared hosting. This comprehensive guide will walk you through the entire process, from server setup to production optimization.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-youll-learn&#34;&gt;What You&amp;rsquo;ll Learn&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Set up a VPS for Laravel deployment&lt;/li&gt;&#xA;&lt;li&gt;Configure Nginx for optimal Laravel performance&lt;/li&gt;&#xA;&lt;li&gt;Secure your application with SSL certificates&lt;/li&gt;&#xA;&lt;li&gt;Implement production best practices&lt;/li&gt;&#xA;&lt;li&gt;Set up automated deployments&lt;/li&gt;&#xA;&lt;li&gt;Monitor and maintain your application&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;Before starting, ensure you have:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Uninstall Docker on Ubuntu 24.04: Complete Clean Removal</title>
-      <link>http://localhost:63300/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</link>
-      <pubDate>Sat, 23 Aug 2025 13:30:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</guid>
-      <description>&lt;p&gt;Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: &lt;a href=&#34;http://localhost:63300/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html&#34;&gt;&#xA;  Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2&#xA;&lt;/a&gt;&#xA;. For HTTPS and reverse proxy, see: &lt;a href=&#34;http://localhost:63300/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>What Are Passkeys? How to Enable Them on Google, Apple, and Password Managers (2025 Guide)</title>
-      <link>http://localhost:63300/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.html</link>
-      <pubDate>Fri, 22 Aug 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.html</guid>
-      <description>&lt;p&gt;Passkeys are increasingly supported across major platforms. They enable fast, convenient logins without passwords and are resistant to phishing. No more weak passwords or OTP codes hijacked via SIM swaps. This guide explains how passkeys work, compares them with legacy 2FA, and shows how to enable them on Google and Apple or use them with password managers like 1Password and Bitwarden.&lt;/p&gt;&#xA;&lt;h2 id=&#34;summary-what-is-a-passkey&#34;&gt;Summary: What Is a Passkey?&lt;/h2&gt;&#xA;&lt;p&gt;A passkey is a passwordless credential based on FIDO2/WebAuthn. Instead of typing a shared secret, you prove possession of a private cryptographic key securely stored on your device (or in a compatible password manager). When you log in, the site/app sends a challenge that only your private key can sign. The server verifies the signature with the public key you registered. No shared secret travels over the network.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</title>
-      <link>http://localhost:63300/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</link>
-      <pubDate>Wed, 20 Aug 2025 00:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</guid>
-      <description>&lt;p&gt;Staying safe online is getting harder. Scammers use convincing emails, text messages, websites, and even mobile apps to trick people into giving away passwords, banking details, or installing malware. This plain-English guide explains the most common phishing signs, shows realistic (safe) examples, and gives you clear steps to protect yourself.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-phishing&#34;&gt;What Is Phishing?&lt;/h2&gt;&#xA;&lt;p&gt;Phishing is a social-engineering attack where criminals pretend to be a trusted brand, coworker, or service (bank, delivery company, marketplace, government agency) to make you click a link, open a file, or share sensitive information. Modern phishing blends good design with urgency (“Your account will be closed in 24 hours!”) so you act before thinking.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</title>
-      <link>http://localhost:63300/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link>
-      <pubDate>Wed, 20 Aug 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid>
-      <description>&lt;p&gt;Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.&lt;/p&gt;&#xA;&lt;p&gt;If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: &lt;a href=&#34;http://localhost:63300/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html&#34;&gt;&#xA;  Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</title>
-      <link>http://localhost:63300/2025/08/install-ollama-openwebui-ubuntu-24-04.html</link>
-      <pubDate>Tue, 19 Aug 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/install-ollama-openwebui-ubuntu-24-04.html</guid>
-      <description>&lt;p&gt;If you want to run AI models locally on Ubuntu 24.04 with a clean web UI, this guide is for you. We’ll install &lt;a href=&#34;https://ollama.com&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  Ollama&#xA;&lt;/a&gt;&#xA;, pull a model, and use &lt;a href=&#34;https://github.com/open-webui/open-webui&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  Open WebUI&#xA;&lt;/a&gt;&#xA; for a modern chat interface. The steps cover CPU‑only and NVIDIA GPU notes, optional systemd services, and practical troubleshooting.&lt;/p&gt;&#xA;&lt;p&gt;What you&amp;rsquo;ll do&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install Ollama on Ubuntu 24.04 (Noble)&lt;/li&gt;&#xA;&lt;li&gt;Pull and run a starter model (e.g., &lt;code&gt;llama3.1&lt;/code&gt;)&lt;/li&gt;&#xA;&lt;li&gt;Run Open WebUI (Docker) and connect to Ollama&lt;/li&gt;&#xA;&lt;li&gt;Optionally enable NVIDIA GPU acceleration (CUDA)&lt;/li&gt;&#xA;&lt;li&gt;Set up systemd services and basic hardening tips&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Prerequisites&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Stop Reusing Passwords: A Practical Guide to Password Managers</title>
-      <link>http://localhost:63300/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</link>
-      <pubDate>Mon, 18 Aug 2025 01:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</guid>
-      <description>&lt;p&gt;If you reuse passwords, the internet is quietly stacking odds against you. One small site gets breached, your email and password leak, and attackers try the same combo on your email, banking, cloud storage—everywhere. That “I’ll remember it” system works right up until it doesn’t. The fix isn’t superhuman memory; it’s outsourcing the problem to a tool designed for it: a password manager.&lt;/p&gt;&#xA;&lt;p&gt;What a password manager actually does&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Generates strong, unique passwords for every account&lt;/li&gt;&#xA;&lt;li&gt;Stores them encrypted, synced across your devices&lt;/li&gt;&#xA;&lt;li&gt;Auto‑fills only on the correct websites/apps&lt;/li&gt;&#xA;&lt;li&gt;Audits your vault for weak/reused/compromised passwords&lt;/li&gt;&#xA;&lt;li&gt;Holds secure notes, TOTP codes (in some apps), and sometimes passkeys&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The goal is simple: every account gets its own high‑entropy secret, and you never type or remember it again.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Deploy FastAPI on Ubuntu 24.04: Gunicorn &#43; Nginx &#43; Certbot (HTTPS)</title>
-      <link>http://localhost:63300/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</link>
-      <pubDate>Fri, 15 Aug 2025 18:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</guid>
-      <description>&lt;p&gt;Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.&lt;/p&gt;&#xA;&lt;p&gt;What you’ll build:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A minimal FastAPI project structure&lt;/li&gt;&#xA;&lt;li&gt;Running the app with Gunicorn (Uvicorn worker)&lt;/li&gt;&#xA;&lt;li&gt;A systemd service for start/stop/restart&lt;/li&gt;&#xA;&lt;li&gt;Nginx reverse proxy to Gunicorn&lt;/li&gt;&#xA;&lt;li&gt;HTTPS (Certbot) with auto‑renewal&lt;/li&gt;&#xA;&lt;li&gt;UFW firewall (open 80/443), logs, and troubleshooting tips&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Ubuntu 24.04 server (sudo access)&lt;/li&gt;&#xA;&lt;li&gt;A domain pointing to the server (A/AAAA records)&lt;/li&gt;&#xA;&lt;li&gt;Python 3.10+ (Ubuntu 24.04 default is fine)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Prepare the project structure on the server&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;A tidy layout makes automation easier.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Nginx &#43; Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</title>
-      <link>http://localhost:63300/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</link>
-      <pubDate>Fri, 15 Aug 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</guid>
-      <description>&lt;p&gt;Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: &lt;a href=&#34;http://localhost:63300/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html&#34;&gt;&#xA;  Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</title>
-      <link>http://localhost:63300/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</link>
-      <pubDate>Thu, 14 Aug 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</guid>
-      <description>&lt;p&gt;This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: &lt;a href=&#34;http://localhost:63300/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  Nginx + Certbot on Ubuntu 24.04&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;What you’ll do&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Add the official Docker repository for Ubuntu 24.04 (Noble)&lt;/li&gt;&#xA;&lt;li&gt;Install Docker Engine, Buildx, and Compose v2 plugins&lt;/li&gt;&#xA;&lt;li&gt;Run Docker as your regular user (without sudo)&lt;/li&gt;&#xA;&lt;li&gt;Optionally enable rootless Docker&lt;/li&gt;&#xA;&lt;li&gt;Verify with test containers and fix common errors&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Prerequisites&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Connecting to PostgreSQL in Go using sqlx</title>
-      <link>http://localhost:63300/2025/05/connecting-postgresql-in-go-using-sqlx.html</link>
-      <pubDate>Sun, 25 May 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/05/connecting-postgresql-in-go-using-sqlx.html</guid>
-      <description>&lt;p&gt;In modern web applications, storing and retrieving data from a database is a fundamental requirement. Go provides a low-level database/sql package, but using it directly can be verbose and repetitive. Thankfully, sqlx extends database/sql by adding useful features like struct scanning and named queries, making database operations in Go much easier.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we’ll walk through how to connect a Go application to a PostgreSQL database using sqlx, and how to perform basic CRUD operations.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Structuring Go Projects: Clean Project Structure and Best Practices</title>
-      <link>http://localhost:63300/2025/05/structuring-go-projects-clean-architecture.html</link>
-      <pubDate>Sun, 18 May 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/05/structuring-go-projects-clean-architecture.html</guid>
-      <description>&lt;p&gt;When you start building larger applications in Go, having a clean and maintainable project structure is essential. Unlike some other languages or frameworks that enforce certain patterns, Go gives you a lot of freedom in how you organize your code. While this is powerful, it can also lead to messy projects if not handled carefully.&lt;/p&gt;&#xA;&lt;p&gt;In this guide, we&amp;rsquo;ll explore how to structure Go projects following clean architecture principles and best practices that many professional Go developers use.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to Build a REST API in Go using net/http</title>
-      <link>http://localhost:63300/2025/05/how-to-build-rest-api-in-go-using-net-http.html</link>
-      <pubDate>Sun, 11 May 2025 08:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/05/how-to-build-rest-api-in-go-using-net-http.html</guid>
-      <description>&lt;p&gt;Building a REST API in Go is one of the most practical ways to learn how Go handles HTTP servers, &lt;a href=&#34;https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  JSON&#xA;&lt;/a&gt;&#xA;, and struct-based logic. In this tutorial, you’ll learn how to create a simple RESTful API using the standard net/http package—without using any third-party frameworks. This is a great starting point before moving to more complex architectures.&lt;/p&gt;&#xA;&lt;p&gt;In this guide, we’ll create a simple API for managing books. Each book will have an ID, title, and author.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Working with JSON in Go: Encode, Decode, and Tag Structs</title>
-      <link>http://localhost:63300/2025/04/working-with-json-in-go-encode-decode.html</link>
-      <pubDate>Wed, 30 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/working-with-json-in-go-encode-decode.html</guid>
-      <description>&lt;p&gt;JSON (JavaScript Object Notation) is a widely used data format in APIs and web applications. Go provides strong support for JSON through the standard &lt;code&gt;encoding/json&lt;/code&gt; package. In this article, you’ll learn how to parse JSON into structs, generate JSON from Go data, use struct tags, and work with nested or dynamic structures.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to encode Go structs to JSON&lt;/li&gt;&#xA;&lt;li&gt;How to decode JSON into Go structs&lt;/li&gt;&#xA;&lt;li&gt;Using JSON tags to customize field names&lt;/li&gt;&#xA;&lt;li&gt;Working with maps and dynamic JSON&lt;/li&gt;&#xA;&lt;li&gt;Handling nested JSON structures&lt;/li&gt;&#xA;&lt;li&gt;Best practices and error handling&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;encoding-structs-to-json&#34;&gt;Encoding Structs to JSON&lt;/h2&gt;&#xA;&lt;p&gt;Use &lt;code&gt;json.Marshal&lt;/code&gt; to convert Go structs into JSON strings:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>File Handling in Go: Read, Write, and Manage Files</title>
-      <link>http://localhost:63300/2025/04/file-handling-in-go-read-write-and.html</link>
-      <pubDate>Tue, 29 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/file-handling-in-go-read-write-and.html</guid>
-      <description>&lt;p&gt;In Go, file handling is straightforward and powerful. You can create, read, write, and manage files using standard packages like &lt;code&gt;os&lt;/code&gt;, &lt;code&gt;io&lt;/code&gt;, and &lt;code&gt;ioutil&lt;/code&gt; (deprecated but still common). Understanding how to work with files is essential when building CLI tools, web servers, or any application that deals with local data.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to create and write to a file&lt;/li&gt;&#xA;&lt;li&gt;How to read a file&lt;/li&gt;&#xA;&lt;li&gt;Appending data to files&lt;/li&gt;&#xA;&lt;li&gt;Working with directories&lt;/li&gt;&#xA;&lt;li&gt;Checking if a file exists&lt;/li&gt;&#xA;&lt;li&gt;Best practices and error handling&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;creating-and-writing-to-a-file&#34;&gt;Creating and Writing to a File&lt;/h2&gt;&#xA;&lt;p&gt;To create and write content to a file:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Synchronizing Goroutines in Go: Using sync.Mutex and sync.Once</title>
-      <link>http://localhost:63300/2025/04/synchronizing-goroutines-in-go-using.html</link>
-      <pubDate>Mon, 28 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/synchronizing-goroutines-in-go-using.html</guid>
-      <description>&lt;p&gt;When you write concurrent programs in Go, multiple goroutines may try to access and modify the same data at the same time. Without proper synchronization, this leads to race conditions, bugs, or crashes. Go provides tools like &lt;code&gt;sync.Mutex&lt;/code&gt;, &lt;code&gt;sync.RWMutex&lt;/code&gt;, and &lt;code&gt;sync.Once&lt;/code&gt; to safely share data across goroutines.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What race conditions are and how to avoid them&lt;/li&gt;&#xA;&lt;li&gt;How to use &lt;code&gt;sync.Mutex&lt;/code&gt; to protect data&lt;/li&gt;&#xA;&lt;li&gt;Using &lt;code&gt;sync.RWMutex&lt;/code&gt; for read-write access&lt;/li&gt;&#xA;&lt;li&gt;How &lt;code&gt;sync.Once&lt;/code&gt; ensures code runs only once&lt;/li&gt;&#xA;&lt;li&gt;Real-world examples and best practices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-is-a-race-condition&#34;&gt;What Is a Race Condition?&lt;/h2&gt;&#xA;&lt;p&gt;A race condition happens when two or more goroutines access the same variable at the same time, and at least one of them is modifying it. This can cause unexpected behavior or corrupted data.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Using Context in Go: Cancellation, Timeout, and Deadlines Explained</title>
-      <link>http://localhost:63300/2025/04/using-context-in-go-cancellation.html</link>
-      <pubDate>Sun, 27 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/using-context-in-go-cancellation.html</guid>
-      <description>&lt;p&gt;As your Go applications become more concurrent and complex, you&amp;rsquo;ll need a way to manage the lifecycle of your goroutines—especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the &lt;code&gt;context&lt;/code&gt; package comes in. It&amp;rsquo;s the idiomatic way in Go to control concurrent processes gracefully and reliably.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What &lt;code&gt;context&lt;/code&gt; is and why it’s important&lt;/li&gt;&#xA;&lt;li&gt;Using &lt;code&gt;context.Background()&lt;/code&gt; and &lt;code&gt;context.TODO()&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;How to cancel a goroutine with &lt;code&gt;context.WithCancel()&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;How to set a timeout or deadline&lt;/li&gt;&#xA;&lt;li&gt;How to check if a context is done&lt;/li&gt;&#xA;&lt;li&gt;Real-world examples and best practices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-is-context&#34;&gt;What Is Context?&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;code&gt;context&lt;/code&gt; package provides a way to carry deadlines, cancellation signals, and other request-scoped values across function boundaries and between goroutines.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Concurrency in Go: Goroutines and Channels Explained</title>
-      <link>http://localhost:63300/2025/04/concurrency-in-go-goroutines-and.html</link>
-      <pubDate>Sat, 26 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/concurrency-in-go-goroutines-and.html</guid>
-      <description>&lt;p&gt;One of the most powerful features of Go is its built-in support for concurrency. Go makes it easy to write programs that perform multiple tasks at the same time, thanks to goroutines and channels. Unlike traditional multithreading, Go provides a lightweight and clean way to build concurrent systems with minimal overhead and boilerplate.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The difference between concurrency and parallelism&lt;/li&gt;&#xA;&lt;li&gt;What goroutines are and how to use them&lt;/li&gt;&#xA;&lt;li&gt;How channels allow communication between goroutines&lt;/li&gt;&#xA;&lt;li&gt;Buffered vs unbuffered channels&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;select&lt;/code&gt; statement&lt;/li&gt;&#xA;&lt;li&gt;Common concurrency problems and how to avoid them&lt;/li&gt;&#xA;&lt;li&gt;Real-world examples and best practices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;concurrency-vs-parallelism&#34;&gt;Concurrency vs Parallelism&lt;/h2&gt;&#xA;&lt;p&gt;Concurrency means doing multiple things at once (interleaved), while parallelism means running them simultaneously on different processors. Go’s concurrency model allows you to write code that is concurrent, and Go’s runtime handles whether it is executed in parallel depending on available CPU cores.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Generics in Go: Writing Reusable and Type-Safe Code</title>
-      <link>http://localhost:63300/2025/04/generics-in-go-writing-reusable-and-type-safe-code.html</link>
-      <pubDate>Fri, 25 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/generics-in-go-writing-reusable-and-type-safe-code.html</guid>
-      <description>&lt;p&gt;Generics were introduced in Go 1.18, marking a significant evolution of the language. They allow you to write flexible, reusable code without sacrificing type safety. With generics, you can define functions, types, and data structures that work with different types, all while maintaining strong compile-time checks.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What generics are and why they matter&lt;/li&gt;&#xA;&lt;li&gt;How to define generic functions and types&lt;/li&gt;&#xA;&lt;li&gt;Type parameters and constraints&lt;/li&gt;&#xA;&lt;li&gt;Real-world examples of generics&lt;/li&gt;&#xA;&lt;li&gt;Best practices when using generics in Go&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-are-generics&#34;&gt;What Are Generics?&lt;/h2&gt;&#xA;&lt;p&gt;Generics let you write code that works with different data types while keeping the benefits of static typing. Before generics, developers often used &lt;code&gt;interface{}&lt;/code&gt; and type assertions to achieve flexibility, but that meant losing compile-time type safety.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Benchmarking in Go: Measuring Performance with testing.B</title>
-      <link>http://localhost:63300/2025/04/benchmarking-in-go-measuring.html</link>
-      <pubDate>Thu, 24 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/benchmarking-in-go-measuring.html</guid>
-      <description>&lt;p&gt;Benchmarking is the process of measuring the performance of code. In Go, benchmarking is built into the standard &lt;code&gt;testing&lt;/code&gt; package, making it easy to test how fast your functions run. Whether you&amp;rsquo;re comparing two algorithms, optimizing critical sections of code, or experimenting with concurrency, benchmarking helps you make informed decisions.&lt;/p&gt;&#xA;&lt;p&gt;This article will walk you through:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What is benchmarking and why it matters&lt;/li&gt;&#xA;&lt;li&gt;How to write benchmark functions in Go&lt;/li&gt;&#xA;&lt;li&gt;Interpreting benchmark results&lt;/li&gt;&#xA;&lt;li&gt;Using &lt;code&gt;b.ResetTimer()&lt;/code&gt;, &lt;code&gt;b.StopTimer()&lt;/code&gt;, and &lt;code&gt;b.StartTimer()&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Common use cases for benchmarking&lt;/li&gt;&#xA;&lt;li&gt;Best practices for writing meaningful benchmarks&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;why-benchmarking-is-important&#34;&gt;Why Benchmarking is Important&lt;/h2&gt;&#xA;&lt;p&gt;Benchmarking allows you to evaluate performance based on data, not assumptions. You can compare the execution time of different code versions, measure improvements, and catch performance regressions early. This is crucial for optimizing critical parts of applications such as sorting, searching, or processing large datasets.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Testing in Go: Writing Unit Tests with the Testing Package</title>
-      <link>http://localhost:63300/2025/04/testing-in-go-writing-unit-tests-with.html</link>
-      <pubDate>Wed, 23 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/testing-in-go-writing-unit-tests-with.html</guid>
-      <description>&lt;p&gt;Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought — it&amp;rsquo;s built into the language itself through the powerful and easy-to-use &lt;code&gt;testing&lt;/code&gt; package. Whether you&amp;rsquo;re building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.&lt;/p&gt;&#xA;&lt;p&gt;This article will help you understand:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Why testing matters in software development&lt;/li&gt;&#xA;&lt;li&gt;The basics of writing tests in Go&lt;/li&gt;&#xA;&lt;li&gt;Using &lt;code&gt;t.Error&lt;/code&gt;, &lt;code&gt;t.Fail&lt;/code&gt;, and &lt;code&gt;t.Fatal&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Table-driven tests&lt;/li&gt;&#xA;&lt;li&gt;Running and understanding test results&lt;/li&gt;&#xA;&lt;li&gt;Measuring code coverage&lt;/li&gt;&#xA;&lt;li&gt;Best practices for writing useful tests&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;why-testing-is-important&#34;&gt;Why Testing is Important&lt;/h2&gt;&#xA;&lt;p&gt;Testing helps you ensure that your code works as expected — not just today, but as it evolves. Without tests, it&amp;rsquo;s risky to make changes because you can&amp;rsquo;t be confident you haven&amp;rsquo;t broken something.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Error Handling in Go: Managing Errors the Right Way</title>
-      <link>http://localhost:63300/2025/04/error-handling-in-go-managing-errors.html</link>
-      <pubDate>Tue, 22 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/error-handling-in-go-managing-errors.html</guid>
-      <description>&lt;p&gt;Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it&amp;rsquo;s the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you&amp;rsquo;ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What an error is in Go&lt;/li&gt;&#xA;&lt;li&gt;How to handle errors using &lt;code&gt;if err != nil&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Creating custom errors&lt;/li&gt;&#xA;&lt;li&gt;Error wrapping with Go 1.13+&lt;/li&gt;&#xA;&lt;li&gt;Custom error types&lt;/li&gt;&#xA;&lt;li&gt;Using &lt;code&gt;panic&lt;/code&gt; and &lt;code&gt;recover&lt;/code&gt; (when and why)&lt;/li&gt;&#xA;&lt;li&gt;Best practices for error handling&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-is-an-error-in-go&#34;&gt;What is an Error in Go?&lt;/h2&gt;&#xA;&lt;p&gt;In Go, the &lt;code&gt;error&lt;/code&gt; type is a built-in interface:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Interfaces in Go: Building Flexible and Reusable Code</title>
-      <link>http://localhost:63300/2025/04/interfaces-in-go-building-flexible-and.html</link>
-      <pubDate>Mon, 21 Apr 2025 10:30:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/interfaces-in-go-building-flexible-and.html</guid>
-      <description>&lt;p&gt;Interfaces are one of the most important features in Go. They allow you to write flexible, reusable, and loosely coupled code. In Go, an interface defines a set of method signatures, and any type that implements those methods satisfies the interface — without needing to explicitly declare that it does so. This is a powerful concept that supports polymorphism and clean architecture in Go applications.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you&amp;rsquo;ll learn:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Pointers in Go: Reference Types and Receivers Explained</title>
-      <link>http://localhost:63300/2025/04/understanding-pointers-in-go-reference.html</link>
-      <pubDate>Sun, 20 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/understanding-pointers-in-go-reference.html</guid>
-      <description>&lt;p&gt;In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.&lt;/p&gt;&#xA;&lt;p&gt;This article will help you understand:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What pointers are in Go and how they work&lt;/li&gt;&#xA;&lt;li&gt;Using pointers in functions&lt;/li&gt;&#xA;&lt;li&gt;Method receivers: value vs pointer&lt;/li&gt;&#xA;&lt;li&gt;Choosing between value or pointer receiver&lt;/li&gt;&#xA;&lt;li&gt;Common mistakes with pointers&lt;/li&gt;&#xA;&lt;li&gt;Best practices for using pointers effectively&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-is-a-pointer&#34;&gt;What is a Pointer?&lt;/h2&gt;&#xA;&lt;p&gt;A pointer is a variable that stores the memory address of another variable. You use the &lt;code&gt;&amp;amp;&lt;/code&gt; operator to get the address and &lt;code&gt;*&lt;/code&gt; to access the value at that address.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Structs and Methods in Go: Defining and Using Custom Types</title>
-      <link>http://localhost:63300/2025/04/structs-and-methods-in-go-defining-and.html</link>
-      <pubDate>Sat, 19 Apr 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/structs-and-methods-in-go-defining-and.html</guid>
-      <description>&lt;p&gt;In Go, a struct is a powerful way to group related data together. It allows you to define your own custom types by combining variables (also called fields). Structs are often used to model real-world entities like users, products, or messages. When combined with methods, structs become the foundation for writing clean and reusable code in Go.&lt;/p&gt;&#xA;&lt;p&gt;In this article, you&amp;rsquo;ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to define and use structs in Go&lt;/li&gt;&#xA;&lt;li&gt;How to attach methods to a struct&lt;/li&gt;&#xA;&lt;li&gt;The difference between value and pointer receivers&lt;/li&gt;&#xA;&lt;li&gt;Best practices for using structs and methods effectively&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;defining-a-struct&#34;&gt;Defining a Struct&lt;/h2&gt;&#xA;&lt;p&gt;To define a struct, you use the &lt;code&gt;type&lt;/code&gt; keyword followed by the name of the struct and the &lt;code&gt;struct&lt;/code&gt; keyword:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Functions in Go: A Beginner&#39;s Guide</title>
-      <link>http://localhost:63300/2025/04/understanding-functions-in-go-beginners.html</link>
-      <pubDate>Fri, 18 Apr 2025 11:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/understanding-functions-in-go-beginners.html</guid>
-      <description>&lt;p&gt;Functions are an essential part of programming in any language, and Go is no exception. A function lets you organize code into reusable blocks, which helps reduce duplication and improve readability. In this article, you’ll learn how functions work in Go, how to define them, use them, and apply best practices.&lt;/p&gt;&#xA;&lt;p&gt;This guide covers:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to define and call a function in Go&lt;/li&gt;&#xA;&lt;li&gt;Function parameters and return values&lt;/li&gt;&#xA;&lt;li&gt;Multiple return values&lt;/li&gt;&#xA;&lt;li&gt;Named return values&lt;/li&gt;&#xA;&lt;li&gt;Variadic functions&lt;/li&gt;&#xA;&lt;li&gt;Functions as values and arguments&lt;/li&gt;&#xA;&lt;li&gt;Best practices for clean function design&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;defining-and-calling-a-function&#34;&gt;Defining and Calling a Function&lt;/h2&gt;&#xA;&lt;p&gt;To define a function in Go, use the &lt;code&gt;func&lt;/code&gt; keyword, followed by the function name, parameters, and return type (if any). Here&amp;rsquo;s a simple example:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Working with Collections in Go: Arrays, Slices, and Maps Explained</title>
-      <link>http://localhost:63300/2025/04/working-with-collections-in-go-arrays.html</link>
-      <pubDate>Thu, 17 Apr 2025 22:46:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/working-with-collections-in-go-arrays.html</guid>
-      <description>&lt;p&gt;When building applications in Go, it&amp;rsquo;s common to work with groups of data. For example, you might want to store a list of user names, or map names to scores. In Go, you can use collections like arrays, slices, and maps to do that.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we’ll explore:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;What arrays are and how they work&lt;/li&gt;&#xA;&lt;li&gt;How slices offer more flexibility&lt;/li&gt;&#xA;&lt;li&gt;What maps are and how to use them&lt;/li&gt;&#xA;&lt;li&gt;Common operations with collections&lt;/li&gt;&#xA;&lt;li&gt;Practical examples to understand the difference between them&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Let’s dive in and learn how Go helps us manage grouped data efficiently.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Loops in Go: for, range, break, and continue Explained</title>
-      <link>http://localhost:63300/2025/04/understanding-loops-in-go-for-range.html</link>
-      <pubDate>Wed, 16 Apr 2025 22:06:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/understanding-loops-in-go-for-range.html</guid>
-      <description>&lt;p&gt;Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they&amp;rsquo;re built using just one keyword: for.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we’ll explore:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The basic for loop in Go&lt;/li&gt;&#xA;&lt;li&gt;Using for as a while loop&lt;/li&gt;&#xA;&lt;li&gt;Looping with range&lt;/li&gt;&#xA;&lt;li&gt;Breaking or skipping parts of loops with break and continue&lt;/li&gt;&#xA;&lt;li&gt;Real-world examples to help you understand how loops work&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-is-a-loop&#34;&gt;What is a Loop?&lt;/h2&gt;&#xA;&lt;p&gt;A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Conditional Statements in Go (if, switch, etc.)</title>
-      <link>http://localhost:63300/2025/04/understanding-conditional-statements-in.html</link>
-      <pubDate>Tue, 15 Apr 2025 19:09:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/04/understanding-conditional-statements-in.html</guid>
-      <description>&lt;p&gt;Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we will explore:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The if, else, and else if statements&lt;/li&gt;&#xA;&lt;li&gt;The switch statement&lt;/li&gt;&#xA;&lt;li&gt;Best practices for using conditionals in Go&lt;/li&gt;&#xA;&lt;li&gt;Real examples to help you practice&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-is-a-conditional-statement&#34;&gt;What is a Conditional Statement?&lt;/h2&gt;&#xA;&lt;p&gt;A conditional statement evaluates whether a condition is true or false. Based on that, your Go program can choose which block of code to execute.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding String Data Type in Go: Basics and Practical Examples</title>
-      <link>http://localhost:63300/2024/07/understanding-string-data-type-in-go.html</link>
-      <pubDate>Mon, 22 Jul 2024 07:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2024/07/understanding-string-data-type-in-go.html</guid>
-      <description>&lt;p&gt;In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction-to-strings&#34;&gt;Introduction to Strings&lt;/h2&gt;&#xA;&lt;p&gt;In Go, a string is a sequence of immutable bytes. This means that once a string value is set, it cannot be changed without creating a new string.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Numeric Data Type In Go : Basics and Practical Examples</title>
-      <link>http://localhost:63300/2024/07/understanding-numeric-data-type-in-go.html</link>
-      <pubDate>Sat, 20 Jul 2024 19:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2024/07/understanding-numeric-data-type-in-go.html</guid>
-      <description>&lt;p&gt;Go, also known as Golang, is a statically typed language developed by Google. It&amp;rsquo;s known for its simplicity and efficiency, especially when it comes to systems and concurrent programming. In this article, we&amp;rsquo;ll explore the numeric types in Go and provide practical examples to illustrate their usage.&lt;/p&gt;&#xA;&lt;h2 id=&#34;basic-numeric-types&#34;&gt;Basic Numeric Types&lt;/h2&gt;&#xA;&lt;p&gt;Go offers several basic numeric types categorized into integers, floating point numbers, and complex numbers. Here’s a quick overview:&lt;/p&gt;&#xA;&lt;h3 id=&#34;integer&#34;&gt;Integer&lt;/h3&gt;&#xA;&lt;p&gt;Integer types are divided into two categories, signed and unsigned. The signed integers &lt;strong&gt;int8, int16, int32, int64&lt;/strong&gt; can hold both negative and positive values, whereas unsigned integers &lt;strong&gt;int8, int16, int32, int64&lt;/strong&gt; can only hold positive values and zero.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Understanding Booleans Data Type in Go: Basics and Practical Examples</title>
-      <link>http://localhost:63300/2024/07/understanding-booleans-in-go-basics.html</link>
-      <pubDate>Thu, 18 Jul 2024 19:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2024/07/understanding-booleans-in-go-basics.html</guid>
-      <description>&lt;p&gt;In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.&lt;/p&gt;&#xA;&lt;p&gt;Declaration and Initialization&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;To declare a boolean in Go, you use the keyword &lt;strong&gt;bool&lt;/strong&gt;. Here&amp;rsquo;s how you can declare and initialize a boolean variable:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>5 Laravel extensions that you must install on your Visual Studio Code</title>
-      <link>http://localhost:63300/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</link>
-      <pubDate>Sun, 21 Apr 2024 21:23:00 +0700</pubDate>
-      <guid>http://localhost:63300/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</guid>
-      <description>&lt;p&gt;If you&amp;rsquo;re just getting started with Laravel or even if you&amp;rsquo;ve been working with it for a while, using the right tools can make a big difference. Visual Studio Code (VS Code) is one of the most popular code editors among web developers, and thankfully, it has a great ecosystem of extensions that can help boost your productivity when working with Laravel.&lt;/p&gt;&#xA;&lt;p&gt;In this article, we&amp;rsquo;ll go through five essential VS Code extensions that you should install if you&amp;rsquo;re working with Laravel. These tools will help you write code faster, reduce bugs, and improve your workflow overall.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Belajar Membuat Aplikasi Pertama Anda dengan Laravel</title>
-      <link>http://localhost:63300/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</link>
-      <pubDate>Fri, 19 Apr 2024 15:58:00 +0700</pubDate>
-      <guid>http://localhost:63300/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</guid>
-      <description>&lt;p&gt;Ketika kita pertama kali melangkah ke dalam dunia pengembangan web, rasanya seperti memasuki sebuah labirin yang penuh dengan kode dan logika yang rumit. Namun, ada sesuatu yang menarik tentang proses belajar bagaimana segala sesuatu terhubung dan bekerja bersama untuk membentuk sebuah aplikasi web.&lt;/p&gt;&#xA;&lt;p&gt;Apakah Anda sedang mencari hobi baru atau ingin mengejar karier sebagai pengembang web, membangun aplikasi pertama Anda adalah pengalaman yang sangat berharga. Dengan memahami dasar-dasar pengembangan web, Anda akan memiliki dasar yang kuat untuk mempelajari teknologi-teknologi baru dan membangun aplikasi yang lebih kompleks di masa depan.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Easiest Way to Install Golang on Linux: Snap or Manual Source?</title>
-      <link>http://localhost:63300/2024/04/easiest-way-install-golang-on-linux.html</link>
-      <pubDate>Mon, 08 Apr 2024 06:23:00 +0700</pubDate>
-      <guid>http://localhost:63300/2024/04/easiest-way-install-golang-on-linux.html</guid>
-      <description>&lt;p&gt;Learning Golang recently opened up new perspectives for me in software development. One of the best ways to solidify your understanding is by teaching others. That’s why in this article, I’m sharing my experience installing Go on Linux—using both Snap and manual source installation.&lt;/p&gt;&#xA;&lt;p&gt;Writing this guide not only helps others get started, but also helps reinforce the steps in my own memory.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;installing-golang-using-snap&#34;&gt;Installing Golang Using Snap&lt;/h2&gt;&#xA;&lt;p&gt;Snap is a universal package manager developed by Canonical (Ubuntu’s creator). It simplifies app installation by bundling dependencies, ensuring compatibility across most Linux distributions.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to fix broken update error in linux (Terminal)</title>
-      <link>http://localhost:63300/2023/11/how-to-fix-broken-update-error-in-linux.html</link>
-      <pubDate>Sat, 11 Nov 2023 12:47:00 +0700</pubDate>
-      <guid>http://localhost:63300/2023/11/how-to-fix-broken-update-error-in-linux.html</guid>
-      <description>&lt;p&gt;Linux is a robust operating system, but occasionally you might encounter a &amp;lsquo;broken update error&amp;rsquo; when trying to update your system through the terminal. This issue can halt your system updates and potentially affect system stability. Here’s a comprehensive guide on how to resolve this error, ensuring your Linux system remains up-to-date and secure.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Understanding the Error&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;A broken update error in Linux typically occurs when package dependencies are unsatisfied, when there are conflicts between packages, or when the package repositories are not correctly configured. This can lead to a partial or failed update, rendering your system&amp;rsquo;s package manager unable to proceed with updates.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>how to install and configure yajra datatable in Laravel </title>
-      <link>http://localhost:63300/2023/08/how-to-install-and-configure-yajra.html</link>
-      <pubDate>Sun, 06 Aug 2023 00:13:00 +0700</pubDate>
-      <guid>http://localhost:63300/2023/08/how-to-install-and-configure-yajra.html</guid>
-      <description>&lt;p&gt;In the realm of modern web development, providing a seamless user experience and enhancing the overall performance of your web applications is paramount. One essential aspect that plays a pivotal role in achieving these goals is efficient data presentation and manipulation. This is where Yajra DataTables comes into the picture.&lt;/p&gt;&#xA;&lt;p&gt;Yajra DataTables is a powerful and versatile jQuery-based plugin for Laravel, designed to simplify the process of displaying data in tabular form with advanced features such as filtering, sorting, pagination, and more. It empowers developers to create interactive and dynamic data tables effortlessly, significantly improving how data is showcased to end users.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cara Menjalankan Project Laravel Clone dari GitHub</title>
-      <link>http://localhost:63300/2023/04/cara-menjalankan-project-laravel-clone.html</link>
-      <pubDate>Sun, 09 Apr 2023 23:08:00 +0700</pubDate>
-      <guid>http://localhost:63300/2023/04/cara-menjalankan-project-laravel-clone.html</guid>
-      <description>&lt;p&gt;Sebelum kita melakukan cloning project Laravel dari GitHub, pastikan kamu telah menginstal tools berikut agar proses berjalan lancar.&lt;/p&gt;&#xA;&lt;p&gt;Tools di bawah ini sangat penting. Tanpa keduanya, kamu tidak akan bisa menjalankan project Laravel dengan benar.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://git-scm.com/&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  Git&#xA;&lt;/a&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://getcomposer.org/download/&#34; target=&#34;_blank&#34; rel=&#34;nofollow noopener noreferrer&#34;&gt;&#xA;  Composer&#xA;&lt;/a&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Untuk mendapatkan project Laravel dari GitHub, ada dua cara:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Menggunakan Git&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mengunduh via file ZIP&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Tidak ada perbedaan signifikan, hanya beda cara ambilnya. Kita bahas dua-duanya.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-cara-clone-menggunakan-git&#34;&gt;💻 Cara Clone Menggunakan Git&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Salin URL repository dari GitHub (HTTPS atau SSH).&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs on Buana Coding</title><link>https://www.buanacoding.com/blog/</link><description>Recent content in Blogs on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 02 Sep 2025 19:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Advanced Go Modules: Private Repos, Semantic Import v2+, and go.work</title><link>https://www.buanacoding.com/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</link><pubDate>Tue, 02 Sep 2025 19:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</guid><description>&lt;p>Go modules revolutionized dependency management in the Go ecosystem when they were introduced in Go 1.11. While most developers are familiar with basic module operations like &lt;code>go mod init&lt;/code> and &lt;code>go get&lt;/code>, there are several advanced features that can significantly improve your development workflow. In this comprehensive guide, we&amp;rsquo;ll explore three critical advanced concepts: working with private repositories, handling semantic import versioning v2 and beyond, and leveraging go.work for multi-module projects.&lt;/p></description></item><item><title>Computer Vision with OpenCV: Complete Guide to Object Detection and Face Recognition in Python</title><link>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid><description>&lt;p>Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p>
+&lt;p>The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p></description></item><item><title>The Complete Guide to slog (Go 1.21+): Modern Structured Logging in Go (2025)</title><link>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</link><pubDate>Mon, 01 Sep 2025 08:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</guid><description>&lt;p>Go 1.21 introduced &lt;code>log/slog&lt;/code>, a standard structured logging API that finally brings first‑class JSON and attribute‑based logging to the standard library. If you’ve used &lt;code>zap&lt;/code> or &lt;code>logrus&lt;/code>, the core ideas will feel familiar—just simpler and standardized.&lt;/p>
+&lt;p>This guide takes you from zero to production-ready logging with &lt;code>slog&lt;/code>. We&amp;rsquo;ll start with basic setup, then gradually build up to advanced patterns like HTTP middleware, security, testing, and observability integration. Each section includes working examples you can run immediately.&lt;/p></description></item><item><title>10 Best AI Coding Assistants Every Developer Should Try in 2025</title><link>https://www.buanacoding.com/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</link><pubDate>Sun, 31 Aug 2025 15:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</guid><description>&lt;p>The way we write code is changing dramatically. AI coding assistants have moved from experimental tools to essential companions that can genuinely transform your development workflow. I&amp;rsquo;ve been testing AI coding tools since they first emerged, and honestly, the progress in 2025 has been mind-blowing.&lt;/p>
+&lt;p>What used to take hours of debugging, researching documentation, or writing boilerplate code can now be done in minutes. But with so many AI coding assistants flooding the market, choosing the right one feels overwhelming. That&amp;rsquo;s why I&amp;rsquo;ve spent months testing every major AI coding tool to bring you this comprehensive guide.&lt;/p></description></item><item><title>Essential Linux Commands Every Developer Must Know in 2025</title><link>https://www.buanacoding.com/2025/08/essential-linux-commands-every-developer-must-know-2025.html</link><pubDate>Sun, 31 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/essential-linux-commands-every-developer-must-know-2025.html</guid><description>&lt;p>Whether you&amp;rsquo;re building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I&amp;rsquo;ve been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.&lt;/p>
+&lt;p>Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing &lt;a href="https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html">
+ Docker containers
+&lt;/a>
+ to setting up &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html">
+ secure web servers with HTTPS
+&lt;/a>
+, these commands will be your daily companions.&lt;/p></description></item><item><title>gRPC in Go: Complete Guide from Basics to Production Ready Services</title><link>https://www.buanacoding.com/2025/08/grpc-in-go-complete-guide-basics-production.html</link><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/2025/08/grpc-in-go-complete-guide-basics-production.html</guid><description>&lt;p>Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That&amp;rsquo;s where gRPC comes in and absolutely crushes it. I&amp;rsquo;ve been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.&lt;/p></description></item><item><title>10 Essential VS Code Extensions Every Developer Must Have in 2025</title><link>https://www.buanacoding.com/2025/08/10-essential-vscode-extensions-developers-2025.html</link><pubDate>Tue, 26 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/10-essential-vscode-extensions-developers-2025.html</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>Let&amp;rsquo;s be honest – vanilla Visual Studio Code is good, but it&amp;rsquo;s not &lt;em>amazing&lt;/em>. What makes this popular code editor truly shine are the extensions that turn it into a powerhouse IDE. After years of coding and trying countless extensions, I&amp;rsquo;ve narrowed down the absolute essentials that every developer should have installed in 2025.&lt;/p>
+&lt;p>Whether you&amp;rsquo;re a seasoned developer or just starting your coding journey, these extensions will save you hours of work, catch bugs before they happen, and make your coding experience so much smoother. Let&amp;rsquo;s dive into the tools that have become indispensable in modern development.&lt;/p></description></item><item><title>FastAPI Tutorial: Build REST API from Scratch (Beginner Guide)</title><link>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link><pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid><description>&lt;p>Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p>
+&lt;p>We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p></description></item><item><title>Deploy Laravel Application to VPS with Nginx: Complete Production Guide</title><link>https://www.buanacoding.com/2025/08/deploy-laravel-to-vps-with-nginx-complete-guide.html</link><pubDate>Sun, 24 Aug 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/deploy-laravel-to-vps-with-nginx-complete-guide.html</guid><description>&lt;p>Deploying a Laravel application to a VPS (Virtual Private Server) with Nginx gives you complete control over your hosting environment and superior performance compared to shared hosting. This comprehensive guide will walk you through the entire process, from server setup to production optimization.&lt;/p>
+&lt;h2 id="what-youll-learn">What You&amp;rsquo;ll Learn&lt;/h2>
+&lt;ul>
+&lt;li>Set up a VPS for Laravel deployment&lt;/li>
+&lt;li>Configure Nginx for optimal Laravel performance&lt;/li>
+&lt;li>Secure your application with SSL certificates&lt;/li>
+&lt;li>Implement production best practices&lt;/li>
+&lt;li>Set up automated deployments&lt;/li>
+&lt;li>Monitor and maintain your application&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;p>Before starting, ensure you have:&lt;/p></description></item><item><title>Uninstall Docker on Ubuntu 24.04: Complete Clean Removal</title><link>https://www.buanacoding.com/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</link><pubDate>Sat, 23 Aug 2025 13:30:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</guid><description>&lt;p>Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: &lt;a href="https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html">
+ Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2
+&lt;/a>
+. For HTTPS and reverse proxy, see: &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html">
+ Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt
+&lt;/a>
+.&lt;/p></description></item><item><title>What Are Passkeys? How to Enable Them on Google, Apple, and Password Managers (2025 Guide)</title><link>https://www.buanacoding.com/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.html</link><pubDate>Fri, 22 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.html</guid><description>&lt;p>Passkeys are increasingly supported across major platforms. They enable fast, convenient logins without passwords and are resistant to phishing. No more weak passwords or OTP codes hijacked via SIM swaps. This guide explains how passkeys work, compares them with legacy 2FA, and shows how to enable them on Google and Apple or use them with password managers like 1Password and Bitwarden.&lt;/p>
+&lt;h2 id="summary-what-is-a-passkey">Summary: What Is a Passkey?&lt;/h2>
+&lt;p>A passkey is a passwordless credential based on FIDO2/WebAuthn. Instead of typing a shared secret, you prove possession of a private cryptographic key securely stored on your device (or in a compatible password manager). When you log in, the site/app sends a challenge that only your private key can sign. The server verifies the signature with the public key you registered. No shared secret travels over the network.&lt;/p></description></item><item><title>Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</title><link>https://www.buanacoding.com/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</link><pubDate>Wed, 20 Aug 2025 00:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</guid><description>&lt;p>Staying safe online is getting harder. Scammers use convincing emails, text messages, websites, and even mobile apps to trick people into giving away passwords, banking details, or installing malware. This plain-English guide explains the most common phishing signs, shows realistic (safe) examples, and gives you clear steps to protect yourself.&lt;/p>
+&lt;h2 id="what-is-phishing">What Is Phishing?&lt;/h2>
+&lt;p>Phishing is a social-engineering attack where criminals pretend to be a trusted brand, coworker, or service (bank, delivery company, marketplace, government agency) to make you click a link, open a file, or share sensitive information. Modern phishing blends good design with urgency (“Your account will be closed in 24 hours!”) so you act before thinking.&lt;/p></description></item><item><title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 + SQLAlchemy 2.0)</title><link>https://www.buanacoding.com/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link><pubDate>Wed, 20 Aug 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid><description>&lt;p>Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.&lt;/p>
+&lt;p>If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: &lt;a href="https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html">
+ Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot
+&lt;/a>
+.&lt;/p></description></item><item><title>Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)</title><link>https://www.buanacoding.com/2025/08/install-ollama-openwebui-ubuntu-24-04.html</link><pubDate>Tue, 19 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/install-ollama-openwebui-ubuntu-24-04.html</guid><description>&lt;p>If you want to run AI models locally on Ubuntu 24.04 with a clean web UI, this guide is for you. We’ll install &lt;a href="https://ollama.com" target="_blank" rel="nofollow noopener noreferrer">
+ Ollama
+&lt;/a>
+, pull a model, and use &lt;a href="https://github.com/open-webui/open-webui" target="_blank" rel="nofollow noopener noreferrer">
+ Open WebUI
+&lt;/a>
+ for a modern chat interface. The steps cover CPU‑only and NVIDIA GPU notes, optional systemd services, and practical troubleshooting.&lt;/p>
+&lt;p>What you&amp;rsquo;ll do&lt;/p>
+&lt;ul>
+&lt;li>Install Ollama on Ubuntu 24.04 (Noble)&lt;/li>
+&lt;li>Pull and run a starter model (e.g., &lt;code>llama3.1&lt;/code>)&lt;/li>
+&lt;li>Run Open WebUI (Docker) and connect to Ollama&lt;/li>
+&lt;li>Optionally enable NVIDIA GPU acceleration (CUDA)&lt;/li>
+&lt;li>Set up systemd services and basic hardening tips&lt;/li>
+&lt;/ul>
+&lt;p>Prerequisites&lt;/p></description></item><item><title>Stop Reusing Passwords: A Practical Guide to Password Managers</title><link>https://www.buanacoding.com/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</link><pubDate>Mon, 18 Aug 2025 01:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</guid><description>&lt;p>If you reuse passwords, the internet is quietly stacking odds against you. One small site gets breached, your email and password leak, and attackers try the same combo on your email, banking, cloud storage—everywhere. That “I’ll remember it” system works right up until it doesn’t. The fix isn’t superhuman memory; it’s outsourcing the problem to a tool designed for it: a password manager.&lt;/p>
+&lt;p>What a password manager actually does&lt;/p>
+&lt;ul>
+&lt;li>Generates strong, unique passwords for every account&lt;/li>
+&lt;li>Stores them encrypted, synced across your devices&lt;/li>
+&lt;li>Auto‑fills only on the correct websites/apps&lt;/li>
+&lt;li>Audits your vault for weak/reused/compromised passwords&lt;/li>
+&lt;li>Holds secure notes, TOTP codes (in some apps), and sometimes passkeys&lt;/li>
+&lt;/ul>
+&lt;p>The goal is simple: every account gets its own high‑entropy secret, and you never type or remember it again.&lt;/p></description></item><item><title>Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)</title><link>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</link><pubDate>Fri, 15 Aug 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</guid><description>&lt;p>Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.&lt;/p>
+&lt;p>What you’ll build:&lt;/p>
+&lt;ul>
+&lt;li>A minimal FastAPI project structure&lt;/li>
+&lt;li>Running the app with Gunicorn (Uvicorn worker)&lt;/li>
+&lt;li>A systemd service for start/stop/restart&lt;/li>
+&lt;li>Nginx reverse proxy to Gunicorn&lt;/li>
+&lt;li>HTTPS (Certbot) with auto‑renewal&lt;/li>
+&lt;li>UFW firewall (open 80/443), logs, and troubleshooting tips&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>Ubuntu 24.04 server (sudo access)&lt;/li>
+&lt;li>A domain pointing to the server (A/AAAA records)&lt;/li>
+&lt;li>Python 3.10+ (Ubuntu 24.04 default is fine)&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Prepare the project structure on the server&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>A tidy layout makes automation easier.&lt;/p></description></item><item><title>Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt</title><link>https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</link><pubDate>Fri, 15 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html</guid><description>&lt;p>Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: &lt;a href="https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html">
+ Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2
+&lt;/a>
+&lt;/p></description></item><item><title>Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2</title><link>https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</link><pubDate>Thu, 14 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html</guid><description>&lt;p>This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html">
+ Nginx + Certbot on Ubuntu 24.04
+&lt;/a>
+&lt;/p>
+&lt;p>What you’ll do&lt;/p>
+&lt;ul>
+&lt;li>Add the official Docker repository for Ubuntu 24.04 (Noble)&lt;/li>
+&lt;li>Install Docker Engine, Buildx, and Compose v2 plugins&lt;/li>
+&lt;li>Run Docker as your regular user (without sudo)&lt;/li>
+&lt;li>Optionally enable rootless Docker&lt;/li>
+&lt;li>Verify with test containers and fix common errors&lt;/li>
+&lt;/ul>
+&lt;p>Prerequisites&lt;/p></description></item><item><title>Connecting to PostgreSQL in Go using sqlx</title><link>https://www.buanacoding.com/2025/05/connecting-postgresql-in-go-using-sqlx.html</link><pubDate>Sun, 25 May 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/05/connecting-postgresql-in-go-using-sqlx.html</guid><description>&lt;p>In modern web applications, storing and retrieving data from a database is a fundamental requirement. Go provides a low-level database/sql package, but using it directly can be verbose and repetitive. Thankfully, sqlx extends database/sql by adding useful features like struct scanning and named queries, making database operations in Go much easier.&lt;/p>
+&lt;p>In this article, we’ll walk through how to connect a Go application to a PostgreSQL database using sqlx, and how to perform basic CRUD operations.&lt;/p></description></item><item><title>Structuring Go Projects: Clean Project Structure and Best Practices</title><link>https://www.buanacoding.com/2025/05/structuring-go-projects-clean-architecture.html</link><pubDate>Sun, 18 May 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/05/structuring-go-projects-clean-architecture.html</guid><description>&lt;p>When you start building larger applications in Go, having a clean and maintainable project structure is essential. Unlike some other languages or frameworks that enforce certain patterns, Go gives you a lot of freedom in how you organize your code. While this is powerful, it can also lead to messy projects if not handled carefully.&lt;/p>
+&lt;p>In this guide, we&amp;rsquo;ll explore how to structure Go projects following clean architecture principles and best practices that many professional Go developers use.&lt;/p></description></item><item><title>How to Build a REST API in Go using net/http</title><link>https://www.buanacoding.com/2025/05/how-to-build-rest-api-in-go-using-net-http.html</link><pubDate>Sun, 11 May 2025 08:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/05/how-to-build-rest-api-in-go-using-net-http.html</guid><description>&lt;p>Building a REST API in Go is one of the most practical ways to learn how Go handles HTTP servers, &lt;a href="https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html">
+ JSON
+&lt;/a>
+, and struct-based logic. In this tutorial, you’ll learn how to create a simple RESTful API using the standard net/http package—without using any third-party frameworks. This is a great starting point before moving to more complex architectures.&lt;/p>
+&lt;p>In this guide, we’ll create a simple API for managing books. Each book will have an ID, title, and author.&lt;/p></description></item><item><title>Working with JSON in Go: Encode, Decode, and Tag Structs</title><link>https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html</link><pubDate>Wed, 30 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html</guid><description>&lt;p>JSON (JavaScript Object Notation) is a widely used data format in APIs and web applications. Go provides strong support for JSON through the standard &lt;code>encoding/json&lt;/code> package. In this article, you’ll learn how to parse JSON into structs, generate JSON from Go data, use struct tags, and work with nested or dynamic structures.&lt;/p>
+&lt;p>In this article, you’ll learn:&lt;/p>
+&lt;ul>
+&lt;li>How to encode Go structs to JSON&lt;/li>
+&lt;li>How to decode JSON into Go structs&lt;/li>
+&lt;li>Using JSON tags to customize field names&lt;/li>
+&lt;li>Working with maps and dynamic JSON&lt;/li>
+&lt;li>Handling nested JSON structures&lt;/li>
+&lt;li>Best practices and error handling&lt;/li>
+&lt;/ul>
+&lt;h2 id="encoding-structs-to-json">Encoding Structs to JSON&lt;/h2>
+&lt;p>Use &lt;code>json.Marshal&lt;/code> to convert Go structs into JSON strings:&lt;/p></description></item><item><title>File Handling in Go: Read, Write, and Manage Files</title><link>https://www.buanacoding.com/2025/04/file-handling-in-go-read-write-and.html</link><pubDate>Tue, 29 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/file-handling-in-go-read-write-and.html</guid><description>&lt;p>In Go, file handling is straightforward and powerful. You can create, read, write, and manage files using standard packages like &lt;code>os&lt;/code>, &lt;code>io&lt;/code>, and &lt;code>ioutil&lt;/code> (deprecated but still common). Understanding how to work with files is essential when building CLI tools, web servers, or any application that deals with local data.&lt;/p>
+&lt;p>In this article, you’ll learn:&lt;/p>
+&lt;ul>
+&lt;li>How to create and write to a file&lt;/li>
+&lt;li>How to read a file&lt;/li>
+&lt;li>Appending data to files&lt;/li>
+&lt;li>Working with directories&lt;/li>
+&lt;li>Checking if a file exists&lt;/li>
+&lt;li>Best practices and error handling&lt;/li>
+&lt;/ul>
+&lt;h2 id="creating-and-writing-to-a-file">Creating and Writing to a File&lt;/h2>
+&lt;p>To create and write content to a file:&lt;/p></description></item><item><title>Synchronizing Goroutines in Go: Using sync.Mutex and sync.Once</title><link>https://www.buanacoding.com/2025/04/synchronizing-goroutines-in-go-using.html</link><pubDate>Mon, 28 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/synchronizing-goroutines-in-go-using.html</guid><description>&lt;p>When you write concurrent programs in Go, multiple goroutines may try to access and modify the same data at the same time. Without proper synchronization, this leads to race conditions, bugs, or crashes. Go provides tools like &lt;code>sync.Mutex&lt;/code>, &lt;code>sync.RWMutex&lt;/code>, and &lt;code>sync.Once&lt;/code> to safely share data across goroutines.&lt;/p>
+&lt;p>In this article, you’ll learn:&lt;/p>
+&lt;ul>
+&lt;li>What race conditions are and how to avoid them&lt;/li>
+&lt;li>How to use &lt;code>sync.Mutex&lt;/code> to protect data&lt;/li>
+&lt;li>Using &lt;code>sync.RWMutex&lt;/code> for read-write access&lt;/li>
+&lt;li>How &lt;code>sync.Once&lt;/code> ensures code runs only once&lt;/li>
+&lt;li>Real-world examples and best practices&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-is-a-race-condition">What Is a Race Condition?&lt;/h2>
+&lt;p>A race condition happens when two or more goroutines access the same variable at the same time, and at least one of them is modifying it. This can cause unexpected behavior or corrupted data.&lt;/p></description></item><item><title>Using Context in Go: Cancellation, Timeout, and Deadlines Explained</title><link>https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html</link><pubDate>Sun, 27 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html</guid><description>&lt;p>As your Go applications become more concurrent and complex, you&amp;rsquo;ll need a way to manage the lifecycle of your goroutines—especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the &lt;code>context&lt;/code> package comes in. It&amp;rsquo;s the idiomatic way in Go to control concurrent processes gracefully and reliably.&lt;/p>
+&lt;p>In this article, you’ll learn:&lt;/p>
+&lt;ul>
+&lt;li>What &lt;code>context&lt;/code> is and why it’s important&lt;/li>
+&lt;li>Using &lt;code>context.Background()&lt;/code> and &lt;code>context.TODO()&lt;/code>&lt;/li>
+&lt;li>How to cancel a goroutine with &lt;code>context.WithCancel()&lt;/code>&lt;/li>
+&lt;li>How to set a timeout or deadline&lt;/li>
+&lt;li>How to check if a context is done&lt;/li>
+&lt;li>Real-world examples and best practices&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-is-context">What Is Context?&lt;/h2>
+&lt;p>The &lt;code>context&lt;/code> package provides a way to carry deadlines, cancellation signals, and other request-scoped values across function boundaries and between goroutines.&lt;/p></description></item><item><title>Concurrency in Go: Goroutines and Channels Explained</title><link>https://www.buanacoding.com/2025/04/concurrency-in-go-goroutines-and.html</link><pubDate>Sat, 26 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/concurrency-in-go-goroutines-and.html</guid><description>&lt;p>One of the most powerful features of Go is its built-in support for concurrency. Go makes it easy to write programs that perform multiple tasks at the same time, thanks to goroutines and channels. Unlike traditional multithreading, Go provides a lightweight and clean way to build concurrent systems with minimal overhead and boilerplate.&lt;/p>
+&lt;p>In this article, you’ll learn:&lt;/p>
+&lt;ul>
+&lt;li>The difference between concurrency and parallelism&lt;/li>
+&lt;li>What goroutines are and how to use them&lt;/li>
+&lt;li>How channels allow communication between goroutines&lt;/li>
+&lt;li>Buffered vs unbuffered channels&lt;/li>
+&lt;li>The &lt;code>select&lt;/code> statement&lt;/li>
+&lt;li>Common concurrency problems and how to avoid them&lt;/li>
+&lt;li>Real-world examples and best practices&lt;/li>
+&lt;/ul>
+&lt;h2 id="concurrency-vs-parallelism">Concurrency vs Parallelism&lt;/h2>
+&lt;p>Concurrency means doing multiple things at once (interleaved), while parallelism means running them simultaneously on different processors. Go’s concurrency model allows you to write code that is concurrent, and Go’s runtime handles whether it is executed in parallel depending on available CPU cores.&lt;/p></description></item><item><title>Generics in Go: Writing Reusable and Type-Safe Code</title><link>https://www.buanacoding.com/2025/04/generics-in-go-writing-reusable-and-type-safe-code.html</link><pubDate>Fri, 25 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/generics-in-go-writing-reusable-and-type-safe-code.html</guid><description>&lt;p>Generics were introduced in Go 1.18, marking a significant evolution of the language. They allow you to write flexible, reusable code without sacrificing type safety. With generics, you can define functions, types, and data structures that work with different types, all while maintaining strong compile-time checks.&lt;/p>
+&lt;p>In this article, you’ll learn:&lt;/p>
+&lt;ul>
+&lt;li>What generics are and why they matter&lt;/li>
+&lt;li>How to define generic functions and types&lt;/li>
+&lt;li>Type parameters and constraints&lt;/li>
+&lt;li>Real-world examples of generics&lt;/li>
+&lt;li>Best practices when using generics in Go&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-are-generics">What Are Generics?&lt;/h2>
+&lt;p>Generics let you write code that works with different data types while keeping the benefits of static typing. Before generics, developers often used &lt;code>interface{}&lt;/code> and type assertions to achieve flexibility, but that meant losing compile-time type safety.&lt;/p></description></item><item><title>Benchmarking in Go: Measuring Performance with testing.B</title><link>https://www.buanacoding.com/2025/04/benchmarking-in-go-measuring.html</link><pubDate>Thu, 24 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/benchmarking-in-go-measuring.html</guid><description>&lt;p>Benchmarking is the process of measuring the performance of code. In Go, benchmarking is built into the standard &lt;code>testing&lt;/code> package, making it easy to test how fast your functions run. Whether you&amp;rsquo;re comparing two algorithms, optimizing critical sections of code, or experimenting with concurrency, benchmarking helps you make informed decisions.&lt;/p>
+&lt;p>This article will walk you through:&lt;/p>
+&lt;ul>
+&lt;li>What is benchmarking and why it matters&lt;/li>
+&lt;li>How to write benchmark functions in Go&lt;/li>
+&lt;li>Interpreting benchmark results&lt;/li>
+&lt;li>Using &lt;code>b.ResetTimer()&lt;/code>, &lt;code>b.StopTimer()&lt;/code>, and &lt;code>b.StartTimer()&lt;/code>&lt;/li>
+&lt;li>Common use cases for benchmarking&lt;/li>
+&lt;li>Best practices for writing meaningful benchmarks&lt;/li>
+&lt;/ul>
+&lt;h2 id="why-benchmarking-is-important">Why Benchmarking is Important&lt;/h2>
+&lt;p>Benchmarking allows you to evaluate performance based on data, not assumptions. You can compare the execution time of different code versions, measure improvements, and catch performance regressions early. This is crucial for optimizing critical parts of applications such as sorting, searching, or processing large datasets.&lt;/p></description></item><item><title>Testing in Go: Writing Unit Tests with the Testing Package</title><link>https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html</link><pubDate>Wed, 23 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html</guid><description>&lt;p>Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought — it&amp;rsquo;s built into the language itself through the powerful and easy-to-use &lt;code>testing&lt;/code> package. Whether you&amp;rsquo;re building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.&lt;/p>
+&lt;p>This article will help you understand:&lt;/p>
+&lt;ul>
+&lt;li>Why testing matters in software development&lt;/li>
+&lt;li>The basics of writing tests in Go&lt;/li>
+&lt;li>Using &lt;code>t.Error&lt;/code>, &lt;code>t.Fail&lt;/code>, and &lt;code>t.Fatal&lt;/code>&lt;/li>
+&lt;li>Table-driven tests&lt;/li>
+&lt;li>Running and understanding test results&lt;/li>
+&lt;li>Measuring code coverage&lt;/li>
+&lt;li>Best practices for writing useful tests&lt;/li>
+&lt;/ul>
+&lt;h2 id="why-testing-is-important">Why Testing is Important&lt;/h2>
+&lt;p>Testing helps you ensure that your code works as expected — not just today, but as it evolves. Without tests, it&amp;rsquo;s risky to make changes because you can&amp;rsquo;t be confident you haven&amp;rsquo;t broken something.&lt;/p></description></item><item><title>Error Handling in Go: Managing Errors the Right Way</title><link>https://www.buanacoding.com/2025/04/error-handling-in-go-managing-errors.html</link><pubDate>Tue, 22 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/error-handling-in-go-managing-errors.html</guid><description>&lt;p>Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it&amp;rsquo;s the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.&lt;/p>
+&lt;p>In this article, you&amp;rsquo;ll learn:&lt;/p>
+&lt;ul>
+&lt;li>What an error is in Go&lt;/li>
+&lt;li>How to handle errors using &lt;code>if err != nil&lt;/code>&lt;/li>
+&lt;li>Creating custom errors&lt;/li>
+&lt;li>Error wrapping with Go 1.13+&lt;/li>
+&lt;li>Custom error types&lt;/li>
+&lt;li>Using &lt;code>panic&lt;/code> and &lt;code>recover&lt;/code> (when and why)&lt;/li>
+&lt;li>Best practices for error handling&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-is-an-error-in-go">What is an Error in Go?&lt;/h2>
+&lt;p>In Go, the &lt;code>error&lt;/code> type is a built-in interface:&lt;/p></description></item><item><title>Interfaces in Go: Building Flexible and Reusable Code</title><link>https://www.buanacoding.com/2025/04/interfaces-in-go-building-flexible-and.html</link><pubDate>Mon, 21 Apr 2025 10:30:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/interfaces-in-go-building-flexible-and.html</guid><description>&lt;p>Interfaces are one of the most important features in Go. They allow you to write flexible, reusable, and loosely coupled code. In Go, an interface defines a set of method signatures, and any type that implements those methods satisfies the interface — without needing to explicitly declare that it does so. This is a powerful concept that supports polymorphism and clean architecture in Go applications.&lt;/p>
+&lt;p>In this article, you&amp;rsquo;ll learn:&lt;/p></description></item><item><title>Understanding Pointers in Go: Reference Types and Receivers Explained</title><link>https://www.buanacoding.com/2025/04/understanding-pointers-in-go-reference.html</link><pubDate>Sun, 20 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-pointers-in-go-reference.html</guid><description>&lt;p>In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.&lt;/p>
+&lt;p>This article will help you understand:&lt;/p>
+&lt;ul>
+&lt;li>What pointers are in Go and how they work&lt;/li>
+&lt;li>Using pointers in functions&lt;/li>
+&lt;li>Method receivers: value vs pointer&lt;/li>
+&lt;li>Choosing between value or pointer receiver&lt;/li>
+&lt;li>Common mistakes with pointers&lt;/li>
+&lt;li>Best practices for using pointers effectively&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-is-a-pointer">What is a Pointer?&lt;/h2>
+&lt;p>A pointer is a variable that stores the memory address of another variable. You use the &lt;code>&amp;amp;&lt;/code> operator to get the address and &lt;code>*&lt;/code> to access the value at that address.&lt;/p></description></item><item><title>Structs and Methods in Go: Defining and Using Custom Types</title><link>https://www.buanacoding.com/2025/04/structs-and-methods-in-go-defining-and.html</link><pubDate>Sat, 19 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/structs-and-methods-in-go-defining-and.html</guid><description>&lt;p>In Go, a struct is a powerful way to group related data together. It allows you to define your own custom types by combining variables (also called fields). Structs are often used to model real-world entities like users, products, or messages. When combined with methods, structs become the foundation for writing clean and reusable code in Go.&lt;/p>
+&lt;p>In this article, you&amp;rsquo;ll learn:&lt;/p>
+&lt;ul>
+&lt;li>How to define and use structs in Go&lt;/li>
+&lt;li>How to attach methods to a struct&lt;/li>
+&lt;li>The difference between value and pointer receivers&lt;/li>
+&lt;li>Best practices for using structs and methods effectively&lt;/li>
+&lt;/ul>
+&lt;h2 id="defining-a-struct">Defining a Struct&lt;/h2>
+&lt;p>To define a struct, you use the &lt;code>type&lt;/code> keyword followed by the name of the struct and the &lt;code>struct&lt;/code> keyword:&lt;/p></description></item><item><title>Understanding Functions in Go: A Beginner's Guide</title><link>https://www.buanacoding.com/2025/04/understanding-functions-in-go-beginners.html</link><pubDate>Fri, 18 Apr 2025 11:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-functions-in-go-beginners.html</guid><description>&lt;p>Functions are an essential part of programming in any language, and Go is no exception. A function lets you organize code into reusable blocks, which helps reduce duplication and improve readability. In this article, you’ll learn how functions work in Go, how to define them, use them, and apply best practices.&lt;/p>
+&lt;p>This guide covers:&lt;/p>
+&lt;ul>
+&lt;li>How to define and call a function in Go&lt;/li>
+&lt;li>Function parameters and return values&lt;/li>
+&lt;li>Multiple return values&lt;/li>
+&lt;li>Named return values&lt;/li>
+&lt;li>Variadic functions&lt;/li>
+&lt;li>Functions as values and arguments&lt;/li>
+&lt;li>Best practices for clean function design&lt;/li>
+&lt;/ul>
+&lt;h2 id="defining-and-calling-a-function">Defining and Calling a Function&lt;/h2>
+&lt;p>To define a function in Go, use the &lt;code>func&lt;/code> keyword, followed by the function name, parameters, and return type (if any). Here&amp;rsquo;s a simple example:&lt;/p></description></item><item><title>Working with Collections in Go: Arrays, Slices, and Maps Explained</title><link>https://www.buanacoding.com/2025/04/working-with-collections-in-go-arrays.html</link><pubDate>Thu, 17 Apr 2025 22:46:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/working-with-collections-in-go-arrays.html</guid><description>&lt;p>When building applications in Go, it&amp;rsquo;s common to work with groups of data. For example, you might want to store a list of user names, or map names to scores. In Go, you can use collections like arrays, slices, and maps to do that.&lt;/p>
+&lt;p>In this article, we’ll explore:&lt;/p>
+&lt;ul>
+&lt;li>What arrays are and how they work&lt;/li>
+&lt;li>How slices offer more flexibility&lt;/li>
+&lt;li>What maps are and how to use them&lt;/li>
+&lt;li>Common operations with collections&lt;/li>
+&lt;li>Practical examples to understand the difference between them&lt;/li>
+&lt;/ul>
+&lt;p>Let’s dive in and learn how Go helps us manage grouped data efficiently.&lt;/p></description></item><item><title>Understanding Loops in Go: for, range, break, and continue Explained</title><link>https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html</link><pubDate>Wed, 16 Apr 2025 22:06:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html</guid><description>&lt;p>Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they&amp;rsquo;re built using just one keyword: for.&lt;/p>
+&lt;p>In this article, we’ll explore:&lt;/p>
+&lt;ul>
+&lt;li>The basic for loop in Go&lt;/li>
+&lt;li>Using for as a while loop&lt;/li>
+&lt;li>Looping with range&lt;/li>
+&lt;li>Breaking or skipping parts of loops with break and continue&lt;/li>
+&lt;li>Real-world examples to help you understand how loops work&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-is-a-loop">What is a Loop?&lt;/h2>
+&lt;p>A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.&lt;/p></description></item><item><title>Understanding Conditional Statements in Go (if, switch, etc.)</title><link>https://www.buanacoding.com/2025/04/understanding-conditional-statements-in.html</link><pubDate>Tue, 15 Apr 2025 19:09:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-conditional-statements-in.html</guid><description>&lt;p>Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.&lt;/p>
+&lt;p>In this article, we will explore:&lt;/p>
+&lt;ul>
+&lt;li>The if, else, and else if statements&lt;/li>
+&lt;li>The switch statement&lt;/li>
+&lt;li>Best practices for using conditionals in Go&lt;/li>
+&lt;li>Real examples to help you practice&lt;/li>
+&lt;/ul>
+&lt;h2 id="what-is-a-conditional-statement">What is a Conditional Statement?&lt;/h2>
+&lt;p>A conditional statement evaluates whether a condition is true or false. Based on that, your Go program can choose which block of code to execute.&lt;/p></description></item><item><title>Understanding String Data Type in Go: Basics and Practical Examples</title><link>https://www.buanacoding.com/2024/07/understanding-string-data-type-in-go.html</link><pubDate>Mon, 22 Jul 2024 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/07/understanding-string-data-type-in-go.html</guid><description>&lt;p>In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.&lt;/p>
+&lt;h2 id="introduction-to-strings">Introduction to Strings&lt;/h2>
+&lt;p>In Go, a string is a sequence of immutable bytes. This means that once a string value is set, it cannot be changed without creating a new string.&lt;/p></description></item><item><title>Understanding Numeric Data Type In Go : Basics and Practical Examples</title><link>https://www.buanacoding.com/2024/07/understanding-numeric-data-type-in-go.html</link><pubDate>Sat, 20 Jul 2024 19:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/07/understanding-numeric-data-type-in-go.html</guid><description>&lt;p>Go, also known as Golang, is a statically typed language developed by Google. It&amp;rsquo;s known for its simplicity and efficiency, especially when it comes to systems and concurrent programming. In this article, we&amp;rsquo;ll explore the numeric types in Go and provide practical examples to illustrate their usage.&lt;/p>
+&lt;h2 id="basic-numeric-types">Basic Numeric Types&lt;/h2>
+&lt;p>Go offers several basic numeric types categorized into integers, floating point numbers, and complex numbers. Here’s a quick overview:&lt;/p>
+&lt;h3 id="integer">Integer&lt;/h3>
+&lt;p>Integer types are divided into two categories, signed and unsigned. The signed integers &lt;strong>int8, int16, int32, int64&lt;/strong> can hold both negative and positive values, whereas unsigned integers &lt;strong>int8, int16, int32, int64&lt;/strong> can only hold positive values and zero.&lt;/p></description></item><item><title>Understanding Booleans Data Type in Go: Basics and Practical Examples</title><link>https://www.buanacoding.com/2024/07/understanding-booleans-in-go-basics.html</link><pubDate>Thu, 18 Jul 2024 19:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/07/understanding-booleans-in-go-basics.html</guid><description>&lt;p>In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.&lt;/p>
+&lt;p>Declaration and Initialization&lt;/p>
+&lt;hr>
+&lt;p>To declare a boolean in Go, you use the keyword &lt;strong>bool&lt;/strong>. Here&amp;rsquo;s how you can declare and initialize a boolean variable:&lt;/p></description></item><item><title>5 Laravel extensions that you must install on your Visual Studio Code</title><link>https://www.buanacoding.com/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</link><pubDate>Sun, 21 Apr 2024 21:23:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/04/5-laravel-extensions-that-you-must-install-on-your-visual-studio-code.html</guid><description>&lt;p>If you&amp;rsquo;re just getting started with Laravel or even if you&amp;rsquo;ve been working with it for a while, using the right tools can make a big difference. Visual Studio Code (VS Code) is one of the most popular code editors among web developers, and thankfully, it has a great ecosystem of extensions that can help boost your productivity when working with Laravel.&lt;/p>
+&lt;p>In this article, we&amp;rsquo;ll go through five essential VS Code extensions that you should install if you&amp;rsquo;re working with Laravel. These tools will help you write code faster, reduce bugs, and improve your workflow overall.&lt;/p></description></item><item><title>Belajar Membuat Aplikasi Pertama Anda dengan Laravel</title><link>https://www.buanacoding.com/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</link><pubDate>Fri, 19 Apr 2024 15:58:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/04/belajar-membuat-aplikasi-pertama-anda-dengan-laravel.html</guid><description>&lt;p>Ketika kita pertama kali melangkah ke dalam dunia pengembangan web, rasanya seperti memasuki sebuah labirin yang penuh dengan kode dan logika yang rumit. Namun, ada sesuatu yang menarik tentang proses belajar bagaimana segala sesuatu terhubung dan bekerja bersama untuk membentuk sebuah aplikasi web.&lt;/p>
+&lt;p>Apakah Anda sedang mencari hobi baru atau ingin mengejar karier sebagai pengembang web, membangun aplikasi pertama Anda adalah pengalaman yang sangat berharga. Dengan memahami dasar-dasar pengembangan web, Anda akan memiliki dasar yang kuat untuk mempelajari teknologi-teknologi baru dan membangun aplikasi yang lebih kompleks di masa depan.&lt;/p></description></item><item><title>Easiest Way to Install Golang on Linux: Snap or Manual Source?</title><link>https://www.buanacoding.com/2024/04/easiest-way-install-golang-on-linux.html</link><pubDate>Mon, 08 Apr 2024 06:23:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/04/easiest-way-install-golang-on-linux.html</guid><description>&lt;p>Learning Golang recently opened up new perspectives for me in software development. One of the best ways to solidify your understanding is by teaching others. That’s why in this article, I’m sharing my experience installing Go on Linux—using both Snap and manual source installation.&lt;/p>
+&lt;p>Writing this guide not only helps others get started, but also helps reinforce the steps in my own memory.&lt;/p>
+&lt;hr>
+&lt;h2 id="installing-golang-using-snap">Installing Golang Using Snap&lt;/h2>
+&lt;p>Snap is a universal package manager developed by Canonical (Ubuntu’s creator). It simplifies app installation by bundling dependencies, ensuring compatibility across most Linux distributions.&lt;/p></description></item><item><title>How to fix broken update error in linux (Terminal)</title><link>https://www.buanacoding.com/2023/11/how-to-fix-broken-update-error-in-linux.html</link><pubDate>Sat, 11 Nov 2023 12:47:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/11/how-to-fix-broken-update-error-in-linux.html</guid><description>&lt;p>Linux is a robust operating system, but occasionally you might encounter a &amp;lsquo;broken update error&amp;rsquo; when trying to update your system through the terminal. This issue can halt your system updates and potentially affect system stability. Here’s a comprehensive guide on how to resolve this error, ensuring your Linux system remains up-to-date and secure.&lt;/p>
+&lt;p>&lt;strong>Understanding the Error&lt;/strong>&lt;/p>
+&lt;p>A broken update error in Linux typically occurs when package dependencies are unsatisfied, when there are conflicts between packages, or when the package repositories are not correctly configured. This can lead to a partial or failed update, rendering your system&amp;rsquo;s package manager unable to proceed with updates.&lt;/p></description></item><item><title>how to install and configure yajra datatable in Laravel</title><link>https://www.buanacoding.com/2023/08/how-to-install-and-configure-yajra.html</link><pubDate>Sun, 06 Aug 2023 00:13:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/08/how-to-install-and-configure-yajra.html</guid><description>&lt;p>In the realm of modern web development, providing a seamless user experience and enhancing the overall performance of your web applications is paramount. One essential aspect that plays a pivotal role in achieving these goals is efficient data presentation and manipulation. This is where Yajra DataTables comes into the picture.&lt;/p>
+&lt;p>Yajra DataTables is a powerful and versatile jQuery-based plugin for Laravel, designed to simplify the process of displaying data in tabular form with advanced features such as filtering, sorting, pagination, and more. It empowers developers to create interactive and dynamic data tables effortlessly, significantly improving how data is showcased to end users.&lt;/p></description></item><item><title>Cara Menjalankan Project Laravel Clone dari GitHub</title><link>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</link><pubDate>Sun, 09 Apr 2023 23:08:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</guid><description>&lt;p>Sebelum kita melakukan cloning project Laravel dari GitHub, pastikan kamu telah menginstal tools berikut agar proses berjalan lancar.&lt;/p>
+&lt;p>Tools di bawah ini sangat penting. Tanpa keduanya, kamu tidak akan bisa menjalankan project Laravel dengan benar.&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://git-scm.com/" target="_blank" rel="nofollow noopener noreferrer">
+ Git
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://getcomposer.org/download/" target="_blank" rel="nofollow noopener noreferrer">
+ Composer
+&lt;/a>
+&lt;/li>
+&lt;/ol>
+&lt;p>Untuk mendapatkan project Laravel dari GitHub, ada dua cara:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Menggunakan Git&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Mengunduh via file ZIP&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Tidak ada perbedaan signifikan, hanya beda cara ambilnya. Kita bahas dua-duanya.&lt;/p>
+&lt;h2 id="-cara-clone-menggunakan-git">💻 Cara Clone Menggunakan Git&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Salin URL repository dari GitHub (HTTPS atau SSH).&lt;/p></description></item></channel></rss>

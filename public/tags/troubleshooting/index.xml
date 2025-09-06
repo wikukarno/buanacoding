@@ -1,19 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Troubleshooting on Buana Coding</title>
-    <link>http://localhost:63300/tags/troubleshooting/</link>
-    <description>Recent content in Troubleshooting on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 23 Aug 2025 13:30:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:63300/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Uninstall Docker on Ubuntu 24.04: Complete Clean Removal</title>
-      <link>http://localhost:63300/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</link>
-      <pubDate>Sat, 23 Aug 2025 13:30:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</guid>
-      <description>&lt;p&gt;Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: &lt;a href=&#34;http://localhost:63300/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html&#34;&gt;&#xA;  Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2&#xA;&lt;/a&gt;&#xA;. For HTTPS and reverse proxy, see: &lt;a href=&#34;http://localhost:63300/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Troubleshooting on Buana Coding</title><link>https://www.buanacoding.com/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 23 Aug 2025 13:30:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>Uninstall Docker on Ubuntu 24.04: Complete Clean Removal</title><link>https://www.buanacoding.com/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</link><pubDate>Sat, 23 Aug 2025 13:30:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</guid><description>&lt;p>Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: &lt;a href="https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html">
+ Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2
+&lt;/a>
+. For HTTPS and reverse proxy, see: &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html">
+ Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt
+&lt;/a>
+.&lt;/p></description></item></channel></rss>

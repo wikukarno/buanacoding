@@ -14,4 +14,4 @@ Disallow: /search
 Disallow: /404.html
 
 # Sitemap
-Sitemap: http://localhost:63300/sitemap.xml
+Sitemap: https://www.buanacoding.com/sitemap.xml

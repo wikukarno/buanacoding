@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>REST API on Buana Coding</title>
-    <link>http://localhost:63300/tags/rest-api/</link>
-    <description>Recent content in REST API on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 25 Aug 2025 07:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:63300/tags/rest-api/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>FastAPI Tutorial: Build REST API from Scratch (Beginner Guide)</title>
-      <link>http://localhost:63300/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link>
-      <pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:63300/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid>
-      <description>&lt;p&gt;Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>REST API on Buana Coding</title><link>https://www.buanacoding.com/tags/rest-api/</link><description>Recent content in REST API on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 25 Aug 2025 07:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/rest-api/index.xml" rel="self" type="application/rss+xml"/><item><title>FastAPI Tutorial: Build REST API from Scratch (Beginner Guide)</title><link>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link><pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid><description>&lt;p>Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p>
+&lt;p>We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p></description></item></channel></rss>
