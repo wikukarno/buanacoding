@@ -61,7 +61,7 @@ defaultContentLanguageInSubdir = false
     # sidebarTags = ["Go", "Linux", "Laravel", "Python", "Security"]
 
   # Ads and consent configuration
-  [params.ads]
+[params.ads]
     # If true, render real AdSense units even when using `hugo server`
     forceLive = false
 

@@ -3,7 +3,7 @@ title: "Fix Laravel Permission Issues: Solving 403 and 500 Errors on Production 
 date: 2025-09-11T08:00:00+07:00
 draft: false
 url: /2025/09/fix-laravel-permission-issues-production.html
-description: "Getting 403 or 500 after deploying Laravel? This guide shows how to fix file ownership, permissions, web server config, SELinux contexts, and common pitfalls so your app runs reliably in production."
+description: "Getting 403 or 500 after deploy? Fix file ownership and permissions, web server config, SELinux contexts, and other common causes so your app runs cleanly in production."
 keywords: ["laravel permissions", "laravel 403", "laravel 500", "laravel storage permissions", "bootstrap cache permissions", "nginx laravel try_files", "apache laravel .htaccess", "selinux laravel", "php-fpm user group", "production deployment"]
 tags:
   - Laravel
@@ -13,14 +13,12 @@ tags:
 featured: false
 ---
 
-When a fresh Laravel deployment returns 403 Forbidden or 500 Internal Server Error, it almost always comes down to a few predictable issues: wrong file ownership and permissions, an incorrect web server configuration, missing PHP extensions, or security layers like SELinux getting in the way. The good news is you can diagnose and fix these quickly with a structured checklist.
-
-This step-by-step guide explains how to resolve 403 and 500 errors on Ubuntu/Debian (Nginx/Apache with PHP‑FPM) and CentOS/RHEL (with SELinux), including safe permission settings you can reuse for every release.
+If a fresh deploy returns 403 or 500, the cause is usually predictable: wrong ownership/permissions, web server misconfig, missing PHP extensions, or SELinux. Use the checklist below to find and fix it quickly. Examples cover Ubuntu/Debian (Nginx/Apache with PHP‑FPM) and CentOS/RHEL (SELinux).
 
 <!--readmore-->
 
-Why you see 403 vs 500
------------------------
+Why 403 vs 500
+--------------
 - 403 Forbidden from the web server: The server blocked access before Laravel ran. Common causes: wrong document root (not pointing to `public/`), missing `try_files`, directory or file not readable, SELinux contexts, or a security module (WAF/mod_security/Cloudflare) rejecting the request.
 - 403 from Laravel: Authorization middleware/policies, CSRF token failures, or custom gates deny the action.
 - 500 Internal Server Error: PHP crashed or threw an exception. Common causes: wrong permissions on `storage/` or `bootstrap/cache`, missing PHP extensions, invalid `.env`, wrong `APP_KEY`, or syntax/runtime errors.
@@ -57,10 +55,10 @@ php artisan optimize
 sudo systemctl reload php8.2-fpm || sudo systemctl reload php8.1-fpm || true
 ```
 
-Never use `777`. It opens write access to everyone and can be exploited. Prefer `775` for directories and `664` for files, with correct ownership/ACLs.
+Never use `777`. Prefer `775` for directories and `664` for files, with correct ownership/ACLs.
 
-Point the server to public/ and use try_files
----------------------------------------------
+Serve from public/ and use try_files
+------------------------------------
 Laravel must be served from the `public/` directory. If you point Nginx/Apache to the project root, you’ll get 403/404 and expose sensitive files.
 
 For an end‑to‑end walkthrough of provisioning and deploying with Nginx and PHP‑FPM, see [Deploy Laravel to VPS with Nginx — Complete Guide]({{< relref "blog/laravel/deploy-laravel-to-vps-with-nginx-complete-guide.md" >}}).
@@ -102,7 +100,7 @@ Apache example:
 </VirtualHost>
 ```
 
-If you migrated configs, confirm that the socket path (or host:port) matches your PHP‑FPM version. A wrong `fastcgi_pass` leads to 502/500 depending on the stack.
+If you moved configs, confirm the socket path (or host:port) matches your PHP‑FPM version. A wrong `fastcgi_pass` leads to 502/500.
 
 Fix permissions the right way
 -----------------------------
