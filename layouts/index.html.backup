@@ -72,6 +72,13 @@
             <p class="text-sm text-gray-600 dark:text-gray-300">{{ $page.Summary | truncate 100 }}</p>
             <span class="text-xs text-gray-400 block mt-2">{{ $page.Date.Format "02 Jan 2006" }}</span>
           </a>
+
+          {{/* AdSense: In-feed ad after 2nd article (but make it 1 column to fit grid) */}}
+          {{ if eq $index 1 }}
+            <div class="bg-white dark:bg-gray-800 p-4 rounded shadow flex items-center justify-center">
+              {{ partial "adsense-in-feed.html" . }}
+            </div>
+          {{ end }}
         {{ end }}
       </div>
 

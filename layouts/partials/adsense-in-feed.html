@@ -2,9 +2,9 @@
 <div class="my-6">
   {{ $forceLive := or .Site.Params.ads.forceLive false }}
   {{ if and hugo.IsServer (not $forceLive) }}
-  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-8 px-6 rounded-lg text-gray-500 dark:text-gray-400">
-    <div class="text-lg mb-2">📰</div>
-    <div>Ad placeholder: In-feed</div>
+  <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-4 rounded-lg text-gray-500 dark:text-gray-400">
+    <div class="text-sm mb-1">📰</div>
+    <div class="text-xs">Ad placeholder: In-feed</div>
     <div class="text-xs opacity-70 mt-1">Blends with article cards</div>
   </div>
   {{ else }}
