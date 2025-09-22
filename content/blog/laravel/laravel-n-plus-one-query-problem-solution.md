@@ -2,8 +2,7 @@
 title: "Laravel N+1 Query Problem Solution: Essential Database Optimization Guide"
 meta_title: "Fix Laravel N+1 Query Problem - Complete Database Optimization Guide"
 description: "Learn how to identify, prevent, and solve Laravel N+1 query problems with Eloquent relationships. Complete guide with examples and best practices for better performance."
-date: 2025-09-22T10:00:00Z
-image: "/images/laravel-n-plus-one-query-optimization.jpg"
+date: 2025-09-22T10:00:00+07:00
 categories: ["Laravel", "Database", "Performance"]
 author: "BuanaCoding"
 tags: ["laravel", "eloquent", "database", "optimization", "performance", "n+1-query"]
