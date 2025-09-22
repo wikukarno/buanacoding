@@ -1,12 +1,16 @@
 ---
-title: "Laravel N+1 Query Problem Solution: Essential Database Optimization Guide"
-meta_title: "Fix Laravel N+1 Query Problem - Complete Database Optimization Guide"
-description: "Learn how to identify, prevent, and solve Laravel N+1 query problems with Eloquent relationships. Complete guide with examples and best practices for better performance."
+title: 'Laravel N+1 Query Problem Solution: Essential Database Optimization Guide'
 date: 2025-09-22T10:00:00+07:00
-categories: ["Laravel", "Database", "Performance"]
-author: "BuanaCoding"
-tags: ["laravel", "eloquent", "database", "optimization", "performance", "n+1-query"]
 draft: false
+url: /2025/09/laravel-n-plus-one-query-problem-solution.html
+tags:
+- Laravel
+- Database
+- Performance
+- Optimization
+- Eloquent
+description: 'Learn how to identify, prevent, and solve Laravel N+1 query problems with Eloquent relationships. Complete guide with examples and best practices for better performance.'
+featured: false
 ---
 
 If you've ever wondered why your Laravel app suddenly becomes sluggish when displaying lists of data, you might be dealing with the dreaded N+1 query problem. It's one of those sneaky performance killers that can turn a fast application into a slow, resource-hungry monster. Don't worry though - once you understand what's happening and how to fix it, you'll never fall into this trap again.
