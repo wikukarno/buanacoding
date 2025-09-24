@@ -1,6 +1,6 @@
 ---
 title: "Building REST API with Gin Framework Golang - Production Ready"
-date: 2025-09-24T19:00:00+07:00
+date: 2025-09-25T02:00:00+07:00
 draft: false
 url: /2025/09/building-rest-api-gin-framework-golang-production-ready.html
 tags:
