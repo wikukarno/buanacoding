@@ -108,7 +108,6 @@ sudo -u fastapi /opt/fastapi/venv/bin/gunicorn \
 If logs look healthy and port 8000 serves requests (try `curl http://SERVER_IP:8000/healthz` or `curl 127.0.0.1:8000/healthz`), proceed to the service setup.
 
 5) Choose your process manager (pick one)
-===========================================
 
 You need to choose how to run your FastAPI app as a service. Pick **either** Option A (systemd) **or** Option B (PM2):
 
