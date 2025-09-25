@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Microservices: Breaking Monolith into Scalable Services'
+title: 'Breaking Monolith into Scalable Services'
 date: 2025-09-20T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-microservices-breaking-monolith.html

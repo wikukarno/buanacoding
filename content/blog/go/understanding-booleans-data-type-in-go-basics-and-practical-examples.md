@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Booleans Data Type in Go: Basics and Practical Examples'
+title: 'Basics and Practical Examples'
 date: 2024-07-18T19:00:00.007+07:00
 draft: false
 url: /2024/07/understanding-booleans-in-go-basics.html

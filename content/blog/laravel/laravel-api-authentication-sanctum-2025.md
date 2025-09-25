@@ -1,5 +1,5 @@
 ---
-title: 'Laravel API Authentication with Sanctum: Complete Tutorial 2025'
+title: 'Laravel API Authentication with Sanctum Complete Tutorial 2025'
 date: 2025-09-14T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-api-authentication-sanctum-2025.html

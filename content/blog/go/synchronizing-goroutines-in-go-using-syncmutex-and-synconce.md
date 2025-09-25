@@ -1,5 +1,5 @@
 ---
-title: 'Synchronizing Goroutines in Go: Using sync.Mutex and sync.Once'
+title: 'Using sync.Mutex and sync.Once'
 date: 2025-04-28T10:00:00.002+07:00
 draft: false
 url: /2025/04/synchronizing-goroutines-in-go-using.html

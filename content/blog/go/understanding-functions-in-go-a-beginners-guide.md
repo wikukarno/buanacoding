@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Functions in Go: A Beginner''s Guide'
+title: 'A Beginner''s Guide'
 date: 2025-04-18T11:00:00.000+07:00
 draft: false
 url: /2025/04/understanding-functions-in-go-beginners.html

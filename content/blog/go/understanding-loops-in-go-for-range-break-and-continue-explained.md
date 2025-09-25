@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Loops in Go: for, range, break, and continue Explained'
+title: 'for, range, break, and continue Explained'
 date: 2025-04-16T22:06:00.001+07:00
 draft: false
 url: /2025/04/understanding-loops-in-go-for-range.html

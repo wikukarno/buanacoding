@@ -1,5 +1,5 @@
 ---
-title: "FastAPI Tutorial: Build REST API from Scratch (Beginner Guide)"
+title: "FastAPI Tutorial Build REST API from Scratch (Beginner Guide)"
 date: 2025-08-25T07:00:00.000+07:00
 draft: false
 url: /2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html

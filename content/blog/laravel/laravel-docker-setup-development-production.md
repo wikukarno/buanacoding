@@ -1,5 +1,5 @@
 ---
-title: 'Laravel with Docker: Development and Production Environment Setup'
+title: 'Development and Production Environment Setup'
 date: 2025-09-16T07:00:00+07:00
 draft: false
 url: /2025/09/laravel-docker-setup-development-production.html

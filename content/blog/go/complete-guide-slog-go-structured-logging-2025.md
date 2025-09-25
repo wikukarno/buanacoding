@@ -1,5 +1,5 @@
 ---
-title: "The Complete Guide to slog (Go 1.21+): Modern Structured Logging in Go (2025)"
+title: "The Complete Guide to slog (Go 1.21+) Modern Structured Logging in Go (2025)"
 date: 2025-09-01T08:00:00+07:00
 draft: false
 url: /2025/09/complete-guide-slog-go-structured-logging-2025.html

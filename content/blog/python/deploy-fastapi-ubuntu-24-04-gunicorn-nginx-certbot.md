@@ -1,5 +1,5 @@
 ---
-title: "Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot (HTTPS)"
+title: "Deploy FastAPI on Ubuntu 24.04 Gunicorn + Nginx + Certbot (HTTPS)"
 date: 2025-08-15T18:00:00+07:00
 draft: false
 url: /2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html

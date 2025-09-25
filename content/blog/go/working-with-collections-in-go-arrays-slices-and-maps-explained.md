@@ -1,5 +1,5 @@
 ---
-title: 'Working with Collections in Go: Arrays, Slices, and Maps Explained'
+title: 'Arrays, Slices, and Maps Explained'
 date: 2025-04-17T22:46:00.002+07:00
 draft: false
 url: /2025/04/working-with-collections-in-go-arrays.html

@@ -1,5 +1,5 @@
 ---
-title: "Phishing: Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)"
+title: "Phishing Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)"
 description: "Learn how phishing works, the red flags in fake emails, links, and malicious apps, plus step-by-step ways to stay safe and what to do if you clicked."
 date: 2025-08-20T17:00:00+07:00
 publishDate: 2025-08-20T00:00:00+07:00

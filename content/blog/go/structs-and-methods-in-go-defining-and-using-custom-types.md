@@ -1,5 +1,5 @@
 ---
-title: 'Structs and Methods in Go: Defining and Using Custom Types'
+title: 'Defining and Using Custom Types'
 date: 2025-04-19T10:00:00.000+07:00
 draft: false
 url: /2025/04/structs-and-methods-in-go-defining-and.html

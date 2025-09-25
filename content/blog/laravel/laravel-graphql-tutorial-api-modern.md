@@ -1,5 +1,5 @@
 ---
-title: 'Laravel + GraphQL: Modern API Tutorial for Complex Applications'
+title: 'Modern API Tutorial for Complex Applications'
 date: 2025-09-18T07:00:00+07:00
 draft: false
 url: /2025/09/laravel-graphql-tutorial-api-modern.html
@@ -245,7 +245,7 @@ type Query {
   skuInfo(sku: String!): Sku @field(resolver: "App\\GraphQL\\Queries\\SkuInfo@__invoke")
 }
 
-type Sku { sku: String! title: String! price: Float! }
+type Sku { sku: String! title: String! price Float! }
 
 type OrderItem {
   id: ID!

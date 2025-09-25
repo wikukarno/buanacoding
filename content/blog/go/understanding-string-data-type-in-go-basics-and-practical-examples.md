@@ -1,5 +1,5 @@
 ---
-title: 'Understanding String Data Type in Go: Basics and Practical Examples'
+title: 'Basics and Practical Examples'
 date: 2024-07-22T07:00:00.002+07:00
 draft: false
 url: /2024/07/understanding-string-data-type-in-go.html

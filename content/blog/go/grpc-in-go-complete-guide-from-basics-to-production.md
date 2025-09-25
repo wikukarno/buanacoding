@@ -1,5 +1,5 @@
 ---
-title: "gRPC in Go: Complete Guide from Basics to Production Ready Services"
+title: "gRPC in Go Complete Guide from Basics to Production Ready Services"
 date: 2025-08-28
 url: /2025/08/grpc-in-go-complete-guide-basics-production.html
 description: "Learn how to build high-performance gRPC services in Go from scratch. Complete guide covering protocol buffers, server implementation, client creation, authentication, and production deployment strategies."

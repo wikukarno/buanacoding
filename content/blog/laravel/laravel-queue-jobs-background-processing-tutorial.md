@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Queue Jobs: Easy Background Processing Tutorial'
+title: 'Easy Background Processing Tutorial'
 date: 2025-09-24T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-queue-jobs-background-processing-tutorial.html

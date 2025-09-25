@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Integration with React/Vue: Complete Inertia.js Guide for Modern SPA'
+title: 'Laravel Integration with React Vue Complete Inertia.js Guide for Modern SPA'
 date: 2025-09-19T07:00:00+07:00
 draft: false
 url: /2025/09/laravel-integration-react-vue-inertia.html

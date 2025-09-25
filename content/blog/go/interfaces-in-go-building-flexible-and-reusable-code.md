@@ -1,5 +1,5 @@
 ---
-title: 'Interfaces in Go: Building Flexible and Reusable Code'
+title: 'Building Flexible and Reusable Code'
 date: 2025-04-21T10:30:00.000+07:00
 draft: false
 url: /2025/04/interfaces-in-go-building-flexible-and.html

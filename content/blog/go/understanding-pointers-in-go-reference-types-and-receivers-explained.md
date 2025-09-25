@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Pointers in Go: Reference Types and Receivers Explained'
+title: 'Reference Types and Receivers Explained'
 date: 2025-04-20T10:00:00.002+07:00
 draft: false
 url: /2025/04/understanding-pointers-in-go-reference.html

@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Octane: Boost Performance with High-Speed Application Server'
+title: 'Boost Performance with High-Speed Application Server'
 date: 2025-09-22T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-octane-boost-performance-tutorial.html

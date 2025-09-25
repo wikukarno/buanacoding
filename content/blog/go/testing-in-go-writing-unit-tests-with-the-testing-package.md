@@ -1,5 +1,5 @@
 ---
-title: 'Testing in Go: Writing Unit Tests with the Testing Package'
+title: 'Writing Unit Tests with the Testing Package'
 date: 2025-04-23T10:00:00.003+07:00
 draft: false
 url: /2025/04/testing-in-go-writing-unit-tests-with.html

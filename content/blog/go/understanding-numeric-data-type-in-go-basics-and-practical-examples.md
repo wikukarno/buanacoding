@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Numeric Data Type In Go : Basics and Practical Examples'
+title: 'Basics and Practical Examples'
 date: 2024-07-20T19:00:00.004+07:00
 draft: false
 url: /2024/07/understanding-numeric-data-type-in-go.html

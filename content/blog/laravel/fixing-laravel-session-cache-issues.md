@@ -1,5 +1,5 @@
 ---
-title: "Fixing Laravel Session and Cache Issues: Complete Troubleshooting Guide"
+title: "Fixing Laravel Session and Cache Issues Complete Troubleshooting Guide"
 date: 2025-09-12T12:00:00+07:00
 draft: false
 url: /2025/09/fixing-laravel-session-cache-issues.html

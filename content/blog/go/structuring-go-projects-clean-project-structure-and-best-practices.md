@@ -1,5 +1,5 @@
 ---
-title: "Structuring Go Projects: Clean Project Structure and Best Practices"
+title: "Structuring Go Projects Clean Project Structure and Best Practices"
 date: 2025-05-18T10:00:00+07:00
 draft: false
 url: /2025/05/structuring-go-projects-clean-architecture.html

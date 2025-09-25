@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Performance Optimization: 15 Essential Techniques for Fast Applications'
+title: '15 Essential Techniques for Fast Applications'
 date: 2025-09-08T12:30:00+07:00
 draft: false
 url: /2025/09/laravel-performance-optimization-15-techniques.html

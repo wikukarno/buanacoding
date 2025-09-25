@@ -1,5 +1,5 @@
 ---
-title: "Computer Vision with OpenCV: Complete Guide to Object Detection and Face Recognition in Python"
+title: "Computer Vision with OpenCV Complete Guide to Object Detection and Face Recognition in Python"
 date: 2025-09-02
 url: /2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html
 description: "Master computer vision with OpenCV in Python. Learn object detection, face recognition, and image processing techniques with practical examples and real-world applications."

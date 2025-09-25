@@ -1,5 +1,5 @@
 ---
-title: 'Advanced Go Modules: Private Repos, Semantic Import v2+, and go.work'
+title: 'Private Repos, Semantic Import v2+, and go.work'
 date: 2025-09-02T19:00:00.000+07:00
 draft: false
 url: /2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html

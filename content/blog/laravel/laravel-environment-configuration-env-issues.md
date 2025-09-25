@@ -1,5 +1,5 @@
 ---
-title: "Laravel Environment Configuration: Fixing .env and Config Cache Issues"
+title: "Laravel Environment Configuration Fixing .env and Config Cache Issues"
 date: 2025-09-12T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-environment-configuration-env-issues.html

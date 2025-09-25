@@ -1,5 +1,5 @@
 ---
-title: 'File Handling in Go: Read, Write, and Manage Files'
+title: 'Read, Write, and Manage Files'
 date: 2025-04-29T10:00:00.000+07:00
 draft: false
 url: /2025/04/file-handling-in-go-read-write-and.html

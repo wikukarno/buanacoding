@@ -1,5 +1,5 @@
 ---
-title: "Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt"
+title: "Nginx + Certbot on Ubuntu 24.04 Free HTTPS with Let’s Encrypt"
 date: 2025-08-15T10:00:00+07:00
 draft: false
 url: /2025/08/nginx-certbot-ubuntu-24-04-free-https.html

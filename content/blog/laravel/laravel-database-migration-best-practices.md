@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Database Migration Best Practices: Avoiding Fatal Mistakes'
+title: 'Avoiding Fatal Mistakes'
 date: 2025-09-15T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-database-migration-best-practices.html

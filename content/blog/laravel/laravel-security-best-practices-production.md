@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Security Best Practices: Complete Production Security Guide'
+title: 'Complete Production Security Guide'
 date: 2025-09-08T12:15:00+07:00
 draft: false
 url: /2025/09/laravel-security-best-practices-production.html

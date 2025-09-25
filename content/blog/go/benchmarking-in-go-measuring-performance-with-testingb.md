@@ -1,5 +1,5 @@
 ---
-title: 'Benchmarking in Go: Measuring Performance with testing.B'
+title: 'Measuring Performance with testing.B'
 date: 2025-04-24T10:00:00.001+07:00
 draft: false
 url: /2025/04/benchmarking-in-go-measuring.html

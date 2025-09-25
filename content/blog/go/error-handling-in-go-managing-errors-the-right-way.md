@@ -1,5 +1,5 @@
 ---
-title: 'Error Handling in Go: Managing Errors the Right Way'
+title: 'Managing Errors the Right Way'
 date: 2025-04-22T10:00:00.004+07:00
 draft: false
 url: /2025/04/error-handling-in-go-managing-errors.html

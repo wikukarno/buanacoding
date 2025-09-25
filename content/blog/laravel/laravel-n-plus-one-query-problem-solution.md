@@ -1,5 +1,5 @@
 ---
-title: 'Laravel N+1 Query Problem Solution: Essential Database Optimization Guide'
+title: 'Laravel N+1 Query Problem Solution Essential Database Optimization Guide'
 date: 2025-09-22T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-n-plus-one-query-problem-solution.html

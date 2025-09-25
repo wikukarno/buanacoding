@@ -1,5 +1,5 @@
 ---
-title: "Install Ollama and Open WebUI on Ubuntu 24.04: Local AI (CPU/GPU)"
+title: "Install Ollama and Open WebUI on Ubuntu 24.04 Local AI (CPU/GPU)"
 date: 2025-08-19T10:00:00+07:00
 draft: false
 url: /2025/08/install-ollama-openwebui-ubuntu-24-04.html

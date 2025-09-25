@@ -1,5 +1,5 @@
 ---
-title: 'Using Context in Go: Cancellation, Timeout, and Deadlines Explained'
+title: 'Cancellation, Timeout, and Deadlines Explained'
 date: 2025-04-27T10:00:00.004+07:00
 draft: false
 url: /2025/04/using-context-in-go-cancellation.html

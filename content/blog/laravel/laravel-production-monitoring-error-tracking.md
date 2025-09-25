@@ -1,5 +1,5 @@
 ---
-title: 'Laravel Production Monitoring: Error Tracking Tools and Techniques'
+title: 'Error Tracking Tools and Techniques'
 date: 2025-09-23T10:00:00+07:00
 draft: false
 url: /2025/09/laravel-production-monitoring-error-tracking.html

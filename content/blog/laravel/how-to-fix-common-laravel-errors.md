@@ -1,5 +1,5 @@
 ---
-title: 'How to Fix Common Laravel Errors: Complete Troubleshooting Guide for Developers'
+title: 'Complete Troubleshooting Guide for Developers'
 date: 2025-09-13T10:00:00+07:00
 draft: false
 url: /2025/09/how-to-fix-common-laravel-errors.html

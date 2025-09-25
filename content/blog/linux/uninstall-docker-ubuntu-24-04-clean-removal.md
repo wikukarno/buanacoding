@@ -1,5 +1,5 @@
 ---
-title: "Uninstall Docker on Ubuntu 24.04: Complete Clean Removal"
+title: "Uninstall Docker on Ubuntu 24.04 Complete Clean Removal"
 date: 2025-08-23T13:30:00+07:00
 draft: false
 url: /2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html

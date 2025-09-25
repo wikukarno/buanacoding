@@ -1,5 +1,5 @@
 ---
-title: "Stop Reusing Passwords: A Practical Guide to Password Managers"
+title: "Stop Reusing Passwords A Practical Guide to Password Managers"
 date: 2025-08-18T01:00:00+07:00
 publishDate: 2025-08-18T01:00:00+07:00
 draft: false

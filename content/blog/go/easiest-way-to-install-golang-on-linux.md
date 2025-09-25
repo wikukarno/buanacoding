@@ -1,5 +1,5 @@
 ---
-title: "Easiest Way to Install Golang on Linux: Snap or Manual Source?"
+title: "Easiest Way to Install Golang on Linux Snap or Manual Source?"
 date: 2024-04-08T06:23:00+07:00
 draft: false
 url: /2024/04/easiest-way-install-golang-on-linux.html

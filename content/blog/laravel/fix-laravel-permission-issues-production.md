@@ -1,5 +1,5 @@
 ---
-title: "Fix Laravel Permission Issues: Solving 403 and 500 Errors on Production Server"
+title: "Fix Laravel Permission Issues Solving 403 and 500 Errors on Production Server"
 date: 2025-09-11T08:00:00+07:00
 draft: false
 url: /2025/09/fix-laravel-permission-issues-production.html

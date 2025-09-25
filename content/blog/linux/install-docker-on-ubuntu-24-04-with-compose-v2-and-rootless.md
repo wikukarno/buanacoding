@@ -1,5 +1,5 @@
 ---
-title: "Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2"
+title: "Install Docker on Ubuntu 24.04 Post-Install, Rootless, and Compose v2"
 date: 2025-08-14T10:00:00+07:00
 draft: false
 url: /2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html
