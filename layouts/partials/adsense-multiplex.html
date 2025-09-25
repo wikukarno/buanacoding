@@ -1,0 +1,29 @@
+<!-- Ad: Multiplex (End of Article) -->
+<div class="my-8 py-6">
+  <div class="max-w-4xl mx-auto">
+    {{ $forceLive := or .Site.Params.ads.forceLive false }}
+    {{ if and hugo.IsServer (not $forceLive) }}
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-12 px-6 rounded-lg text-gray-500 dark:text-gray-400">
+      🔲 Ad placeholder: Multiplex (Multiple related ads)
+    </div>
+    {{ else }}
+    <!-- Ad Label -->
+    <div class="text-center mb-3">
+      <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
+    </div>
+    <!-- Multiplex Ad Unit -->
+    {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
+    {{ $adSlot := or .Params.ad_slot_multiplex "7106179106" }}
+    {{ $adChannel := .Params.ad_channel }}
+    <div class="flex justify-center">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="autorelaxed"
+           data-ad-client="{{ $adClient }}"
+           data-ad-slot="{{ $adSlot }}"{{ with $adChannel }}
+           data-ad-channel="{{ . }}"{{ end }}></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+    {{ end }}
+  </div>
+</div>

@@ -105,9 +105,12 @@
         {{ end }}
       </div>
     </div>
+
+    {{/* AdSense: Multiplex after article content */}}
+    {{ partial "adsense-multiplex.html" . }}
   </article>
 
-  
+
 
   <!-- ==== RIGHT: SIDEBAR (Desktop Only) ==== -->
   <aside class="space-y-10 hidden lg:block">
