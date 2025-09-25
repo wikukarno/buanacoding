@@ -1,5 +1,5 @@
 ---
-title: "Fiber vs Gin vs Echo - Perbandingan Framework Golang 2025"
+title: "Fiber vs Gin vs Echo - Go Framework Comparison 2025"
 date: 2025-09-25T03:00:00+07:00
 draft: false
 url: /2025/09/fiber-vs-gin-vs-echo-golang-framework-comparison-2025.html
