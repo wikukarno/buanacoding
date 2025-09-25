@@ -238,7 +238,7 @@ However, consider Fiber carefully if you're building applications that need exte
 
 The choice of web framework affects how easily you can integrate with other Go technologies and patterns. This becomes particularly important as your application grows and you need to incorporate databases, message queues, monitoring systems, and other infrastructure components.
 
-Gin's use of standard net/http makes it compatible with virtually any Go library or tool. Whether you're using [GORM for database operations](/blog/go/connecting-postgresql-in-go-using-sqlx/), implementing [gRPC services](/blog/go/grpc-in-go-complete-guide-from-basics-to-production/), or adding [structured logging](/blog/go/complete-guide-slog-go-structured-logging-2025/), integration is typically straightforward.
+Gin's use of standard net/http makes it compatible with virtually any Go library or tool. Whether you're using [GORM for database operations](/2025/05/connecting-postgresql-in-go-using-sqlx.html), implementing [gRPC services](/2025/08/grpc-in-go-complete-guide-basics-production.html), or adding [structured logging](/2025/09/complete-guide-slog-go-structured-logging-2025.html), integration is typically straightforward.
 
 Echo similarly benefits from standard library compatibility while providing additional abstractions that can simplify integration. The framework's context system plays well with Go's context patterns, making it easy to implement request timeouts, cancellation, and distributed tracing.
 
@@ -252,7 +252,7 @@ Echo maintains steady development with regular feature additions and performance
 
 Fiber's development pace is the most aggressive, with frequent releases adding new features and performance optimizations. The framework benefits from rapid adoption and an active community contributing middleware and extensions.
 
-The broader Go ecosystem trend toward standardization around certain patterns benefits all three frameworks. As the community converges on best practices for areas like [error handling](/blog/go/error-handling-in-go-managing-errors-the-right-way/) and [testing](/blog/go/testing-in-go-writing-unit-tests-with-the-testing-package/), the frameworks adapt to support these patterns consistently.
+The broader Go ecosystem trend toward standardization around certain patterns benefits all three frameworks. As the community converges on best practices for areas like [error handling](/2025/04/error-handling-in-go-managing-errors.html) and [testing](/2025/04/testing-in-go-writing-unit-tests-with.html), the frameworks adapt to support these patterns consistently.
 
 ## Making the Final Decision
 

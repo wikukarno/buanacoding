@@ -132,7 +132,7 @@ DB::listen(function ($query) use (&$queryCount) {
 });
 ```
 
-For detailed strategies on optimizing database queries, check out our guide on [Laravel N+1 query problem solutions](/blog/laravel/laravel-n-plus-one-query-problem-solution).
+For detailed strategies on optimizing database queries, check out our guide on [Laravel N+1 query problem solutions](/2025/09/laravel-n-plus-one-query-problem-solution.html).
 
 ### Queue and Job Monitoring
 
@@ -666,7 +666,7 @@ public function processLargeDataset($data)
 }
 ```
 
-For comprehensive performance optimization techniques, explore our detailed guide on [Laravel performance optimization](/blog/laravel/laravel-performance-optimization-15-techniques).
+For comprehensive performance optimization techniques, explore our detailed guide on [Laravel performance optimization](/2025/09/laravel-performance-optimization-15-techniques.html).
 
 ## Queue and Job Monitoring
 
@@ -922,7 +922,7 @@ class MonitoringDashboardController extends Controller
 }
 ```
 
-For additional security considerations when setting up monitoring, review our [Laravel security best practices guide](/blog/laravel/laravel-security-best-practices-production).
+For additional security considerations when setting up monitoring, review our [Laravel security best practices guide](/2025/09/laravel-security-best-practices-production.html).
 
 ## Best Practices and Common Pitfalls
 

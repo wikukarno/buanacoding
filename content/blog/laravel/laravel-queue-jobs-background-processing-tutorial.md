@@ -645,7 +645,7 @@ class ExportUsersToCSV implements ShouldQueue
 }
 ```
 
-For comprehensive performance optimization when working with large datasets, check out our [Laravel performance optimization guide](/blog/laravel/laravel-performance-optimization-15-techniques).
+For comprehensive performance optimization when working with large datasets, check out our [Laravel performance optimization guide](/2025/09/laravel-performance-optimization-15-techniques.html).
 
 ## Queue Monitoring and Debugging
 
@@ -769,7 +769,7 @@ class QueueHealthCheck extends Command
 }
 ```
 
-For detailed monitoring and alerting strategies, explore our [Laravel production monitoring guide](/blog/laravel/laravel-production-monitoring-error-tracking).
+For detailed monitoring and alerting strategies, explore our [Laravel production monitoring guide](/2025/09/laravel-production-monitoring-error-tracking.html).
 
 ## Performance Optimization
 
@@ -1124,7 +1124,7 @@ class ProcessCreditCard implements ShouldQueue
 }
 ```
 
-For comprehensive security practices, review our [Laravel security best practices guide](/blog/laravel/laravel-security-best-practices-production).
+For comprehensive security practices, review our [Laravel security best practices guide](/2025/09/laravel-security-best-practices-production.html).
 
 ## Common Pitfalls and Solutions
 

@@ -474,23 +474,23 @@ go run client/main.go
 
 Alright, so when you want to actually deploy this thing to production, there's some stuff you need to think about. Unlike deploying a simple [REST API](/2025/05/how-to-build-rest-api-in-go-using-net-http.html), gRPC services need a bit more thought around load balancing and TLS setup.
 
-First off, make sure you've got solid [error handling](/blog/go/error-handling-in-go-managing-errors-the-right-way/) throughout your service. gRPC gives you a bunch of useful status codes so your clients know exactly what went wrong.
+First off, make sure you've got solid [error handling](/2025/04/error-handling-in-go-managing-errors.html) throughout your service. gRPC gives you a bunch of useful status codes so your clients know exactly what went wrong.
 
 For auth, you'll probably want JWT token validation or mutual TLS. Interceptors are your friend here - you can use them to handle auth, logging, and metrics for all your RPC methods in one place.
 
-Obviously, you'll need to hook up a real database for production. Swap out that in-memory storage for a real database connection. Check out our [PostgreSQL guide](/blog/go/connecting-postgresql-in-go-using-sqlx/) if you're going the SQL route, or look into NoSQL depending on what you're building.
+Obviously, you'll need to hook up a real database for production. Swap out that in-memory storage for a real database connection. Check out our [PostgreSQL guide](/2025/05/connecting-postgresql-in-go-using-sqlx.html) if you're going the SQL route, or look into NoSQL depending on what you're building.
 
 ## Performance Benefits and Testing
 
 What really blew my mind about gRPC was just how much faster it is compared to REST APIs. Protocol Buffers' binary serialization absolutely destroys JSON in terms of speed, and HTTP/2 lets you handle tons of requests over one connection without breaking a sweat.
 
-Testing gRPC services is actually pretty straightforward - you can write [unit tests](/blog/go/testing-in-go-writing-unit-tests-with-the-testing-package/) with mock clients and servers. All that generated code makes testing way easier than dealing with REST endpoints.
+Testing gRPC services is actually pretty straightforward - you can write [unit tests](/2025/04/testing-in-go-writing-unit-tests-with.html) with mock clients and servers. All that generated code makes testing way easier than dealing with REST endpoints.
 
 ## Wrapping Up
 
 gRPC is honestly a game changer for building fast, reliable distributed systems in Go. Sure, there's a bit of a learning curve if you're coming from REST, but trust me - once you see the performance gains and never have to deal with JSON parsing bugs again, you'll wonder why you waited so long.
 
-What we built today is just basic CRUD stuff, but you can go crazy with streaming, fancy auth, and integrate it with your existing [Go project setup](/blog/go/structuring-go-projects-clean-project-structure-and-best-practices/).
+What we built today is just basic CRUD stuff, but you can go crazy with streaming, fancy auth, and integrate it with your existing [Go project setup](/2025/05/structuring-go-projects-clean-architecture.html).
 
 Next time you're working on microservices, seriously give gRPC a shot. I guarantee you'll be kicking yourself for not trying it sooner.
 

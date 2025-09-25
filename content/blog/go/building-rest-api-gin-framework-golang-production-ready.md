@@ -860,7 +860,7 @@ When you're ready to deploy this API to production, there are several important 
 
 Consider implementing rate limiting to prevent abuse and DDoS attacks. The gin-contrib package provides excellent rate limiting middleware that you can easily integrate into your existing middleware chain.
 
-For data persistence, you'll want to replace our in-memory storage with a proper database. Consider using GORM with PostgreSQL or MySQL - check out our guide on [connecting PostgreSQL with Go using sqlx](/blog/go/connecting-postgresql-in-go-using-sqlx/) for database integration patterns.
+For data persistence, you'll want to replace our in-memory storage with a proper database. Consider using GORM with PostgreSQL or MySQL - check out our guide on [connecting PostgreSQL with Go using sqlx](/2025/05/connecting-postgresql-in-go-using-sqlx.html) for database integration patterns.
 
 Implement proper logging using structured logging libraries like logrus or zap. You'll also want to add metrics collection and health checks for monitoring in production environments.
 
@@ -870,7 +870,7 @@ Gin's performance is already excellent out of the box, but there are several opt
 
 When dealing with large datasets, implement pagination properly rather than returning all records at once. Our example shows basic pagination structure that you can extend based on your needs.
 
-For [error handling](/blog/go/error-handling-in-go-managing-errors-the-right-way/), consider implementing a global error handler middleware that can catch panics and return consistent error responses to your clients.
+For [error handling](/2025/04/error-handling-in-go-managing-errors.html), consider implementing a global error handler middleware that can catch panics and return consistent error responses to your clients.
 
 Always validate input data thoroughly - Gin's binding and validation features make this straightforward, but remember to validate business logic constraints in your service layer as well.
 
@@ -888,7 +888,7 @@ Consider adding request ID tracking through your middleware chain - this makes d
 
 The foundation we've built today is solid, but there are many directions you can take it. Consider adding features like email verification for new accounts, password reset functionality, user profile images with file upload handling, and API documentation using tools like Swagger.
 
-You might also want to explore [microservices architecture](/blog/go/grpc-in-go-complete-guide-from-basics-to-production/) if your application grows complex enough to warrant service separation.
+You might also want to explore [microservices architecture](/2025/08/grpc-in-go-complete-guide-basics-production.html) if your application grows complex enough to warrant service separation.
 
 For real-time features, you could integrate WebSocket support for notifications or live updates. Gin handles WebSocket upgrades gracefully while maintaining the same familiar API patterns.
 
@@ -900,6 +900,6 @@ What we've built today includes proper authentication, validation, error handlin
 
 The next time you're building a REST API in Go, give Gin serious consideration. It'll save you tons of development time while delivering the performance characteristics that make Go special for backend development.
 
-If you're interested in exploring more advanced Go web development patterns, check out our guide on [structuring Go projects for clean architecture](/blog/go/structuring-go-projects-clean-project-structure-and-best-practices/) or learn about [advanced concurrency patterns](/blog/go/concurrency-in-go-goroutines-and-channels-explained/) for handling high-traffic scenarios.
+If you're interested in exploring more advanced Go web development patterns, check out our guide on [structuring Go projects for clean architecture](/2025/05/structuring-go-projects-clean-architecture.html) or learn about [advanced concurrency patterns](/2025/04/concurrency-in-go-goroutines-and.html) for handling high-traffic scenarios.
 
 Got questions about building production APIs with Gin? Drop a comment below - I love discussing different approaches to API architecture and the challenges you run into when scaling Go applications.

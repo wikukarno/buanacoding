@@ -191,7 +191,7 @@ class OrderService
 }
 ```
 
-For proper memory management and performance optimization strategies, check out our detailed guide on [Laravel performance optimization techniques](/blog/laravel/laravel-performance-optimization-15-techniques).
+For proper memory management and performance optimization strategies, check out our detailed guide on [Laravel performance optimization techniques](/2025/09/laravel-performance-optimization-15-techniques.html).
 
 ## Advanced Configuration Options
 
@@ -336,7 +336,7 @@ class PerformanceMonitoring
 }
 ```
 
-For comprehensive monitoring strategies, explore our guide on [Laravel production monitoring and error tracking](/blog/laravel/laravel-production-monitoring-error-tracking).
+For comprehensive monitoring strategies, explore our guide on [Laravel production monitoring and error tracking](/2025/09/laravel-production-monitoring-error-tracking.html).
 
 ## Common Pitfalls and How to Avoid Them
 
@@ -447,7 +447,7 @@ public function dashboard()
 }
 ```
 
-To further optimize database operations, make sure you're avoiding [N+1 query problems](/blog/laravel/laravel-n-plus-one-query-problem-solution) which can still impact performance even with Octane.
+To further optimize database operations, make sure you're avoiding [N+1 query problems](/2025/09/laravel-n-plus-one-query-problem-solution.html) which can still impact performance even with Octane.
 
 ## Security Considerations
 
@@ -492,7 +492,7 @@ class AuthController extends Controller
 
 Make sure your application handles process isolation properly, especially if you're processing user-uploaded content or executing dynamic code.
 
-For comprehensive security practices when running high-performance Laravel applications, review our [Laravel security best practices guide](/blog/laravel/laravel-security-best-practices-production).
+For comprehensive security practices when running high-performance Laravel applications, review our [Laravel security best practices guide](/2025/09/laravel-security-best-practices-production.html).
 
 ## When NOT to Use Octane
 

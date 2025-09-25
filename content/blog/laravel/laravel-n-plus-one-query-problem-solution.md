@@ -19,7 +19,7 @@ If you've ever wondered why your Laravel app suddenly becomes sluggish when disp
 
 Here's what happens: your app makes one query to get a list of records, then fires off a separate query for each record to grab related data. Picture this - you want to show 100 blog posts with their authors' names. Instead of being smart about it, your app runs one query to get the posts, then 100 more queries to fetch each author. That's 101 database hits when you could've done it with just 2!
 
-As you can imagine, this creates a snowball effect. More records mean exponentially more queries, which translates to slower pages and angry users. Your server starts sweating, your database gets overwhelmed, and your app crawls to a halt. For more ways to speed up your Laravel app, check out our [Laravel performance optimization techniques](/blog/laravel/laravel-performance-optimization-15-techniques).
+As you can imagine, this creates a snowball effect. More records mean exponentially more queries, which translates to slower pages and angry users. Your server starts sweating, your database gets overwhelmed, and your app crawls to a halt. For more ways to speed up your Laravel app, check out our [Laravel performance optimization techniques](/2025/09/laravel-performance-optimization-15-techniques.html).
 
 ## Identifying N+1 Queries in Laravel
 
@@ -58,7 +58,7 @@ dd($queries);
 
 ### Using Laravel Telescope
 
-If you want to get really detailed about monitoring, [Laravel Telescope gives you deep insights](/blog/laravel/advanced-laravel-debugging-with-logs) into what your app is doing, including all those database queries.
+If you want to get really detailed about monitoring, [Laravel Telescope gives you deep insights](/2025/09/advanced-laravel-debugging-with-logs.html) into what your app is doing, including all those database queries.
 
 ## Common N+1 Query Scenarios
 
@@ -273,7 +273,7 @@ $posts = Cache::remember('posts_with_authors', 3600, function () {
 });
 ```
 
-Check out our guide on [Laravel production monitoring and error tracking](/blog/laravel/laravel-production-monitoring-error-tracking) for more caching strategies.
+Check out our guide on [Laravel production monitoring and error tracking](/2025/09/laravel-production-monitoring-error-tracking.html) for more caching strategies.
 
 ### Using Raw Queries
 
@@ -307,7 +307,7 @@ That's an 85% speed boost! And it gets even better as your data grows.
 7. **Use database indexing** appropriately for foreign keys
 8. **Consider pagination** for large datasets
 
-For additional security considerations when optimizing database queries, review our [Laravel security best practices guide](/blog/laravel/laravel-security-best-practices-production).
+For additional security considerations when optimizing database queries, review our [Laravel security best practices guide](/2025/09/laravel-security-best-practices-production.html).
 
 ## Testing for N+1 Queries
 
@@ -337,4 +337,4 @@ The key isn't just remembering to use `with()` - it's developing an instinct for
 
 Trust me, the time you spend learning about N+1 queries now will save you countless headaches later. Your apps will be faster, your users will be happier, and your server bills will be lower. It's a win-win-win situation.
 
-Want to take performance even further? Check out [Laravel Octane](/blog/laravel/laravel-octane-boost-performance-tutorial) for some serious speed improvements in production.
+Want to take performance even further? Check out [Laravel Octane](/2025/09/laravel-octane-boost-performance-tutorial.html) for some serious speed improvements in production.

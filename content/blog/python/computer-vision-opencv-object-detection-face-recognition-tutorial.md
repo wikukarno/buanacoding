@@ -20,13 +20,13 @@ Look, there are tons of computer vision libraries out there, but OpenCV has been
 
 The thing about computer vision is that the math gets really complex really fast. Instead of spending months implementing edge detection algorithms or wrestling with image transformations, OpenCV gives you all that stuff for free. It's like having a Swiss Army knife full of computer vision tools that smarter people than me have already perfected.
 
-Plus, it plays nice with NumPy, which means your images are just arrays of numbers that you can manipulate super efficiently. Unlike building [REST APIs from scratch](/blog/python/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html) where you might want to understand every piece, with computer vision you often just want the algorithms to work so you can focus on solving your actual problem.
+Plus, it plays nice with NumPy, which means your images are just arrays of numbers that you can manipulate super efficiently. Unlike building [REST APIs from scratch](/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html) where you might want to understand every piece, with computer vision you often just want the algorithms to work so you can focus on solving your actual problem.
 
 ## Getting Everything Set Up
 
 Alright, before we start building anything cool, we need to get your environment ready. Don't worry - this part is pretty painless, and once it's done, you'll never have to think about it again.
 
-First things first: you need Python. If you're on Linux and feeling lost in the terminal, our [essential Linux commands guide](/blog/linux/essential-linux-commands-every-developer-must-know-2025.html) will get you up to speed quickly.
+First things first: you need Python. If you're on Linux and feeling lost in the terminal, our [essential Linux commands guide](/2025/08/essential-linux-commands-every-developer-must-know-2025.html) will get you up to speed quickly.
 
 Install OpenCV and the required dependencies:
 
@@ -644,7 +644,7 @@ def improve_image_quality(image):
 Computer vision is finicky. Your code will work perfectly on your test images and then completely fail when you point it at a real camera. Here are the most common issues I've run into and how to fix them:
 
 **Camera Won't Work:**
-This happens a lot, especially on Linux. Sometimes it's permissions, sometimes it's drivers. If you're struggling with terminal stuff, our [Linux commands guide](/blog/linux/essential-linux-commands-every-developer-must-know-2025.html) covers the basics of troubleshooting hardware access.
+This happens a lot, especially on Linux. Sometimes it's permissions, sometimes it's drivers. If you're struggling with terminal stuff, our [Linux commands guide](/2025/08/essential-linux-commands-every-developer-must-know-2025.html) covers the basics of troubleshooting hardware access.
 
 **Everything Runs Super Slow:**
 Usually this means your images are too big or you're using an overly complex algorithm. Start small - use 320x240 images instead of 4K, and get the simple stuff working first.
@@ -656,15 +656,15 @@ Your threshold is probably too low. Bump it up gradually until the false positiv
 
 Most of the time, you're not building a standalone computer vision app - you're adding vision capabilities to something bigger. Maybe it's a web app that needs to process uploaded images, or a mobile backend that analyzes photos.
 
-If you're building web APIs, [FastAPI works great](/blog/python/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html) for wrapping your OpenCV code in REST endpoints. Just remember that image processing can be CPU-intensive, so you might want to run it async or queue the work.
+If you're building web APIs, [FastAPI works great](/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html) for wrapping your OpenCV code in REST endpoints. Just remember that image processing can be CPU-intensive, so you might want to run it async or queue the work.
 
-For production deployment, containerizing everything with Docker makes life easier. We've got guides on [Docker setup](/blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html) and [deployment strategies](/blog/python/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html) that'll help you get your computer vision services running reliably.
+For production deployment, containerizing everything with Docker makes life easier. We've got guides on [Docker setup](/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html) and [deployment strategies](/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html) that'll help you get your computer vision services running reliably.
 
 ## Don't Forget About Security and Privacy
 
 Look, if you're building anything that processes faces or personal images, you need to think seriously about security. Face data is biometric data, which means it's regulated differently than regular user data in many places.
 
-A few things to keep in mind: never store raw face images if you don't absolutely have to. If you're storing face encodings, encrypt them. And please, please implement proper authentication - check our [password security guide](/blog/security/stop-reusing-passwords-practical-password-manager-guide.html) if you need help with that.
+A few things to keep in mind: never store raw face images if you don't absolutely have to. If you're storing face encodings, encrypt them. And please, please implement proper authentication - check our [password security guide](/2025/08/stop-reusing-passwords-practical-password-manager-guide.html) if you need help with that.
 
 If you're processing live video feeds, log everything and make sure only authorized people can access the system. Also, double-check your local privacy laws - some jurisdictions have strict rules about face recognition systems.
 
