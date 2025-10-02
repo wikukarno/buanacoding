@@ -8,6 +8,25 @@ tags:
   - Docker
 description: "Step-by-step guide to install Docker Engine on Ubuntu 24.04 (Noble), set up post-install permissions, enable rootless mode, and use Docker Compose v2. Includes testing, troubleshooting, and uninstall instructions."
 keywords: ["ubuntu 24.04", "install docker", "docker compose v2", "rootless docker", "docker ubuntu", "docker installation", "noble"]
+
+faq:
+  - question: "How do I run Docker without sudo on Ubuntu 24.04?"
+    answer: "After installing Docker, run `sudo usermod -aG docker $USER` to add your user to the docker group. Then run `newgrp docker` or log out and back in. Test with `docker run --rm hello-world` (without sudo)."
+
+  - question: "What's the difference between Docker Compose v1 and v2?"
+    answer: "Docker Compose v2 is a plugin integrated into the Docker CLI, using `docker compose` (space) instead of `docker-compose` (hyphen). It's faster, written in Go, and better integrated. v1 is deprecated and should be replaced."
+
+  - question: "Should I use rootless Docker or regular Docker?"
+    answer: "Use regular Docker for most cases - it has full features and better performance. Use rootless Docker only if you need extra security isolation, but note that some features (privileged containers, ports <1024) won't work in rootless mode."
+
+  - question: "How do I fix 'permission denied' error when running Docker?"
+    answer: "Run `groups` to check if you're in the docker group. If not, run `sudo usermod -aG docker $USER`, then either log out/in or run `newgrp docker`. If the issue persists, check `systemctl status docker` to ensure the daemon is running."
+
+  - question: "How do I clean up Docker disk space on Ubuntu?"
+    answer: "Use `docker system df` to check usage. Clean with `docker image prune -f` (unused images), `docker container prune -f` (stopped containers), `docker volume prune -f` (unused volumes), and `docker builder prune -f` (build cache). Remove `-f` for confirmation prompts."
+
+  - question: "Can I install Docker on Ubuntu 24.04 without adding the repository?"
+    answer: "No, Ubuntu's default Docker package is outdated. You must add Docker's official repository to get Docker Engine with Compose v2, Buildx, and the latest features. The guide shows the safe way to add the official repository."
 ---
 
 This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: [Nginx + Certbot on Ubuntu 24.04]({{< relref "blog/linux/nginx-certbot-ubuntu-24-04-free-https-with-letsencrypt.md" >}})

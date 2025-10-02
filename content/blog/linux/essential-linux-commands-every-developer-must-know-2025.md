@@ -10,6 +10,25 @@ tags:
   - Tutorial
   - Developer Tools
   - System Administration
+
+faq:
+  - question: "What are the most important Linux commands for beginners?"
+    answer: "Start with navigation commands like `cd`, `ls`, and `pwd`. Then learn file operations: `cp`, `mv`, `rm`, and `mkdir`. Master viewing files with `cat`, `less`, and `tail -f` for logs. These basics will handle 80% of daily tasks."
+
+  - question: "How do I find and kill a process in Linux?"
+    answer: "Use `ps aux | grep process_name` to find the process ID (PID), then `kill PID` to stop it. For stubborn processes, use `kill -9 PID`. Alternatively, use `killall process_name` to kill all processes with that name."
+
+  - question: "What's the difference between chmod 755 and chmod 777?"
+    answer: "`chmod 755` gives owner full permissions (rwx) and group/others read+execute (r-x). `chmod 777` gives everyone full permissions (rwx), which is a security risk. Use 755 for scripts and executables, 644 for regular files, and 600 for sensitive data."
+
+  - question: "How can I monitor real-time log files in Linux?"
+    answer: "Use `tail -f filename.log` to watch logs in real-time. For multiple files, use `tail -f file1.log file2.log`. Add `-n 50` to show the last 50 lines first: `tail -f -n 50 /var/log/nginx/error.log`. Press Ctrl+C to stop."
+
+  - question: "What's the best way to search for files in Linux?"
+    answer: "Use `find` for comprehensive searches: `find . -name \"*.js\"` finds all JavaScript files. Use `locate filename` for faster searches (requires updatedb). For content search, use `grep -r \"pattern\" directory/` to search text inside files."
+
+  - question: "How do I check disk space usage in Linux?"
+    answer: "Use `df -h` to see overall filesystem usage in human-readable format. Use `du -sh */` to see directory sizes in the current location. To find large files: `find . -size +100M -exec ls -lh {} \\;`"
 ---
 
 Whether you're building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I've been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.

@@ -8,8 +8,27 @@ tags:
   - Nginx
   - SSL
   - Let's Encrypt
-description: "Step-by-step guide to install Nginx and secure it with a free Let’s Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."
+description: "Step-by-step guide to install Nginx and secure it with a free Let's Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."
 keywords: ["ubuntu 24.04", "nginx", "certbot", "let's encrypt", "https", "ssl", "tls", "ubuntu nginx ssl"]
+
+faq:
+  - question: "How do I get a free SSL certificate for Nginx on Ubuntu 24.04?"
+    answer: "Install Certbot with `sudo snap install --classic certbot`, then run `sudo certbot --nginx -d yourdomain.com`. Certbot will automatically obtain a Let's Encrypt certificate, configure Nginx, and set up auto-renewal. The certificate is valid for 90 days and renews automatically."
+
+  - question: "Why does Certbot fail with 'DNS/Challenge failed' error?"
+    answer: "Ensure your domain's A record points to your server's public IP, port 80 is open in your firewall, and Nginx is running. Check with `dig +short yourdomain.com` and `curl http://yourdomain.com`. Temporarily disable CDN/proxy during initial certificate issuance."
+
+  - question: "How do I redirect HTTP to HTTPS in Nginx?"
+    answer: "Add a server block that listens on port 80 and redirects: `server { listen 80; server_name yourdomain.com; return 301 https://$host$request_uri; }`. Test with `sudo nginx -t` and reload with `sudo systemctl reload nginx`. Certbot can do this automatically."
+
+  - question: "Do Let's Encrypt certificates renew automatically?"
+    answer: "Yes, Certbot installed via snap includes a systemd timer that checks for renewal twice daily. Certificates renew automatically 30 days before expiry. Verify with `systemctl list-timers | grep certbot` and test with `sudo certbot renew --dry-run`."
+
+  - question: "How do I add HTTPS to multiple domains on one server?"
+    answer: "Create separate server blocks in `/etc/nginx/sites-available/` for each domain. Run Certbot for each domain: `sudo certbot --nginx -d domain1.com -d www.domain1.com`, then repeat for other domains. Each gets its own certificate."
+
+  - question: "What's the difference between fullchain.pem and cert.pem?"
+    answer: "`fullchain.pem` contains your certificate plus the intermediate certificates (chain). Use this for `ssl_certificate` in Nginx. `cert.pem` is just your certificate alone. Always use `fullchain.pem` to avoid SSL errors in browsers."
 ---
 
 Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: [Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2]({{< relref "blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.md" >}})

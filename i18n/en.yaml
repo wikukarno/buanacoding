@@ -26,3 +26,7 @@
    translation: "Next"
  - id: available_in
    translation: "Available in:"
+ - id: frequently_asked_questions
+   translation: "Frequently Asked Questions"
+ - id: faq_description
+   translation: "Find quick answers to common questions"

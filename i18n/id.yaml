@@ -26,3 +26,7 @@
    translation: "Berikutnya"
  - id: available_in
    translation: "Tersedia dalam:"
+ - id: frequently_asked_questions
+   translation: "Pertanyaan yang Sering Diajukan"
+ - id: faq_description
+   translation: "Temukan jawaban cepat untuk pertanyaan umum"
