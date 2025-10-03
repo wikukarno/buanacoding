@@ -33,7 +33,7 @@ faq:
 
 Whether you're building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I've been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.
 
-Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing [Docker containers](/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html) to setting up [secure web servers with HTTPS](/2025/08/nginx-certbot-ubuntu-24-04-free-https.html), these commands will be your daily companions.
+Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing [Docker containers](/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html) to setting up [secure web servers with HTTPS](/2025/08/nginx-certbot-ubuntu-24-04-free-https.html), these commands will be your daily companions.
 
 In this comprehensive guide, I'll walk you through the most essential Linux commands that every developer should master in 2025. These aren't just theoretical examples - every command here has been tested and works in real-world scenarios.
 
@@ -843,7 +843,7 @@ du -sh . && du -sh */ | sort -rh
 
 ### Server Maintenance
 
-When managing [Docker containers](/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html) or web servers:
+When managing [Docker containers](/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html) or web servers:
 
 ```bash
 # Monitor system resources

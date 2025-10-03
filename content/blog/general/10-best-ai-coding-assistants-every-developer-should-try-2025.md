@@ -33,7 +33,7 @@ Think of it this way: instead of spending 20 minutes writing repetitive CRUD ope
 
 GitHub Copilot remains the gold standard for AI coding assistance, and for good reason. Built on OpenAI's Codex, it understands context incredibly well and provides suggestions that feel almost telepathic.
 
-What makes Copilot special is its deep integration with your development environment. It doesn't just complete lines – it understands your project structure, follows your coding patterns, and even generates entire functions based on comments. I've found it particularly brilliant for writing [REST API endpoints](/2025/05/how-to-build-rest-api-in-go-using-net-http.html) and database queries.
+What makes Copilot special is its deep integration with your development environment. It doesn't just complete lines – it understands your project structure, follows your coding patterns, and even generates entire functions based on comments. I've found it particularly brilliant for writing [REST API endpoints](/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html) and database queries.
 
 The chat feature introduced in 2024 has been a game-changer. You can ask questions about your code, request explanations, or even get help with debugging directly in your IDE. It's like having a senior developer looking over your shoulder, ready to help whenever you're stuck.
 
@@ -168,7 +168,7 @@ This tool is perfect for organizations with strict privacy requirements or resea
 
 JetBrains' AI Assistant integrates seamlessly with their popular IDE suite, providing context-aware suggestions that understand your project structure and dependencies.
 
-The tool excels at code generation within the JetBrains ecosystem, understanding project templates, frameworks, and coding standards. It's particularly strong for [Java and Kotlin development](/2025/08/grpc-in-go-complete-guide-basics-production.html), leveraging JetBrains' deep understanding of these languages.
+The tool excels at code generation within the JetBrains ecosystem, understanding project templates, frameworks, and coding standards. It's particularly strong for [Java and Kotlin development](/2025/08/grpc-in-go-complete-guide-from-basics-to-production.html), leveraging JetBrains' deep understanding of these languages.
 
 For developers already using IntelliJ IDEA, PyCharm, or other JetBrains IDEs, this provides seamless AI assistance without changing your workflow.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Complete Production Guide'
+title: 'Deploy Laravel to VPS with Nginx Complete Production Guide'
 date: 2025-08-24T09:00:00.000+07:00
 draft: false
 url: /2025/08/deploy-laravel-to-vps-with-nginx-complete-guide.html

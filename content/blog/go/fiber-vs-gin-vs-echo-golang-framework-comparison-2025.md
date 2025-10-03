@@ -18,7 +18,7 @@ Choosing the right web framework can make or break your Go project. I've spent t
 
 The landscape has evolved significantly since these frameworks first appeared. Performance gaps have narrowed, feature sets have matured, and the ecosystem around each has grown substantially. What used to be clear-cut decisions based on pure speed are now more nuanced choices that depend on your specific use case, team experience, and architectural requirements.
 
-If you've been [building REST APIs with Go's standard library](/2025/05/how-to-build-rest-api-in-go-using-net-http.html) or are considering moving from another language's web framework, this comparison will help you understand exactly what each framework brings to the table and which one aligns best with your project goals.
+If you've been [building REST APIs with Go's standard library](/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html) or are considering moving from another language's web framework, this comparison will help you understand exactly what each framework brings to the table and which one aligns best with your project goals.
 
 ## The Current State of Go Web Frameworks
 
@@ -238,7 +238,7 @@ However, consider Fiber carefully if you're building applications that need exte
 
 The choice of web framework affects how easily you can integrate with other Go technologies and patterns. This becomes particularly important as your application grows and you need to incorporate databases, message queues, monitoring systems, and other infrastructure components.
 
-Gin's use of standard net/http makes it compatible with virtually any Go library or tool. Whether you're using [GORM for database operations](/2025/05/connecting-postgresql-in-go-using-sqlx.html), implementing [gRPC services](/2025/08/grpc-in-go-complete-guide-basics-production.html), or adding [structured logging](/2025/09/complete-guide-slog-go-structured-logging-2025.html), integration is typically straightforward.
+Gin's use of standard net/http makes it compatible with virtually any Go library or tool. Whether you're using [GORM for database operations](/2025/05/connecting-postgresql-in-go-using-sqlx.html), implementing [gRPC services](/2025/08/grpc-in-go-complete-guide-from-basics-to-production.html), or adding [structured logging](/2025/09/complete-guide-slog-go-structured-logging-2025.html), integration is typically straightforward.
 
 Echo similarly benefits from standard library compatibility while providing additional abstractions that can simplify integration. The framework's context system plays well with Go's context patterns, making it easy to implement request timeouts, cancellation, and distributed tracing.
 

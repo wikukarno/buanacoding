@@ -658,7 +658,7 @@ Most of the time, you're not building a standalone computer vision app - you're 
 
 If you're building web APIs, [FastAPI works great](/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html) for wrapping your OpenCV code in REST endpoints. Just remember that image processing can be CPU-intensive, so you might want to run it async or queue the work.
 
-For production deployment, containerizing everything with Docker makes life easier. We've got guides on [Docker setup](/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html) and [deployment strategies](/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html) that'll help you get your computer vision services running reliably.
+For production deployment, containerizing everything with Docker makes life easier. We've got guides on [Docker setup](/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html) and [deployment strategies](/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html) that'll help you get your computer vision services running reliably.
 
 ## Don't Forget About Security and Privacy
 

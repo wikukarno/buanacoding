@@ -1,5 +1,5 @@
 ---
-title: 'Project Structure and Design Patterns Guide'
+title: 'Clean Code Laravel Project Structure and Design Patterns Guide'
 date: 2025-09-08T09:00:00+07:00
 draft: false
 url: /2025/09/clean-code-laravel-project-structure.html

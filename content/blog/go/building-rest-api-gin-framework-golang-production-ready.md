@@ -15,7 +15,7 @@ keywords: ["gin", "go", "golang", "rest api", "web framework", "production", "mi
 
 Building a REST API might seem straightforward at first glance, but creating one that's actually ready for production is a different beast entirely. After spending years working with various Go frameworks, I can tell you that the Gin framework hits that sweet spot between developer productivity and performance that makes it perfect for building robust APIs.
 
-If you've been building [basic REST APIs with Go's net/http package](/2025/05/how-to-build-rest-api-in-go-using-net-http.html), you've probably noticed how much boilerplate code you need to write for routing, middleware, and request handling. That's where Gin shines - it provides all the essential features you need while maintaining the performance advantages that make Go special.
+If you've been building [basic REST APIs with Go's net/http package](/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html), you've probably noticed how much boilerplate code you need to write for routing, middleware, and request handling. That's where Gin shines - it provides all the essential features you need while maintaining the performance advantages that make Go special.
 
 Today, we're going to build a complete user management API that includes everything you'd expect in a production system: proper authentication, validation, error handling, logging, and structured responses. By the end of this guide, you'll have a solid foundation for building any REST API in Go.
 
@@ -29,7 +29,7 @@ The framework includes built-in support for JSON binding, validation, middleware
 
 ## Setting Up Your Development Environment
 
-Before we dive into building our API, let's make sure you have everything set up correctly. First, ensure you have Go installed on your system (if not, check out our [installation guide for Linux](/2024/04/easiest-way-install-golang-on-linux.html)).
+Before we dive into building our API, let's make sure you have everything set up correctly. First, ensure you have Go installed on your system (if not, check out our [installation guide for Linux](/2024/04/easiest-way-to-install-golang-on-linux.html)).
 
 Create a new project directory and initialize your Go module:
 
@@ -888,7 +888,7 @@ Consider adding request ID tracking through your middleware chain - this makes d
 
 The foundation we've built today is solid, but there are many directions you can take it. Consider adding features like email verification for new accounts, password reset functionality, user profile images with file upload handling, and API documentation using tools like Swagger.
 
-You might also want to explore [microservices architecture](/2025/08/grpc-in-go-complete-guide-basics-production.html) if your application grows complex enough to warrant service separation.
+You might also want to explore [microservices architecture](/2025/08/grpc-in-go-complete-guide-from-basics-to-production.html) if your application grows complex enough to warrant service separation.
 
 For real-time features, you could integrate WebSocket support for notifications or live updates. Gin handles WebSocket upgrades gracefully while maintaining the same familiar API patterns.
 
@@ -900,6 +900,6 @@ What we've built today includes proper authentication, validation, error handlin
 
 The next time you're building a REST API in Go, give Gin serious consideration. It'll save you tons of development time while delivering the performance characteristics that make Go special for backend development.
 
-If you're interested in exploring more advanced Go web development patterns, check out our guide on [structuring Go projects for clean architecture](/2025/05/structuring-go-projects-clean-architecture.html) or learn about [advanced concurrency patterns](/2025/04/concurrency-in-go-goroutines-and.html) for handling high-traffic scenarios.
+If you're interested in exploring more advanced Go web development patterns, check out our guide on [structuring Go projects for clean architecture](/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html) or learn about [advanced concurrency patterns](/2025/04/concurrency-in-go-goroutines-and.html) for handling high-traffic scenarios.
 
 Got questions about building production APIs with Gin? Drop a comment below - I love discussing different approaches to API architecture and the challenges you run into when scaling Go applications.

@@ -2,7 +2,7 @@
 title: "How to Build a REST API in Go using net/http"
 date: 2025-05-11T08:00:00+07:00
 draft: false
-url: /2025/05/how-to-build-rest-api-in-go-using-net-http.html
+url: /2025/05/how-to-build-a-rest-api-in-go-using-net-http.html
 tags:
   - Go
 description: "Learn how to build a REST API in Go using the net/http package. This guide covers the basics of setting up a server, handling requests, and returning JSON responses."

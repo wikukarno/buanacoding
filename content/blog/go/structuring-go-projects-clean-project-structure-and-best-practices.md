@@ -2,7 +2,7 @@
 title: "Structuring Go Projects Clean Project Structure and Best Practices"
 date: 2025-05-18T10:00:00+07:00
 draft: false
-url: /2025/05/structuring-go-projects-clean-architecture.html
+url: /2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html
 tags:
     - Go
 description: "Learn how to structure your Go projects effectively with best practices and clean architecture principles. Discover the ideal directory structure, package organization, and tips for maintainable code."

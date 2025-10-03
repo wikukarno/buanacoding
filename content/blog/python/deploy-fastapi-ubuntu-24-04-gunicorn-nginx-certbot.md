@@ -575,6 +575,6 @@ Recommended next steps
 
 Related articles:
 - [Nginx + Certbot on Ubuntu 24.04](/2025/08/nginx-certbot-ubuntu-24-04-free-https.html) - SSL setup guide
-- [Install Docker on Ubuntu 24.04](/2025/08/install-docker-on-ubuntu-24-04-compose-v2-rootless.html) - Containerized deployment option
+- [Install Docker on Ubuntu 24.04](/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html) - Containerized deployment option
 
 That's it! You now have a production-ready FastAPI deployment on Ubuntu 24.04 with multiple process management options (systemd vs PM2), HTTPS encryption, and comprehensive monitoring. Choose the approach that best fits your infrastructure and scaling needs. Happy coding!

@@ -1,7 +1,7 @@
 ---
 title: "gRPC in Go Complete Guide from Basics to Production Ready Services"
 date: 2025-08-28
-url: /2025/08/grpc-in-go-complete-guide-basics-production.html
+url: /2025/08/grpc-in-go-complete-guide-from-basics-to-production.html
 description: "Learn how to build high-performance gRPC services in Go from scratch. Complete guide covering protocol buffers, server implementation, client creation, authentication, and production deployment strategies."
 keywords: ["grpc", "go", "golang", "protocol buffers", "microservices", "rpc", "api", "server", "client", "authentication", "production", "tutorial"]
 tags: ["go", "grpc", "microservices", "tutorial", "beginner"]
@@ -10,7 +10,7 @@ draft: false
 
 Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That's where gRPC comes in and absolutely crushes it. I've been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.
 
-If you've been building [REST APIs in Go](/2025/05/how-to-build-rest-api-in-go-using-net-http.html) and wondering whether there's a better approach for service-to-service communication, you're in the right place. Today, we'll explore gRPC from the ground up, building a complete user management service that you can actually use in production.
+If you've been building [REST APIs in Go](/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html) and wondering whether there's a better approach for service-to-service communication, you're in the right place. Today, we'll explore gRPC from the ground up, building a complete user management service that you can actually use in production.
 
 ## What Makes gRPC Special?
 
@@ -22,7 +22,7 @@ But here's the real kicker - type safety. When you define your service contract 
 
 ## Setting Up Your Go gRPC Environment
 
-First things first - let's get everything set up. First, make sure you have Go installed (if not, check out our guide on [installing Go on Linux](/2024/04/easiest-way-install-golang-on-linux.html)).
+First things first - let's get everything set up. First, make sure you have Go installed (if not, check out our guide on [installing Go on Linux](/2024/04/easiest-way-to-install-golang-on-linux.html)).
 
 You'll need to install the Protocol Buffer compiler and the Go plugins:
 
@@ -169,7 +169,7 @@ grpc-user-service/
 
 ## Implementing the gRPC Server
 
-Now we're getting to the fun part. Unlike [handling HTTP requests manually](/2025/05/how-to-build-rest-api-in-go-using-net-http.html), gRPC generates most of the boilerplate for us. We just need to implement the business logic.
+Now we're getting to the fun part. Unlike [handling HTTP requests manually](/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html), gRPC generates most of the boilerplate for us. We just need to implement the business logic.
 
 Create `server/user_server.go`:
 
@@ -472,7 +472,7 @@ go run client/main.go
 
 ## Production Considerations
 
-Alright, so when you want to actually deploy this thing to production, there's some stuff you need to think about. Unlike deploying a simple [REST API](/2025/05/how-to-build-rest-api-in-go-using-net-http.html), gRPC services need a bit more thought around load balancing and TLS setup.
+Alright, so when you want to actually deploy this thing to production, there's some stuff you need to think about. Unlike deploying a simple [REST API](/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html), gRPC services need a bit more thought around load balancing and TLS setup.
 
 First off, make sure you've got solid [error handling](/2025/04/error-handling-in-go-managing-errors.html) throughout your service. gRPC gives you a bunch of useful status codes so your clients know exactly what went wrong.
 
@@ -490,7 +490,7 @@ Testing gRPC services is actually pretty straightforward - you can write [unit t
 
 gRPC is honestly a game changer for building fast, reliable distributed systems in Go. Sure, there's a bit of a learning curve if you're coming from REST, but trust me - once you see the performance gains and never have to deal with JSON parsing bugs again, you'll wonder why you waited so long.
 
-What we built today is just basic CRUD stuff, but you can go crazy with streaming, fancy auth, and integrate it with your existing [Go project setup](/2025/05/structuring-go-projects-clean-architecture.html).
+What we built today is just basic CRUD stuff, but you can go crazy with streaming, fancy auth, and integrate it with your existing [Go project setup](/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html).
 
 Next time you're working on microservices, seriously give gRPC a shot. I guarantee you'll be kicking yourself for not trying it sooner.
 

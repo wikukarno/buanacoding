@@ -1,5 +1,5 @@
 ---
-title: 'Production Issues Troubleshooting'
+title: 'Advanced Laravel Debugging with Logs Production Issues Troubleshooting'
 date: 2025-09-06T10:00:00+07:00
 draft: false
 url: /2025/09/advanced-laravel-debugging-with-logs.html
