@@ -18,78 +18,251 @@
 
 @layer components {
   .prose {
-    @apply max-w-none leading-relaxed;
+    @apply max-w-none;
 
+    /* Optimized reading experience for long articles */
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    word-spacing: 0.05em;
+
+    /* Typography Scale & Spacing */
     h1 {
-      @apply text-2xl lg:text-3xl font-extrabold mb-3;
+      @apply text-3xl lg:text-4xl font-extrabold mb-6 mt-8;
+      @apply text-gray-900 dark:text-white;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
 
     h2 {
-      @apply text-xl lg:text-2xl font-bold mb-3;
+      @apply text-2xl lg:text-3xl font-bold mb-5 mt-12;
+      @apply text-gray-900 dark:text-white;
+      @apply border-b-2 border-gray-200 dark:border-gray-700 pb-2;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
 
     h3 {
-      @apply text-lg lg:text-xl font-semibold mb-3;
+      @apply text-xl lg:text-2xl font-semibold mb-4 mt-10;
+      @apply text-gray-800 dark:text-gray-100;
+      line-height: 1.4;
     }
 
     h4 {
-      @apply text-base lg:text-lg font-semibold mb-3;
+      @apply text-lg lg:text-xl font-semibold mb-3 mt-8;
+      @apply text-gray-800 dark:text-gray-100;
+      line-height: 1.4;
     }
 
     h5 {
-      @apply text-sm lg:text-base font-semibold mb-3;
+      @apply text-base lg:text-lg font-semibold mb-3 mt-6;
+      @apply text-gray-700 dark:text-gray-200;
+      line-height: 1.5;
     }
 
     h6 {
-      @apply text-xs lg:text-sm font-semibold mb-3;
+      @apply text-sm lg:text-base font-semibold mb-3 mt-6;
+      @apply text-gray-700 dark:text-gray-200;
+      line-height: 1.5;
     }
 
+    /* Paragraph spacing for better readability */
     p {
-      @apply text-base lg:text-lg mb-4 text-gray-800 dark:text-gray-300;
+      @apply text-base lg:text-lg mb-6;
+      @apply text-gray-700 dark:text-gray-300;
+      line-height: 1.8;
+      max-width: 75ch; /* Optimal line length for reading */
     }
 
+    /* Strong text emphasis */
+    strong, b {
+      @apply font-semibold text-gray-900 dark:text-white;
+    }
+
+    /* Em text */
+    em, i {
+      @apply italic;
+    }
+
+    /* Links with better hover state */
     a {
-      @apply text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 transition-colors duration-200 underline;
+      @apply text-blue-600 dark:text-blue-400;
+      @apply hover:text-blue-700 dark:hover:text-blue-500;
+      @apply transition-colors duration-200;
+      @apply underline decoration-blue-300 dark:decoration-blue-600;
+      @apply underline-offset-2;
+    }
+
+    a:hover {
+      @apply decoration-blue-600 dark:decoration-blue-400;
+    }
+
+    /* Lists with proper spacing - deeper indentation */
+    ul, ol {
+      @apply mb-6;
+      padding-left: 2.5rem !important; /* Force deeper indentation mobile */
+    }
+
+    @media (min-width: 1024px) {
+      ul, ol {
+        padding-left: 4rem !important; /* Force deeper indentation desktop */
+      }
     }
 
     ul {
-      @apply list-disc pl-5 mb-4;
+      @apply list-disc;
     }
 
     ol {
-      @apply list-decimal pl-5 mb-4;
+      @apply list-decimal;
     }
 
     li {
-      @apply mb-2;
+      @apply mb-3;
+      @apply text-gray-700 dark:text-gray-300;
+      line-height: 1.7;
     }
 
+    li > p {
+      @apply mb-3;
+    }
+
+    /* Nested lists - even deeper */
+    ul ul, ol ul {
+      @apply mt-3 mb-3;
+      padding-left: 2rem !important; /* Force nested indent mobile */
+    }
+
+    ul ol, ol ol {
+      @apply mt-3 mb-3;
+      padding-left: 2rem !important; /* Force nested indent mobile */
+    }
+
+    @media (min-width: 1024px) {
+      ul ul, ol ul, ul ol, ol ol {
+        padding-left: 2.5rem !important; /* Force nested indent desktop */
+      }
+    }
+
+    /* Blockquote styling */
     blockquote {
-      @apply border-l-4 pl-4 italic text-gray-600 dark:text-gray-400 mb-4;
+      @apply border-l-4 border-blue-500 dark:border-blue-600;
+      @apply pl-6 pr-4 py-3 my-6;
+      @apply bg-blue-50 dark:bg-gray-800/50;
+      @apply rounded-r-lg;
+      @apply italic text-gray-700 dark:text-gray-300;
     }
 
+    blockquote p {
+      @apply mb-0;
+    }
+
+    /* Code blocks with better readability */
     pre {
-      @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto text-sm;
+      @apply bg-gray-900 dark:bg-gray-950;
+      @apply p-5 lg:p-6;
+      @apply rounded-xl;
+      @apply mb-6;
+      @apply overflow-x-auto;
+      @apply border border-gray-700 dark:border-gray-800;
+      @apply shadow-lg;
     }
 
+    pre code {
+      @apply bg-transparent;
+      @apply text-sm lg:text-base;
+      @apply text-gray-100;
+      @apply font-mono;
+      @apply px-0 py-0;
+      line-height: 1.6;
+      letter-spacing: 0;
+    }
+
+    /* Inline code */
     code {
-      @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm font-mono;
+      @apply bg-gray-100 dark:bg-gray-800;
+      @apply px-2 py-1;
+      @apply rounded;
+      @apply text-sm lg:text-base;
+      @apply font-mono;
+      @apply text-pink-600 dark:text-pink-400;
+      @apply border border-gray-200 dark:border-gray-700;
     }
 
+    pre code {
+      @apply border-0;
+      @apply text-gray-100;
+    }
+
+    /* Table styling */
     table {
-      @apply table-auto w-full border border-collapse mb-6;
+      @apply table-auto w-full;
+      @apply border-collapse;
+      @apply mb-8;
+      @apply rounded-lg;
+      @apply overflow-hidden;
+      @apply shadow-md;
+    }
+
+    thead {
+      @apply bg-gray-100 dark:bg-gray-800;
     }
 
     th {
-      @apply border px-4 py-2 bg-gray-100 dark:bg-gray-700 text-left;
+      @apply border border-gray-300 dark:border-gray-700;
+      @apply px-4 py-3;
+      @apply text-left;
+      @apply font-semibold;
+      @apply text-gray-900 dark:text-white;
     }
 
     td {
-      @apply border px-4 py-2;
+      @apply border border-gray-300 dark:border-gray-700;
+      @apply px-4 py-3;
+      @apply text-gray-700 dark:text-gray-300;
     }
 
+    tbody tr:hover {
+      @apply bg-gray-50 dark:bg-gray-800/50;
+    }
+
+    /* Horizontal rule */
     hr {
-      @apply my-8 border-t border-gray-300 dark:border-gray-700;
+      @apply my-12;
+      @apply border-t-2 border-gray-200 dark:border-gray-700;
+    }
+
+    /* Images */
+    img {
+      @apply rounded-lg;
+      @apply shadow-md;
+      @apply my-6;
+      @apply border border-gray-200 dark:border-gray-700;
+    }
+
+    /* Figure */
+    figure {
+      @apply my-8;
+    }
+
+    figcaption {
+      @apply text-sm text-gray-600 dark:text-gray-400;
+      @apply text-center mt-3;
+      @apply italic;
+    }
+
+    /* Improve spacing between sections */
+    h2 + p,
+    h3 + p,
+    h4 + p {
+      @apply mt-4;
+    }
+
+    /* Better spacing for lists after headings */
+    h2 + ul,
+    h2 + ol,
+    h3 + ul,
+    h3 + ol {
+      @apply mt-4;
     }
   }
 }
