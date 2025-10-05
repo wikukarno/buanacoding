@@ -406,25 +406,7 @@
 &lt;p&gt;Snap is a universal package manager developed by Canonical (Ubuntu’s creator). It simplifies app installation by bundling dependencies, ensuring compatibility across most Linux distributions.&lt;/p&gt;</description></item><item><title>How to fix broken update error in linux (Terminal)</title><link>https://www.buanacoding.com/2023/11/how-to-fix-broken-update-error-in-linux.html</link><pubDate>Sat, 11 Nov 2023 12:47:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/11/how-to-fix-broken-update-error-in-linux.html</guid><description>&lt;p&gt;Linux is a robust operating system, but occasionally you might encounter a &amp;lsquo;broken update error&amp;rsquo; when trying to update your system through the terminal. This issue can halt your system updates and potentially affect system stability. Here’s a comprehensive guide on how to resolve this error, ensuring your Linux system remains up-to-date and secure.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Understanding the Error&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;A broken update error in Linux typically occurs when package dependencies are unsatisfied, when there are conflicts between packages, or when the package repositories are not correctly configured. This can lead to a partial or failed update, rendering your system&amp;rsquo;s package manager unable to proceed with updates.&lt;/p&gt;</description></item><item><title>how to install and configure yajra datatable in Laravel</title><link>https://www.buanacoding.com/2023/08/how-to-install-and-configure-yajra.html</link><pubDate>Sun, 06 Aug 2023 00:13:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/08/how-to-install-and-configure-yajra.html</guid><description>&lt;p&gt;In the realm of modern web development, providing a seamless user experience and enhancing the overall performance of your web applications is paramount. One essential aspect that plays a pivotal role in achieving these goals is efficient data presentation and manipulation. This is where Yajra DataTables comes into the picture.&lt;/p&gt;
-&lt;p&gt;Yajra DataTables is a powerful and versatile jQuery-based plugin for Laravel, designed to simplify the process of displaying data in tabular form with advanced features such as filtering, sorting, pagination, and more. It empowers developers to create interactive and dynamic data tables effortlessly, significantly improving how data is showcased to end users.&lt;/p&gt;</description></item><item><title>Cara Menjalankan Project Laravel Clone dari GitHub</title><link>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</link><pubDate>Sun, 09 Apr 2023 23:08:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</guid><description>&lt;p&gt;Sebelum kita melakukan cloning project Laravel dari GitHub, pastikan kamu telah menginstal tools berikut agar proses berjalan lancar.&lt;/p&gt;
-&lt;p&gt;Tools di bawah ini sangat penting. Tanpa keduanya, kamu tidak akan bisa menjalankan project Laravel dengan benar.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href="https://git-scm.com/" target="_blank" rel="nofollow noopener noreferrer"&gt;
- Git
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://getcomposer.org/download/" target="_blank" rel="nofollow noopener noreferrer"&gt;
- Composer
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Untuk mendapatkan project Laravel dari GitHub, ada dua cara:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Menggunakan Git&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mengunduh via file ZIP&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Tidak ada perbedaan signifikan, hanya beda cara ambilnya. Kita bahas dua-duanya.&lt;/p&gt;
-&lt;h2 id="-cara-clone-menggunakan-git"&gt;💻 Cara Clone Menggunakan Git&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Salin URL repository dari GitHub (HTTPS atau SSH).&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Yajra DataTables is a powerful and versatile jQuery-based plugin for Laravel, designed to simplify the process of displaying data in tabular form with advanced features such as filtering, sorting, pagination, and more. It empowers developers to create interactive and dynamic data tables effortlessly, significantly improving how data is showcased to end users.&lt;/p&gt;</description></item><item><title>Cara Menjalankan Project Laravel Clone dari GitHub</title><link>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</link><pubDate>Sun, 09 Apr 2023 23:08:00 +0700</pubDate><guid>https://www.buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html</guid><description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Dapat project Laravel dari GitHub tapi bingung cara jalankannya? Atau malah error melulu saat setup? Tenang, kamu tidak sendirian. Banyak developer pemula (bahkan yang udah agak senior) sering stuck di tahap ini.&lt;/p&gt;
+&lt;p&gt;Clone project Laravel dari GitHub itu gampang kalau tau step-by-step yang benar. Tapi kalau asal comot dan langsung jalankan, siap-siap ketemu segudang error dari missing dependencies, database connection failed, sampai permission issues.&lt;/p&gt;</description></item></channel></rss>
