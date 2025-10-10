@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn about the string data type in Go, its immutability, basic operations, manipulation, and practical examples."
 keywords: ["Go", "string", "data type", "immutability", "operations", "manipulation", "examples"]
+faq:
+  - question: "Are strings mutable in Go?"
+    answer: "No. Strings are immutable byte sequences. Any operation that seems to modify a string actually creates a new string."
+  - question: "How do I safely iterate over Unicode characters?"
+    answer: "Use for range to iterate over runes (Unicode code points). Indexing by position operates on bytes, not runes."
+  - question: "What is the cost of substring slicing?"
+    answer: "Slicing creates a new string header referencing the same underlying bytes. Be careful with long-lived substrings of huge strings—they can hold the entire backing array in memory."
+  - question: "How can I build strings efficiently in a loop?"
+    answer: "Use strings.Builder or bytes.Buffer to avoid repeated allocations when concatenating many pieces."
+  - question: "How do I convert between string and []byte?"
+    answer: "Use []byte(s) and string(b). They copy data. For zero-copy patterns, consider unsafe only with deep understanding—otherwise, prefer safe copies."
+  - question: "What’s the difference between len(s) and number of characters?"
+    answer: "len(s) returns the number of bytes, not runes. Use utf8.RuneCountInString(s) to count Unicode code points."
 ---
 
 In our series on understanding data types in the Go programming language, after discussing numeric and boolean types, we will now explore strings. Strings are one of the most frequently used data types in programming due to their ubiquitous use in handling text. In Go, strings have several unique characteristics that we will explore in this article.

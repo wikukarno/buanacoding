@@ -12,6 +12,19 @@ tags:
   - Distributed Systems
 description: "Master service discovery in Go microservices using Consul and etcd. Complete implementation guide with registration, health checks, load balancing, and production best practices."
 keywords: ["golang service discovery", "consul golang", "etcd golang", "microservices golang", "service registry", "distributed systems go", "consul health check", "etcd watch api"]
+faq:
+  - question: "What’s the difference between Consul and etcd for service discovery?"
+    answer: "Consul ships with first-class service discovery primitives (health checks, DNS, key/value) and is easy to adopt. etcd offers a strongly consistent key-value store with efficient watch APIs, great for custom discovery. Choose Consul for batteries-included discovery, etcd when you need a general-purpose, consistent store."
+  - question: "Should I use client-side or server-side discovery?"
+    answer: "Client-side discovery queries the registry directly and picks an instance; it’s simple and fast but adds logic to clients. Server-side discovery offloads selection to a proxy/load balancer (e.g., Envoy), centralizing policies and enabling advanced traffic management. Many systems use both."
+  - question: "How do I implement health checks effectively?"
+    answer: "Expose /health endpoints with meaningful checks (DB, cache). Register checks in Consul or use TTL-based heartbeats. Ensure failing instances are quickly removed and use retries with backoff."
+  - question: "How do I secure service discovery traffic?"
+    answer: "Enable mTLS between services and the registry, use ACLs (Consul) or RBAC with TLS (etcd), and restrict access at the network layer. Rotate certificates and keep minimal privileges for each service."
+  - question: "What happens during network partitions?"
+    answer: "Design for partial failures: set sensible timeouts, retries, and circuit breakers. etcd prioritizes consistency and may reject writes during quorum loss; Consul uses anti-entropy and eventually converges—plan fallback behavior accordingly."
+  - question: "Do I still need a service mesh if I use Consul/etcd?"
+    answer: "A registry solves discovery; a mesh adds mTLS, retries, timeouts, traffic shaping, and observability without code changes. Use a mesh when you need uniform cross-cutting policies at scale."
 ---
 
 In the early days of web development, finding services was simple. Your database lived at `localhost:5432`, your cache at `localhost:6379`, and everything was predictable. But when you move to microservices, suddenly you have dozens of services spinning up and down across multiple servers, and nobody knows where anything is anymore.

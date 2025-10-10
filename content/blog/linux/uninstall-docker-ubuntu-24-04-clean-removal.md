@@ -10,6 +10,19 @@ tags:
   - Troubleshooting
 description: "Completely uninstall Docker on Ubuntu 24.04 (Noble): stop services, purge packages, remove images/containers/volumes/networks, clean configs, rootless uninstall, and verify removal."
 keywords: ["uninstall docker ubuntu 24.04", "remove docker completely", "docker compose v2 ubuntu", "purge docker", "uninstall containerd", "rootless docker uninstall"]
+faq:
+  - question: "Will uninstalling Docker delete all my containers and images?"
+    answer: "Yes, following the complete uninstall process removes all containers, images, volumes, and networks. The guide includes an optional step to explicitly remove this data before purging packages. If you want to preserve data, skip step 1 and backup /var/lib/docker before proceeding with the removal."
+  - question: "What's the difference between apt remove and apt purge for Docker?"
+    answer: "The command apt remove uninstalls Docker packages but keeps configuration files in /etc/docker and /etc/containerd. Meanwhile, apt purge removes both packages and configuration files, providing a cleaner removal. This guide uses purge along with manual directory removal to ensure complete cleanup."
+  - question: "Do I need to uninstall rootless Docker separately?"
+    answer: "Yes, rootless Docker runs as a user service under systemd --user and stores data in your home directory (~/.local/share/docker). If you enabled rootless Docker, follow step 5 to stop the user service, run dockerd-rootless-setuptool.sh uninstall, and remove user-specific data and configs."
+  - question: "How can I verify Docker is completely removed?"
+    answer: "Run these verification commands: check if Docker CLI exists with 'command -v docker', search for remaining packages with 'dpkg -l | grep docker', verify services are stopped with 'systemctl status docker' and 'systemctl status containerd'. All commands should show Docker is not found or services are inactive."
+  - question: "Can I reinstall Docker after complete removal?"
+    answer: "Yes, complete removal actually creates a clean slate for reinstallation. After uninstalling, you can follow the fresh installation guide for Ubuntu 24.04 to reinstall Docker Engine, Compose v2 plugin, and optionally enable rootless mode again. The removal process doesn't prevent future installations."
+  - question: "What should I do if I get permission denied errors during uninstall?"
+    answer: "Permission denied errors during uninstall typically mean you need sudo privileges. Ensure all docker and systemctl commands use sudo. If removing user data (~/.docker, ~/.local/share/docker) fails, check file ownership with 'ls -la' and use sudo only for system directories, not your home directory files."
 ---
 
 Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: [Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2]({{< relref "blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.md" >}}). For HTTPS and reverse proxy, see: [Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt]({{< relref "blog/linux/nginx-certbot-ubuntu-24-04-free-https-with-letsencrypt.md" >}}).

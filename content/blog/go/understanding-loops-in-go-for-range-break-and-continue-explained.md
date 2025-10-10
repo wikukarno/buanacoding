@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to use loops in Go: for, range, break, and continue. Understand how to iterate over collections and control loop flow."
 keywords: ["Go", "loops", "for", "range", "break", "continue", "programming"]
+faq:
+  - question: "How do I iterate over slices and maps idiomatically?"
+    answer: "Use for range. For slices you get index and value; for maps you get key and value. Remember that map iteration order is randomized—don’t rely on ordering."
+  - question: "Why do goroutines capture the loop variable unexpectedly?"
+    answer: "The range variable is reused on each iteration. Create a local copy inside the loop (v := v) before launching a goroutine to capture the correct value."
+  - question: "When should I use break vs continue?"
+    answer: "Use break to exit the loop entirely, continue to skip to the next iteration. For nested loops, consider labels to break a specific outer loop—but use them sparingly."
+  - question: "How do I loop over strings safely with Unicode?"
+    answer: "Use for range to iterate over runes, not bytes. This ensures multi-byte UTF-8 characters are handled correctly."
+  - question: "Any performance tips for loops in Go?"
+    answer: "Pre-allocate slices with make when the size is known, avoid unnecessary conversions, and minimize work inside tight loops. Use benchmarks to guide optimizations."
+  - question: "How can I avoid off-by-one errors in loops?"
+    answer: "Prefer clear loop conditions, test boundaries, and use len(s) consistently. Write small unit tests to cover edge indices."
 ---
 
 Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they're built using just one keyword: for.

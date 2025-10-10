@@ -7,6 +7,19 @@ tags:
   - Go
 description: "Learn how to build a REST API in Go using the net/http package. This guide covers the basics of setting up a server, handling requests, and returning JSON responses."
 keywords: ["go", "golang", "rest api", "net/http", "json", "web development"]
+faq:
+  - question: "Should I use a router or stick with net/http only?"
+    answer: "For small APIs, net/http with the default ServeMux works fine. As routes grow, a lightweight router (e.g., chi, httprouter) provides path params, middleware chains, and cleaner setup without heavy dependencies."
+  - question: "What’s the idiomatic way to return JSON responses?"
+    answer: "Set Content-Type to application/json and use json.NewEncoder(w).Encode(value). Avoid manual marshaling and writes; Encoder handles streaming and errors gracefully."
+  - question: "How do I structure middleware with net/http?"
+    answer: "Wrap handlers with functions that take and return http.Handler. Compose logging, recovery, CORS, and auth middleware by chaining wrapper functions."
+  - question: "How can I implement graceful shutdown?"
+    answer: "Use http.Server with a context and call Shutdown(ctx) on SIGINT/SIGTERM. Ensure handlers respect context cancellation to finish in-flight requests cleanly."
+  - question: "How should I organize handler and business logic?"
+    answer: "Keep transport code (HTTP handlers) thin and delegate to services/use-cases. Define input/output DTOs at the edge and keep domain logic independent to ease testing and future migrations."
+  - question: "How do I test handlers effectively?"
+    answer: "Use httptest.NewRecorder and httptest.NewRequest to simulate requests. Assert status codes, headers, and response bodies. Mock dependencies or use in-memory fakes for fast, deterministic tests."
 ---
 
 Building a REST API in Go is one of the most practical ways to learn how Go handles HTTP servers, [JSON](https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html), and struct-based logic. In this tutorial, you’ll learn how to create a simple RESTful API using the standard net/http package—without using any third-party frameworks. This is a great starting point before moving to more complex architectures.

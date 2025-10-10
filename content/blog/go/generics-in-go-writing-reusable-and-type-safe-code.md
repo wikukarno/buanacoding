@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to use generics in Go to write reusable and type-safe code."
 keywords: ["Go", "generics", "type-safe", "reusable", "code", "functions", "types"]
+faq:
+  - question: "When should I prefer generics over interfaces?"
+    answer: "Use generics when you need type-safe operations over multiple concrete types without runtime type assertions. Prefer interfaces when behavior abstraction matters more than data shape, or when you only consume methods."
+  - question: "What are type constraints and why are they important?"
+    answer: "Constraints define which types are permitted for a type parameter. Use built-in constraints like comparable or define your own interfaces (e.g., type Number interface{ ~int | ~float64 }) to enable operators and restrict usage."
+  - question: "Do generics have a runtime performance cost in Go?"
+    answer: "In most cases, generic code compiles down efficiently with no significant overhead compared to hand-written versions. Measure with benchmarks to confirm for your workload."
+  - question: "How do I create reusable generic utilities?"
+    answer: "Put generic helpers in small packages (e.g., slices, maps) with clear constraints. Provide focused operations (Map, Filter, Reduce, Set) and avoid over-generalizing."
+  - question: "Can generics lead to over-engineering?"
+    answer: "Yes. Start with simple, concrete code. Introduce generics when duplication or unsafe type assertions become a problem, and keep APIs minimal and clear."
+  - question: "How do I migrate pre-1.18 code to generics safely?"
+    answer: "Refactor incrementally: extract common patterns into generic helpers, add tests before changes, and avoid large rewrites. Ensure API compatibility where external consumers depend on your package."
 ---
 
 Generics were introduced in Go 1.18, marking a significant evolution of the language. They allow you to write flexible, reusable code without sacrificing type safety. With generics, you can define functions, types, and data structures that work with different types, all while maintaining strong compile-time checks.

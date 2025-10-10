@@ -11,6 +11,19 @@ url: "/2025/08/what-are-passkeys-how-to-enable-google-apple-password-managers.ht
 translationKey: "passkeys-2025"
 disable_comments: false
 ad_channel: "passkeys"
+faq:
+  - question: "Can I use passkeys across different devices and platforms (iPhone to Windows)?"
+    answer: "Yes, but it depends on where you store your passkeys. Platform-bound passkeys (iCloud Keychain, Google Password Manager) sync only within their ecosystems. For cross-platform compatibility, use a password manager that supports passkeys like 1Password, Bitwarden, or Proton Pass—they work on iOS, Android, Windows, macOS, and Linux. These managers sync passkeys across all your devices regardless of platform, giving you seamless access everywhere."
+  - question: "What happens to my passkeys if I lose my phone or switch devices?"
+    answer: "If passkeys are synced via iCloud Keychain (Apple), Google Password Manager, or a password manager (1Password/Bitwarden), they're automatically available on your new device after signing in. For unsynced local passkeys, you'll lose access unless you registered backup authentication methods (additional passkey on another device, security key, or password fallback). Always enable sync and register at least two passkeys or backup methods for critical accounts."
+  - question: "Are passkeys better than using a password manager with strong passwords and 2FA?"
+    answer: "Passkeys offer stronger phishing resistance because they're cryptographically bound to the correct domain—they can't be used on fake lookalike sites. Password managers + strong passwords + TOTP/2FA are very secure, but users can still be tricked into entering credentials on phishing pages. Passkeys eliminate that risk entirely. Ideally, use a password manager that supports both passkeys (for sites that offer them) and strong passwords + 2FA (for sites that don't). This gives you maximum security and compatibility."
+  - question: "Do I still need a hardware security key if I use passkeys?"
+    answer: "For most users, synced passkeys from Google, Apple, or a password manager provide excellent security. However, hardware security keys (YubiKey, Titan) offer additional benefits: they're offline, can't be remotely compromised, work as reliable backup authentication, and some organizations require them for compliance. For critical accounts (email, domain registrar, financial, admin panels), keeping at least one hardware key as a backup is highly recommended even if you primarily use passkeys."
+  - question: "Can passkeys be hacked or stolen like passwords?"
+    answer: "Passkeys are much harder to compromise than passwords. The private key never leaves your device or password manager's encrypted storage, and signatures only work on the correct domain. An attacker would need to compromise your device (OS/browser) or password manager account (protected by master password + biometrics + 2FA) to steal passkeys. In contrast, passwords can be phished, guessed, intercepted, or leaked from breached databases. Keep your device/manager secure with updates, strong master password, and 2FA to maximize passkey protection."
+  - question: "Which websites and apps currently support passkeys in 2025?"
+    answer: "Major platforms supporting passkeys include Google (Gmail, Drive), Apple (iCloud), Microsoft (Outlook, Azure), PayPal, Amazon, eBay, GitHub, 1Password, Shopify, Best Buy, and many others. Adoption is accelerating—banks, email providers, e-commerce sites, and developer platforms are rolling out passkey support continuously. Check your account's security settings for 'passkey', 'passwordless', or 'FIDO2' options. For the latest list, visit passkeys.directory or check individual service security documentation."
 ---
 
 

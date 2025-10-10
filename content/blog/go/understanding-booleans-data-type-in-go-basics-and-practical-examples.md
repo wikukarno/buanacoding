@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn about the boolean data type in Go, its usage in conditional statements, loops, and practical examples."
 keywords: ["Go", "boolean", "data type", "conditional statements", "loops", "examples"]
+faq:
+  - question: "What is the zero value of a boolean in Go?"
+    answer: "The zero value of a boolean is false. If you declare a bool without assigning a value, it defaults to false."
+  - question: "Should I use boolean pointers?"
+    answer: "Avoid bool pointers unless you need tri-state semantics (true/false/unknown). Prefer plain bools for clarity; use *bool only when you must distinguish 'unset' from 'false'."
+  - question: "How are booleans encoded in JSON with Go?"
+    answer: "Booleans are encoded as true/false. If a bool field is omitted, it decodes to false by default. Use pointer types or custom types to differentiate 'missing' vs explicitly false."
+  - question: "Any naming conventions for boolean fields?"
+    answer: "Use clear predicates: IsActive, HasPaid, CanDelete. Avoid double negatives and ambiguous names."
+  - question: "How do I parse boolean flags from env/CLI?"
+    answer: "Use strconv.ParseBool for env strings and the flag package for CLI. Support common truthy/falsey values (1/0, t/f, true/false)."
+  - question: "Common pitfalls when using booleans in control flow?"
+    answer: "Avoid deeply nested conditions; use guard clauses or early returns. Prefer explicit checks and keep conditions readable and testable."
 ---
 
 In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.

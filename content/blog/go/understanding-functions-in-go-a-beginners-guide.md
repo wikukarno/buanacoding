@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to define, call, and use functions in Go. Understand parameters, return values, and best practices."
 keywords: ["Go", "functions", "programming", "beginner", "guide", "parameters", "return values"]
+faq:
+  - question: "When should I use multiple return values?"
+    answer: "Go idiomatically returns a value and an error as separate results. Use multiple returns to provide additional context (e.g., value, ok) or to avoid exceptions for common error paths."
+  - question: "Are named return values a good idea?"
+    answer: "Use them when they improve readability, especially for short functions with a small number of return values. Avoid overusing them when they obscure control flow or encourage naked returns."
+  - question: "What are variadic functions and when to use them?"
+    answer: "Variadic functions accept a variable number of arguments (e.g., fmt.Println). Use them for ergonomic APIs where a list of items is natural."
+  - question: "Do Go functions pass by value or reference?"
+    answer: "Go passes arguments by value. When you pass a pointer, slice, or map, the reference is copied, and the underlying data can be modified through it."
+  - question: "How do closures work in Go?"
+    answer: "Functions are first-class values and can capture variables from their surrounding scope. Be mindful of loop variables; create local copies when launching goroutines."
+  - question: "Should I use panic for errors in functions?"
+    answer: "Prefer returning errors for expected failure modes. Reserve panic for truly exceptional, unrecoverable situations (e.g., programmer bugs, impossible states)."
 ---
 
 Functions are an essential part of programming in any language, and Go is no exception. A function lets you organize code into reusable blocks, which helps reduce duplication and improve readability. In this article, you’ll learn how functions work in Go, how to define them, use them, and apply best practices.

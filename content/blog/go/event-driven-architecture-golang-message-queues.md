@@ -7,6 +7,19 @@ draft: false
 author: "Wiku Karno"
 keywords: ["Go", "Golang", "Event-Driven Architecture", "Message Queue", "NATS", "RabbitMQ", "Event Sourcing", "CQRS"]
 url: /2025/09/event-driven-architecture-golang-message-queues.html
+faq:
+  - question: "What is event-driven architecture in Go?"
+    answer: "Event-driven architecture (EDA) is a style where services communicate by publishing and consuming events instead of calling each other directly. In Go, you typically use a message broker (e.g., NATS, RabbitMQ, or Kafka) and lightweight consumers/producers to decouple services, improve scalability, and handle spikes through asynchronous processing."
+  - question: "When should I choose EDA over request/response APIs?"
+    answer: "Choose EDA when you need loose coupling, horizontal scalability, resilience to partial failures, and the ability to process workloads asynchronously. If your use case requires synchronous user feedback or strong transactional guarantees across services, mix EDA with request/response patterns or consider a saga pattern to coordinate workflows."
+  - question: "Which message broker should I use: NATS, RabbitMQ, or Kafka?"
+    answer: "Use NATS for lightweight, low-latency messaging and simple pub/sub; RabbitMQ for robust routing, acknowledgments, and at-least-once delivery semantics; Kafka for very high throughput, event streaming, and durable retention with replay. Pick based on delivery guarantees, throughput, and operational complexity you can manage."
+  - question: "How do I handle idempotency and retries?"
+    answer: "Include an idempotency key (e.g., event ID) and store processed IDs in a fast store (Redis/DB) with TTL. Make consumers idempotent, use durable queues with acknowledgments, implement exponential backoff, and send poison messages to a dead-letter queue (DLQ) for offline inspection and recovery."
+  - question: "What about eventual consistency and data integrity?"
+    answer: "Model aggregates to tolerate eventual consistency, emit domain events after local transactions commit, and let downstream services update their read models. Use the outbox pattern to atomically persist events with business data, then a relay publishes them to the broker to avoid dual-write problems."
+  - question: "How should I design and version events?"
+    answer: "Keep events small and descriptive (name, version, aggregate ID, timestamp, payload). Use schema evolution (add-only, default values) and version fields. Avoid breaking changes; publish new event versions while consumers gradually migrate. Maintain clear contracts and documentation for each event type."
 ---
 
 Traditional request-response architectures work well for simple applications, but as systems grow in complexity and scale, they often become bottlenecks. Event-driven architecture gives you a better way to build systems by letting components talk to each other through messages instead of direct calls. When combined with Go's excellent concurrency model and robust ecosystem, event-driven systems become powerful tools for building scalable, resilient applications.

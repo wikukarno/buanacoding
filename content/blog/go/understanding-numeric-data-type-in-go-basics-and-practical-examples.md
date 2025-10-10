@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn about numeric data types in Go, including integers, floating-point numbers, and complex numbers. Explore practical examples."
 keywords: ["Go", "numeric", "data type", "integers", "floating-point", "complex numbers", "examples"]
+faq:
+  - question: "Are int and uint sizes fixed in Go?"
+    answer: "The size of int and uint is platform-dependent (32-bit on 32-bit systems, 64-bit on 64-bit systems). Use explicitly sized types (int32, int64) when size matters for serialization or cross-platform code."
+  - question: "How do I avoid floating-point precision issues?"
+    answer: "Be mindful that floats are imprecise for decimal math. For money and exact decimals, use integer cents or a decimal library."
+  - question: "How does type conversion work between numeric types?"
+    answer: "Go requires explicit conversions (e.g., int(x)). Beware of overflow or truncation when converting between different sizes or signedness."
+  - question: "What happens on integer overflow?"
+    answer: "Go’s integers wrap around on overflow without panicking. Use checks, larger types, or math/bits helpers as needed."
+  - question: "How should I represent durations and times?"
+    answer: "Use time.Duration for intervals and time.Time for timestamps. Avoid storing durations as raw integers when you can use the typed APIs."
+  - question: "When should I use complex numbers in Go?"
+    answer: "Use complex64/complex128 for signal processing or numerical algorithms that require complex arithmetic. For general app code, they’re rarely needed."
 ---
 
 Go, also known as Golang, is a statically typed language developed by Google. It's known for its simplicity and efficiency, especially when it comes to systems and concurrent programming. In this article, we'll explore the numeric types in Go and provide practical examples to illustrate their usage.

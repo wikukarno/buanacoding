@@ -8,6 +8,19 @@ description: "A clear, no‑nonsense guide to ditching reused passwords, choosin
 keywords: ["password manager", "security", "2FA", "passkeys", "bitwarden", "1password", "proton pass", "keepassxc", "password hygiene"]
 url: "/2025/08/stop-reusing-passwords-practical-password-manager-guide.html"
 disable_comments: false
+faq:
+  - question: "Is it safe to store all my passwords in one password manager?"
+    answer: "Yes, when using reputable password managers. Your vault is encrypted with a master password using AES-256 or similar strong encryption. The encryption happens locally before syncing, so even the password manager company cannot read your data. Enable 2FA on your vault, use a strong master password, and choose established providers like Bitwarden, 1Password, or KeePassXC. The risk of password reuse far exceeds the risk of using a password manager."
+  - question: "What happens if I forget my master password?"
+    answer: "Most password managers cannot recover your master password due to zero-knowledge encryption—they don't have the decryption key. You'll lose access to your vault unless you saved recovery codes or set up account recovery options beforehand. That's why it's critical to write down your master password and store it securely (safe, lockbox) until memorized. Some managers like 1Password offer emergency kits; print and secure them immediately after setup."
+  - question: "Should I use a cloud-based or local password manager?"
+    answer: "Cloud-based managers (Bitwarden, 1Password, Proton Pass) offer seamless sync across devices, automatic backups, and easier family sharing—ideal for most users. Local managers (KeePassXC) give you full control, no cloud dependency, and work well if you manage your own sync (iCloud Drive, Syncthing). Choose cloud for convenience and built-in sync; choose local if you're comfortable with manual sync and want absolute control over your data."
+  - question: "Can I share passwords securely with family or team members?"
+    answer: "Yes, most password managers offer secure sharing features. Bitwarden has Organizations and Collections, 1Password offers Families and Teams plans with shared vaults, and Proton Pass supports secure sharing within the Proton ecosystem. Shared items remain encrypted and can be revoked anytime. Never share passwords via email, messaging apps, or documents—always use your password manager's built-in sharing to maintain encryption and access control."
+  - question: "How do I switch from one password manager to another?"
+    answer: "Export your vault from the old manager (usually as CSV or JSON from settings), then import into the new manager. Before deleting the old vault, verify all logins imported correctly and test a few critical accounts. Enable 2FA on the new manager immediately. Delete the exported file after import to avoid leaving unencrypted passwords on your system. Most managers support importing from common competitors, making migration straightforward."
+  - question: "Do I need to pay for a password manager?"
+    answer: "Not necessarily. Bitwarden's free tier is excellent for individuals with unlimited passwords, cross-device sync, and core security features. Paid tiers ($10-40/year) add TOTP generation, vault health reports, emergency access, and priority support. 1Password requires a subscription but offers polished UX and advanced family features. KeePassXC is completely free. Start with a free option like Bitwarden; upgrade if you need premium features like advanced reporting or family vaults."
 ---
 
 If you reuse passwords, the internet is quietly stacking odds against you. One small site gets breached, your email and password leak, and attackers try the same combo on your email, banking, cloud storage—everywhere. That “I’ll remember it” system works right up until it doesn’t. The fix isn’t superhuman memory; it’s outsourcing the problem to a tool designed for it: a password manager.

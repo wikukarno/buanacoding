@@ -12,6 +12,19 @@ tags:
   - HTTPS
 description: "A complete guide to deploying FastAPI on Ubuntu 24.04 using Gunicorn as the ASGI server and Nginx as a reverse proxy, plus free HTTPS via Certbot/Let’s Encrypt. Includes a systemd service, UFW firewall, and troubleshooting."
 keywords: ["fastapi", "deploy fastapi", "ubuntu 24.04", "gunicorn", "uvicorn", "nginx", "certbot", "let's encrypt", "systemd", "ufw"]
+faq:
+  - question: "Should I use systemd or PM2 for managing my FastAPI application?"
+    answer: "Use systemd if you want minimal overhead, native Ubuntu integration, and enterprise-grade process management with journald logging. Choose PM2 if you prefer easier monitoring with built-in dashboard, automatic log rotation, simpler clustering, and plan to manage multiple Node.js and Python services together. Systemd is recommended for most production deployments on Ubuntu."
+  - question: "How many Gunicorn workers should I configure?"
+    answer: "The recommended formula is (2 x CPU cores) + 1. Check your CPU cores with 'nproc' command. For example, a 2-core server should use 5 workers. Too few workers limit concurrency; too many waste memory and cause context switching overhead. Start with the formula and adjust based on your application's memory usage and traffic patterns."
+  - question: "Why do I get PermissionError when running uvicorn with --reload?"
+    answer: "Uvicorn with --reload flag tries to watch the current working directory. If you run from /root or another directory the fastapi user cannot access, you'll get permission errors. Always cd /opt/fastapi first before running uvicorn, or run without the --reload flag for testing. In production with systemd, this isn't an issue since WorkingDirectory is properly set."
+  - question: "How do I troubleshoot 502 Bad Gateway errors?"
+    answer: "Check if FastAPI is running with 'sudo systemctl status fastapi' or 'sudo -u fastapi pm2 status'. Test direct connection to Gunicorn with 'curl http://127.0.0.1:8000/healthz'. Check application logs with 'sudo journalctl -u fastapi -f' or 'sudo -u fastapi pm2 logs'. Verify Nginx configuration with 'sudo nginx -t'. Common causes include crashed application, wrong proxy_pass port, or firewall blocking local connections."
+  - question: "How often does Certbot auto-renew SSL certificates?"
+    answer: "Certbot automatically checks for renewal twice daily and renews certificates that expire within 30 days. Let's Encrypt certificates are valid for 90 days. Test automatic renewal with 'sudo certbot renew --dry-run'. The systemd timer /etc/systemd/system/certbot.timer handles automatic renewal. You can also manually renew with 'sudo certbot renew --force-renewal' if needed."
+  - question: "What is the difference between Gunicorn and Uvicorn?"
+    answer: "Uvicorn is an ASGI server that runs FastAPI applications directly and handles async/await. Gunicorn is a production-grade process manager that can spawn multiple Uvicorn workers for load balancing and zero-downtime reloads. In production, use Gunicorn with UvicornWorker (gunicorn -k uvicorn.workers.UvicornWorker) to get the best of both: Uvicorn's async capabilities with Gunicorn's process management."
 ---
 
 Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.

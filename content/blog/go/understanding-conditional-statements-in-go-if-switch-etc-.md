@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to use conditional statements in Go: if, else, and switch."
 keywords: ["Go", "conditional statements", "if", "else", "switch", "programming"]
+faq:
+  - question: "When should I use switch instead of if?"
+    answer: "Use switch when matching a single value against many cases or when using type switches. It often produces cleaner, flatter code than long if/else chains."
+  - question: "What are type switches and when are they useful?"
+    answer: "Type switches let you dispatch based on the dynamic type of an interface value. They are useful when handling values that may implement different concrete types."
+  - question: "Can I declare variables in an if statement?"
+    answer: "Yes, with the short statement form: if err := do(); err != nil { ... }. The variable scope is limited to the if/else blocks, which is great for error handling."
+  - question: "How does fallthrough work in switch?"
+    answer: "Go switch cases do not fall through by default. Using the fallthrough keyword executes the next case’s body, but use it sparingly and only when it improves clarity."
+  - question: "How can I avoid deeply nested conditions?"
+    answer: "Use guard clauses (early returns), break complex logic into functions, and invert conditions to reduce indentation and improve readability."
+  - question: "Any best practices for condition readability?"
+    answer: "Prefer positive conditions, extract complex checks into well-named helper functions, and keep each branch small and focused."
 ---
 
 Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.

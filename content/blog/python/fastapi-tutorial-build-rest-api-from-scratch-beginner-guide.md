@@ -11,6 +11,19 @@ tags:
   - Beginner
 description: "Learn how to build a complete REST API from scratch using FastAPI. This beginner-friendly tutorial covers everything from setup to deployment with practical examples and clear explanations."
 keywords: ["fastapi", "python", "rest api", "tutorial", "beginner", "web development", "api development", "fastapi tutorial"]
+faq:
+  - question: "Why choose FastAPI over Flask or Django for building REST APIs?"
+    answer: "FastAPI provides automatic API documentation (Swagger UI), built-in data validation with Pydantic, native async/await support for better performance, and type hints for IDE autocomplete and fewer bugs. Flask is simpler but requires manual validation and documentation. Django REST Framework is feature-rich but heavier with more boilerplate. FastAPI balances ease of use with modern Python features and excellent performance."
+  - question: "Do I need to understand async/await to use FastAPI?"
+    answer: "No, FastAPI works perfectly fine with regular synchronous functions. The tutorial uses sync functions throughout. You can write def endpoints instead of async def and they'll work great. Async becomes beneficial when making I/O operations like database queries or HTTP requests to external APIs. Start with sync code and add async later when you need the performance benefits."
+  - question: "What is the difference between Pydantic schemas and SQLAlchemy models?"
+    answer: "SQLAlchemy models define database table structure (columns, types, constraints) and handle database operations. Pydantic schemas define API request/response data structure and perform validation. Use SQLAlchemy models for database persistence and Pydantic schemas for API contract definition. Schemas control what data clients send and receive; models control what gets stored in database."
+  - question: "Why does FastAPI provide automatic interactive documentation?"
+    answer: "FastAPI generates Swagger UI (/docs) and ReDoc (/redoc) automatically from your code's type hints and Pydantic schemas. This eliminates manual documentation work and ensures docs stay synchronized with code. The interactive docs let you test endpoints directly in the browser without Postman, making API development and testing faster. It reads Python type annotations to understand request/response structures."
+  - question: "How do I handle file uploads in FastAPI?"
+    answer: "Use File and UploadFile from fastapi. Import them with 'from fastapi import File, UploadFile'. Create an endpoint like '@app.post(\"/upload\") def upload(file: UploadFile = File(...)): return {\"filename\": file.filename}'. UploadFile stores files in memory up to a threshold then spills to disk, making it memory-efficient for large files. Access file content with 'await file.read()' for binary or file.file for file-like object."
+  - question: "Can I use FastAPI with PostgreSQL or MySQL instead of SQLite?"
+    answer: "Yes, simply change the SQLALCHEMY_DATABASE_URL connection string. For PostgreSQL: 'postgresql://user:password@localhost/dbname'. For MySQL: 'mysql+pymysql://user:password@localhost/dbname'. Install the appropriate driver: psycopg2-binary for PostgreSQL or pymysql for MySQL. Everything else remains the same. SQLite is convenient for development; use PostgreSQL/MySQL for production."
 ---
 
 Building APIs used to scare me when I first started programming. There's so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It's like having training wheels that actually make you faster, not slower.

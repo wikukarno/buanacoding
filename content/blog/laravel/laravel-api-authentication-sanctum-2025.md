@@ -12,6 +12,19 @@ tags:
 description: 'A practical, end-to-end guide to Laravel Sanctum for SPA and mobile APIs: install, configure cookies and CORS, issue and revoke personal access tokens, protect routes, test flows, and harden production settings.'
 keywords: ['laravel sanctum','laravel api authentication','sanctum spa auth','sanctum csrf','sanctum personal access tokens','sanctum abilities','laravel auth:sanctum','laravel cors','stateful domains','sanctum production']
 featured: false
+faq:
+  - question: "What is the difference between Laravel Sanctum and Passport?"
+    answer: "Sanctum is lightweight and designed for first-party SPAs and simple token authentication with optional abilities. It uses Laravel's session system for SPAs and personal access tokens for APIs. Passport is a full OAuth2 server implementation for third-party API access, supporting authorization codes, refresh tokens, and complex OAuth flows. Choose Sanctum for mobile apps and your own SPA; choose Passport only when you need full OAuth2 compliance for third-party integrations."
+  - question: "When should I use cookie-based authentication vs personal access tokens in Sanctum?"
+    answer: "Use cookie-based authentication for single-page applications (SPAs) that share the same top-level domain as your API (e.g., app.example.com and api.example.com). This provides session-like authentication with CSRF protection. Use personal access tokens for mobile applications, third-party API clients, or server-to-server communication where cookies aren't practical. Tokens can have specific abilities/scopes and are sent via the Authorization: Bearer header."
+  - question: "Why do I get 419 CSRF token mismatch errors with Sanctum?"
+    answer: "This typically happens when your SPA doesn't request /sanctum/csrf-cookie before making authenticated requests, or CORS is misconfigured. Ensure supports_credentials is true in config/cors.php, your SPA origin is in allowed_origins, SESSION_DOMAIN matches your setup (e.g., .example.com), and your frontend sends the X-XSRF-TOKEN header on state-changing requests (POST, PUT, DELETE). The SPA must call /sanctum/csrf-cookie first to initialize the CSRF token."
+  - question: "Do Sanctum personal access tokens expire automatically?"
+    answer: "No, Sanctum tokens do not expire by default. You must implement token expiration yourself using scheduled jobs to prune old tokens based on last_used_at timestamps, or implement token rotation where you issue new tokens and revoke old ones. For security, implement a pruning strategy via Laravel's scheduler to delete tokens unused for 30+ days, or require periodic re-authentication in your application logic."
+  - question: "How do I handle multiple devices or sessions with Sanctum tokens?"
+    answer: "Each device should receive its own named token using createToken('device-name', ['abilities']). This allows users to manage and revoke individual device tokens. Track tokens by their name and last_used_at to show users their active sessions. To revoke a specific token, call $token->delete(). To revoke all tokens except current, use $user->tokens()->where('id', '!=', $currentToken->id)->delete(). This provides per-device token management similar to OAuth refresh tokens."
+  - question: "What are token abilities in Sanctum and how should I use them?"
+    answer: "Token abilities are like scopes or permissions attached to individual tokens. When creating tokens, specify abilities like createToken('mobile', ['orders:create', 'orders:read']). In controllers, check abilities with $request->user()->tokenCan('orders:create'). Use abilities to limit what each token can do, following the principle of least privilege. For example, a read-only reporting token should only have read abilities, while an admin token gets full abilities. This prevents token compromise from granting full API access."
 ---
 
 Laravel Sanctum offers two simple authentication modes that cover most applications:

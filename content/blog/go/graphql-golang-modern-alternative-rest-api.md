@@ -7,6 +7,19 @@ draft: false
 author: "Wiku Karno"
 keywords: ["Go", "Golang", "GraphQL", "REST API", "API Development", "gqlgen", "Web Services"]
 url: /2025/09/graphql-golang-modern-alternative-rest-api.html
+faq:
+  - question: "When should I choose GraphQL over REST in Go?"
+    answer: "Use GraphQL when clients need flexible queries, to reduce over/under-fetching, or to aggregate data from multiple sources in a single round trip. For simple, cache-friendly resources and public APIs, REST may remain simpler."
+  - question: "What are the recommended GraphQL libraries for Go?"
+    answer: "gqlgen is the most popular and production-ready option with code generation and strong typing. Other options exist, but gqlgen’s developer experience and ecosystem make it a solid default."
+  - question: "How do I prevent the N+1 query problem in GraphQL?"
+    answer: "Use a data loader pattern to batch and cache backend fetches per request. gqlgen integrates well with dataloader libraries to avoid per-field database calls."
+  - question: "How do I handle authentication and authorization in GraphQL?"
+    answer: "Authenticate at the transport layer (e.g., header or cookie) and pass user context into resolvers. Apply role/permission checks inside resolvers or via directive middleware for consistent access control."
+  - question: "What is the best way to version a GraphQL API?"
+    answer: "Prefer additive schema evolution: deprecate fields with descriptions, add new fields and types, and avoid breaking changes. Use descriptions to guide clients and track usage before removal."
+  - question: "Can GraphQL responses be cached effectively?"
+    answer: "Yes, but it differs from REST. Use persisted queries, server-side caching at resolver/data loader layers, and CDN caching when using GET with persisted queries and appropriate cache keys."
 ---
 
 The landscape of API development has evolved significantly over the past decade. While REST APIs have been the dominant architecture for building web services, GraphQL has emerged as a compelling alternative that addresses many limitations of traditional REST-based approaches. When combined with Go's performance and simplicity, GraphQL creates a powerful foundation for modern API development.

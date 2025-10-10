@@ -13,6 +13,19 @@ tags:
   - SQLAlchemy
 description: "A pragmatic guide to building username/password login in FastAPI using OAuth2 Password flow with JWTs, powered by Pydantic v2 and SQLAlchemy 2.0. Includes hashing, token creation, protected routes, and testing."
 keywords: ["fastapi", "jwt", "oauth2 password flow", "pydantic v2", "sqlalchemy 2", "python", "auth", "password hashing"]
+faq:
+  - question: "What is the difference between OAuth2 Password Flow and other OAuth2 flows?"
+    answer: "OAuth2 Password Flow (Resource Owner Password Credentials) allows users to provide username/password directly to your application, suitable for first-party apps you control. Authorization Code Flow redirects users to authenticate via a third party (like Google), better for third-party integrations. Client Credentials Flow is for server-to-server communication without user context. Use Password Flow for your own mobile/web apps; use Authorization Code for third-party OAuth providers."
+  - question: "Should I store JWTs in localStorage or cookies for web applications?"
+    answer: "Avoid localStorage for JWTs as it's vulnerable to XSS attacks where malicious JavaScript can steal tokens. Use httponly, secure, SameSite cookies which JavaScript cannot access, providing protection against XSS. For SPAs needing programmatic access, consider short-lived access tokens in memory with long-lived refresh tokens in httponly cookies. Implement CSRF protection when using cookies."
+  - question: "How do I implement refresh tokens with this setup?"
+    answer: "Create a separate refresh token table in your database with longer expiration (e.g., 7 days vs 30 minutes for access tokens). Issue both tokens on login. Store refresh tokens in database for revocation capability. Create a /refresh endpoint that validates the refresh token, checks if it's not revoked, and issues a new access token. Rotate refresh tokens on each use for additional security."
+  - question: "Why use Pydantic v2 and SQLAlchemy 2.0 specifically?"
+    answer: "Pydantic v2 offers significantly better performance (5-50x faster), improved error messages, and modern Python type hints with model_config instead of Config class. SQLAlchemy 2.0 provides cleaner syntax with Mapped types, better async support, and removed legacy patterns. Both versions align with modern Python standards and will receive long-term support while v1.x versions phase out."
+  - question: "How can I add role-based access control (RBAC) to this authentication system?"
+    answer: "Add a role or permissions field to your User model. Include roles in the JWT payload when creating tokens (add 'roles': user.roles to the to_encode dict). Create dependency functions like get_admin_user that check decoded token roles. Use FastAPI's OAuth2 scopes feature or create custom Permission classes. Implement a decorator @require_role('admin') for cleaner route protection."
+  - question: "What SECRET_KEY should I use in production?"
+    answer: "Generate a cryptographically secure random key with 'openssl rand -hex 32' (creates a 64-character hex string). Never commit SECRET_KEY to version control. Store it in environment variables via .env file (local), systemd Environment directives (production), or secret managers like AWS Secrets Manager or Vault. Change the key only when compromised, as it invalidates all existing tokens."
 ---
 
 Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.

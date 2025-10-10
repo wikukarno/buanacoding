@@ -6,6 +6,19 @@ description: "Learn how to build high-performance gRPC services in Go from scrat
 keywords: ["grpc", "go", "golang", "protocol buffers", "microservices", "rpc", "api", "server", "client", "authentication", "production", "tutorial"]
 tags: ["go", "grpc", "microservices", "tutorial", "beginner"]
 draft: false
+faq:
+  - question: "When should I use gRPC instead of REST?"
+    answer: "Use gRPC for internal microservice communication when you need strong typing, high throughput, streaming, or low-latency RPC. REST remains a good fit for public APIs and browser clients where HTTP/JSON and caching are convenient."
+  - question: "How do I secure gRPC services in production?"
+    answer: "Use TLS for transport security and consider mutual TLS (mTLS) for service-to-service auth. Implement authz in interceptors, rotate certificates, and enforce least privilege at the network layer."
+  - question: "What’s the recommended approach for API versioning with protobuf?"
+    answer: "Prefer additive changes: add new fields with sensible defaults and avoid renaming/removing fields. Use separate package or service names to manage major version changes and keep backward compatibility."
+  - question: "How do I handle streaming use cases in gRPC?"
+    answer: "Use server-streaming for large result sets and progress updates, client-streaming for bulk uploads, and bidirectional streaming for real-time interactions. Design backpressure and timeouts carefully."
+  - question: "How do I load balance gRPC services?"
+    answer: "Use a service mesh (e.g., Envoy) or gRPC’s built-in client-side load balancing with service discovery (DNS, xDS). Ensure health checks and timeouts are configured properly."
+  - question: "How can I observe and debug gRPC services?"
+    answer: "Enable metrics (Prometheus), distributed tracing (OpenTelemetry), and structured logging. Add unary/stream interceptors for metrics/tracing and propagate context across calls."
 ---
 
 Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That's where gRPC comes in and absolutely crushes it. I've been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.

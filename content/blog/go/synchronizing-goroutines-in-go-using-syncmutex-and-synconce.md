@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to synchronize goroutines in Go using sync.Mutex, sync.RWMutex, and sync.Once."
 keywords: ["Go", "synchronization", "goroutines", "sync.Mutex", "sync.RWMutex", "sync.Once", "concurrency"]
+faq:
+  - question: "When should I use sync.Mutex vs channels?"
+    answer: "Use Mutex/RWMutex to protect shared memory where operations are simpler with direct locking. Use channels to communicate ownership or to pipeline work. Prefer the simplest approach that keeps code readable and safe."
+  - question: "What are common ways to avoid deadlocks?"
+    answer: "Lock in a consistent order, hold locks for the shortest time, avoid calling into code that may try to acquire the same lock, and consider try-lock patterns or redesign to reduce lock contention."
+  - question: "When is sync.RWMutex appropriate?"
+    answer: "When reads vastly outnumber writes and you need concurrent readers. Measure before switching; RWMutex can be slower than Mutex under contention."
+  - question: "What are typical use cases for sync.Once?"
+    answer: "One-time initialization (e.g., loading config, setting up singletons) in concurrent contexts. It guarantees the function runs exactly once across goroutines."
+  - question: "How do I protect maps across goroutines?"
+    answer: "Use a Mutex/RWMutex around all accesses, use sync.Map for specific patterns (rare writes, frequent reads), or encapsulate the map behind methods that handle synchronization."
+  - question: "How do I test for data races?"
+    answer: "Run tests with the -race flag: go test -race ./... This detects unsynchronized access patterns at runtime and helps validate your locking strategy."
 ---
 
 When you write concurrent programs in Go, multiple goroutines may try to access and modify the same data at the same time. Without proper synchronization, this leads to race conditions, bugs, or crashes. Go provides tools like `sync.Mutex`, `sync.RWMutex`, and `sync.Once` to safely share data across goroutines.

@@ -6,6 +6,19 @@ description: "Master computer vision with OpenCV in Python. Learn object detecti
 keywords: ["opencv", "computer vision", "python", "object detection", "face recognition", "image processing", "machine learning", "cv2", "haar cascades", "tutorial", "beginner"]
 tags: ["python", "opencv", "computer vision", "machine learning", "tutorial", "beginner"]
 draft: false
+faq:
+  - question: "What is the difference between object detection and face recognition?"
+    answer: "Object detection identifies and locates objects in images by drawing bounding boxes around them (e.g., detecting 'a car' at coordinates x,y). Face recognition goes further by not only detecting faces but identifying specific individuals (e.g., recognizing 'John' vs 'Jane'). Detection finds what and where; recognition determines who or which specific instance."
+  - question: "Do I need a GPU to run OpenCV for face detection?"
+    answer: "No, OpenCV runs perfectly fine on CPU for most face detection and recognition tasks using traditional methods like Haar Cascades and LBPH. GPUs become beneficial when using deep learning models like YOLO or when processing high-resolution video streams in real-time. For learning and small projects, CPU performance is adequate."
+  - question: "Why does OpenCV use BGR instead of RGB color format?"
+    answer: "OpenCV uses BGR (Blue-Green-Red) for historical reasons dating back to early camera sensor designs and Windows bitmap format. When displaying images with matplotlib or PIL, you must convert BGR to RGB using cv2.cvtColor(image, cv2.COLOR_BGR2RGB) to avoid color distortion. This conversion is necessary only for display, not for processing."
+  - question: "Which face detection method should I choose: Haar Cascades or deep learning?"
+    answer: "Use Haar Cascades for fast, lightweight detection on resource-constrained devices or when processing speed matters more than accuracy. Choose deep learning models (like DNN module with pre-trained networks) when you need better accuracy with varied lighting, angles, and occlusions. Haar Cascades work well for controlled environments; deep learning excels in challenging real-world scenarios."
+  - question: "How can I improve face recognition accuracy in my application?"
+    answer: "Collect multiple training images per person with varied lighting and angles (minimum 10-15 images), ensure consistent image quality and size, use proper preprocessing (histogram equalization for lighting), choose appropriate confidence thresholds (lower means stricter matching), and consider using deep learning-based face embeddings like FaceNet or dlib for production applications requiring high accuracy."
+  - question: "What are the minimum Python and OpenCV versions needed?"
+    answer: "Python 3.7 or higher is recommended, with Python 3.10+ being ideal for modern features and performance. OpenCV 4.5+ provides the best compatibility and features. Install opencv-python for basic functionality or opencv-contrib-python for additional modules including face recognition. Use opencv-python-headless for server deployments without display capabilities."
 ---
 
 Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla's autopilot spots other cars on the highway? That's computer vision at work, and honestly, it's not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I'd just taught my computer to see.

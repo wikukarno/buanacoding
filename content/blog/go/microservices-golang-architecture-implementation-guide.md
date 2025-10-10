@@ -7,6 +7,19 @@ draft: false
 author: "Wiku Karno"
 keywords: ["Go", "Golang", "Microservices", "Architecture", "Docker", "Kubernetes", "gRPC", "Service Mesh"]
 url: /2025/09/microservices-golang-architecture-implementation-guide.html
+faq:
+  - question: "When should I choose microservices over a monolith?"
+    answer: "Start with a well-structured monolith when your team and product are small. Move to microservices when you hit scaling limits, team autonomy demands independent deployments, or different parts of the system have distinct performance and scaling needs."
+  - question: "How do I define service boundaries?"
+    answer: "Use Domain-Driven Design to map bounded contexts to services. Align with business capabilities, minimize cross-service chatter, and keep data ownership within a service to avoid tight coupling."
+  - question: "What communication patterns should I use between services?"
+    answer: "Use synchronous APIs (REST/gRPC) for request/response workflows that require immediate feedback, and asynchronous messaging (events/queues) for decoupling, retries, and scaling long-running tasks. Many systems combine both."
+  - question: "How do I handle configuration and service discovery?"
+    answer: "Externalize configuration (env files, Consul, etcd) and use service discovery (DNS, Consul, Kubernetes) for dynamic endpoints. Avoid hardcoded addresses and rely on health checks and timeouts."
+  - question: "How should I approach observability in microservices?"
+    answer: "Adopt structured logging, metrics (Prometheus), and distributed tracing (OpenTelemetry). Propagate correlation IDs across calls and set SLOs per service."
+  - question: "What deployment strategies work best?"
+    answer: "Containerize services, automate CI/CD, and use blue-green or canary deployments. Consider a service mesh for mTLS, traffic shaping, and policy control once you have many services."
 ---
 
 Moving from monolithic to microservices architecture has become one of the biggest changes in how we build software today. While monolithic applications bundle all functionality into a single deployable unit, microservices break down applications into smaller, independent services that communicate over well-defined APIs. When combined with Go's performance characteristics and deployment simplicity, microservices become a powerful approach for building scalable, maintainable systems.

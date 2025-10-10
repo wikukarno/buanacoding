@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to use pointers in Go: reference types, method receivers, and best practices."
 keywords: ["Go", "pointers", "reference types", "method receivers", "value receiver", "pointer receiver", "best practices"]
+faq:
+  - question: "When should I use pointer receivers vs value receivers?"
+    answer: "Use pointer receivers when methods modify the receiver or to avoid copying large structs. Use value receivers for small, immutable types or when you want method calls on copies."
+  - question: "What is a nil pointer and how do I avoid panics?"
+    answer: "A nil pointer points to no value. Always check for nil before dereferencing, and initialize pointers (or the underlying structs) before use."
+  - question: "Do slices and maps need pointers to be modified in functions?"
+    answer: "Slices and maps are reference types; you can modify their contents without passing a pointer. You need a pointer only if you want to reassign the slice/map variable itself."
+  - question: "Is it safe to return pointers to local variables?"
+    answer: "Yes, Go’s escape analysis allocates them on the heap when necessary. It’s a common and safe pattern."
+  - question: "Do pointers always improve performance?"
+    answer: "Not necessarily. Pointers can increase heap allocations and reduce cache locality. Measure before optimizing and choose the simplest approach that meets your goals."
+  - question: "How do I avoid pointer-related bugs in concurrency?"
+    answer: "Protect shared data with Mutex/RWMutex or confine ownership to a single goroutine. Avoid sharing writable pointers across goroutines without synchronization."
 ---
 
 In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.

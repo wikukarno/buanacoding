@@ -16,6 +16,19 @@ schema: "Article"
 author: "BuanaCoding"
 datePublished: "2025-08-26"
 dateModified: "2025-08-26"
+faq:
+  - question: "How many VS Code extensions should I install?"
+    answer: "Start with 5-10 essential extensions and only add more when you have specific needs. Too many extensions (20+) can slow down VS Code startup time, increase memory usage, and cause conflicts. Regularly review your installed extensions and disable or uninstall ones you don't actively use. Enable workspace-specific extensions rather than globally to maintain performance across different projects."
+  - question: "Why is VS Code slower after installing many extensions?"
+    answer: "Each extension runs processes that consume memory and CPU resources. Extensions that analyze code on every keystroke (like ESLint or Error Lens) add processing overhead. Extensions with file watchers increase disk I/O. To improve performance, disable unused extensions, use workspace-specific extension recommendations, check extension performance with 'Developer: Show Running Extensions' command, and consider lighter alternatives to heavy extensions."
+  - question: "Can I use GitHub Copilot for free?"
+    answer: "GitHub Copilot offers a free 30-day trial, but requires a $10/month Individual or $19/month Business subscription afterward. Students, teachers, and maintainers of popular open-source projects can get Copilot for free by verifying their status. Free alternatives include Codeium (completely free for individuals), Amazon CodeWhisperer (free tier), and TabNine (free basic version)."
+  - question: "What's the difference between Prettier and ESLint?"
+    answer: "Prettier is a code formatter that handles styling (indentation, line breaks, quotes) automatically on save. ESLint is a linter that identifies code quality issues, potential bugs, and enforces coding standards beyond formatting. They serve different purposes and work well together: ESLint catches logical problems while Prettier ensures consistent formatting. Configure them properly to avoid conflicts by using eslint-config-prettier."
+  - question: "How do I sync my VS Code settings and extensions across computers?"
+    answer: "Use VS Code's built-in Settings Sync feature (Settings > Turn on Settings Sync). Sign in with GitHub or Microsoft account to sync settings, keybindings, extensions, snippets, and UI state across devices. Settings Sync is free and works across Windows, Mac, and Linux. Alternatively, use the Settings Sync extension for more control, or manually backup settings.json and extensions.json files."
+  - question: "Are there good free alternatives to paid VS Code extensions?"
+    answer: "Yes! Instead of GitHub Copilot ($10/month), try Codeium (free). Instead of paid AI assistants, use Tabnine's free tier. Instead of premium themes, use free Material Icon Theme or One Dark Pro. Most essential extensions (ESLint, Prettier, GitLens, Live Server, Error Lens) are completely free. Only specialized features like advanced AI assistance, team collaboration tools, or premium themes require payment."
 ---
 
 <script type="application/ld+json">

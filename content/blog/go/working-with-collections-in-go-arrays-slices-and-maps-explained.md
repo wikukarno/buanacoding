@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to work with collections in Go: arrays, slices, and maps."
 keywords: ["Go", "arrays", "slices", "maps", "collections", "data structures"]
+faq:
+  - question: "When should I use arrays vs slices in Go?"
+    answer: "Arrays have fixed length and are rarely used directly in application code. Slices are the idiomatic dynamic view over arrays and should be your default choice for variable-length sequences."
+  - question: "How do capacity and growth work for slices?"
+    answer: "Slices track length and capacity. Appending beyond capacity allocates a new backing array and copies elements. Pre-allocate with make([]T, 0, n) when possible to reduce allocations."
+  - question: "Does map iteration preserve order?"
+    answer: "No. Map iteration order is randomized. If you need ordering, collect keys and sort them first."
+  - question: "How do I copy slices and maps correctly?"
+    answer: "Use copy for slices to copy elements into a destination with sufficient length. For maps, iterate keys and assign into a new map; there’s no built-in deep copy."
+  - question: "Can slices cause memory leaks?"
+    answer: "Slices can hold references to large backing arrays. When taking small subslices of huge slices, copy the needed portion into a new slice to allow GC to reclaim memory."
+  - question: "Which collection should I use for lookups and membership tests?"
+    answer: "Use maps for O(1) average-time membership checks. For small sets, slices with linear scans may be fine; measure and choose based on size and usage."
 ---
 
 When building applications in Go, it's common to work with groups of data. For example, you might want to store a list of user names, or map names to scores. In Go, you can use collections like arrays, slices, and maps to do that.

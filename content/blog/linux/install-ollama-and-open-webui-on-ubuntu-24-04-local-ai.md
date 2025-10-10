@@ -10,6 +10,19 @@ tags:
   - Open WebUI
 description: "Step-by-step guide to install Ollama and Open WebUI on Ubuntu 24.04 (Noble) for running LLMs locally, with notes for CPU and NVIDIA GPU acceleration, services, and troubleshooting."
 keywords: ["ubuntu 24.04", "ollama", "open webui", "local llm", "cuda", "nvidia", "ai on ubuntu"]
+faq:
+  - question: "Can I run Ollama on CPU without a GPU?"
+    answer: "Yes, Ollama runs on CPU-only systems. However, performance will be slower, especially with larger models. For CPU-only setups, choose smaller models like phi3, qwen2:0.5b, or quantized variants. Ensure you have at least 8GB RAM for decent performance, though 16GB or more is recommended for larger models."
+  - question: "How do I enable NVIDIA GPU acceleration for Ollama?"
+    answer: "Ollama automatically detects and uses NVIDIA GPUs if CUDA libraries are present. Install the NVIDIA driver using ubuntu-drivers install, verify with nvidia-smi, and Ollama will use GPU acceleration without additional configuration. Ensure your GPU has at least 6GB VRAM for most modern LLMs."
+  - question: "Why can't Open WebUI connect to Ollama?"
+    answer: "Connection issues usually stem from incorrect OLLAMA_BASE_URL settings or Docker networking problems. If using Docker, set OLLAMA_BASE_URL to http://host.docker.internal:11434 or use --network host. Verify Ollama is running with systemctl status ollama and test the API with curl http://127.0.0.1:11434/api/tags."
+  - question: "What are the minimum system requirements for running local LLMs?"
+    answer: "Minimum requirements are 4GB RAM and 10GB disk space, but this only supports tiny models. Recommended specs are 16GB RAM, 50GB disk space, and an NVIDIA GPU with 8GB+ VRAM. CPU-only setups work but are significantly slower. For production use, 32GB RAM and a modern GPU provide the best experience."
+  - question: "Which models should I start with as a beginner?"
+    answer: "Start with llama3.1 or phi3 for general tasks, as they balance capability and resource usage well. For coding assistance, try codellama or deepseek-coder. If you have limited RAM (8GB or less), use qwen2:0.5b or tinyllama. Always pull smaller models first to test your system's performance before moving to larger ones."
+  - question: "How do I expose Ollama to other machines on my network?"
+    answer: "By default, Ollama binds to localhost only. Create a systemd override with sudo systemctl edit ollama, add Environment='OLLAMA_HOST=0.0.0.0:11434', then reload and restart. Secure this setup with UFW firewall rules and consider putting Nginx with authentication in front of it to prevent unauthorized access."
 ---
 
 If you want to run AI models locally on Ubuntu 24.04 with a clean web UI, this guide is for you. We’ll install [Ollama](https://ollama.com), pull a model, and use [Open WebUI](https://github.com/open-webui/open-webui) for a modern chat interface. The steps cover CPU‑only and NVIDIA GPU notes, optional systemd services, and practical troubleshooting.

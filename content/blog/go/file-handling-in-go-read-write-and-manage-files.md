@@ -7,6 +7,19 @@ tags:
 - Go
 description: "Learn how to handle files in Go: create, read, write, append, and manage directories."
 keywords: ["Go", "file", "handling", "read", "write", "append", "directory", "management"]
+faq:
+  - question: "What is the idiomatic way to read large files in Go?"
+    answer: "Use buffered I/O with bufio.NewReader and stream chunks instead of loading the entire file into memory. For line-by-line processing, use a Scanner with a custom buffer size when needed."
+  - question: "Is ioutil deprecated and what should I use instead?"
+    answer: "Many ioutil helpers moved to os and io packages in Go 1.16. Prefer os.ReadFile, os.WriteFile, os.Create, and io.ReadAll going forward."
+  - question: "How do I handle file permissions safely on Unix systems?"
+    answer: "Specify modes when creating files (e.g., 0600 for sensitive data). Be mindful of umask, and use os.Chmod or os.OpenFile with the right flags (O_CREATE, O_TRUNC, O_APPEND) as needed."
+  - question: "How can I write files atomically to avoid partial writes?"
+    answer: "Write to a temporary file in the same directory, fsync it, then rename to the target filename. On POSIX, rename is atomic within the same filesystem."
+  - question: "What about cross-platform path handling?"
+    answer: "Use the path/filepath package for joining, cleaning, and splitting paths. Avoid hardcoding separators since Windows and Unix differ."
+  - question: "What are common error-handling patterns for file I/O?"
+    answer: 'Always check errors, defer Close immediately after successful Open/Create, and wrap errors with context using fmt.Errorf("read config: %w", err) to aid debugging.'
 ---
 
 In Go, file handling is straightforward and powerful. You can create, read, write, and manage files using standard packages like `os`, `io`, and `ioutil` (deprecated but still common). Understanding how to work with files is essential when building CLI tools, web servers, or any application that deals with local data.

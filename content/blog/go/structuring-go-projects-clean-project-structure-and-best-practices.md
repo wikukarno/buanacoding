@@ -7,6 +7,19 @@ tags:
     - Go
 description: "Learn how to structure your Go projects effectively with best practices and clean architecture principles. Discover the ideal directory structure, package organization, and tips for maintainable code."
 keywords: ["Go", "project structure", "clean architecture", "best practices", "Go modules"]
+faq:
+  - question: "What is a recommended folder structure for Go projects?"
+    answer: "A common layout uses cmd/ for entrypoints, internal/ for private packages, pkg/ for public libraries, and dedicated folders for configs, migrations, and scripts. Keep it simple and evolve as the project grows."
+  - question: "When should I use internal/ vs pkg/?"
+    answer: "Place code in internal/ when it should not be imported by other modules. Use pkg/ only for libraries intended for external reuse. For most applications, internal/ is sufficient."
+  - question: "How do I separate domain logic from infrastructure?"
+    answer: "Keep domain types and use-cases in their own packages with interfaces for infrastructure. Implement adapters for DB, HTTP, and external services in separate packages to maintain clear boundaries."
+  - question: "Where should configuration live?"
+    answer: "Externalize configuration via environment variables and small config files. Provide defaults, validate at startup, and avoid global mutable state by passing config into constructors."
+  - question: "How do I keep packages cohesive and avoid cycles?"
+    answer: "Strive for acyclic dependencies and small, focused packages. Define interfaces at the consumer side, invert dependencies, and avoid exporting unnecessary symbols."
+  - question: "Any tips to avoid over-engineering the structure?"
+    answer: "Start with a minimal layout, extract packages when duplication or coupling appears, and let usage drive boundaries. Favor clarity over patterns for their own sake."
 ---
 
 When you start building larger applications in Go, having a clean and maintainable project structure is essential. Unlike some other languages or frameworks that enforce certain patterns, Go gives you a lot of freedom in how you organize your code. While this is powerful, it can also lead to messy projects if not handled carefully.
