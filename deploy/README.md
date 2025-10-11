@@ -180,6 +180,15 @@ Value: `deploy`
 
 Value: `/var/www/buanacoding.com`
 
+### 5. SSH_PORT
+
+Value: Port SSH VPS kamu (jika custom)
+```
+Example: 7352
+```
+
+Jika menggunakan port default (22), secret ini tetap perlu ditambahkan dengan value: `22`
+
 ---
 
 ## Testing Deployment
