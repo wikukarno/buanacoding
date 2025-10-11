@@ -50,7 +50,7 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-avzr --delete"
+          ARGS: "-avzr --delete -e 'ssh -p ${{ secrets.SSH_PORT }}'"
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
@@ -63,6 +63,7 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
             # Set proper permissions
             sudo chown -R www-data:www-data /var/www/buanacoding.com
