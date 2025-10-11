@@ -50,7 +50,7 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-avzr --delete -e 'ssh -p ${{ secrets.SSH_PORT }}'"
+          ARGS: "-avzr --delete -e 'ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no'"
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
@@ -73,4 +73,4 @@ jobs:
             # Reload Nginx
             sudo systemctl reload nginx
 
-            echo "✅ Deployment completed successfully!"
+            echo "Deployment completed successfully!"
