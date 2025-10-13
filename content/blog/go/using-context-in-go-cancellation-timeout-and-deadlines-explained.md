@@ -1,11 +1,14 @@
 ---
-title: 'Cancellation, Timeout, and Deadlines Explained'
+title: "Using Context in Go - Cancellation"
 date: 2025-04-27T10:00:00.004+07:00
 draft: false
 url: /2025/04/using-context-in-go-cancellation.html
+aliases:
+  - /2025/04/cancellation-timeout-and-deadlines-explained.html
+  - /2025/04/using-context-in-go-cancellation-timeout-and-deadlines-explained.html
 tags:
-- Go
-description: "Learn how to use the context package in Go for cancellation, timeouts, and deadlines."
+  - Go
+description: "Learn how to use Go’s context for cancellation: propagate cancel signals across goroutines, avoid leaks with defer cancel, and write resilient handlers."
 keywords: ["Go", "context", "cancellation", "timeout", "deadlines", "goroutines"]
 faq:
   - question: "When should I use context for cancellation vs using channels or sync primitives?"

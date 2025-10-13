@@ -1,5 +1,5 @@
 ---
-title: 'Encode, Decode, and Tag Structs'
+title: "Working with JSON in Go - Encode and Decode"
 date: 2025-04-30T10:00:00.001+07:00
 draft: false
 url: /2025/04/working-with-json-in-go-encode-decode.html
