@@ -46,16 +46,29 @@ jobs:
       - name: Build Hugo site
         run: hugo --minify --gc
 
-      - name: Deploy to VPS
+      - name: Add SSH known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Deploy to VPS with rsync
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-avzr --delete -e 'ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no'"
+          ARGS: "-avzr --delete"
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
           TARGET: ${{ secrets.SSH_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
+          SCRIPT_BEFORE: |
+            whoami
+            ls -la ${{ secrets.SSH_TARGET }}
+          SCRIPT_AFTER: |
+            echo "✅ Files deployed successfully"
+            ls -la ${{ secrets.SSH_TARGET }}
 
       - name: Post-deployment cleanup
         uses: appleboy/ssh-action@master
@@ -65,12 +78,19 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            # Set proper permissions
+            echo "🔧 Setting proper permissions..."
+
+            # Set ownership to www-data for Nginx
             sudo chown -R www-data:www-data ${{ secrets.SSH_TARGET }}
+
+            # Set permissions: 755 for directories, 644 for files
             sudo find ${{ secrets.SSH_TARGET }} -type d -exec chmod 755 {} \;
             sudo find ${{ secrets.SSH_TARGET }} -type f -exec chmod 644 {} \;
 
-            # Reload Nginx
+            echo "🔄 Reloading Nginx..."
             sudo systemctl reload nginx
 
-            echo "Deployment completed successfully!"
+            echo "✅ Deployment completed successfully!"
+            echo "📊 Website info:"
+            echo "   - Total files: $(find ${{ secrets.SSH_TARGET }} -type f | wc -l)"
+            echo "   - Total size: $(du -sh ${{ secrets.SSH_TARGET }} | cut -f1)"
