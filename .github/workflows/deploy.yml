@@ -52,23 +52,23 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-avzr --delete -e 'ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no'"
           SOURCE: "public/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+          TARGET: ${{ secrets.SSH_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
 
       - name: Post-deployment cleanup
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
             # Set proper permissions
-            sudo chown -R www-data:www-data /var/www/buanacoding.com
-            sudo find /var/www/buanacoding.com -type d -exec chmod 755 {} \;
-            sudo find /var/www/buanacoding.com -type f -exec chmod 644 {} \;
+            sudo chown -R www-data:www-data ${{ secrets.SSH_TARGET }}
+            sudo find ${{ secrets.SSH_TARGET }} -type d -exec chmod 755 {} \;
+            sudo find ${{ secrets.SSH_TARGET }} -type f -exec chmod 644 {} \;
 
             # Reload Nginx
             sudo systemctl reload nginx
