@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Email on Buana Coding</title><link>https://www.buanacoding.com/tags/email/</link><description>Recent content in Email on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 06 Oct 2025 18:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/email/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration</title><link>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</link><pubDate>Mon, 06 Oct 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your application needs to send emails. Welcome messages after signup, password reset links, order confirmations, notification alerts. Email is still the most reliable way to reach users, but sending emails programmatically is harder than it looks.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What is email sending in Go?&lt;/strong&gt; Email sending in Go refers to programmatically delivering emails from your application using either SMTP protocol directly or third-party email service APIs like SendGrid and Mailgun. Instead of manually composing and sending emails, your Go code automatically sends transactional emails triggered by user actions.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Email on Buana Coding</title>
+    <link>http://localhost:1313/tags/email/</link>
+    <description>Recent content in Email on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Oct 2025 18:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/email/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration</title>
+      <link>http://localhost:1313/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</link>
+      <pubDate>Mon, 06 Oct 2025 18:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Your application needs to send emails. Welcome messages after signup, password reset links, order confirmations, notification alerts. Email is still the most reliable way to reach users, but sending emails programmatically is harder than it looks.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What is email sending in Go?&lt;/strong&gt; Email sending in Go refers to programmatically delivering emails from your application using either SMTP protocol directly or third-party email service APIs like SendGrid and Mailgun. Instead of manually composing and sending emails, your Go code automatically sends transactional emails triggered by user actions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,3 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configuration on Buana Coding</title><link>https://www.buanacoding.com/tags/configuration/</link><description>Recent content in Configuration on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 12 Sep 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Laravel Environment Configuration Fixing .env and Config Cache Issues</title><link>https://www.buanacoding.com/2025/09/laravel-environment-configuration-env-issues.html</link><pubDate>Fri, 12 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-environment-configuration-env-issues.html</guid><description>&lt;p&gt;Env problems often show up right after a deploy or a cache command: the app works locally but fails in production with “No application encryption key has been specified”, wrong database credentials, missing API keys, or stale config even after you edited &lt;code&gt;.env&lt;/code&gt;. This happens because of how Laravel loads environment variables and how config caching freezes values.&lt;/p&gt;
-&lt;h2 id="how-laravel-reads-environment-variables"&gt;How Laravel reads environment variables&lt;/h2&gt;
-&lt;p&gt;Laravel reads environment variables in two ways:&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuration on Buana Coding</title>
+    <link>http://localhost:1313/tags/configuration/</link>
+    <description>Recent content in Configuration on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Sep 2025 10:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/configuration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel Environment Configuration Fixing .env and Config Cache Issues</title>
+      <link>http://localhost:1313/2025/09/laravel-environment-configuration-env-issues.html</link>
+      <pubDate>Fri, 12 Sep 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/09/laravel-environment-configuration-env-issues.html</guid>
+      <description>&lt;p&gt;Env problems often show up right after a deploy or a cache command: the app works locally but fails in production with “No application encryption key has been specified”, wrong database credentials, missing API keys, or stale config even after you edited &lt;code&gt;.env&lt;/code&gt;. This happens because of how Laravel loads environment variables and how config caching freezes values.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-laravel-reads-environment-variables&#34;&gt;How Laravel reads environment variables&lt;/h2&gt;&#xA;&lt;p&gt;Laravel reads environment variables in two ways:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

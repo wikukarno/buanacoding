@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Connection Pooling on Buana Coding</title><link>https://www.buanacoding.com/tags/connection-pooling/</link><description>Recent content in Connection Pooling on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/connection-pooling/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Work with MySQL in Go - Connection Pooling and Transactions Guide</title><link>https://www.buanacoding.com/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</link><pubDate>Fri, 17 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</guid><description>&lt;p&gt;MySQL remains one of the most popular relational databases for web applications. Go provides excellent MySQL support through the database/sql package and MySQL driver. Understanding connection pooling and transactions is critical for building production-ready applications that handle concurrent users efficiently while maintaining data consistency.&lt;/p&gt;
-&lt;p&gt;This guide demonstrates how to work with MySQL in Go effectively. You&amp;rsquo;ll learn to connect to MySQL with proper driver configuration, implement CRUD operations with prepared statements, configure connection pooling for optimal performance, handle transactions correctly to maintain data integrity, manage NULL values and error conditions, and apply production best practices that scale.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Connection Pooling on Buana Coding</title>
+    <link>http://localhost:1313/tags/connection-pooling/</link>
+    <description>Recent content in Connection Pooling on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 Oct 2025 10:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/connection-pooling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Work with MySQL in Go - Connection Pooling and Transactions Guide</title>
+      <link>http://localhost:1313/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</link>
+      <pubDate>Fri, 17 Oct 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</guid>
+      <description>&lt;p&gt;MySQL remains one of the most popular relational databases for web applications. Go provides excellent MySQL support through the database/sql package and MySQL driver. Understanding connection pooling and transactions is critical for building production-ready applications that handle concurrent users efficiently while maintaining data consistency.&lt;/p&gt;&#xA;&lt;p&gt;This guide demonstrates how to work with MySQL in Go effectively. You&amp;rsquo;ll learn to connect to MySQL with proper driver configuration, implement CRUD operations with prepared statements, configure connection pooling for optimal performance, handle transactions correctly to maintain data integrity, manage NULL values and error conditions, and apply production best practices that scale.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

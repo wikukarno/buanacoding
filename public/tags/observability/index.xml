@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Observability on Buana Coding</title><link>https://www.buanacoding.com/tags/observability/</link><description>Recent content in Observability on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 01 Sep 2025 08:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/observability/index.xml" rel="self" type="application/rss+xml"/><item><title>The Complete Guide to slog (Go 1.21+) Modern Structured Logging in Go (2025)</title><link>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</link><pubDate>Mon, 01 Sep 2025 08:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</guid><description>&lt;p&gt;Go 1.21 introduced &lt;code&gt;log/slog&lt;/code&gt;, a standard structured logging API that finally brings first‑class JSON and attribute‑based logging to the standard library. If you’ve used &lt;code&gt;zap&lt;/code&gt; or &lt;code&gt;logrus&lt;/code&gt;, the core ideas will feel familiar—just simpler and standardized.&lt;/p&gt;
-&lt;p&gt;This guide takes you from zero to production-ready logging with &lt;code&gt;slog&lt;/code&gt;. We&amp;rsquo;ll start with basic setup, then gradually build up to advanced patterns like HTTP middleware, security, testing, and observability integration. Each section includes working examples you can run immediately.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Observability on Buana Coding</title>
+    <link>http://localhost:1313/tags/observability/</link>
+    <description>Recent content in Observability on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Sep 2025 08:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Complete Guide to slog (Go 1.21&#43;) Modern Structured Logging in Go (2025)</title>
+      <link>http://localhost:1313/2025/09/complete-guide-slog-go-structured-logging-2025.html</link>
+      <pubDate>Mon, 01 Sep 2025 08:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/09/complete-guide-slog-go-structured-logging-2025.html</guid>
+      <description>&lt;p&gt;Go 1.21 introduced &lt;code&gt;log/slog&lt;/code&gt;, a standard structured logging API that finally brings first‑class JSON and attribute‑based logging to the standard library. If you’ve used &lt;code&gt;zap&lt;/code&gt; or &lt;code&gt;logrus&lt;/code&gt;, the core ideas will feel familiar—just simpler and standardized.&lt;/p&gt;&#xA;&lt;p&gt;This guide takes you from zero to production-ready logging with &lt;code&gt;slog&lt;/code&gt;. We&amp;rsquo;ll start with basic setup, then gradually build up to advanced patterns like HTTP middleware, security, testing, and observability integration. Each section includes working examples you can run immediately.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

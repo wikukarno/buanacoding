@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Monitoring on Buana Coding</title><link>https://www.buanacoding.com/tags/monitoring/</link><description>Recent content in Monitoring on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 23 Sep 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Error Tracking Tools and Techniques</title><link>https://www.buanacoding.com/2025/09/laravel-production-monitoring-error-tracking.html</link><pubDate>Tue, 23 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-production-monitoring-error-tracking.html</guid><description>&lt;p&gt;Running a Laravel application in production without proper monitoring is like driving blindfolded - you won&amp;rsquo;t know there&amp;rsquo;s a problem until you crash. The moment your app goes live, dozens of things can go wrong: database connections can fail, APIs can timeout, memory can run out, or users might trigger unexpected errors you never saw during development.&lt;/p&gt;
-&lt;p&gt;Good monitoring isn&amp;rsquo;t just about knowing when things break - it&amp;rsquo;s about catching issues before they affect users, understanding performance trends, and having the data you need to fix problems quickly. Whether you&amp;rsquo;re running a small business site or a high-traffic application, the right monitoring setup can save you countless sleepless nights and frustrated customer calls.&lt;/p&gt;</description></item><item><title>Advanced Laravel Debugging with Logs Production Issues Troubleshooting</title><link>https://www.buanacoding.com/2025/09/advanced-laravel-debugging-with-logs.html</link><pubDate>Sat, 06 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/advanced-laravel-debugging-with-logs.html</guid><description>&lt;p&gt;When your Laravel application starts acting up in production, proper logging becomes your lifeline. Unlike development environments where you can use tools like dd() or dump(), production debugging requires a more sophisticated approach. This comprehensive guide walks you through advanced Laravel debugging techniques using logs that will help you identify, track, and resolve production issues efficiently.&lt;/p&gt;
-&lt;h2 id="understanding-laravels-logging-architecture"&gt;Understanding Laravel&amp;rsquo;s Logging Architecture&lt;/h2&gt;
-&lt;p&gt;Laravel provides a robust logging system built on top of the Monolog library. The framework offers multiple logging channels, each designed for specific use cases. Before diving into advanced debugging techniques, you need to understand how Laravel handles logging under the hood.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring on Buana Coding</title>
+    <link>http://localhost:1313/tags/monitoring/</link>
+    <description>Recent content in Monitoring on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 23 Sep 2025 10:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Error Tracking Tools and Techniques</title>
+      <link>http://localhost:1313/2025/09/laravel-production-monitoring-error-tracking.html</link>
+      <pubDate>Tue, 23 Sep 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/09/laravel-production-monitoring-error-tracking.html</guid>
+      <description>&lt;p&gt;Running a Laravel application in production without proper monitoring is like driving blindfolded - you won&amp;rsquo;t know there&amp;rsquo;s a problem until you crash. The moment your app goes live, dozens of things can go wrong: database connections can fail, APIs can timeout, memory can run out, or users might trigger unexpected errors you never saw during development.&lt;/p&gt;&#xA;&lt;p&gt;Good monitoring isn&amp;rsquo;t just about knowing when things break - it&amp;rsquo;s about catching issues before they affect users, understanding performance trends, and having the data you need to fix problems quickly. Whether you&amp;rsquo;re running a small business site or a high-traffic application, the right monitoring setup can save you countless sleepless nights and frustrated customer calls.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Advanced Laravel Debugging with Logs Production Issues Troubleshooting</title>
+      <link>http://localhost:1313/2025/09/advanced-laravel-debugging-with-logs.html</link>
+      <pubDate>Sat, 06 Sep 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/09/advanced-laravel-debugging-with-logs.html</guid>
+      <description>&lt;p&gt;When your Laravel application starts acting up in production, proper logging becomes your lifeline. Unlike development environments where you can use tools like dd() or dump(), production debugging requires a more sophisticated approach. This comprehensive guide walks you through advanced Laravel debugging techniques using logs that will help you identify, track, and resolve production issues efficiently.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-laravels-logging-architecture&#34;&gt;Understanding Laravel&amp;rsquo;s Logging Architecture&lt;/h2&gt;&#xA;&lt;p&gt;Laravel provides a robust logging system built on top of the Monolog library. The framework offers multiple logging channels, each designed for specific use cases. Before diving into advanced debugging techniques, you need to understand how Laravel handles logging under the hood.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

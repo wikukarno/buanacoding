@@ -1,11 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Migration on Buana Coding</title><link>https://www.buanacoding.com/tags/migration/</link><description>Recent content in Migration on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 15 Sep 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/migration/index.xml" rel="self" type="application/rss+xml"/><item><title>Avoiding Fatal Mistakes</title><link>https://www.buanacoding.com/2025/09/laravel-database-migration-best-practices.html</link><pubDate>Mon, 15 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-database-migration-best-practices.html</guid><description>&lt;p&gt;Migrations let you evolve your schema alongside the code. Done well, they are repeatable and safe. Done poorly, they lock tables, drop data, and take your site down. This guide focuses on practical patterns that reduce risk in production and make rollouts predictable.&lt;/p&gt;
-&lt;h2 id="ground-rules"&gt;Ground rules&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Treat migrations as immutable once deployed. If a mistake gets to production, add a new migration to correct it instead of editing history.&lt;/li&gt;
-&lt;li&gt;Keep schema and data changes separate. Data backfills belong in their own migration or a job/command so you can control runtime and retries.&lt;/li&gt;
-&lt;li&gt;Don’t rely on application models inside migrations. Models can drift as your app evolves. Prefer &lt;code&gt;DB::table()&lt;/code&gt; or raw SQL that doesn’t depend on future code.&lt;/li&gt;
-&lt;li&gt;Test locally and in staging with the same DB engine and major version you run in production.&lt;/li&gt;
-&lt;li&gt;Always run with &lt;code&gt;php artisan migrate --force&lt;/code&gt; in CI/production. Check status with &lt;code&gt;php artisan migrate:status&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="naming-and-versioning"&gt;Naming and versioning&lt;/h2&gt;
-&lt;p&gt;Use descriptive names that read like a change log: &lt;code&gt;2025_09_15_100001_add_status_to_orders_table.php&lt;/code&gt;. One concern per migration. If a change requires several steps (add column → backfill → enforce NOT NULL), use separate migrations in the right order.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Migration on Buana Coding</title>
+    <link>http://localhost:1313/tags/migration/</link>
+    <description>Recent content in Migration on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Sep 2025 10:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/migration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Avoiding Fatal Mistakes</title>
+      <link>http://localhost:1313/2025/09/laravel-database-migration-best-practices.html</link>
+      <pubDate>Mon, 15 Sep 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/09/laravel-database-migration-best-practices.html</guid>
+      <description>&lt;p&gt;Migrations let you evolve your schema alongside the code. Done well, they are repeatable and safe. Done poorly, they lock tables, drop data, and take your site down. This guide focuses on practical patterns that reduce risk in production and make rollouts predictable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;ground-rules&#34;&gt;Ground rules&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Treat migrations as immutable once deployed. If a mistake gets to production, add a new migration to correct it instead of editing history.&lt;/li&gt;&#xA;&lt;li&gt;Keep schema and data changes separate. Data backfills belong in their own migration or a job/command so you can control runtime and retries.&lt;/li&gt;&#xA;&lt;li&gt;Don’t rely on application models inside migrations. Models can drift as your app evolves. Prefer &lt;code&gt;DB::table()&lt;/code&gt; or raw SQL that doesn’t depend on future code.&lt;/li&gt;&#xA;&lt;li&gt;Test locally and in staging with the same DB engine and major version you run in production.&lt;/li&gt;&#xA;&lt;li&gt;Always run with &lt;code&gt;php artisan migrate --force&lt;/code&gt; in CI/production. Check status with &lt;code&gt;php artisan migrate:status&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;naming-and-versioning&#34;&gt;Naming and versioning&lt;/h2&gt;&#xA;&lt;p&gt;Use descriptive names that read like a change log: &lt;code&gt;2025_09_15_100001_add_status_to_orders_table.php&lt;/code&gt;. One concern per migration. If a change requires several steps (add column → backfill → enforce NOT NULL), use separate migrations in the right order.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

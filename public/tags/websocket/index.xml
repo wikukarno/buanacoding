@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WebSocket on Buana Coding</title><link>https://www.buanacoding.com/tags/websocket/</link><description>Recent content in WebSocket on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 15 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/websocket/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Build WebSocket Applications in Go - Real-time Chat Example</title><link>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</link><pubDate>Wed, 15 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</guid><description>&lt;p&gt;Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask &amp;ldquo;got any updates?&amp;rdquo;, WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays—just instant, bidirectional communication.&lt;/p&gt;
-&lt;p&gt;In this tutorial, we&amp;rsquo;re building a production-ready chat application from scratch using Go and the &lt;strong&gt;gorilla/websocket&lt;/strong&gt; package. By the end, you&amp;rsquo;ll have a working chat app where multiple users can send messages in real-time.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WebSocket on Buana Coding</title>
+    <link>http://localhost:1313/tags/websocket/</link>
+    <description>Recent content in WebSocket on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Oct 2025 10:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/websocket/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Build WebSocket Applications in Go - Real-time Chat Example</title>
+      <link>http://localhost:1313/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</link>
+      <pubDate>Wed, 15 Oct 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</guid>
+      <description>&lt;p&gt;Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask &amp;ldquo;got any updates?&amp;rdquo;, WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays—just instant, bidirectional communication.&lt;/p&gt;&#xA;&lt;p&gt;In this tutorial, we&amp;rsquo;re building a production-ready chat application from scratch using Go and the &lt;strong&gt;gorilla/websocket&lt;/strong&gt; package. By the end, you&amp;rsquo;ll have a working chat app where multiple users can send messages in real-time.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

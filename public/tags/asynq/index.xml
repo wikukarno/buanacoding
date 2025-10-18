@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Asynq on Buana Coding</title><link>https://www.buanacoding.com/tags/asynq/</link><description>Recent content in Asynq on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 06 Oct 2025 16:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/asynq/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Implement Background Jobs in Go with Asynq and Redis</title><link>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link><pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What are background jobs?&lt;/strong&gt; Background jobs are tasks that run asynchronously outside the main request-response cycle. Instead of making users wait while your server processes heavy workloads, you push these tasks into a queue and handle them separately in worker processes. This keeps your API fast and responsive.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asynq on Buana Coding</title>
+    <link>http://localhost:1313/tags/asynq/</link>
+    <description>Recent content in Asynq on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Oct 2025 16:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/asynq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Implement Background Jobs in Go with Asynq and Redis</title>
+      <link>http://localhost:1313/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link>
+      <pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What are background jobs?&lt;/strong&gt; Background jobs are tasks that run asynchronously outside the main request-response cycle. Instead of making users wait while your server processes heavy workloads, you push these tasks into a queue and handle them separately in worker processes. This keeps your API fast and responsive.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

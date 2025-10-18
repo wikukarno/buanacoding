@@ -1,3 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Phishing on Buana Coding</title><link>https://www.buanacoding.com/tags/phishing/</link><description>Recent content in Phishing on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 20 Aug 2025 17:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/phishing/index.xml" rel="self" type="application/rss+xml"/><item><title>Phishing Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</title><link>https://www.buanacoding.com/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</link><pubDate>Wed, 20 Aug 2025 00:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</guid><description>&lt;p&gt;Staying safe online is getting harder. Scammers use convincing emails, text messages, websites, and even mobile apps to trick people into giving away passwords, banking details, or installing malware. This plain-English guide explains the most common phishing signs, shows realistic (safe) examples, and gives you clear steps to protect yourself.&lt;/p&gt;
-&lt;h2 id="what-is-phishing"&gt;What Is Phishing?&lt;/h2&gt;
-&lt;p&gt;Phishing is a social-engineering attack where criminals pretend to be a trusted brand, coworker, or service (bank, delivery company, marketplace, government agency) to make you click a link, open a file, or share sensitive information. Modern phishing blends good design with urgency (“Your account will be closed in 24 hours!”) so you act before thinking.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phishing on Buana Coding</title>
+    <link>http://localhost:1313/tags/phishing/</link>
+    <description>Recent content in Phishing on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 20 Aug 2025 17:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/phishing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Phishing Signs, Fake Email Examples, and How to Avoid Them (2025 Guide)</title>
+      <link>http://localhost:1313/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</link>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/08/phishing-signs-fake-email-examples-how-to-avoid.html</guid>
+      <description>&lt;p&gt;Staying safe online is getting harder. Scammers use convincing emails, text messages, websites, and even mobile apps to trick people into giving away passwords, banking details, or installing malware. This plain-English guide explains the most common phishing signs, shows realistic (safe) examples, and gives you clear steps to protect yourself.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-phishing&#34;&gt;What Is Phishing?&lt;/h2&gt;&#xA;&lt;p&gt;Phishing is a social-engineering attack where criminals pretend to be a trusted brand, coworker, or service (bank, delivery company, marketplace, government agency) to make you click a link, open a file, or share sensitive information. Modern phishing blends good design with urgency (“Your account will be closed in 24 hours!”) so you act before thinking.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on Buana Coding</title>
+    <link>http://localhost:1313/tags/llm/</link>
+    <description>Recent content in LLM on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 18 Oct 2025 12:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Build AI/LLM Applications in Go - OpenAI and Ollama Integration</title>
+      <link>http://localhost:1313/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</link>
+      <pubDate>Sat, 18 Oct 2025 12:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</guid>
+      <description>&lt;p&gt;AI applications are everywhere now. Chatbots answering customer questions, code assistants writing functions, content generators creating blog posts, search systems understanding natural language. If you&amp;rsquo;re building with Go, you need to know how to tap into these language models without fighting with complicated Python libraries or rewriting your entire stack.&lt;/p&gt;&#xA;&lt;p&gt;The good news: integrating AI into Go applications is straightforward once you understand the patterns. You have two main paths - cloud APIs like OpenAI for maximum quality and scale, or local models with Ollama for privacy and cost control. Sometimes you want both.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

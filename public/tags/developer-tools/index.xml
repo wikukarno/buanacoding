@@ -1,12 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Developer Tools on Buana Coding</title><link>https://www.buanacoding.com/tags/developer-tools/</link><description>Recent content in Developer Tools on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 31 Aug 2025 15:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/developer-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>10 Best AI Coding Assistants Every Developer Should Try in 2025</title><link>https://www.buanacoding.com/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</link><pubDate>Sun, 31 Aug 2025 15:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</guid><description>&lt;p&gt;The way we write code is changing dramatically. AI coding assistants have moved from experimental tools to essential companions that can genuinely transform your development workflow. I&amp;rsquo;ve been testing AI coding tools since they first emerged, and honestly, the progress in 2025 has been mind-blowing.&lt;/p&gt;
-&lt;p&gt;What used to take hours of debugging, researching documentation, or writing boilerplate code can now be done in minutes. But with so many AI coding assistants flooding the market, choosing the right one feels overwhelming. That&amp;rsquo;s why I&amp;rsquo;ve spent months testing every major AI coding tool to bring you this comprehensive guide.&lt;/p&gt;</description></item><item><title>Essential Linux Commands Every Developer Must Know in 2025</title><link>https://www.buanacoding.com/2025/08/essential-linux-commands-every-developer-must-know-2025.html</link><pubDate>Sun, 31 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/essential-linux-commands-every-developer-must-know-2025.html</guid><description>&lt;p&gt;Whether you&amp;rsquo;re building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I&amp;rsquo;ve been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.&lt;/p&gt;
-&lt;p&gt;Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing &lt;a href="https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html"&gt;
- Docker containers
-&lt;/a&gt;
- to setting up &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"&gt;
- secure web servers with HTTPS
-&lt;/a&gt;
-, these commands will be your daily companions.&lt;/p&gt;</description></item><item><title>10 Essential VS Code Extensions Every Developer Must Have in 2025</title><link>https://www.buanacoding.com/2025/08/10-essential-vscode-extensions-developers-2025.html</link><pubDate>Tue, 26 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/10-essential-vscode-extensions-developers-2025.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Let&amp;rsquo;s be honest – vanilla Visual Studio Code is good, but it&amp;rsquo;s not &lt;em&gt;amazing&lt;/em&gt;. What makes this popular code editor truly shine are the extensions that turn it into a powerhouse IDE. After years of coding and trying countless extensions, I&amp;rsquo;ve narrowed down the absolute essentials that every developer should have installed in 2025.&lt;/p&gt;
-&lt;p&gt;Whether you&amp;rsquo;re a seasoned developer or just starting your coding journey, these extensions will save you hours of work, catch bugs before they happen, and make your coding experience so much smoother. Let&amp;rsquo;s dive into the tools that have become indispensable in modern development.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Developer Tools on Buana Coding</title>
+    <link>http://localhost:1313/tags/developer-tools/</link>
+    <description>Recent content in Developer Tools on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 31 Aug 2025 15:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/developer-tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10 Best AI Coding Assistants Every Developer Should Try in 2025</title>
+      <link>http://localhost:1313/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</link>
+      <pubDate>Sun, 31 Aug 2025 15:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/08/10-best-ai-coding-assistants-every-developer-should-try-2025.html</guid>
+      <description>&lt;p&gt;The way we write code is changing dramatically. AI coding assistants have moved from experimental tools to essential companions that can genuinely transform your development workflow. I&amp;rsquo;ve been testing AI coding tools since they first emerged, and honestly, the progress in 2025 has been mind-blowing.&lt;/p&gt;&#xA;&lt;p&gt;What used to take hours of debugging, researching documentation, or writing boilerplate code can now be done in minutes. But with so many AI coding assistants flooding the market, choosing the right one feels overwhelming. That&amp;rsquo;s why I&amp;rsquo;ve spent months testing every major AI coding tool to bring you this comprehensive guide.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Essential Linux Commands Every Developer Must Know in 2025</title>
+      <link>http://localhost:1313/2025/08/essential-linux-commands-every-developer-must-know-2025.html</link>
+      <pubDate>Sun, 31 Aug 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/08/essential-linux-commands-every-developer-must-know-2025.html</guid>
+      <description>&lt;p&gt;Whether you&amp;rsquo;re building web applications, managing servers, or working in DevOps, mastering Linux commands is absolutely essential for any developer in 2025. I&amp;rsquo;ve been working with Linux systems for years, and I can tell you that knowing the right commands at the right time can save you hours of work and make you incredibly productive.&lt;/p&gt;&#xA;&lt;p&gt;Linux dominates the server world, powers most cloud infrastructure, and is the backbone of modern development environments. From managing &lt;a href=&#34;http://localhost:1313/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html&#34;&gt;&#xA;  Docker containers&#xA;&lt;/a&gt;&#xA; to setting up &lt;a href=&#34;http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  secure web servers with HTTPS&#xA;&lt;/a&gt;&#xA;, these commands will be your daily companions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>10 Essential VS Code Extensions Every Developer Must Have in 2025</title>
+      <link>http://localhost:1313/2025/08/10-essential-vscode-extensions-developers-2025.html</link>
+      <pubDate>Tue, 26 Aug 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/08/10-essential-vscode-extensions-developers-2025.html</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s be honest – vanilla Visual Studio Code is good, but it&amp;rsquo;s not &lt;em&gt;amazing&lt;/em&gt;. What makes this popular code editor truly shine are the extensions that turn it into a powerhouse IDE. After years of coding and trying countless extensions, I&amp;rsquo;ve narrowed down the absolute essentials that every developer should have installed in 2025.&lt;/p&gt;&#xA;&lt;p&gt;Whether you&amp;rsquo;re a seasoned developer or just starting your coding journey, these extensions will save you hours of work, catch bugs before they happen, and make your coding experience so much smoother. Let&amp;rsquo;s dive into the tools that have become indispensable in modern development.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Middleware on Buana Coding</title><link>https://www.buanacoding.com/tags/middleware/</link><description>Recent content in Middleware on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 01 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/middleware/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Implement Rate Limiting in Go - Protect Your API from Abuse</title><link>https://www.buanacoding.com/2025/10/how-to-implement-rate-limiting-in-go-protect-api-from-abuse.html</link><pubDate>Wed, 01 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-rate-limiting-in-go-protect-api-from-abuse.html</guid><description>&lt;p&gt;APIs power modern applications by exposing functionality to clients, but unrestricted access creates vulnerabilities. A single misbehaving client can overwhelm your server, degrading performance for all users. Malicious actors can exploit unprotected endpoints to scrape data, attempt credential stuffing, or launch denial of service attacks. Rate limiting provides the first line of defense against these threats.&lt;/p&gt;
-&lt;p&gt;This comprehensive guide demonstrates how to implement rate limiting in Go applications. You&amp;rsquo;ll learn multiple algorithms including token bucket and sliding window approaches, build middleware for automatic request throttling, implement per-IP and per-user limiting strategies, integrate Redis for distributed systems, and follow production best practices for protecting your APIs effectively.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Middleware on Buana Coding</title>
+    <link>http://localhost:1313/tags/middleware/</link>
+    <description>Recent content in Middleware on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Oct 2025 10:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/middleware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Implement Rate Limiting in Go - Protect Your API from Abuse</title>
+      <link>http://localhost:1313/2025/10/how-to-implement-rate-limiting-in-go-protect-api-from-abuse.html</link>
+      <pubDate>Wed, 01 Oct 2025 10:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/10/how-to-implement-rate-limiting-in-go-protect-api-from-abuse.html</guid>
+      <description>&lt;p&gt;APIs power modern applications by exposing functionality to clients, but unrestricted access creates vulnerabilities. A single misbehaving client can overwhelm your server, degrading performance for all users. Malicious actors can exploit unprotected endpoints to scrape data, attempt credential stuffing, or launch denial of service attacks. Rate limiting provides the first line of defense against these threats.&lt;/p&gt;&#xA;&lt;p&gt;This comprehensive guide demonstrates how to implement rate limiting in Go applications. You&amp;rsquo;ll learn multiple algorithms including token bucket and sliding window approaches, build middleware for automatic request throttling, implement per-IP and per-user limiting strategies, integrate Redis for distributed systems, and follow production best practices for protecting your APIs effectively.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

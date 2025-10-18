@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mocking on Buana Coding</title><link>https://www.buanacoding.com/tags/mocking/</link><description>Recent content in Mocking on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Oct 2025 09:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/mocking/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Use Mock Testing in Go with Testify and Mockery - Complete Guide</title><link>https://www.buanacoding.com/2025/10/how-to-use-mock-testing-in-go-with-testify-and-mockery.html</link><pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-mock-testing-in-go-with-testify-and-mockery.html</guid><description>&lt;p&gt;Testing individual units of code in isolation is critical for building reliable software. When your code depends on databases, external APIs, or other services, testing becomes complex and slow. Mock testing solves this by replacing real dependencies with controlled fake implementations, allowing you to test your code quickly without external systems.&lt;/p&gt;
-&lt;p&gt;This guide demonstrates how to implement effective mock testing in Go using Testify and Mockery. You&amp;rsquo;ll learn to design testable code with interfaces, generate mocks automatically with Mockery, write assertions with Testify, verify method calls and return values, implement table-driven mock tests, and follow best practices that create maintainable test suites without over-mocking.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mocking on Buana Coding</title>
+    <link>http://localhost:1313/tags/mocking/</link>
+    <description>Recent content in Mocking on Buana Coding</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 Oct 2025 09:00:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mocking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Use Mock Testing in Go with Testify and Mockery - Complete Guide</title>
+      <link>http://localhost:1313/2025/10/how-to-use-mock-testing-in-go-with-testify-and-mockery.html</link>
+      <pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>http://localhost:1313/2025/10/how-to-use-mock-testing-in-go-with-testify-and-mockery.html</guid>
+      <description>&lt;p&gt;Testing individual units of code in isolation is critical for building reliable software. When your code depends on databases, external APIs, or other services, testing becomes complex and slow. Mock testing solves this by replacing real dependencies with controlled fake implementations, allowing you to test your code quickly without external systems.&lt;/p&gt;&#xA;&lt;p&gt;This guide demonstrates how to implement effective mock testing in Go using Testify and Mockery. You&amp;rsquo;ll learn to design testable code with interfaces, generate mocks automatically with Mockery, write assertions with Testify, verify method calls and return values, implement table-driven mock tests, and follow best practices that create maintainable test suites without over-mocking.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
