@@ -1,47 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Docker on Buana Coding</title>
-    <link>http://localhost:1313/tags/docker/</link>
-    <description>Recent content in Docker on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 07 Oct 2025 06:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How to Containerize and Deploy Go Apps with Docker</title>
-      <link>http://localhost:1313/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link>
-      <pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What is Docker for Go?&lt;/strong&gt; Docker is a containerization platform that packages your Go application and all its dependencies into a portable container image. Instead of installing Go and dependencies on every server, Docker bundles everything your app needs into a container that runs identically everywhere - from your laptop to production servers.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Microservices with Golang - Architecture and Implementation Guide</title>
-      <link>http://localhost:1313/2025/09/microservices-golang-architecture-implementation-guide.html</link>
-      <pubDate>Sat, 27 Sep 2025 00:01:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/microservices-golang-architecture-implementation-guide.html</guid>
-      <description>&lt;p&gt;Moving from monolithic to microservices architecture has become one of the biggest changes in how we build software today. While monolithic applications bundle all functionality into a single deployable unit, microservices break down applications into smaller, independent services that communicate over well-defined APIs. When combined with Go&amp;rsquo;s performance characteristics and deployment simplicity, microservices become a powerful approach for building scalable, maintainable systems.&lt;/p&gt;&#xA;&lt;p&gt;In this guide, you&amp;rsquo;ll learn how to design, build, and deploy microservices using Go. We&amp;rsquo;ll cover architectural patterns, service communication strategies, containerization, and production deployment techniques that will help you build robust distributed systems.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Development and Production Environment Setup</title>
-      <link>http://localhost:1313/2025/09/laravel-docker-setup-development-production.html</link>
-      <pubDate>Tue, 16 Sep 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/laravel-docker-setup-development-production.html</guid>
-      <description>&lt;p&gt;Docker makes Laravel environments consistent across machines and stages. The steps below outline a clean setup for local development and a hardened build for production. Run PHP‑FPM behind Nginx, connect to MySQL/Postgres and Redis, toggle Xdebug when needed, and ship a small, cache‑friendly image.&lt;/p&gt;&#xA;&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;PHP‑FPM container for the application&lt;/li&gt;&#xA;&lt;li&gt;Nginx container as the HTTP entry point&lt;/li&gt;&#xA;&lt;li&gt;MySQL or Postgres, plus Redis&lt;/li&gt;&#xA;&lt;li&gt;A &lt;code&gt;docker-compose.yml&lt;/code&gt; for development with bind mounts&lt;/li&gt;&#xA;&lt;li&gt;A multi‑stage Dockerfile for a compact production image&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;project-layout&#34;&gt;Project layout&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;app/            # your Laravel app code&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  nginx/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    default.conf&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Dockerfile&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker-compose.yml&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dockerfile-multistage&#34;&gt;Dockerfile (multi‑stage)&lt;/h2&gt;&#xA;&lt;p&gt;Build dependencies once, then copy only what you need into the runtime image. Enable OPcache for production; allow an Xdebug toggle for local work.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Uninstall Docker on Ubuntu 24.04 Complete Clean Removal</title>
-      <link>http://localhost:1313/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</link>
-      <pubDate>Sat, 23 Aug 2025 13:30:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</guid>
-      <description>&lt;p&gt;Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: &lt;a href=&#34;http://localhost:1313/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html&#34;&gt;&#xA;  Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2&#xA;&lt;/a&gt;&#xA;. For HTTPS and reverse proxy, see: &lt;a href=&#34;http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Install Docker on Ubuntu 24.04 Post-Install, Rootless, and Compose v2</title>
-      <link>http://localhost:1313/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html</link>
-      <pubDate>Thu, 14 Aug 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html</guid>
-      <description>&lt;p&gt;This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: &lt;a href=&#34;http://localhost:1313/2025/08/nginx-certbot-ubuntu-24-04-free-https.html&#34;&gt;&#xA;  Nginx + Certbot on Ubuntu 24.04&#xA;&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;What you’ll do&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Add the official Docker repository for Ubuntu 24.04 (Noble)&lt;/li&gt;&#xA;&lt;li&gt;Install Docker Engine, Buildx, and Compose v2 plugins&lt;/li&gt;&#xA;&lt;li&gt;Run Docker as your regular user (without sudo)&lt;/li&gt;&#xA;&lt;li&gt;Optionally enable rootless Docker&lt;/li&gt;&#xA;&lt;li&gt;Verify with test containers and fix common errors&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Prerequisites&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Buana Coding</title><link>https://www.buanacoding.com/tags/docker/</link><description>Recent content in Docker on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 07 Oct 2025 06:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What is Docker for Go?&lt;/strong&gt; Docker is a containerization platform that packages your Go application and all its dependencies into a portable container image. Instead of installing Go and dependencies on every server, Docker bundles everything your app needs into a container that runs identically everywhere - from your laptop to production servers.&lt;/p&gt;</description></item><item><title>Microservices with Golang - Architecture and Implementation Guide</title><link>https://www.buanacoding.com/2025/09/microservices-golang-architecture-implementation-guide.html</link><pubDate>Sat, 27 Sep 2025 00:01:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/microservices-golang-architecture-implementation-guide.html</guid><description>&lt;p&gt;Moving from monolithic to microservices architecture has become one of the biggest changes in how we build software today. While monolithic applications bundle all functionality into a single deployable unit, microservices break down applications into smaller, independent services that communicate over well-defined APIs. When combined with Go&amp;rsquo;s performance characteristics and deployment simplicity, microservices become a powerful approach for building scalable, maintainable systems.&lt;/p&gt;
+&lt;p&gt;In this guide, you&amp;rsquo;ll learn how to design, build, and deploy microservices using Go. We&amp;rsquo;ll cover architectural patterns, service communication strategies, containerization, and production deployment techniques that will help you build robust distributed systems.&lt;/p&gt;</description></item><item><title>Development and Production Environment Setup</title><link>https://www.buanacoding.com/2025/09/laravel-docker-setup-development-production.html</link><pubDate>Tue, 16 Sep 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-docker-setup-development-production.html</guid><description>&lt;p&gt;Docker makes Laravel environments consistent across machines and stages. The steps below outline a clean setup for local development and a hardened build for production. Run PHP‑FPM behind Nginx, connect to MySQL/Postgres and Redis, toggle Xdebug when needed, and ship a small, cache‑friendly image.&lt;/p&gt;
+&lt;h2 id="components"&gt;Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;PHP‑FPM container for the application&lt;/li&gt;
+&lt;li&gt;Nginx container as the HTTP entry point&lt;/li&gt;
+&lt;li&gt;MySQL or Postgres, plus Redis&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;docker-compose.yml&lt;/code&gt; for development with bind mounts&lt;/li&gt;
+&lt;li&gt;A multi‑stage Dockerfile for a compact production image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="project-layout"&gt;Project layout&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;app/ # your Laravel app code
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; nginx/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; default.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Dockerfile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="dockerfile-multistage"&gt;Dockerfile (multi‑stage)&lt;/h2&gt;
+&lt;p&gt;Build dependencies once, then copy only what you need into the runtime image. Enable OPcache for production; allow an Xdebug toggle for local work.&lt;/p&gt;</description></item><item><title>Uninstall Docker on Ubuntu 24.04 Complete Clean Removal</title><link>https://www.buanacoding.com/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</link><pubDate>Sat, 23 Aug 2025 13:30:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/uninstall-docker-ubuntu-24-04-clean-removal.html</guid><description>&lt;p&gt;Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: &lt;a href="https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html"&gt;
+ Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2
+&lt;/a&gt;
+. For HTTPS and reverse proxy, see: &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"&gt;
+ Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt
+&lt;/a&gt;
+.&lt;/p&gt;</description></item><item><title>Install Docker on Ubuntu 24.04 Post-Install, Rootless, and Compose v2</title><link>https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html</link><pubDate>Thu, 14 Aug 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html</guid><description>&lt;p&gt;This guide shows how to install Docker Engine on Ubuntu 24.04 LTS (Noble Numbat), configure it for non-root use, enable optional rootless mode, and use Docker Compose v2. It also includes test commands, common troubleshooting tips, and how to uninstall cleanly. For securing your site with HTTPS, see: &lt;a href="https://www.buanacoding.com/2025/08/nginx-certbot-ubuntu-24-04-free-https.html"&gt;
+ Nginx + Certbot on Ubuntu 24.04
+&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;What you’ll do&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the official Docker repository for Ubuntu 24.04 (Noble)&lt;/li&gt;
+&lt;li&gt;Install Docker Engine, Buildx, and Compose v2 plugins&lt;/li&gt;
+&lt;li&gt;Run Docker as your regular user (without sudo)&lt;/li&gt;
+&lt;li&gt;Optionally enable rootless Docker&lt;/li&gt;
+&lt;li&gt;Verify with test containers and fix common errors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Prerequisites&lt;/p&gt;</description></item></channel></rss>

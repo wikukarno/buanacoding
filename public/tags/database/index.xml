@@ -1,47 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Database on Buana Coding</title>
-    <link>http://localhost:1313/tags/database/</link>
-    <description>Recent content in Database on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 17 Oct 2025 10:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/database/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How to Work with MySQL in Go - Connection Pooling and Transactions Guide</title>
-      <link>http://localhost:1313/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</link>
-      <pubDate>Fri, 17 Oct 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</guid>
-      <description>&lt;p&gt;MySQL remains one of the most popular relational databases for web applications. Go provides excellent MySQL support through the database/sql package and MySQL driver. Understanding connection pooling and transactions is critical for building production-ready applications that handle concurrent users efficiently while maintaining data consistency.&lt;/p&gt;&#xA;&lt;p&gt;This guide demonstrates how to work with MySQL in Go effectively. You&amp;rsquo;ll learn to connect to MySQL with proper driver configuration, implement CRUD operations with prepared statements, configure connection pooling for optimal performance, handle transactions correctly to maintain data integrity, manage NULL values and error conditions, and apply production best practices that scale.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to Work with MongoDB in Go - Complete CRUD Tutorial</title>
-      <link>http://localhost:1313/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</link>
-      <pubDate>Mon, 13 Oct 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</guid>
-      <description>&lt;p&gt;Working with MongoDB in Go is straightforward once you understand the official driver’s patterns: always use &lt;a href=&#34;http://localhost:1313/2025/04/using-context-in-go-cancellation.html&#34;&gt;&#xA;  contexts&#xA;&lt;/a&gt;&#xA;, define strong models with &lt;code&gt;bson&lt;/code&gt; tags (and clean &lt;a href=&#34;http://localhost:1313/2025/04/working-with-json-in-go-encode-decode.html&#34;&gt;&#xA;  JSON handling&#xA;&lt;/a&gt;&#xA;), ensure indexes, and wrap database calls behind a repository (see &lt;a href=&#34;http://localhost:1313/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html&#34;&gt;&#xA;  project structure best practices&#xA;&lt;/a&gt;&#xA;). In this tutorial, you’ll build a complete CRUD flow using idiomatic Go and production-friendly practices.&lt;/p&gt;&#xA;&lt;p&gt;What you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install and initialize the official driver&lt;/li&gt;&#xA;&lt;li&gt;Connect to MongoDB with timeouts and pooling&lt;/li&gt;&#xA;&lt;li&gt;Design models with &lt;code&gt;bson&lt;/code&gt; and &lt;code&gt;json&lt;/code&gt; tags&lt;/li&gt;&#xA;&lt;li&gt;Create necessary indexes programmatically&lt;/li&gt;&#xA;&lt;li&gt;Implement Create, Read, Update, Delete operations&lt;/li&gt;&#xA;&lt;li&gt;Add projections, filtering, pagination, and error handling&lt;/li&gt;&#xA;&lt;li&gt;Structure your code for maintainability&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Prerequisites:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to Perform Database Migrations in Go using golang-migrate</title>
-      <link>http://localhost:1313/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</link>
-      <pubDate>Sun, 05 Oct 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Managing database schema changes is one of those tasks that seems simple until you&amp;rsquo;re dealing with multiple environments, team members making conflicting changes, or trying to rollback a production deployment at 2 AM. If you&amp;rsquo;ve ever manually run SQL scripts on production hoping you didn&amp;rsquo;t miss anything, you know exactly what I&amp;rsquo;m talking about.&lt;/p&gt;&#xA;&lt;p&gt;golang-migrate solves this problem by giving you version control for your database schema. Just like git tracks code changes, migrations track schema changes. You can move forward, rollback, and know exactly what state your database is in at any time.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Laravel N&#43;1 Query Problem Solution Essential Database Optimization Guide</title>
-      <link>http://localhost:1313/2025/09/laravel-n-plus-one-query-problem-solution.html</link>
-      <pubDate>Mon, 22 Sep 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/laravel-n-plus-one-query-problem-solution.html</guid>
-      <description>&lt;p&gt;If you&amp;rsquo;ve ever wondered why your Laravel app suddenly becomes sluggish when displaying lists of data, you might be dealing with the dreaded N+1 query problem. It&amp;rsquo;s one of those sneaky performance killers that can turn a fast application into a slow, resource-hungry monster. Don&amp;rsquo;t worry though - once you understand what&amp;rsquo;s happening and how to fix it, you&amp;rsquo;ll never fall into this trap again.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-n1-query-problem&#34;&gt;What is the N+1 Query Problem?&lt;/h2&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s what happens: your app makes one query to get a list of records, then fires off a separate query for each record to grab related data. Picture this - you want to show 100 blog posts with their authors&amp;rsquo; names. Instead of being smart about it, your app runs one query to get the posts, then 100 more queries to fetch each author. That&amp;rsquo;s 101 database hits when you could&amp;rsquo;ve done it with just 2!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Avoiding Fatal Mistakes</title>
-      <link>http://localhost:1313/2025/09/laravel-database-migration-best-practices.html</link>
-      <pubDate>Mon, 15 Sep 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/laravel-database-migration-best-practices.html</guid>
-      <description>&lt;p&gt;Migrations let you evolve your schema alongside the code. Done well, they are repeatable and safe. Done poorly, they lock tables, drop data, and take your site down. This guide focuses on practical patterns that reduce risk in production and make rollouts predictable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;ground-rules&#34;&gt;Ground rules&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Treat migrations as immutable once deployed. If a mistake gets to production, add a new migration to correct it instead of editing history.&lt;/li&gt;&#xA;&lt;li&gt;Keep schema and data changes separate. Data backfills belong in their own migration or a job/command so you can control runtime and retries.&lt;/li&gt;&#xA;&lt;li&gt;Don’t rely on application models inside migrations. Models can drift as your app evolves. Prefer &lt;code&gt;DB::table()&lt;/code&gt; or raw SQL that doesn’t depend on future code.&lt;/li&gt;&#xA;&lt;li&gt;Test locally and in staging with the same DB engine and major version you run in production.&lt;/li&gt;&#xA;&lt;li&gt;Always run with &lt;code&gt;php artisan migrate --force&lt;/code&gt; in CI/production. Check status with &lt;code&gt;php artisan migrate:status&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;naming-and-versioning&#34;&gt;Naming and versioning&lt;/h2&gt;&#xA;&lt;p&gt;Use descriptive names that read like a change log: &lt;code&gt;2025_09_15_100001_add_status_to_orders_table.php&lt;/code&gt;. One concern per migration. If a change requires several steps (add column → backfill → enforce NOT NULL), use separate migrations in the right order.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Database on Buana Coding</title><link>https://www.buanacoding.com/tags/database/</link><description>Recent content in Database on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/database/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Work with MySQL in Go - Connection Pooling and Transactions Guide</title><link>https://www.buanacoding.com/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</link><pubDate>Fri, 17 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</guid><description>&lt;p&gt;MySQL remains one of the most popular relational databases for web applications. Go provides excellent MySQL support through the database/sql package and MySQL driver. Understanding connection pooling and transactions is critical for building production-ready applications that handle concurrent users efficiently while maintaining data consistency.&lt;/p&gt;
+&lt;p&gt;This guide demonstrates how to work with MySQL in Go effectively. You&amp;rsquo;ll learn to connect to MySQL with proper driver configuration, implement CRUD operations with prepared statements, configure connection pooling for optimal performance, handle transactions correctly to maintain data integrity, manage NULL values and error conditions, and apply production best practices that scale.&lt;/p&gt;</description></item><item><title>How to Work with MongoDB in Go - Complete CRUD Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</link><pubDate>Mon, 13 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</guid><description>&lt;p&gt;Working with MongoDB in Go is straightforward once you understand the official driver’s patterns: always use &lt;a href="https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html"&gt;
+ contexts
+&lt;/a&gt;
+, define strong models with &lt;code&gt;bson&lt;/code&gt; tags (and clean &lt;a href="https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html"&gt;
+ JSON handling
+&lt;/a&gt;
+), ensure indexes, and wrap database calls behind a repository (see &lt;a href="https://www.buanacoding.com/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html"&gt;
+ project structure best practices
+&lt;/a&gt;
+). In this tutorial, you’ll build a complete CRUD flow using idiomatic Go and production-friendly practices.&lt;/p&gt;
+&lt;p&gt;What you’ll learn:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install and initialize the official driver&lt;/li&gt;
+&lt;li&gt;Connect to MongoDB with timeouts and pooling&lt;/li&gt;
+&lt;li&gt;Design models with &lt;code&gt;bson&lt;/code&gt; and &lt;code&gt;json&lt;/code&gt; tags&lt;/li&gt;
+&lt;li&gt;Create necessary indexes programmatically&lt;/li&gt;
+&lt;li&gt;Implement Create, Read, Update, Delete operations&lt;/li&gt;
+&lt;li&gt;Add projections, filtering, pagination, and error handling&lt;/li&gt;
+&lt;li&gt;Structure your code for maintainability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Prerequisites:&lt;/p&gt;</description></item><item><title>How to Perform Database Migrations in Go using golang-migrate</title><link>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</link><pubDate>Sun, 05 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</guid><description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Managing database schema changes is one of those tasks that seems simple until you&amp;rsquo;re dealing with multiple environments, team members making conflicting changes, or trying to rollback a production deployment at 2 AM. If you&amp;rsquo;ve ever manually run SQL scripts on production hoping you didn&amp;rsquo;t miss anything, you know exactly what I&amp;rsquo;m talking about.&lt;/p&gt;
+&lt;p&gt;golang-migrate solves this problem by giving you version control for your database schema. Just like git tracks code changes, migrations track schema changes. You can move forward, rollback, and know exactly what state your database is in at any time.&lt;/p&gt;</description></item><item><title>Laravel N+1 Query Problem Solution Essential Database Optimization Guide</title><link>https://www.buanacoding.com/2025/09/laravel-n-plus-one-query-problem-solution.html</link><pubDate>Mon, 22 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-n-plus-one-query-problem-solution.html</guid><description>&lt;p&gt;If you&amp;rsquo;ve ever wondered why your Laravel app suddenly becomes sluggish when displaying lists of data, you might be dealing with the dreaded N+1 query problem. It&amp;rsquo;s one of those sneaky performance killers that can turn a fast application into a slow, resource-hungry monster. Don&amp;rsquo;t worry though - once you understand what&amp;rsquo;s happening and how to fix it, you&amp;rsquo;ll never fall into this trap again.&lt;/p&gt;
+&lt;h2 id="what-is-the-n1-query-problem"&gt;What is the N+1 Query Problem?&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s what happens: your app makes one query to get a list of records, then fires off a separate query for each record to grab related data. Picture this - you want to show 100 blog posts with their authors&amp;rsquo; names. Instead of being smart about it, your app runs one query to get the posts, then 100 more queries to fetch each author. That&amp;rsquo;s 101 database hits when you could&amp;rsquo;ve done it with just 2!&lt;/p&gt;</description></item><item><title>Avoiding Fatal Mistakes</title><link>https://www.buanacoding.com/2025/09/laravel-database-migration-best-practices.html</link><pubDate>Mon, 15 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-database-migration-best-practices.html</guid><description>&lt;p&gt;Migrations let you evolve your schema alongside the code. Done well, they are repeatable and safe. Done poorly, they lock tables, drop data, and take your site down. This guide focuses on practical patterns that reduce risk in production and make rollouts predictable.&lt;/p&gt;
+&lt;h2 id="ground-rules"&gt;Ground rules&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Treat migrations as immutable once deployed. If a mistake gets to production, add a new migration to correct it instead of editing history.&lt;/li&gt;
+&lt;li&gt;Keep schema and data changes separate. Data backfills belong in their own migration or a job/command so you can control runtime and retries.&lt;/li&gt;
+&lt;li&gt;Don’t rely on application models inside migrations. Models can drift as your app evolves. Prefer &lt;code&gt;DB::table()&lt;/code&gt; or raw SQL that doesn’t depend on future code.&lt;/li&gt;
+&lt;li&gt;Test locally and in staging with the same DB engine and major version you run in production.&lt;/li&gt;
+&lt;li&gt;Always run with &lt;code&gt;php artisan migrate --force&lt;/code&gt; in CI/production. Check status with &lt;code&gt;php artisan migrate:status&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="naming-and-versioning"&gt;Naming and versioning&lt;/h2&gt;
+&lt;p&gt;Use descriptive names that read like a change log: &lt;code&gt;2025_09_15_100001_add_status_to_orders_table.php&lt;/code&gt;. One concern per migration. If a change requires several steps (add column → backfill → enforce NOT NULL), use separate migrations in the right order.&lt;/p&gt;</description></item></channel></rss>

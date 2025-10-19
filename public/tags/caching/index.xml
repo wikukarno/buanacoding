@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Caching on Buana Coding</title>
-    <link>http://localhost:1313/tags/caching/</link>
-    <description>Recent content in Caching on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 02 Oct 2025 09:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/caching/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How to Use Redis with Go - Caching and Session Management Tutorial</title>
-      <link>http://localhost:1313/2025/10/how-to-use-redis-with-go-caching-session-management.html</link>
-      <pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-use-redis-with-go-caching-session-management.html</guid>
-      <description>&lt;p&gt;Modern applications demand speed and scalability that traditional databases struggle to provide alone. Users expect instant responses, APIs must handle thousands of concurrent requests, and systems need to scale horizontally without performance degradation. Redis addresses these challenges by providing blazing-fast in-memory data storage that complements your existing database infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;This comprehensive guide demonstrates how to integrate Redis with Go applications for caching and session management. You&amp;rsquo;ll learn to set up the go-redis client, implement various caching patterns, manage user sessions across distributed servers, optimize connection pooling, handle cache invalidation, and follow production best practices that ensure reliability and performance at scale.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Caching on Buana Coding</title><link>https://www.buanacoding.com/tags/caching/</link><description>Recent content in Caching on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 09:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/caching/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Use Redis with Go - Caching and Session Management Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</link><pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</guid><description>&lt;p&gt;Modern applications demand speed and scalability that traditional databases struggle to provide alone. Users expect instant responses, APIs must handle thousands of concurrent requests, and systems need to scale horizontally without performance degradation. Redis addresses these challenges by providing blazing-fast in-memory data storage that complements your existing database infrastructure.&lt;/p&gt;
+&lt;p&gt;This comprehensive guide demonstrates how to integrate Redis with Go applications for caching and session management. You&amp;rsquo;ll learn to set up the go-redis client, implement various caching patterns, manage user sessions across distributed servers, optimize connection pooling, handle cache invalidation, and follow production best practices that ensure reliability and performance at scale.&lt;/p&gt;</description></item></channel></rss>

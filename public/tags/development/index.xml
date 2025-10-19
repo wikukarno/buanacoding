@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Development on Buana Coding</title>
-    <link>http://localhost:1313/tags/development/</link>
-    <description>Recent content in Development on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 16 Sep 2025 07:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/development/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Development and Production Environment Setup</title>
-      <link>http://localhost:1313/2025/09/laravel-docker-setup-development-production.html</link>
-      <pubDate>Tue, 16 Sep 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/laravel-docker-setup-development-production.html</guid>
-      <description>&lt;p&gt;Docker makes Laravel environments consistent across machines and stages. The steps below outline a clean setup for local development and a hardened build for production. Run PHP‑FPM behind Nginx, connect to MySQL/Postgres and Redis, toggle Xdebug when needed, and ship a small, cache‑friendly image.&lt;/p&gt;&#xA;&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;PHP‑FPM container for the application&lt;/li&gt;&#xA;&lt;li&gt;Nginx container as the HTTP entry point&lt;/li&gt;&#xA;&lt;li&gt;MySQL or Postgres, plus Redis&lt;/li&gt;&#xA;&lt;li&gt;A &lt;code&gt;docker-compose.yml&lt;/code&gt; for development with bind mounts&lt;/li&gt;&#xA;&lt;li&gt;A multi‑stage Dockerfile for a compact production image&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;project-layout&#34;&gt;Project layout&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;app/            # your Laravel app code&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  nginx/&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    default.conf&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Dockerfile&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker-compose.yml&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dockerfile-multistage&#34;&gt;Dockerfile (multi‑stage)&lt;/h2&gt;&#xA;&lt;p&gt;Build dependencies once, then copy only what you need into the runtime image. Enable OPcache for production; allow an Xdebug toggle for local work.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development on Buana Coding</title><link>https://www.buanacoding.com/tags/development/</link><description>Recent content in Development on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 07:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/development/index.xml" rel="self" type="application/rss+xml"/><item><title>Development and Production Environment Setup</title><link>https://www.buanacoding.com/2025/09/laravel-docker-setup-development-production.html</link><pubDate>Tue, 16 Sep 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-docker-setup-development-production.html</guid><description>&lt;p&gt;Docker makes Laravel environments consistent across machines and stages. The steps below outline a clean setup for local development and a hardened build for production. Run PHP‑FPM behind Nginx, connect to MySQL/Postgres and Redis, toggle Xdebug when needed, and ship a small, cache‑friendly image.&lt;/p&gt;
+&lt;h2 id="components"&gt;Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;PHP‑FPM container for the application&lt;/li&gt;
+&lt;li&gt;Nginx container as the HTTP entry point&lt;/li&gt;
+&lt;li&gt;MySQL or Postgres, plus Redis&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;docker-compose.yml&lt;/code&gt; for development with bind mounts&lt;/li&gt;
+&lt;li&gt;A multi‑stage Dockerfile for a compact production image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="project-layout"&gt;Project layout&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;app/ # your Laravel app code
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; nginx/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; default.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Dockerfile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="dockerfile-multistage"&gt;Dockerfile (multi‑stage)&lt;/h2&gt;
+&lt;p&gt;Build dependencies once, then copy only what you need into the runtime image. Enable OPcache for production; allow an Xdebug toggle for local work.&lt;/p&gt;</description></item></channel></rss>

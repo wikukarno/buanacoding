@@ -1,19 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Privacy on Buana Coding</title>
-    <link>http://localhost:1313/tags/privacy/</link>
-    <description>Recent content in Privacy on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 18 Aug 2025 01:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Stop Reusing Passwords A Practical Guide to Password Managers</title>
-      <link>http://localhost:1313/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</link>
-      <pubDate>Mon, 18 Aug 2025 01:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</guid>
-      <description>&lt;p&gt;If you reuse passwords, the internet is quietly stacking odds against you. One small site gets breached, your email and password leak, and attackers try the same combo on your email, banking, cloud storage—everywhere. That “I’ll remember it” system works right up until it doesn’t. The fix isn’t superhuman memory; it’s outsourcing the problem to a tool designed for it: a password manager.&lt;/p&gt;&#xA;&lt;p&gt;What a password manager actually does&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Generates strong, unique passwords for every account&lt;/li&gt;&#xA;&lt;li&gt;Stores them encrypted, synced across your devices&lt;/li&gt;&#xA;&lt;li&gt;Auto‑fills only on the correct websites/apps&lt;/li&gt;&#xA;&lt;li&gt;Audits your vault for weak/reused/compromised passwords&lt;/li&gt;&#xA;&lt;li&gt;Holds secure notes, TOTP codes (in some apps), and sometimes passkeys&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The goal is simple: every account gets its own high‑entropy secret, and you never type or remember it again.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Privacy on Buana Coding</title><link>https://www.buanacoding.com/tags/privacy/</link><description>Recent content in Privacy on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 18 Aug 2025 01:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/privacy/index.xml" rel="self" type="application/rss+xml"/><item><title>Stop Reusing Passwords A Practical Guide to Password Managers</title><link>https://www.buanacoding.com/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</link><pubDate>Mon, 18 Aug 2025 01:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/stop-reusing-passwords-practical-password-manager-guide.html</guid><description>&lt;p&gt;If you reuse passwords, the internet is quietly stacking odds against you. One small site gets breached, your email and password leak, and attackers try the same combo on your email, banking, cloud storage—everywhere. That “I’ll remember it” system works right up until it doesn’t. The fix isn’t superhuman memory; it’s outsourcing the problem to a tool designed for it: a password manager.&lt;/p&gt;
+&lt;p&gt;What a password manager actually does&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Generates strong, unique passwords for every account&lt;/li&gt;
+&lt;li&gt;Stores them encrypted, synced across your devices&lt;/li&gt;
+&lt;li&gt;Auto‑fills only on the correct websites/apps&lt;/li&gt;
+&lt;li&gt;Audits your vault for weak/reused/compromised passwords&lt;/li&gt;
+&lt;li&gt;Holds secure notes, TOTP codes (in some apps), and sometimes passkeys&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The goal is simple: every account gets its own high‑entropy secret, and you never type or remember it again.&lt;/p&gt;</description></item></channel></rss>

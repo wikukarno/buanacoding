@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Service Discovery on Buana Coding</title>
-    <link>http://localhost:1313/tags/service-discovery/</link>
-    <description>Recent content in Service Discovery on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 29 Sep 2025 08:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/service-discovery/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Service Discovery in Microservices Golang - Consul and etcd Implementation</title>
-      <link>http://localhost:1313/2025/09/service-discovery-microservices-golang-consul-etcd.html</link>
-      <pubDate>Mon, 29 Sep 2025 08:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/service-discovery-microservices-golang-consul-etcd.html</guid>
-      <description>&lt;p&gt;In the early days of web development, finding services was simple. Your database lived at &lt;code&gt;localhost:5432&lt;/code&gt;, your cache at &lt;code&gt;localhost:6379&lt;/code&gt;, and everything was predictable. But when you move to microservices, suddenly you have dozens of services spinning up and down across multiple servers, and nobody knows where anything is anymore.&lt;/p&gt;&#xA;&lt;p&gt;This is where service discovery becomes your lifeline. Instead of hardcoding addresses and hoping for the best, you get a dynamic phone book that keeps track of who&amp;rsquo;s available, where they live, and whether they&amp;rsquo;re actually working. After building several distributed systems in Go, I can tell you that getting service discovery right is often the difference between a system that scales gracefully and one that becomes an operational nightmare.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Service Discovery on Buana Coding</title><link>https://www.buanacoding.com/tags/service-discovery/</link><description>Recent content in Service Discovery on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 29 Sep 2025 08:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/service-discovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Service Discovery in Microservices Golang - Consul and etcd Implementation</title><link>https://www.buanacoding.com/2025/09/service-discovery-microservices-golang-consul-etcd.html</link><pubDate>Mon, 29 Sep 2025 08:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/service-discovery-microservices-golang-consul-etcd.html</guid><description>&lt;p&gt;In the early days of web development, finding services was simple. Your database lived at &lt;code&gt;localhost:5432&lt;/code&gt;, your cache at &lt;code&gt;localhost:6379&lt;/code&gt;, and everything was predictable. But when you move to microservices, suddenly you have dozens of services spinning up and down across multiple servers, and nobody knows where anything is anymore.&lt;/p&gt;
+&lt;p&gt;This is where service discovery becomes your lifeline. Instead of hardcoding addresses and hoping for the best, you get a dynamic phone book that keeps track of who&amp;rsquo;s available, where they live, and whether they&amp;rsquo;re actually working. After building several distributed systems in Go, I can tell you that getting service discovery right is often the difference between a system that scales gracefully and one that becomes an operational nightmare.&lt;/p&gt;</description></item></channel></rss>

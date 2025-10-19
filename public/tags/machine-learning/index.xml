@@ -1,26 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Machine Learning on Buana Coding</title>
-    <link>http://localhost:1313/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 18 Oct 2025 12:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How to Build AI/LLM Applications in Go - OpenAI and Ollama Integration</title>
-      <link>http://localhost:1313/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</link>
-      <pubDate>Sat, 18 Oct 2025 12:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</guid>
-      <description>&lt;p&gt;AI applications are everywhere now. Chatbots answering customer questions, code assistants writing functions, content generators creating blog posts, search systems understanding natural language. If you&amp;rsquo;re building with Go, you need to know how to tap into these language models without fighting with complicated Python libraries or rewriting your entire stack.&lt;/p&gt;&#xA;&lt;p&gt;The good news: integrating AI into Go applications is straightforward once you understand the patterns. You have two main paths - cloud APIs like OpenAI for maximum quality and scale, or local models with Ollama for privacy and cost control. Sometimes you want both.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Computer Vision with OpenCV Complete Guide to Object Detection and Face Recognition in Python</title>
-      <link>http://localhost:1313/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link>
-      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid>
-      <description>&lt;p&gt;Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p&gt;&#xA;&lt;p&gt;The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on Buana Coding</title><link>https://www.buanacoding.com/tags/machine-learning/</link><description>Recent content in Machine Learning on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 18 Oct 2025 12:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Build AI/LLM Applications in Go - OpenAI and Ollama Integration</title><link>https://www.buanacoding.com/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</link><pubDate>Sat, 18 Oct 2025 12:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</guid><description>&lt;p&gt;AI applications are everywhere now. Chatbots answering customer questions, code assistants writing functions, content generators creating blog posts, search systems understanding natural language. If you&amp;rsquo;re building with Go, you need to know how to tap into these language models without fighting with complicated Python libraries or rewriting your entire stack.&lt;/p&gt;
+&lt;p&gt;The good news: integrating AI into Go applications is straightforward once you understand the patterns. You have two main paths - cloud APIs like OpenAI for maximum quality and scale, or local models with Ollama for privacy and cost control. Sometimes you want both.&lt;/p&gt;</description></item><item><title>Computer Vision with OpenCV Complete Guide to Object Detection and Face Recognition in Python</title><link>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid><description>&lt;p&gt;Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p&gt;
+&lt;p&gt;The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p&gt;</description></item></channel></rss>

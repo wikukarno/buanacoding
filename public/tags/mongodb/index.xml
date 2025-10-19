@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>MongoDB on Buana Coding</title>
-    <link>http://localhost:1313/tags/mongodb/</link>
-    <description>Recent content in MongoDB on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 13 Oct 2025 10:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How to Work with MongoDB in Go - Complete CRUD Tutorial</title>
-      <link>http://localhost:1313/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</link>
-      <pubDate>Mon, 13 Oct 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</guid>
-      <description>&lt;p&gt;Working with MongoDB in Go is straightforward once you understand the official driver’s patterns: always use &lt;a href=&#34;http://localhost:1313/2025/04/using-context-in-go-cancellation.html&#34;&gt;&#xA;  contexts&#xA;&lt;/a&gt;&#xA;, define strong models with &lt;code&gt;bson&lt;/code&gt; tags (and clean &lt;a href=&#34;http://localhost:1313/2025/04/working-with-json-in-go-encode-decode.html&#34;&gt;&#xA;  JSON handling&#xA;&lt;/a&gt;&#xA;), ensure indexes, and wrap database calls behind a repository (see &lt;a href=&#34;http://localhost:1313/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html&#34;&gt;&#xA;  project structure best practices&#xA;&lt;/a&gt;&#xA;). In this tutorial, you’ll build a complete CRUD flow using idiomatic Go and production-friendly practices.&lt;/p&gt;&#xA;&lt;p&gt;What you’ll learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install and initialize the official driver&lt;/li&gt;&#xA;&lt;li&gt;Connect to MongoDB with timeouts and pooling&lt;/li&gt;&#xA;&lt;li&gt;Design models with &lt;code&gt;bson&lt;/code&gt; and &lt;code&gt;json&lt;/code&gt; tags&lt;/li&gt;&#xA;&lt;li&gt;Create necessary indexes programmatically&lt;/li&gt;&#xA;&lt;li&gt;Implement Create, Read, Update, Delete operations&lt;/li&gt;&#xA;&lt;li&gt;Add projections, filtering, pagination, and error handling&lt;/li&gt;&#xA;&lt;li&gt;Structure your code for maintainability&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Prerequisites:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MongoDB on Buana Coding</title><link>https://www.buanacoding.com/tags/mongodb/</link><description>Recent content in MongoDB on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 13 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/mongodb/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Work with MongoDB in Go - Complete CRUD Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</link><pubDate>Mon, 13 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</guid><description>&lt;p&gt;Working with MongoDB in Go is straightforward once you understand the official driver’s patterns: always use &lt;a href="https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html"&gt;
+ contexts
+&lt;/a&gt;
+, define strong models with &lt;code&gt;bson&lt;/code&gt; tags (and clean &lt;a href="https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html"&gt;
+ JSON handling
+&lt;/a&gt;
+), ensure indexes, and wrap database calls behind a repository (see &lt;a href="https://www.buanacoding.com/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html"&gt;
+ project structure best practices
+&lt;/a&gt;
+). In this tutorial, you’ll build a complete CRUD flow using idiomatic Go and production-friendly practices.&lt;/p&gt;
+&lt;p&gt;What you’ll learn:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install and initialize the official driver&lt;/li&gt;
+&lt;li&gt;Connect to MongoDB with timeouts and pooling&lt;/li&gt;
+&lt;li&gt;Design models with &lt;code&gt;bson&lt;/code&gt; and &lt;code&gt;json&lt;/code&gt; tags&lt;/li&gt;
+&lt;li&gt;Create necessary indexes programmatically&lt;/li&gt;
+&lt;li&gt;Implement Create, Read, Update, Delete operations&lt;/li&gt;
+&lt;li&gt;Add projections, filtering, pagination, and error handling&lt;/li&gt;
+&lt;li&gt;Structure your code for maintainability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Prerequisites:&lt;/p&gt;</description></item></channel></rss>

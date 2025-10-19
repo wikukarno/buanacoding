@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>CI/CD on Buana Coding</title>
-    <link>http://localhost:1313/tags/ci/cd/</link>
-    <description>Recent content in CI/CD on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 17 Oct 2025 11:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How to Implement CI/CD for Go Applications with GitHub Actions</title>
-      <link>http://localhost:1313/2025/10/how-to-implement-cicd-for-go-applications-with-github-actions.html</link>
-      <pubDate>Fri, 17 Oct 2025 11:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-implement-cicd-for-go-applications-with-github-actions.html</guid>
-      <description>&lt;p&gt;Manual deployments are error-prone and time-consuming. You make a change, run tests locally, build the binary, SSH into servers, copy files, restart services, and hope nothing breaks. Multiply this by ten deployments per day and you&amp;rsquo;ve wasted hours on repetitive tasks that should be automated.&lt;/p&gt;&#xA;&lt;p&gt;This guide demonstrates how to implement CI/CD (Continuous Integration/Continuous Deployment) for Go applications using GitHub Actions. You&amp;rsquo;ll learn to create automated workflows that test code on every push, build optimized binaries for multiple platforms, deploy Docker containers automatically, cache dependencies for faster builds, and apply production-ready practices that catch bugs before users do.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CI/CD on Buana Coding</title><link>https://www.buanacoding.com/tags/ci/cd/</link><description>Recent content in CI/CD on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Oct 2025 11:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/ci/cd/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Implement CI/CD for Go Applications with GitHub Actions</title><link>https://www.buanacoding.com/2025/10/how-to-implement-cicd-for-go-applications-with-github-actions.html</link><pubDate>Fri, 17 Oct 2025 11:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-cicd-for-go-applications-with-github-actions.html</guid><description>&lt;p&gt;Manual deployments are error-prone and time-consuming. You make a change, run tests locally, build the binary, SSH into servers, copy files, restart services, and hope nothing breaks. Multiply this by ten deployments per day and you&amp;rsquo;ve wasted hours on repetitive tasks that should be automated.&lt;/p&gt;
+&lt;p&gt;This guide demonstrates how to implement CI/CD (Continuous Integration/Continuous Deployment) for Go applications using GitHub Actions. You&amp;rsquo;ll learn to create automated workflows that test code on every push, build optimized binaries for multiple platforms, deploy Docker containers automatically, cache dependencies for faster builds, and apply production-ready practices that catch bugs before users do.&lt;/p&gt;</description></item></channel></rss>

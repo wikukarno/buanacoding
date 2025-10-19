@@ -1,40 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Python on Buana Coding</title>
-    <link>http://localhost:1313/tags/python/</link>
-    <description>Recent content in Python on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 02 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Computer Vision with OpenCV Complete Guide to Object Detection and Face Recognition in Python</title>
-      <link>http://localhost:1313/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link>
-      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid>
-      <description>&lt;p&gt;Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p&gt;&#xA;&lt;p&gt;The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>FastAPI Tutorial Build REST API from Scratch (Beginner Guide)</title>
-      <link>http://localhost:1313/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link>
-      <pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid>
-      <description>&lt;p&gt;Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 &#43; SQLAlchemy 2.0)</title>
-      <link>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link>
-      <pubDate>Wed, 20 Aug 2025 07:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid>
-      <description>&lt;p&gt;Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.&lt;/p&gt;&#xA;&lt;p&gt;If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: &lt;a href=&#34;http://localhost:1313/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html&#34;&gt;&#xA;  Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot&#xA;&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Deploy FastAPI on Ubuntu 24.04 Gunicorn &#43; Nginx &#43; Certbot (HTTPS)</title>
-      <link>http://localhost:1313/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</link>
-      <pubDate>Fri, 15 Aug 2025 18:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</guid>
-      <description>&lt;p&gt;Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.&lt;/p&gt;&#xA;&lt;p&gt;What you’ll build:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A minimal FastAPI project structure&lt;/li&gt;&#xA;&lt;li&gt;Running the app with Gunicorn (Uvicorn worker)&lt;/li&gt;&#xA;&lt;li&gt;A systemd service for start/stop/restart&lt;/li&gt;&#xA;&lt;li&gt;Nginx reverse proxy to Gunicorn&lt;/li&gt;&#xA;&lt;li&gt;HTTPS (Certbot) with auto‑renewal&lt;/li&gt;&#xA;&lt;li&gt;UFW firewall (open 80/443), logs, and troubleshooting tips&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Ubuntu 24.04 server (sudo access)&lt;/li&gt;&#xA;&lt;li&gt;A domain pointing to the server (A/AAAA records)&lt;/li&gt;&#xA;&lt;li&gt;Python 3.10+ (Ubuntu 24.04 default is fine)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Prepare the project structure on the server&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;A tidy layout makes automation easier.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Buana Coding</title><link>https://www.buanacoding.com/tags/python/</link><description>Recent content in Python on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 02 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Computer Vision with OpenCV Complete Guide to Object Detection and Face Recognition in Python</title><link>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/2025/09/computer-vision-opencv-object-detection-face-recognition-tutorial.html</guid><description>&lt;p&gt;Ever wondered how your phone instantly recognizes your face to unlock, or how Tesla&amp;rsquo;s autopilot spots other cars on the highway? That&amp;rsquo;s computer vision at work, and honestly, it&amp;rsquo;s not as complicated as it looks. When I first managed to get a webcam to detect my face in real-time, I was blown away. It felt like I&amp;rsquo;d just taught my computer to see.&lt;/p&gt;
+&lt;p&gt;The crazy thing is, you can build this stuff yourself. No PhD required, no expensive equipment - just Python, OpenCV, and some patience. I&amp;rsquo;ve been working with computer vision for a few years now, and I still get excited every time I see a detection algorithm actually work on messy, real-world data.&lt;/p&gt;</description></item><item><title>FastAPI Tutorial Build REST API from Scratch (Beginner Guide)</title><link>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</link><pubDate>Mon, 25 Aug 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/fastapi-tutorial-build-rest-api-from-scratch-beginner-guide.html</guid><description>&lt;p&gt;Building APIs used to scare me when I first started programming. There&amp;rsquo;s so much to learn - databases, HTTP methods, authentication, error handling. But FastAPI changed everything for me. It&amp;rsquo;s like having training wheels that actually make you faster, not slower.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;re going to build a real Book Library API from the ground up. No fluff, no complicated setups - just practical, working code that you can understand and expand on. By the end of this guide, you&amp;rsquo;ll have a fully functional REST API that can handle creating, reading, updating, and deleting books.&lt;/p&gt;</description></item><item><title>FastAPI JWT Auth with OAuth2 Password Flow (Pydantic v2 + SQLAlchemy 2.0)</title><link>https://www.buanacoding.com/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</link><pubDate>Wed, 20 Aug 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/fastapi-jwt-auth-oauth2-password-flow-pydantic-v2-sqlalchemy-2.html</guid><description>&lt;p&gt;Looking to add login to your FastAPI app without pulling in a full auth service? Here’s a small, production‑friendly setup. We’ll build username/password authentication with the OAuth2 Password flow and JSON Web Tokens (JWTs) for stateless access. It uses Pydantic v2 for validation and SQLAlchemy 2.0 for persistence. You’ll hash passwords properly, create/verify tokens, protect routes, and test everything end‑to‑end.&lt;/p&gt;
+&lt;p&gt;If you’re deploying the finished app on Ubuntu with HTTPS, check the deployment guide: &lt;a href="https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html"&gt;
+ Deploy FastAPI on Ubuntu 24.04: Gunicorn + Nginx + Certbot
+&lt;/a&gt;
+.&lt;/p&gt;</description></item><item><title>Deploy FastAPI on Ubuntu 24.04 Gunicorn + Nginx + Certbot (HTTPS)</title><link>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</link><pubDate>Fri, 15 Aug 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/08/deploy-fastapi-ubuntu-24-04-gunicorn-nginx-certbot.html</guid><description>&lt;p&gt;Want to deploy FastAPI on Ubuntu 24.04 with a clean, secure, and maintainable setup? This guide walks you through running Gunicorn (ASGI server), Nginx (reverse proxy), and free HTTPS from Let’s Encrypt using Certbot. We’ll also use systemd so your service starts on boot and is easy to restart after updates.&lt;/p&gt;
+&lt;p&gt;What you’ll build:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A minimal FastAPI project structure&lt;/li&gt;
+&lt;li&gt;Running the app with Gunicorn (Uvicorn worker)&lt;/li&gt;
+&lt;li&gt;A systemd service for start/stop/restart&lt;/li&gt;
+&lt;li&gt;Nginx reverse proxy to Gunicorn&lt;/li&gt;
+&lt;li&gt;HTTPS (Certbot) with auto‑renewal&lt;/li&gt;
+&lt;li&gt;UFW firewall (open 80/443), logs, and troubleshooting tips&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 24.04 server (sudo access)&lt;/li&gt;
+&lt;li&gt;A domain pointing to the server (A/AAAA records)&lt;/li&gt;
+&lt;li&gt;Python 3.10+ (Ubuntu 24.04 default is fine)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Prepare the project structure on the server&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;A tidy layout makes automation easier.&lt;/p&gt;</description></item></channel></rss>

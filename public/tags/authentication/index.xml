@@ -1,33 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Authentication on Buana Coding</title>
-    <link>http://localhost:1313/tags/authentication/</link>
-    <description>Recent content in Authentication on Buana Coding</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 04 Oct 2025 10:00:00 +0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How to Implement OAuth2 in Go Google GitHub and Facebook Login</title>
-      <link>http://localhost:1313/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</link>
-      <pubDate>Sat, 04 Oct 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</guid>
-      <description>&lt;p&gt;Nobody wants to create yet another account with yet another password. I&amp;rsquo;ve built authentication systems that required users to sign up with email and password, and the drop-off rate was painful. Then I added &amp;ldquo;Login with Google&amp;rdquo; and conversions jumped 40%. Users already have accounts they trust - why make them create new ones?&lt;/p&gt;&#xA;&lt;p&gt;OAuth2 lets users authenticate with providers they already use - Google, GitHub, Facebook, whatever. You get verified emails, users don&amp;rsquo;t manage more passwords, and everyone&amp;rsquo;s happy. The best part? It&amp;rsquo;s not as complicated as it looks once you understand the flow.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>How to Implement JWT Authentication in Go - Secure REST API Tutorial</title>
-      <link>http://localhost:1313/2025/09/how-to-implement-jwt-authentication-in-go-secure-rest-api.html</link>
-      <pubDate>Tue, 30 Sep 2025 09:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/how-to-implement-jwt-authentication-in-go-secure-rest-api.html</guid>
-      <description>&lt;p&gt;Authentication sits at the foundation of any secure application. Whether you&amp;rsquo;re building a REST API, microservice, or full-stack web application, you need a reliable way to verify user identity and protect sensitive endpoints. JWT (JSON Web Token) has become the de facto standard for stateless authentication in modern applications, and Go provides excellent tools for implementing it correctly.&lt;/p&gt;&#xA;&lt;p&gt;This guide walks through implementing JWT authentication in Go from the ground up. You&amp;rsquo;ll learn how to generate tokens, validate them, handle refresh tokens, create authentication middleware, and follow security best practices that work in production environments. By the end, you&amp;rsquo;ll have a complete authentication system ready to integrate into your Go applications.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Laravel API Authentication with Sanctum Complete Tutorial 2025</title>
-      <link>http://localhost:1313/2025/09/laravel-api-authentication-sanctum-2025.html</link>
-      <pubDate>Sun, 14 Sep 2025 10:00:00 +0700</pubDate>
-      <guid>http://localhost:1313/2025/09/laravel-api-authentication-sanctum-2025.html</guid>
-      <description>&lt;p&gt;Laravel Sanctum offers two simple authentication modes that cover most applications:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Cookie-based auth for SPAs that live on the same top-level domain as your backend.&lt;/li&gt;&#xA;&lt;li&gt;Personal access tokens for mobile apps, third‑party clients, or server‑to‑server use.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This tutorial walks through both flows end‑to‑end, including the necessary configuration (CORS, cookies, stateful domains), how to issue and revoke tokens, how to protect routes, and how to test the result. You’ll also find production notes to avoid common pitfalls.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Authentication on Buana Coding</title><link>https://www.buanacoding.com/tags/authentication/</link><description>Recent content in Authentication on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 04 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/authentication/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Implement OAuth2 in Go Google GitHub and Facebook Login</title><link>https://www.buanacoding.com/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</link><pubDate>Sat, 04 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</guid><description>&lt;p&gt;Nobody wants to create yet another account with yet another password. I&amp;rsquo;ve built authentication systems that required users to sign up with email and password, and the drop-off rate was painful. Then I added &amp;ldquo;Login with Google&amp;rdquo; and conversions jumped 40%. Users already have accounts they trust - why make them create new ones?&lt;/p&gt;
+&lt;p&gt;OAuth2 lets users authenticate with providers they already use - Google, GitHub, Facebook, whatever. You get verified emails, users don&amp;rsquo;t manage more passwords, and everyone&amp;rsquo;s happy. The best part? It&amp;rsquo;s not as complicated as it looks once you understand the flow.&lt;/p&gt;</description></item><item><title>How to Implement JWT Authentication in Go - Secure REST API Tutorial</title><link>https://www.buanacoding.com/2025/09/how-to-implement-jwt-authentication-in-go-secure-rest-api.html</link><pubDate>Tue, 30 Sep 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/how-to-implement-jwt-authentication-in-go-secure-rest-api.html</guid><description>&lt;p&gt;Authentication sits at the foundation of any secure application. Whether you&amp;rsquo;re building a REST API, microservice, or full-stack web application, you need a reliable way to verify user identity and protect sensitive endpoints. JWT (JSON Web Token) has become the de facto standard for stateless authentication in modern applications, and Go provides excellent tools for implementing it correctly.&lt;/p&gt;
+&lt;p&gt;This guide walks through implementing JWT authentication in Go from the ground up. You&amp;rsquo;ll learn how to generate tokens, validate them, handle refresh tokens, create authentication middleware, and follow security best practices that work in production environments. By the end, you&amp;rsquo;ll have a complete authentication system ready to integrate into your Go applications.&lt;/p&gt;</description></item><item><title>Laravel API Authentication with Sanctum Complete Tutorial 2025</title><link>https://www.buanacoding.com/2025/09/laravel-api-authentication-sanctum-2025.html</link><pubDate>Sun, 14 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-api-authentication-sanctum-2025.html</guid><description>&lt;p&gt;Laravel Sanctum offers two simple authentication modes that cover most applications:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cookie-based auth for SPAs that live on the same top-level domain as your backend.&lt;/li&gt;
+&lt;li&gt;Personal access tokens for mobile apps, third‑party clients, or server‑to‑server use.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This tutorial walks through both flows end‑to‑end, including the necessary configuration (CORS, cookies, stateful domains), how to issue and revoke tokens, how to protect routes, and how to test the result. You’ll also find production notes to avoid common pitfalls.&lt;/p&gt;</description></item></channel></rss>
