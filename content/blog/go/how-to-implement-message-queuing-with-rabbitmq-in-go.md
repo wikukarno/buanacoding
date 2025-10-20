@@ -29,7 +29,7 @@ faq:
 
 ---
 
-Picture this: it's 3 AM, and your phone won't stop buzzing. Your API just got hit with 10,000 requests in 30 seconds. Users uploading images, generating PDF reports, sending welcome emails, processing credit cards - all at once. Your server's trying to handle everything synchronously and it's dying. Response times creep from 200ms to 15 seconds. Timeout errors everywhere. Your monitoring dashboard looks like a Christmas tree, but red instead of green.
+It's 3 AM and your phone won't stop buzzing. Your API just got hammered with 10,000 requests in 30 seconds. Users uploading images, generating PDF reports, sending welcome emails, processing credit cards - all at once. Your server's trying to handle everything synchronously and it's dying. Response times creep from 200ms to 15 seconds. Timeout errors everywhere. Your monitoring dashboard looks like a Christmas tree, but red instead of green.
 
 I've been there. It's not fun.
 
