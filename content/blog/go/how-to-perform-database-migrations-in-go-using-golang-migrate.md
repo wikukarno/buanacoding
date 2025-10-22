@@ -13,7 +13,6 @@ tags:
     - SQLite
     - Backend
     - Tutorial
-description: "Complete guide to database migrations in Go using golang-migrate. Learn how to create, run, and manage database schema changes with PostgreSQL, MySQL, and SQLite including rollback strategies and production deployment."
 keywords: ["golang database migration", "golang-migrate tutorial", "go database schema", "postgresql migration go", "mysql migration golang", "database versioning go", "golang migrate cli", "go migration rollback", "production database migration", "go backend tutorial"]
 schema: "Article"
 author: "BuanaCoding"
