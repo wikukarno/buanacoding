@@ -150,7 +150,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 Pin dependencies with a `requirements.txt` (recommended):
 
-Option A — write a curated `requirements.txt` with compatible ranges:
+Option A -- write a curated `requirements.txt` with compatible ranges:
 
 ```txt
 fastapi>=0.110,<1
@@ -163,7 +163,7 @@ python-dotenv>=1.0,<2
 python-multipart>=0.0.9,<1
 ```
 
-Option B — pin exact versions from your current env:
+Option B -- pin exact versions from your current env:
 
 ```bash
 pip freeze > requirements.txt
@@ -427,14 +427,14 @@ Run the app (from the project root):
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Option A — Swagger UI (easiest)
+Option A -- Swagger UI (easiest)
 - Open http://127.0.0.1:8000/docs
 - POST /users to register a user (username + password)
 - POST /token to get an access token
 - Click “Authorize”, paste `Bearer <the_token>`
 - GET /me to verify it returns your user
 
-Option B — curl (robust, copy‑paste safe)
+Option B -- curl (robust, copy‑paste safe)
 To avoid shell quoting/wrapping issues, send JSON from a file and use urlencoded helpers:
 
 ```bash
@@ -461,20 +461,20 @@ Notes
 - If you don’t have `jq`, you can copy the token manually from the JSON response, or extract it with Python: `python -c "import sys,json;print(json.load(sys.stdin)['access_token'])"`.
 - Make sure `python-multipart` is installed; it’s required for the `/token` form endpoint.
 
-Option C — Postman (GUI)
+Option C -- Postman (GUI)
 - Register (POST /users):
-  - Body: raw → JSON
+  - Body: raw -> JSON
   - Content-Type: application/json
   - Payload: `{ "username": "alice", "password": "S3curePass!" }`
 - Login (POST /token):
   - Body: x-www-form-urlencoded (not raw JSON)
   - Keys: `username=alice`, `password=S3curePass!`
 - Protected (GET /me):
-  - Authorization tab → Type: Bearer Token → paste the token (no quotes)
+  - Authorization tab -> Type: Bearer Token -> paste the token (no quotes)
 
 Optional: import the Postman collection and use it directly: `/postman/fastapi-jwt-auth.postman_collection.json`.
 
-Option D — HTTPie (nice DX)
+Option D -- HTTPie (nice DX)
 ```bash
 # Register
 http POST :8000/users username=alice password=S3curePass!
@@ -508,4 +508,4 @@ Environment="ACCESS_TOKEN_EXPIRE_MINUTES=30"
 
 Wrap‑up
 -------
-You now have a working JWT‑based login using the OAuth2 Password flow in FastAPI with Pydantic v2 and SQLAlchemy 2.0. The example is deliberately small but production‑leaning: it hashes passwords, issues signed tokens, and protects endpoints with a simple dependency. From here, add what you need—refresh tokens, roles/scopes, social logins, and migrations—then deploy behind Nginx with HTTPS.
+You now have a working JWT‑based login using the OAuth2 Password flow in FastAPI with Pydantic v2 and SQLAlchemy 2.0. The example is deliberately small but production‑leaning: it hashes passwords, issues signed tokens, and protects endpoints with a simple dependency. From here, add what you need--refresh tokens, roles/scopes, social logins, and migrations--then deploy behind Nginx with HTTPS.

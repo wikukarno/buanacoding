@@ -150,7 +150,7 @@ Notes on rootless mode
 - Compose command not found
   - Ensure you installed `docker-compose-plugin` and run `docker compose` (space), not `docker-compose`.
 - Apt update/upgrade errors during install
-  - Lihat: How to fix broken update error in Linux (Terminal) → /2023/11/how-to-fix-broken-update-error-in-linux.html
+  - Lihat: How to fix broken update error in Linux (Terminal) -> /2023/11/how-to-fix-broken-update-error-in-linux.html
 
 8a) Maintenance & Cleanup (disk usage)
 Over time, images/layers can consume disk space. Inspect usage and prune carefully:

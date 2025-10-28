@@ -15,9 +15,9 @@ faq:
   - question: "What should I do immediately after clicking a phishing link or entering credentials?"
     answer: "Change your password immediately on the real website and any other accounts where you reused it. Enable 2FA if not already active. Revoke access to any suspicious apps or browser extensions from your account security settings. Scan your device with updated antivirus software. Monitor account activity, set up alerts, and check for forwarding rules in email or unusual transaction history. Report the phishing attempt to your email provider and the impersonated company."
   - question: "Can antivirus software or email filters completely protect me from phishing?"
-    answer: "No single tool is 100% effective. Filters catch many phishing emails but sophisticated attacks slip through, especially spear-phishing with personalized details and legitimate-looking domains. Use layered protection: spam filters, Safe Browsing/SmartScreen, password managers (domain-checking auto-fill), security keys for 2FA, and most importantly—human awareness. Slow down, verify domains, and use out-of-band verification for sensitive requests like payments or credential changes."
+    answer: "No single tool is 100% effective. Filters catch many phishing emails but sophisticated attacks slip through, especially spear-phishing with personalized details and legitimate-looking domains. Use layered protection: spam filters, Safe Browsing/SmartScreen, password managers (domain-checking auto-fill), security keys for 2FA, and most importantly--human awareness. Slow down, verify domains, and use out-of-band verification for sensitive requests like payments or credential changes."
   - question: "How do QR code phishing attacks work and how can I stay safe?"
-    answer: "QR phishing (QRishing) uses QR codes on emails, posters, or physical locations that link to fake login pages or malware downloads. Your camera app often doesn't preview the full URL before opening. To stay safe: preview URLs before opening (long-press on mobile), manually type official URLs for sensitive logins, be suspicious of unexpected QR codes asking for payments or logins, and only scan codes from trusted physical sources. Treat QR codes like any other link—verify destination first."
+    answer: "QR phishing (QRishing) uses QR codes on emails, posters, or physical locations that link to fake login pages or malware downloads. Your camera app often doesn't preview the full URL before opening. To stay safe: preview URLs before opening (long-press on mobile), manually type official URLs for sensitive logins, be suspicious of unexpected QR codes asking for payments or logins, and only scan codes from trusted physical sources. Treat QR codes like any other link--verify destination first."
   - question: "Are SMS and messaging app phishing attacks different from email phishing?"
     answer: "Yes, smishing (SMS phishing) and messaging app phishing are often more effective because people trust texts more and mobile screens show less context (harder to inspect URLs). Attacks include fake delivery notices, account alerts, or urgent payment requests with shortened links. Protection strategies: never click links in unexpected texts, contact companies directly using official apps or saved numbers, enable spam filtering on your carrier, and verify sender identity through official channels before acting on urgent requests."
 ---
@@ -44,11 +44,11 @@ Look for several red flags at the same time, not just one:
 - Unexpected attachments: ZIP, PDF, HTML, or Office files asking to “enable content/macros”.
 - Login links that don’t match the real domain: `yourbank.secure-login.example.net` instead of `yourbank.com`.
 - Spelling or design inconsistencies: Wrong logo spacing, odd grammar, off-brand colors, or low-quality images.
-- Requests for sensitive info: Passwords, OTP codes, card PIN, recovery codes—legitimate companies won’t ask these by email/DM.
+- Requests for sensitive info: Passwords, OTP codes, card PIN, recovery codes--legitimate companies won’t ask these by email/DM.
 
 ## Fake Email Examples (Safe Text-Only)
 
-Example 1 — Delivery scam:
+Example 1 -- Delivery scam:
 
 Subject: Action required: Package on hold
 
@@ -56,7 +56,7 @@ Subject: Action required: Package on hold
 
 Why it’s phishing: Delivery firms don’t ask for card details via generic links. The domain is unrelated to the real company.
 
-Example 2 — Bank alert:
+Example 2 -- Bank alert:
 
 Subject: Suspicious sign-in blocked
 
@@ -64,7 +64,7 @@ Subject: Suspicious sign-in blocked
 
 Why it’s phishing: Real banks use their exact domain (e.g., `yourbank.com`) and don’t threaten suspension via email links.
 
-Example 3 — Workplace spear-phish:
+Example 3 -- Workplace spear-phish:
 
 Subject: Updated payroll calendar Q3
 
@@ -75,7 +75,7 @@ Why it’s phishing: HTML attachments that ask you to log in are often credentia
 ## Link-Based Scams You’ll See Right Now
 
 - Smishing (SMS) and messaging apps: Short texts with urgent links (“Your package fee is unpaid”) that open fake payment pages.
-- QR phishing (QRishing): A QR code placed on posters or emails leading to a fake login portal. Treat QR codes like links—verify before scanning.
+- QR phishing (QRishing): A QR code placed on posters or emails leading to a fake login portal. Treat QR codes like links--verify before scanning.
 - Link shorteners: Hide destinations. Use a URL expander or long-press/hover to preview before opening.
 - Punycode lookalikes: Domains that visually mimic real brands (e.g., `rn` vs `m`, or accented characters) but are different under the hood.
 - Fake invoice or payment request: “See invoice” buttons leading to a login capture page.
@@ -92,10 +92,10 @@ Why it’s phishing: HTML attachments that ask you to log in are often credentia
 
 1) Verify the domain before you click. Manually type the website or use your saved bookmark. Check for subtle typos or extra words (e.g., `-secure`, `-verify`, or unusual subdomains).
 2) Use a password manager. It auto-fills only on the correct domain, acting as a built-in phishing detector.
-3) Turn on 2FA—prefer authenticator apps or security keys over SMS. Security keys (FIDO2) block many phishing attempts by design.
-4) Never share OTP codes, recovery codes, or PINs—no legitimate support will ask for them.
+3) Turn on 2FA--prefer authenticator apps or security keys over SMS. Security keys (FIDO2) block many phishing attempts by design.
+4) Never share OTP codes, recovery codes, or PINs--no legitimate support will ask for them.
 5) Preview links. On desktop, hover to see the full URL. On mobile, long-press to preview. Expand shortened links before opening.
-6) Install apps only from official stores. Disable “install unknown apps”. Review requested permissions—deny anything that looks excessive.
+6) Install apps only from official stores. Disable “install unknown apps”. Review requested permissions--deny anything that looks excessive.
 7) Keep devices updated. Apply OS and app updates from official sources. Enable automatic updates.
 8) Use built-in protections: spam filters, Safe Browsing/SmartScreen, and device encryption. Consider enabling DNS filtering for families.
 9) Separate email addresses. Use one for banking/critical accounts, another for newsletters/shops to reduce exposure.
@@ -103,7 +103,7 @@ Why it’s phishing: HTML attachments that ask you to log in are often credentia
 
 ## What To Do If You Clicked
 
-- Don’t panic—act methodically.
+- Don’t panic--act methodically.
 - If you entered a password, change it immediately on the real site and any other site where you reused it. Then enable 2FA.
 - If you approved a suspicious app/extension, remove it and revoke access: check your account’s “connected apps” or “security” page.
 - Scan your device with a trusted security tool. On mobile, uninstall unknown apps and review permissions (Accessibility, Device Admin).
@@ -121,7 +121,7 @@ Why it’s phishing: HTML attachments that ask you to log in are often credentia
 ## Key Takeaways
 
 - Phishing is about pressure and imitation. Slow down and verify.
-- Links and apps can be dangerous—stick to official sources and check domains carefully.
+- Links and apps can be dangerous--stick to official sources and check domains carefully.
 - Password managers and security keys dramatically reduce risk.
 - If you slip, reset credentials, revoke access, and monitor activity quickly.
 

@@ -690,7 +690,7 @@ After=webapp.service
 Wants=webapp.service
 ```
 
-This ensures proper startup order: PostgreSQL → Redis → Webapp → Nginx.
+This ensures proper startup order: PostgreSQL -> Redis -> Webapp -> Nginx.
 
 ## Troubleshoot failed services
 

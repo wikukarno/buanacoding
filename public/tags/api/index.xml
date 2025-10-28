@@ -6,6 +6,7 @@
 &lt;p&gt;This comprehensive guide will walk you through the entire process of decomposing your Laravel monolith into microservices, from initial planning to practical implementation strategies.&lt;/p&gt;
 &lt;h2 id="understanding-monolith-vs-microservices"&gt;Understanding Monolith vs Microservices&lt;/h2&gt;
 &lt;p&gt;A monolithic application packages all functionality into a single deployable unit. While this approach works well for small to medium applications, it presents several challenges as your application scales:&lt;/p&gt;</description></item><item><title>Modern API Tutorial for Complex Applications</title><link>https://www.buanacoding.com/2025/09/laravel-graphql-tutorial-api-modern.html</link><pubDate>Thu, 18 Sep 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-graphql-tutorial-api-modern.html</guid><description>&lt;p&gt;GraphQL shines when clients need flexible data shapes, fewer round trips, and typed contracts. For dashboards, mobile apps, or complex relationships, it can reduce API sprawl and speed up development. This tutorial uses Lighthouse, a mature GraphQL package for Laravel, and covers everything you need to go from a blank project to a production-ready API.&lt;/p&gt;
+&lt;!--readmore--&gt;
 &lt;h2 id="why-graphql-and-when-not-to-use-it"&gt;Why GraphQL (and when not to use it)&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Use GraphQL when clients need to query exactly the fields they need, combine multiple resources in one request, or evolve contracts without versioning endpoints.&lt;/li&gt;

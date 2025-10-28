@@ -22,7 +22,7 @@ faq:
     answer: "Prefer positive conditions, extract complex checks into well-named helper functions, and keep each branch small and focused."
 ---
 
-Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.
+Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code -- telling the program to do something only if a certain condition is true.
 
 In this article, we will explore:
 
@@ -179,6 +179,6 @@ Conclusion
 
 Understanding how conditionals work in Go helps you control the flow of your programs. Start with if and else, and move on to switch when you need to compare multiple options. Use these tools to build dynamic and interactive applications.
 
-Next Step: Learn about [loops]({{< relref "blog/go/understanding-loops-in-go-for-range-break-and-continue-explained.md" >}}) in Go — another powerful way to control program flow!
+Next Step: Learn about [loops]({{< relref "blog/go/understanding-loops-in-go-for-range-break-and-continue-explained.md" >}}) in Go -- another powerful way to control program flow!
 
 Happy coding!

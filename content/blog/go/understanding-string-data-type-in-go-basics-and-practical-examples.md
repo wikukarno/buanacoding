@@ -13,11 +13,11 @@ faq:
   - question: "How do I safely iterate over Unicode characters?"
     answer: "Use for range to iterate over runes (Unicode code points). Indexing by position operates on bytes, not runes."
   - question: "What is the cost of substring slicing?"
-    answer: "Slicing creates a new string header referencing the same underlying bytes. Be careful with long-lived substrings of huge strings—they can hold the entire backing array in memory."
+    answer: "Slicing creates a new string header referencing the same underlying bytes. Be careful with long-lived substrings of huge strings--they can hold the entire backing array in memory."
   - question: "How can I build strings efficiently in a loop?"
     answer: "Use strings.Builder or bytes.Buffer to avoid repeated allocations when concatenating many pieces."
   - question: "How do I convert between string and []byte?"
-    answer: "Use []byte(s) and string(b). They copy data. For zero-copy patterns, consider unsafe only with deep understanding—otherwise, prefer safe copies."
+    answer: "Use []byte(s) and string(b). They copy data. For zero-copy patterns, consider unsafe only with deep understanding--otherwise, prefer safe copies."
   - question: "What’s the difference between len(s) and number of characters?"
     answer: "len(s) returns the number of bytes, not runes. Use utf8.RuneCountInString(s) to count Unicode code points."
 ---

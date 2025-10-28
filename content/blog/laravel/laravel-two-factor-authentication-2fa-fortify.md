@@ -120,12 +120,12 @@ This trait adds methods like `twoFactorQrCodeSvg()`, `recoveryCodes()`, and data
 
 Fortify automatically registers these routes when 2FA is enabled:
 
-- `POST /user/two-factor-authentication` — Enable 2FA (generates secret and recovery codes)
-- `DELETE /user/two-factor-authentication` — Disable 2FA
-- `GET /user/two-factor-qr-code` — Get QR code SVG for scanning
-- `GET /user/two-factor-recovery-codes` — Get recovery codes as JSON
-- `POST /user/two-factor-recovery-codes` — Regenerate recovery codes
-- `POST /user/confirmed-two-factor-authentication` — Confirm 2FA by validating a code
+- `POST /user/two-factor-authentication` -- Enable 2FA (generates secret and recovery codes)
+- `DELETE /user/two-factor-authentication` -- Disable 2FA
+- `GET /user/two-factor-qr-code` -- Get QR code SVG for scanning
+- `GET /user/two-factor-recovery-codes` -- Get recovery codes as JSON
+- `POST /user/two-factor-recovery-codes` -- Regenerate recovery codes
+- `POST /user/confirmed-two-factor-authentication` -- Confirm 2FA by validating a code
 
 All routes require authentication and are under the `web` middleware group. Password confirmation may be required based on your config.
 

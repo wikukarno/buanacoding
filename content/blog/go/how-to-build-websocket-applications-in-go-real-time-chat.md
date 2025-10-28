@@ -26,7 +26,7 @@ faq:
 
 ---
 
-Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask "got any updates?", WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays—just instant, bidirectional communication.
+Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask "got any updates?", WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays--just instant, bidirectional communication.
 
 In this tutorial, we're building a production-ready chat application from scratch using Go and the **gorilla/websocket** package. By the end, you'll have a working chat app where multiple users can send messages in real-time.
 
@@ -41,7 +41,7 @@ Here's what we'll cover:
 
 ## What is WebSocket?
 
-Think of WebSocket as a phone call, while HTTP is like sending letters back and forth. With HTTP, the client always has to initiate a request—"Hey server, got anything new?" With WebSocket, once the connection is established, both sides can send data anytime. No more asking. Just instant communication.
+Think of WebSocket as a phone call, while HTTP is like sending letters back and forth. With HTTP, the client always has to initiate a request--"Hey server, got anything new?" With WebSocket, once the connection is established, both sides can send data anytime. No more asking. Just instant communication.
 
 WebSocket uses a single, long-lived TCP connection that stays open. This is way more efficient than opening a new HTTP connection for every update.
 
@@ -230,7 +230,7 @@ We're using the **Hub pattern**. Think of it as a chat room manager:
 2. **Client** - Wraps each WebSocket connection with read/write logic
 3. **Broadcasting** - When one user sends a message, the Hub pushes it to everyone
 
-This pattern leverages Go's [goroutines and channels]({{< relref "concurrency-in-go-goroutines-and-channels-explained.md" >}}) beautifully. Each client gets two goroutines—one for reading, one for writing. They communicate with the Hub through channels.
+This pattern leverages Go's [goroutines and channels]({{< relref "concurrency-in-go-goroutines-and-channels-explained.md" >}}) beautifully. Each client gets two goroutines--one for reading, one for writing. They communicate with the Hub through channels.
 
 ### The Hub (Connection Manager)
 
@@ -732,7 +732,7 @@ func (c *Client) readPump() {
 
 ### 4. Message Size Limits
 
-We already set `maxMessageSize = 512` bytes earlier. Adjust this based on your use case. Text chat? 512 is plenty. Sharing code snippets? Bump it to 4096 or higher. Just don't allow unlimited sizes—someone will send the entire Bee Movie script and crash your server.
+We already set `maxMessageSize = 512` bytes earlier. Adjust this based on your use case. Text chat? 512 is plenty. Sharing code snippets? Bump it to 4096 or higher. Just don't allow unlimited sizes--someone will send the entire Bee Movie script and crash your server.
 
 ### 5. Graceful Shutdown
 

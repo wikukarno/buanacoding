@@ -391,6 +391,6 @@ Security and configuration
 
 Wrap-up
 
-You implemented a complete CRUD workflow in Go with the official MongoDB driver, added indexes, and covered pagination, projections, and robust error handling. From here, you can extend the repository with compound indexes, unique constraints on multiple fields, soft deletes, or aggregation pipelines for analytics. Keep contexts and timeouts at the top of your mind—those two practices alone go a long way toward reliable production services.
+You implemented a complete CRUD workflow in Go with the official MongoDB driver, added indexes, and covered pagination, projections, and robust error handling. From here, you can extend the repository with compound indexes, unique constraints on multiple fields, soft deletes, or aggregation pipelines for analytics. Keep contexts and timeouts at the top of your mind--those two practices alone go a long way toward reliable production services.
 
 Building an API that needs authentication and rate control? Continue with [JWT authentication in Go](/2025/09/how-to-implement-jwt-authentication-in-go-secure-rest-api.html) and [API rate limiting in Go](/2025/10/how-to-implement-rate-limiting-in-go-protect-api-from-abuse.html).

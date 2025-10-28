@@ -25,7 +25,7 @@ faq:
     answer: "Test commands by calling their Execute functions directly with test inputs. Use buffers to capture stdout/stderr instead of printing to console. Set custom args using command.SetArgs() and verify outputs. Cobra makes testing easy because commands are just functions with clear inputs and outputs."
 
   - question: "What's the best way to handle configuration priority?"
-    answer: "Follow this priority order (highest to lowest): command-line flags → environment variables → config file → default values. Viper handles this automatically. Users can override config file settings with env vars, and override everything with explicit flags. This gives flexibility while maintaining sensible defaults."
+    answer: "Follow this priority order (highest to lowest): command-line flags -> environment variables -> config file -> default values. Viper handles this automatically. Users can override config file settings with env vars, and override everything with explicit flags. This gives flexibility while maintaining sensible defaults."
 
   - question: "How do I add auto-completion for my CLI tool?"
     answer: "Cobra has built-in completion generation for bash, zsh, fish, and PowerShell. Just add a completion command that generates the completion script. Users run your-cli completion bash > /etc/bash_completion.d/your-cli and get tab completion for all commands and flags automatically."

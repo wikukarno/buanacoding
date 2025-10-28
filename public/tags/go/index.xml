@@ -4,7 +4,7 @@
 &lt;p&gt;This guide demonstrates how to implement CI/CD (Continuous Integration/Continuous Deployment) for Go applications using GitHub Actions. You&amp;rsquo;ll learn to create automated workflows that test code on every push, build optimized binaries for multiple platforms, deploy Docker containers automatically, cache dependencies for faster builds, and apply production-ready practices that catch bugs before users do.&lt;/p&gt;</description></item><item><title>How to Work with MySQL in Go - Connection Pooling and Transactions Guide</title><link>https://www.buanacoding.com/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</link><pubDate>Fri, 17 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-work-with-mysql-in-go-connection-pooling-and-transactions.html</guid><description>&lt;p&gt;MySQL remains one of the most popular relational databases for web applications. Go provides excellent MySQL support through the database/sql package and MySQL driver. Understanding connection pooling and transactions is critical for building production-ready applications that handle concurrent users efficiently while maintaining data consistency.&lt;/p&gt;
 &lt;p&gt;This guide demonstrates how to work with MySQL in Go effectively. You&amp;rsquo;ll learn to connect to MySQL with proper driver configuration, implement CRUD operations with prepared statements, configure connection pooling for optimal performance, handle transactions correctly to maintain data integrity, manage NULL values and error conditions, and apply production best practices that scale.&lt;/p&gt;</description></item><item><title>How to Use Mock Testing in Go with Testify and Mockery - Complete Guide</title><link>https://www.buanacoding.com/2025/10/how-to-use-mock-testing-in-go-with-testify-and-mockery.html</link><pubDate>Fri, 17 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-mock-testing-in-go-with-testify-and-mockery.html</guid><description>&lt;p&gt;Testing individual units of code in isolation is critical for building reliable software. When your code depends on databases, external APIs, or other services, testing becomes complex and slow. Mock testing solves this by replacing real dependencies with controlled fake implementations, allowing you to test your code quickly without external systems.&lt;/p&gt;
 &lt;p&gt;This guide demonstrates how to implement effective mock testing in Go using Testify and Mockery. You&amp;rsquo;ll learn to design testable code with interfaces, generate mocks automatically with Mockery, write assertions with Testify, verify method calls and return values, implement table-driven mock tests, and follow best practices that create maintainable test suites without over-mocking.&lt;/p&gt;</description></item><item><title>How to Implement Session Management in Go - Cookies and Redis Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-implement-session-management-in-go-cookies-and-redis.html</link><pubDate>Thu, 16 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-session-management-in-go-cookies-and-redis.html</guid><description>&lt;p&gt;Web applications need to remember users across multiple requests. When a user logs in, adds items to a shopping cart, or sets preferences, the application must maintain this state throughout their session. HTTP&amp;rsquo;s stateless nature makes this challenging, but proper session management solves this problem by storing user state securely on the server while using cookies to track users across requests.&lt;/p&gt;
-&lt;p&gt;This complete guide demonstrates how to implement production-ready session management in Go using cookies and Redis. You&amp;rsquo;ll learn to create secure sessions, store data efficiently in Redis, implement session middleware, handle authentication flows, prevent common security vulnerabilities, and build scalable session systems that work across multiple server instances.&lt;/p&gt;</description></item><item><title>How to Build WebSocket Applications in Go - Real-time Chat Example</title><link>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</link><pubDate>Wed, 15 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</guid><description>&lt;p&gt;Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask &amp;ldquo;got any updates?&amp;rdquo;, WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays—just instant, bidirectional communication.&lt;/p&gt;
+&lt;p&gt;This complete guide demonstrates how to implement production-ready session management in Go using cookies and Redis. You&amp;rsquo;ll learn to create secure sessions, store data efficiently in Redis, implement session middleware, handle authentication flows, prevent common security vulnerabilities, and build scalable session systems that work across multiple server instances.&lt;/p&gt;</description></item><item><title>How to Build WebSocket Applications in Go - Real-time Chat Example</title><link>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</link><pubDate>Wed, 15 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</guid><description>&lt;p&gt;Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask &amp;ldquo;got any updates?&amp;rdquo;, WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays&amp;ndash;just instant, bidirectional communication.&lt;/p&gt;
 &lt;p&gt;In this tutorial, we&amp;rsquo;re building a production-ready chat application from scratch using Go and the &lt;strong&gt;gorilla/websocket&lt;/strong&gt; package. By the end, you&amp;rsquo;ll have a working chat app where multiple users can send messages in real-time.&lt;/p&gt;</description></item><item><title>How to Work with MongoDB in Go - Complete CRUD Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</link><pubDate>Mon, 13 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-work-with-mongodb-in-go-complete-crud-tutorial.html</guid><description>&lt;p&gt;Working with MongoDB in Go is straightforward once you understand the official driver’s patterns: always use &lt;a href="https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html"&gt;
  contexts
 &lt;/a&gt;
@@ -25,22 +25,222 @@
 &lt;li&gt;Add projections, filtering, pagination, and error handling&lt;/li&gt;
 &lt;li&gt;Structure your code for maintainability&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Prerequisites:&lt;/p&gt;</description></item><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What is Docker for Go?&lt;/strong&gt; Docker is a containerization platform that packages your Go application and all its dependencies into a portable container image. Instead of installing Go and dependencies on every server, Docker bundles everything your app needs into a container that runs identically everywhere - from your laptop to production servers.&lt;/p&gt;</description></item><item><title>How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration</title><link>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</link><pubDate>Mon, 06 Oct 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your application needs to send emails. Welcome messages after signup, password reset links, order confirmations, notification alerts. Email is still the most reliable way to reach users, but sending emails programmatically is harder than it looks.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What is email sending in Go?&lt;/strong&gt; Email sending in Go refers to programmatically delivering emails from your application using either SMTP protocol directly or third-party email service APIs like SendGrid and Mailgun. Instead of manually composing and sending emails, your Go code automatically sends transactional emails triggered by user actions.&lt;/p&gt;</description></item><item><title>How to Implement Background Jobs in Go with Asynq and Redis</title><link>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link><pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What are background jobs?&lt;/strong&gt; Background jobs are tasks that run asynchronously outside the main request-response cycle. Instead of making users wait while your server processes heavy workloads, you push these tasks into a queue and handle them separately in worker processes. This keeps your API fast and responsive.&lt;/p&gt;</description></item><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;
-&lt;p&gt;pprof is Go&amp;rsquo;s built-in profiler that shows you exactly what&amp;rsquo;s happening inside your running application. It tells you which functions eat CPU cycles, which code paths allocate tons of memory, where goroutines get stuck, and what&amp;rsquo;s blocking your program. With this data, you stop guessing and start fixing real bottlenecks.&lt;/p&gt;</description></item><item><title>How to Perform Database Migrations in Go using golang-migrate</title><link>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</link><pubDate>Sun, 05 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Managing database schema changes is one of those tasks that seems simple until you&amp;rsquo;re dealing with multiple environments, team members making conflicting changes, or trying to rollback a production deployment at 2 AM. If you&amp;rsquo;ve ever manually run SQL scripts on production hoping you didn&amp;rsquo;t miss anything, you know exactly what I&amp;rsquo;m talking about.&lt;/p&gt;
-&lt;p&gt;golang-migrate solves this problem by giving you version control for your database schema. Just like git tracks code changes, migrations track schema changes. You can move forward, rollback, and know exactly what state your database is in at any time.&lt;/p&gt;</description></item><item><title>How to Build a CLI Tool in Go with Cobra and Viper</title><link>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</link><pubDate>Sat, 04 Oct 2025 14:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</guid><description>&lt;p&gt;I&amp;rsquo;ve built a lot of CLI tools over the years - deployment scripts, database migration tools, log analyzers, you name it. Every time I start a new one, I reach for Cobra and Viper. Not because they&amp;rsquo;re trendy (though they are), but because they solve the boring parts so I can focus on what my tool actually does.&lt;/p&gt;
+&lt;p&gt;Prerequisites:&lt;/p&gt;</description></item><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Containerize and Deploy Go Apps with Docker",
+ "description": "Complete guide to containerizing Go applications with Docker. Learn multi-stage builds, optimization techniques, Docker Compose, deployment strategies, and production best practices for Go containers.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-07",
+ "dateModified": "2025-10-07",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["docker go", "containerize go app", "golang docker tutorial", "docker multi-stage build go"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Docker Containerization"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Deployment"
+ },
+ {
+ "@type": "Thing",
+ "name": "DevOps"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;</description></item><item><title>How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration</title><link>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</link><pubDate>Mon, 06 Oct 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration",
+ "description": "Complete guide to sending emails in Go using SMTP, SendGrid, and Mailgun. Learn email templates, attachments, HTML emails, error handling, and production best practices for transactional emails.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-06",
+ "dateModified": "2025-10-06",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["go send email", "golang smtp", "sendgrid go tutorial", "mailgun golang", "email golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Email Integration"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Programming"
+ },
+ {
+ "@type": "Thing",
+ "name": "Transactional Emails"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Your application needs to send emails. Welcome messages after signup, password reset links, order confirmations, notification alerts. Email is still the most reliable way to reach users, but sending emails programmatically is harder than it looks.&lt;/p&gt;</description></item><item><title>How to Implement Background Jobs in Go with Asynq and Redis</title><link>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link><pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Implement Background Jobs in Go with Asynq and Redis",
+ "description": "Complete guide to implementing background job processing in Go using Asynq and Redis. Learn task queues, worker pools, retries, scheduled tasks, error handling, and production deployment strategies.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-06",
+ "dateModified": "2025-10-06",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["go background jobs", "asynq tutorial", "golang task queue", "redis job queue go", "background processing golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Background Job Processing"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Programming"
+ },
+ {
+ "@type": "Thing",
+ "name": "Redis Queue System"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;</description></item><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Profile and Optimize Go Applications with pprof",
+ "description": "Complete guide to profiling and optimizing Go applications using pprof. Learn CPU profiling, memory profiling, goroutine analysis, and performance optimization techniques for production Go applications.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-06",
+ "dateModified": "2025-10-06",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["go profiling", "pprof tutorial", "golang performance optimization", "cpu profiling go", "memory profiling golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Go Performance Optimization"
+ },
+ {
+ "@type": "Thing",
+ "name": "Application Profiling"
+ },
+ {
+ "@type": "Thing",
+ "name": "Backend Performance"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;</description></item><item><title>How to Perform Database Migrations in Go using golang-migrate</title><link>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</link><pubDate>Sun, 05 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Perform Database Migrations in Go using golang-migrate",
+ "description": "Complete guide to database migrations in Go using golang-migrate. Learn how to create, run, and manage database schema changes with PostgreSQL, MySQL, and SQLite including rollback strategies and production deployment.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-05",
+ "dateModified": "2025-10-05",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["golang database migration", "golang-migrate tutorial", "go database schema", "postgresql migration go", "mysql migration golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Database Migrations"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Programming"
+ },
+ {
+ "@type": "Thing",
+ "name": "Backend Development"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Managing database schema changes is one of those tasks that seems simple until you&amp;rsquo;re dealing with multiple environments, team members making conflicting changes, or trying to rollback a production deployment at 2 AM. If you&amp;rsquo;ve ever manually run SQL scripts on production hoping you didn&amp;rsquo;t miss anything, you know exactly what I&amp;rsquo;m talking about.&lt;/p&gt;</description></item><item><title>How to Build a CLI Tool in Go with Cobra and Viper</title><link>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</link><pubDate>Sat, 04 Oct 2025 14:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</guid><description>&lt;p&gt;I&amp;rsquo;ve built a lot of CLI tools over the years - deployment scripts, database migration tools, log analyzers, you name it. Every time I start a new one, I reach for Cobra and Viper. Not because they&amp;rsquo;re trendy (though they are), but because they solve the boring parts so I can focus on what my tool actually does.&lt;/p&gt;
 &lt;p&gt;Think about kubectl, hugo, gh (GitHub CLI) - all built with Cobra. There&amp;rsquo;s a reason for that. Cobra gives you a clean command structure, automatic help generation, flag parsing, and all the stuff you&amp;rsquo;d otherwise spend hours implementing. Viper adds configuration management so users can configure your tool however they want - config files, environment variables, flags, whatever.&lt;/p&gt;</description></item><item><title>How to Implement OAuth2 in Go Google GitHub and Facebook Login</title><link>https://www.buanacoding.com/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</link><pubDate>Sat, 04 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</guid><description>&lt;p&gt;Nobody wants to create yet another account with yet another password. I&amp;rsquo;ve built authentication systems that required users to sign up with email and password, and the drop-off rate was painful. Then I added &amp;ldquo;Login with Google&amp;rdquo; and conversions jumped 40%. Users already have accounts they trust - why make them create new ones?&lt;/p&gt;
 &lt;p&gt;OAuth2 lets users authenticate with providers they already use - Google, GitHub, Facebook, whatever. You get verified emails, users don&amp;rsquo;t manage more passwords, and everyone&amp;rsquo;s happy. The best part? It&amp;rsquo;s not as complicated as it looks once you understand the flow.&lt;/p&gt;</description></item><item><title>How to Upload Files to AWS S3 in Go Complete Guide with SDK v2</title><link>https://www.buanacoding.com/2025/10/how-to-upload-files-to-aws-s3-in-go-with-sdk-v2.html</link><pubDate>Fri, 03 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-upload-files-to-aws-s3-in-go-with-sdk-v2.html</guid><description>&lt;p&gt;If you&amp;rsquo;ve built any real application, you know file storage becomes a problem fast. User avatars, document uploads, video files - they pile up quickly, and you need somewhere reliable to put them. That&amp;rsquo;s where AWS S3 comes in. It&amp;rsquo;s like having unlimited storage that you only pay for what you use, and it integrates beautifully with Go.&lt;/p&gt;
 &lt;p&gt;AWS recently rewrote their entire Go SDK with v2, and honestly, it&amp;rsquo;s a massive improvement. Cleaner APIs, better error handling, proper context support - everything you&amp;rsquo;d want in a modern Go library. If you&amp;rsquo;re starting fresh or thinking about upgrading from v1, this guide has you covered.&lt;/p&gt;</description></item><item><title>How to Use Redis with Go - Caching and Session Management Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</link><pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</guid><description>&lt;p&gt;Modern applications demand speed and scalability that traditional databases struggle to provide alone. Users expect instant responses, APIs must handle thousands of concurrent requests, and systems need to scale horizontally without performance degradation. Redis addresses these challenges by providing blazing-fast in-memory data storage that complements your existing database infrastructure.&lt;/p&gt;
@@ -57,13 +257,13 @@
 &lt;p&gt;If you&amp;rsquo;ve been building &lt;a href="https://www.buanacoding.com/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html"&gt;
  basic REST APIs with Go&amp;rsquo;s net/http package
 &lt;/a&gt;
-, you&amp;rsquo;ve probably noticed how much boilerplate code you need to write for routing, middleware, and request handling. That&amp;rsquo;s where Gin shines - it provides all the essential features you need while maintaining the performance advantages that make Go special.&lt;/p&gt;</description></item><item><title>Private Repos, Semantic Import v2+, and go.work</title><link>https://www.buanacoding.com/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</link><pubDate>Tue, 02 Sep 2025 19:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</guid><description>&lt;p&gt;Go modules revolutionized dependency management in the Go ecosystem when they were introduced in Go 1.11. While most developers are familiar with basic module operations like &lt;code&gt;go mod init&lt;/code&gt; and &lt;code&gt;go get&lt;/code&gt;, there are several advanced features that can significantly improve your development workflow. In this comprehensive guide, we&amp;rsquo;ll explore three critical advanced concepts: working with private repositories, handling semantic import versioning v2 and beyond, and leveraging go.work for multi-module projects.&lt;/p&gt;</description></item><item><title>The Complete Guide to slog (Go 1.21+) Modern Structured Logging in Go (2025)</title><link>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</link><pubDate>Mon, 01 Sep 2025 08:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</guid><description>&lt;p&gt;Go 1.21 introduced &lt;code&gt;log/slog&lt;/code&gt;, a standard structured logging API that finally brings first‑class JSON and attribute‑based logging to the standard library. If you’ve used &lt;code&gt;zap&lt;/code&gt; or &lt;code&gt;logrus&lt;/code&gt;, the core ideas will feel familiar—just simpler and standardized.&lt;/p&gt;
+, you&amp;rsquo;ve probably noticed how much boilerplate code you need to write for routing, middleware, and request handling. That&amp;rsquo;s where Gin shines - it provides all the essential features you need while maintaining the performance advantages that make Go special.&lt;/p&gt;</description></item><item><title>Private Repos, Semantic Import v2+, and go.work</title><link>https://www.buanacoding.com/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</link><pubDate>Tue, 02 Sep 2025 19:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/advanced-go-modules-private-repos-semantic-import-v2-go-work.html</guid><description>&lt;p&gt;Go modules revolutionized dependency management in the Go ecosystem when they were introduced in Go 1.11. While most developers are familiar with basic module operations like &lt;code&gt;go mod init&lt;/code&gt; and &lt;code&gt;go get&lt;/code&gt;, there are several advanced features that can significantly improve your development workflow. In this comprehensive guide, we&amp;rsquo;ll explore three critical advanced concepts: working with private repositories, handling semantic import versioning v2 and beyond, and leveraging go.work for multi-module projects.&lt;/p&gt;</description></item><item><title>The Complete Guide to slog (Go 1.21+) Modern Structured Logging in Go (2025)</title><link>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</link><pubDate>Mon, 01 Sep 2025 08:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/complete-guide-slog-go-structured-logging-2025.html</guid><description>&lt;p&gt;Go 1.21 introduced &lt;code&gt;log/slog&lt;/code&gt;, a standard structured logging API that finally brings first‑class JSON and attribute‑based logging to the standard library. If you’ve used &lt;code&gt;zap&lt;/code&gt; or &lt;code&gt;logrus&lt;/code&gt;, the core ideas will feel familiar&amp;ndash;just simpler and standardized.&lt;/p&gt;
 &lt;p&gt;This guide takes you from zero to production-ready logging with &lt;code&gt;slog&lt;/code&gt;. We&amp;rsquo;ll start with basic setup, then gradually build up to advanced patterns like HTTP middleware, security, testing, and observability integration. Each section includes working examples you can run immediately.&lt;/p&gt;</description></item><item><title>gRPC in Go Complete Guide from Basics to Production Ready Services</title><link>https://www.buanacoding.com/2025/08/grpc-in-go-complete-guide-from-basics-to-production.html</link><pubDate>Thu, 28 Aug 2025 00:00:00 +0000</pubDate><guid>https://www.buanacoding.com/2025/08/grpc-in-go-complete-guide-from-basics-to-production.html</guid><description>&lt;p&gt;Building modern distributed systems is tricky business - you need services that can talk to each other quickly and reliably. That&amp;rsquo;s where gRPC comes in and absolutely crushes it. I&amp;rsquo;ve been building REST APIs for years, but when I first tried gRPC, it was like switching from a bicycle to a sports car. The speed difference is insane, plus you get type safety and can use it with practically any programming language.&lt;/p&gt;</description></item><item><title>Connecting to PostgreSQL in Go using sqlx</title><link>https://www.buanacoding.com/2025/05/connecting-postgresql-in-go-using-sqlx.html</link><pubDate>Sun, 25 May 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/05/connecting-postgresql-in-go-using-sqlx.html</guid><description>&lt;p&gt;In modern web applications, storing and retrieving data from a database is a fundamental requirement. Go provides a low-level database/sql package, but using it directly can be verbose and repetitive. Thankfully, sqlx extends database/sql by adding useful features like struct scanning and named queries, making database operations in Go much easier.&lt;/p&gt;
 &lt;p&gt;In this article, we’ll walk through how to connect a Go application to a PostgreSQL database using sqlx, and how to perform basic CRUD operations.&lt;/p&gt;</description></item><item><title>Structuring Go Projects Clean Project Structure and Best Practices</title><link>https://www.buanacoding.com/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html</link><pubDate>Sun, 18 May 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/05/structuring-go-projects-clean-project-structure-and-best-practices.html</guid><description>&lt;p&gt;When you start building larger applications in Go, having a clean and maintainable project structure is essential. Unlike some other languages or frameworks that enforce certain patterns, Go gives you a lot of freedom in how you organize your code. While this is powerful, it can also lead to messy projects if not handled carefully.&lt;/p&gt;
 &lt;p&gt;In this guide, we&amp;rsquo;ll explore how to structure Go projects following clean architecture principles and best practices that many professional Go developers use.&lt;/p&gt;</description></item><item><title>How to Build a REST API in Go using net/http</title><link>https://www.buanacoding.com/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html</link><pubDate>Sun, 11 May 2025 08:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html</guid><description>&lt;p&gt;Building a REST API in Go is one of the most practical ways to learn how Go handles HTTP servers, &lt;a href="https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html"&gt;
  JSON
 &lt;/a&gt;
-, and struct-based logic. In this tutorial, you’ll learn how to create a simple RESTful API using the standard net/http package—without using any third-party frameworks. This is a great starting point before moving to more complex architectures.&lt;/p&gt;
+, and struct-based logic. In this tutorial, you’ll learn how to create a simple RESTful API using the standard net/http package&amp;ndash;without using any third-party frameworks. This is a great starting point before moving to more complex architectures.&lt;/p&gt;
 &lt;p&gt;In this guide, we’ll create a simple API for managing books. Each book will have an ID, title, and author.&lt;/p&gt;</description></item><item><title>Working with JSON in Go - Encode and Decode</title><link>https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html</link><pubDate>Wed, 30 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html</guid><description>&lt;p&gt;JSON (JavaScript Object Notation) is a widely used data format in APIs and web applications. Go provides strong support for JSON through the standard &lt;code&gt;encoding/json&lt;/code&gt; package. In this article, you’ll learn how to parse JSON into structs, generate JSON from Go data, use struct tags, and work with nested or dynamic structures.&lt;/p&gt;
 &lt;p&gt;In this article, you’ll learn:&lt;/p&gt;
 &lt;ul&gt;
@@ -96,7 +296,7 @@
 &lt;li&gt;Real-world examples and best practices&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="what-is-a-race-condition"&gt;What Is a Race Condition?&lt;/h2&gt;
-&lt;p&gt;A race condition happens when two or more goroutines access the same variable at the same time, and at least one of them is modifying it. This can cause unexpected behavior or corrupted data.&lt;/p&gt;</description></item><item><title>Using Context in Go - Cancellation</title><link>https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html</link><pubDate>Sun, 27 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html</guid><description>&lt;p&gt;As your Go applications become more concurrent and complex, you&amp;rsquo;ll need a way to manage the lifecycle of your goroutines—especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the &lt;code&gt;context&lt;/code&gt; package comes in. It&amp;rsquo;s the idiomatic way in Go to control concurrent processes gracefully and reliably.&lt;/p&gt;
+&lt;p&gt;A race condition happens when two or more goroutines access the same variable at the same time, and at least one of them is modifying it. This can cause unexpected behavior or corrupted data.&lt;/p&gt;</description></item><item><title>Using Context in Go - Cancellation</title><link>https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html</link><pubDate>Sun, 27 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/using-context-in-go-cancellation.html</guid><description>&lt;p&gt;As your Go applications become more concurrent and complex, you&amp;rsquo;ll need a way to manage the lifecycle of your goroutines&amp;ndash;especially when you want to cancel them, set timeouts, or propagate deadlines. This is where the &lt;code&gt;context&lt;/code&gt; package comes in. It&amp;rsquo;s the idiomatic way in Go to control concurrent processes gracefully and reliably.&lt;/p&gt;
 &lt;p&gt;In this article, you’ll learn:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;What &lt;code&gt;context&lt;/code&gt; is and why it’s important&lt;/li&gt;
@@ -140,7 +340,7 @@
 &lt;li&gt;Best practices for writing meaningful benchmarks&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="why-benchmarking-is-important"&gt;Why Benchmarking is Important&lt;/h2&gt;
-&lt;p&gt;Benchmarking allows you to evaluate performance based on data, not assumptions. You can compare the execution time of different code versions, measure improvements, and catch performance regressions early. This is crucial for optimizing critical parts of applications such as sorting, searching, or processing large datasets.&lt;/p&gt;</description></item><item><title>Writing Unit Tests with the Testing Package</title><link>https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html</link><pubDate>Wed, 23 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html</guid><description>&lt;p&gt;Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought — it&amp;rsquo;s built into the language itself through the powerful and easy-to-use &lt;code&gt;testing&lt;/code&gt; package. Whether you&amp;rsquo;re building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.&lt;/p&gt;
+&lt;p&gt;Benchmarking allows you to evaluate performance based on data, not assumptions. You can compare the execution time of different code versions, measure improvements, and catch performance regressions early. This is crucial for optimizing critical parts of applications such as sorting, searching, or processing large datasets.&lt;/p&gt;</description></item><item><title>Writing Unit Tests with the Testing Package</title><link>https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html</link><pubDate>Wed, 23 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/testing-in-go-writing-unit-tests-with.html</guid><description>&lt;p&gt;Testing is one of the most important parts of software development, yet often overlooked. In Go, testing is not an afterthought &amp;ndash; it&amp;rsquo;s built into the language itself through the powerful and easy-to-use &lt;code&gt;testing&lt;/code&gt; package. Whether you&amp;rsquo;re building a web app, API, or CLI tool, writing tests will help you catch bugs early, document your code, and refactor safely.&lt;/p&gt;
 &lt;p&gt;This article will help you understand:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Why testing matters in software development&lt;/li&gt;
@@ -152,7 +352,7 @@
 &lt;li&gt;Best practices for writing useful tests&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="why-testing-is-important"&gt;Why Testing is Important&lt;/h2&gt;
-&lt;p&gt;Testing helps you ensure that your code works as expected — not just today, but as it evolves. Without tests, it&amp;rsquo;s risky to make changes because you can&amp;rsquo;t be confident you haven&amp;rsquo;t broken something.&lt;/p&gt;</description></item><item><title>Managing Errors the Right Way</title><link>https://www.buanacoding.com/2025/04/error-handling-in-go-managing-errors.html</link><pubDate>Tue, 22 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/error-handling-in-go-managing-errors.html</guid><description>&lt;p&gt;Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it&amp;rsquo;s the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.&lt;/p&gt;
+&lt;p&gt;Testing helps you ensure that your code works as expected &amp;ndash; not just today, but as it evolves. Without tests, it&amp;rsquo;s risky to make changes because you can&amp;rsquo;t be confident you haven&amp;rsquo;t broken something.&lt;/p&gt;</description></item><item><title>Managing Errors the Right Way</title><link>https://www.buanacoding.com/2025/04/error-handling-in-go-managing-errors.html</link><pubDate>Tue, 22 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/error-handling-in-go-managing-errors.html</guid><description>&lt;p&gt;Error handling is a core part of Go programming. Unlike many languages that use exceptions, Go takes a more straightforward and explicit approach. In Go, functions often return an error as the last return value, and it&amp;rsquo;s the developer’s job to check and handle it. This method may seem verbose at first, but it leads to more robust and predictable code.&lt;/p&gt;
 &lt;p&gt;In this article, you&amp;rsquo;ll learn:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;What an error is in Go&lt;/li&gt;
@@ -164,8 +364,8 @@
 &lt;li&gt;Best practices for error handling&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="what-is-an-error-in-go"&gt;What is an Error in Go?&lt;/h2&gt;
-&lt;p&gt;In Go, the &lt;code&gt;error&lt;/code&gt; type is a built-in interface:&lt;/p&gt;</description></item><item><title>Building Flexible and Reusable Code</title><link>https://www.buanacoding.com/2025/04/interfaces-in-go-building-flexible-and.html</link><pubDate>Mon, 21 Apr 2025 10:30:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/interfaces-in-go-building-flexible-and.html</guid><description>&lt;p&gt;Interfaces are one of the most important features in Go. They allow you to write flexible, reusable, and loosely coupled code. In Go, an interface defines a set of method signatures, and any type that implements those methods satisfies the interface — without needing to explicitly declare that it does so. This is a powerful concept that supports polymorphism and clean architecture in Go applications.&lt;/p&gt;
-&lt;p&gt;In this article, you&amp;rsquo;ll learn:&lt;/p&gt;</description></item><item><title>Reference Types and Receivers Explained</title><link>https://www.buanacoding.com/2025/04/understanding-pointers-in-go-reference.html</link><pubDate>Sun, 20 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-pointers-in-go-reference.html</guid><description>&lt;p&gt;In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.&lt;/p&gt;
+&lt;p&gt;In Go, the &lt;code&gt;error&lt;/code&gt; type is a built-in interface:&lt;/p&gt;</description></item><item><title>Building Flexible and Reusable Code</title><link>https://www.buanacoding.com/2025/04/interfaces-in-go-building-flexible-and.html</link><pubDate>Mon, 21 Apr 2025 10:30:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/interfaces-in-go-building-flexible-and.html</guid><description>&lt;p&gt;Interfaces are one of the most important features in Go. They allow you to write flexible, reusable, and loosely coupled code. In Go, an interface defines a set of method signatures, and any type that implements those methods satisfies the interface &amp;ndash; without needing to explicitly declare that it does so. This is a powerful concept that supports polymorphism and clean architecture in Go applications.&lt;/p&gt;
+&lt;p&gt;In this article, you&amp;rsquo;ll learn:&lt;/p&gt;</description></item><item><title>Reference Types and Receivers Explained</title><link>https://www.buanacoding.com/2025/04/understanding-pointers-in-go-reference.html</link><pubDate>Sun, 20 Apr 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-pointers-in-go-reference.html</guid><description>&lt;p&gt;In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward&amp;ndash;there’s no pointer arithmetic, and most things can be done without overly complex syntax.&lt;/p&gt;
 &lt;p&gt;This article will help you understand:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;What pointers are in Go and how they work&lt;/li&gt;
@@ -206,7 +406,7 @@
 &lt;li&gt;Common operations with collections&lt;/li&gt;
 &lt;li&gt;Practical examples to understand the difference between them&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Let’s dive in and learn how Go helps us manage grouped data efficiently.&lt;/p&gt;</description></item><item><title>for, range, break, and continue Explained</title><link>https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html</link><pubDate>Wed, 16 Apr 2025 22:06:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html</guid><description>&lt;p&gt;Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful — and they&amp;rsquo;re built using just one keyword: for.&lt;/p&gt;
+&lt;p&gt;Let’s dive in and learn how Go helps us manage grouped data efficiently.&lt;/p&gt;</description></item><item><title>for, range, break, and continue Explained</title><link>https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html</link><pubDate>Wed, 16 Apr 2025 22:06:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-loops-in-go-for-range.html</guid><description>&lt;p&gt;Loops are a key part of programming. They let us run the same piece of code multiple times without repeating ourselves. In Go, loops are simple but powerful &amp;ndash; and they&amp;rsquo;re built using just one keyword: for.&lt;/p&gt;
 &lt;p&gt;In this article, we’ll explore:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The basic for loop in Go&lt;/li&gt;
@@ -216,7 +416,7 @@
 &lt;li&gt;Real-world examples to help you understand how loops work&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="what-is-a-loop"&gt;What is a Loop?&lt;/h2&gt;
-&lt;p&gt;A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.&lt;/p&gt;</description></item><item><title>Understanding Conditional Statements in Go (if, switch, etc.)</title><link>https://www.buanacoding.com/2025/04/understanding-conditional-statements-in.html</link><pubDate>Tue, 15 Apr 2025 19:09:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-conditional-statements-in.html</guid><description>&lt;p&gt;Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code — telling the program to do something only if a certain condition is true.&lt;/p&gt;
+&lt;p&gt;A loop is a way to repeat a block of code as long as a condition remains true. Instead of writing similar code many times, we can put it in a loop and let the program handle the repetition. This makes our code shorter, cleaner, and easier to manage. Go uses the keyword for for all loop types, which makes it both simple and flexible.&lt;/p&gt;</description></item><item><title>Understanding Conditional Statements in Go (if, switch, etc.)</title><link>https://www.buanacoding.com/2025/04/understanding-conditional-statements-in.html</link><pubDate>Tue, 15 Apr 2025 19:09:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/04/understanding-conditional-statements-in.html</guid><description>&lt;p&gt;Conditional statements are one of the essential building blocks in any programming language, including Go. They allow us to make decisions in our code &amp;ndash; telling the program to do something only if a certain condition is true.&lt;/p&gt;
 &lt;p&gt;In this article, we will explore:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The if, else, and else if statements&lt;/li&gt;
@@ -234,7 +434,7 @@
 &lt;p&gt;Integer types are divided into two categories, signed and unsigned. The signed integers &lt;strong&gt;int8, int16, int32, int64&lt;/strong&gt; can hold both negative and positive values, whereas unsigned integers &lt;strong&gt;int8, int16, int32, int64&lt;/strong&gt; can only hold positive values and zero.&lt;/p&gt;</description></item><item><title>Basics and Practical Examples</title><link>https://www.buanacoding.com/2024/07/understanding-booleans-in-go-basics.html</link><pubDate>Thu, 18 Jul 2024 19:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/07/understanding-booleans-in-go-basics.html</guid><description>&lt;p&gt;In the Go programming language, as in many other programming languages, the boolean data type is fundamental. It represents truth values, either true or false. Booleans are crucial in software development for decision-making, allowing developers to control the flow of execution through conditional statements like if, else, and looping constructs such as for.&lt;/p&gt;
 &lt;p&gt;Declaration and Initialization&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;To declare a boolean in Go, you use the keyword &lt;strong&gt;bool&lt;/strong&gt;. Here&amp;rsquo;s how you can declare and initialize a boolean variable:&lt;/p&gt;</description></item><item><title>Easiest Way to Install Golang on Linux Snap or Manual Source?</title><link>https://www.buanacoding.com/2024/04/easiest-way-to-install-golang-on-linux.html</link><pubDate>Mon, 08 Apr 2024 06:23:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/04/easiest-way-to-install-golang-on-linux.html</guid><description>&lt;p&gt;Learning Golang recently opened up new perspectives for me in software development. One of the best ways to solidify your understanding is by teaching others. That’s why in this article, I’m sharing my experience installing Go on Linux—using both Snap and manual source installation.&lt;/p&gt;
+&lt;p&gt;To declare a boolean in Go, you use the keyword &lt;strong&gt;bool&lt;/strong&gt;. Here&amp;rsquo;s how you can declare and initialize a boolean variable:&lt;/p&gt;</description></item><item><title>Easiest Way to Install Golang on Linux Snap or Manual Source?</title><link>https://www.buanacoding.com/2024/04/easiest-way-to-install-golang-on-linux.html</link><pubDate>Mon, 08 Apr 2024 06:23:00 +0700</pubDate><guid>https://www.buanacoding.com/2024/04/easiest-way-to-install-golang-on-linux.html</guid><description>&lt;p&gt;Learning Golang recently opened up new perspectives for me in software development. One of the best ways to solidify your understanding is by teaching others. That’s why in this article, I’m sharing my experience installing Go on Linux&amp;ndash;using both Snap and manual source installation.&lt;/p&gt;
 &lt;p&gt;Writing this guide not only helps others get started, but also helps reinforce the steps in my own memory.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="installing-golang-using-snap"&gt;Installing Golang Using Snap&lt;/h2&gt;

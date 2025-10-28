@@ -22,7 +22,7 @@ faq:
     answer: "Use httptest.NewRecorder and httptest.NewRequest to simulate requests. Assert status codes, headers, and response bodies. Mock dependencies or use in-memory fakes for fast, deterministic tests."
 ---
 
-Building a REST API in Go is one of the most practical ways to learn how Go handles HTTP servers, [JSON](https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html), and struct-based logic. In this tutorial, you’ll learn how to create a simple RESTful API using the standard net/http package—without using any third-party frameworks. This is a great starting point before moving to more complex architectures.
+Building a REST API in Go is one of the most practical ways to learn how Go handles HTTP servers, [JSON](https://www.buanacoding.com/2025/04/working-with-json-in-go-encode-decode.html), and struct-based logic. In this tutorial, you’ll learn how to create a simple RESTful API using the standard net/http package--without using any third-party frameworks. This is a great starting point before moving to more complex architectures.
 
 In this guide, we’ll create a simple API for managing books. Each book will have an ID, title, and author.
 

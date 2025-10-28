@@ -164,7 +164,7 @@ Asynq has three main components:
 The flow:
 
 ```
-Web App (Client)  →  Redis  →  Worker (Server)
+Web App (Client)  ->  Redis  ->  Worker (Server)
      ↓                  ↓           ↓
   Enqueue Task    Store in Queue  Process Task
 ```
@@ -551,13 +551,13 @@ client.Enqueue(task,
 
 **Common patterns:**
 
-Critical tasks (password resets) → critical queue with high priority.
+Critical tasks (password resets) -> critical queue with high priority.
 
-Scheduled reports → ProcessAt with specific time.
+Scheduled reports -> ProcessAt with specific time.
 
-Deduplication → Unique option to prevent duplicate jobs.
+Deduplication -> Unique option to prevent duplicate jobs.
 
-Long-running tasks → Higher timeout and lower concurrency.
+Long-running tasks -> Higher timeout and lower concurrency.
 
 ## Handling Task Failures and Retries
 
@@ -970,7 +970,7 @@ mux.HandleFunc(tasks.TypeEmailWelcome, tasks.HandleEmailWelcomeTask)
 // ... more handlers
 ```
 
-Middleware runs in order: Recovery → Logging → Metrics → Handler.
+Middleware runs in order: Recovery -> Logging -> Metrics -> Handler.
 
 ## Monitoring Background Jobs with Asynq Web UI
 

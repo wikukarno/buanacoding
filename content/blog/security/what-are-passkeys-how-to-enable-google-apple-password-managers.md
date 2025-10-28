@@ -13,17 +13,17 @@ disable_comments: false
 ad_channel: "passkeys"
 faq:
   - question: "Can I use passkeys across different devices and platforms (iPhone to Windows)?"
-    answer: "Yes, but it depends on where you store your passkeys. Platform-bound passkeys (iCloud Keychain, Google Password Manager) sync only within their ecosystems. For cross-platform compatibility, use a password manager that supports passkeys like 1Password, Bitwarden, or Proton Pass—they work on iOS, Android, Windows, macOS, and Linux. These managers sync passkeys across all your devices regardless of platform, giving you seamless access everywhere."
+    answer: "Yes, but it depends on where you store your passkeys. Platform-bound passkeys (iCloud Keychain, Google Password Manager) sync only within their ecosystems. For cross-platform compatibility, use a password manager that supports passkeys like 1Password, Bitwarden, or Proton Pass--they work on iOS, Android, Windows, macOS, and Linux. These managers sync passkeys across all your devices regardless of platform, giving you seamless access everywhere."
   - question: "What happens to my passkeys if I lose my phone or switch devices?"
     answer: "If passkeys are synced via iCloud Keychain (Apple), Google Password Manager, or a password manager (1Password/Bitwarden), they're automatically available on your new device after signing in. For unsynced local passkeys, you'll lose access unless you registered backup authentication methods (additional passkey on another device, security key, or password fallback). Always enable sync and register at least two passkeys or backup methods for critical accounts."
   - question: "Are passkeys better than using a password manager with strong passwords and 2FA?"
-    answer: "Passkeys offer stronger phishing resistance because they're cryptographically bound to the correct domain—they can't be used on fake lookalike sites. Password managers + strong passwords + TOTP/2FA are very secure, but users can still be tricked into entering credentials on phishing pages. Passkeys eliminate that risk entirely. Ideally, use a password manager that supports both passkeys (for sites that offer them) and strong passwords + 2FA (for sites that don't). This gives you maximum security and compatibility."
+    answer: "Passkeys offer stronger phishing resistance because they're cryptographically bound to the correct domain--they can't be used on fake lookalike sites. Password managers + strong passwords + TOTP/2FA are very secure, but users can still be tricked into entering credentials on phishing pages. Passkeys eliminate that risk entirely. Ideally, use a password manager that supports both passkeys (for sites that offer them) and strong passwords + 2FA (for sites that don't). This gives you maximum security and compatibility."
   - question: "Do I still need a hardware security key if I use passkeys?"
     answer: "For most users, synced passkeys from Google, Apple, or a password manager provide excellent security. However, hardware security keys (YubiKey, Titan) offer additional benefits: they're offline, can't be remotely compromised, work as reliable backup authentication, and some organizations require them for compliance. For critical accounts (email, domain registrar, financial, admin panels), keeping at least one hardware key as a backup is highly recommended even if you primarily use passkeys."
   - question: "Can passkeys be hacked or stolen like passwords?"
     answer: "Passkeys are much harder to compromise than passwords. The private key never leaves your device or password manager's encrypted storage, and signatures only work on the correct domain. An attacker would need to compromise your device (OS/browser) or password manager account (protected by master password + biometrics + 2FA) to steal passkeys. In contrast, passwords can be phished, guessed, intercepted, or leaked from breached databases. Keep your device/manager secure with updates, strong master password, and 2FA to maximize passkey protection."
   - question: "Which websites and apps currently support passkeys in 2025?"
-    answer: "Major platforms supporting passkeys include Google (Gmail, Drive), Apple (iCloud), Microsoft (Outlook, Azure), PayPal, Amazon, eBay, GitHub, 1Password, Shopify, Best Buy, and many others. Adoption is accelerating—banks, email providers, e-commerce sites, and developer platforms are rolling out passkey support continuously. Check your account's security settings for 'passkey', 'passwordless', or 'FIDO2' options. For the latest list, visit passkeys.directory or check individual service security documentation."
+    answer: "Major platforms supporting passkeys include Google (Gmail, Drive), Apple (iCloud), Microsoft (Outlook, Azure), PayPal, Amazon, eBay, GitHub, 1Password, Shopify, Best Buy, and many others. Adoption is accelerating--banks, email providers, e-commerce sites, and developer platforms are rolling out passkey support continuously. Check your account's security settings for 'passkey', 'passwordless', or 'FIDO2' options. For the latest list, visit passkeys.directory or check individual service security documentation."
 ---
 
 
@@ -35,9 +35,9 @@ Passkeys are increasingly supported across major platforms. They enable fast, co
 A passkey is a passwordless credential based on FIDO2/WebAuthn. Instead of typing a shared secret, you prove possession of a private cryptographic key securely stored on your device (or in a compatible password manager). When you log in, the site/app sends a challenge that only your private key can sign. The server verifies the signature with the public key you registered. No shared secret travels over the network.
 
 In practice:
-- No password transmission—only per‑site cryptographic signatures.
-- Phishing‑resistant—signatures are bound to the real origin.
-- More convenient—use Face/Touch ID or your device PIN to approve.
+- No password transmission--only per‑site cryptographic signatures.
+- Phishing‑resistant--signatures are bound to the real origin.
+- More convenient--use Face/Touch ID or your device PIN to approve.
 
 ## Why It’s Safer Than Passwords and SMS 2FA
 
@@ -67,7 +67,7 @@ Menus vary by OS/browser version; the flow is similar everywhere.
 ### 1Password
 1. Update to the latest 1Password and enable passkey support in the app/extension.
 2. When a site offers passkeys, choose to save it in 1Password.
-3. Future logins can be approved via 1Password—no password required.
+3. Future logins can be approved via 1Password--no password required.
 4. Benefits: cross‑platform, secure sharing for families/teams, admin policies for orgs.
 
 ### Bitwarden
@@ -76,7 +76,7 @@ Menus vary by OS/browser version; the flow is similar everywhere.
 3. Approve future logins using Bitwarden with local biometrics/PIN.
 4. Benefits: open‑source, cost‑effective, organization features.
 
-Tip: If “Create/Use a passkey” doesn’t appear, check the site’s account security settings. Support is expanding—banks, email providers, marketplaces, and developer platforms are rolling it out.
+Tip: If “Create/Use a passkey” doesn’t appear, check the site’s account security settings. Support is expanding--banks, email providers, marketplaces, and developer platforms are rolling it out.
 
 ## How It Works (The Short Version)
 
@@ -85,13 +85,13 @@ On registration, your device creates a public/private key pair and registers the
 ## Limitations and How to Mitigate Them
 
 - Lost/replaced device: Ensure sync is enabled (iCloud/Google/manager) and keep recovery methods (backup codes) for critical accounts.
-- Compatibility: Some sites don’t support passkeys yet—keep a strong password + app‑based 2FA or a security key as fallback.
+- Compatibility: Some sites don’t support passkeys yet--keep a strong password + app‑based 2FA or a security key as fallback.
 - Mixed ecosystems: If you use Apple + Windows + Android, a passkey‑capable manager (1Password/Bitwarden/Proton Pass) often provides the smoothest experience.
 - Travel/emergency access: Keep at least one hardware security key as a break‑glass option for email, domain registrar, banking, and cloud.
 
 ## Migration Strategy: Practical Priorities
 
-Prioritize high‑value accounts first—the ones attackers target most and the ones that would most harm your brand/SEO if compromised.
+Prioritize high‑value accounts first--the ones attackers target most and the ones that would most harm your brand/SEO if compromised.
 
 1) Secure critical accounts first:
    - Primary email (Gmail/iCloud/Outlook)
@@ -113,7 +113,7 @@ Prioritize high‑value accounts first—the ones attackers target most and the 
 ## Quick FAQ
 
 **Do I still need passwords?**
-For many sites, yes—as fallback. Increasingly, services allow passkey‑only. Keep a unique, strong fallback where required.
+For many sites, yes--as fallback. Increasingly, services allow passkey‑only. Keep a unique, strong fallback where required.
 
 **Are passkeys safe if my phone is stolen?**
 Passkeys are protected behind device biometrics/PIN. Enable remote wipe and rotate critical credentials if a device is lost.
@@ -134,4 +134,4 @@ Highly recommended for critical accounts as a robust backup, but not mandatory f
 
 ## Key Takeaways
 
-Passkeys provide a practical improvement: fast, convenient, and phishing‑resistant logins. Start with your most important accounts, enable trustworthy sync, set up recovery paths, and keep strong 2FA as backup. You get shorter logins, lower risk, and less password‑management overhead—without the weak links of traditional passwords.
+Passkeys provide a practical improvement: fast, convenient, and phishing‑resistant logins. Start with your most important accounts, enable trustworthy sync, set up recovery paths, and keep strong 2FA as backup. You get shorter logins, lower risk, and less password‑management overhead--without the weak links of traditional passwords.

@@ -143,7 +143,7 @@ Best Practices
 --------------
 
 *   Use generics when you write reusable logic (e.g. map, reduce, filter)
-*   Don’t overuse – avoid generics when concrete types are simpler
+*   Don’t overuse -- avoid generics when concrete types are simpler
 *   Name type parameters clearly (T, K, V, etc.)
 *   Use type constraints to enforce correctness
 

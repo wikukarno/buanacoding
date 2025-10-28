@@ -145,6 +145,6 @@ Conclusion
 
 File handling in Go is clean and efficient. Whether you're reading logs, saving data, or managing folders, the standard library provides everything you need. Understanding how to work with files opens the door to building robust and real-world applications in Go.
 
-Next, we’ll look into working with JSON in Go — another essential skill for building APIs and storing structured data.
+Next, we’ll look into working with JSON in Go -- another essential skill for building APIs and storing structured data.
 
 Happy coding!

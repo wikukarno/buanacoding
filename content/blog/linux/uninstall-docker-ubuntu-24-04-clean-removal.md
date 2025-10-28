@@ -25,7 +25,7 @@ faq:
     answer: "Permission denied errors during uninstall typically mean you need sudo privileges. Ensure all docker and systemctl commands use sudo. If removing user data (~/.docker, ~/.local/share/docker) fails, check file ownership with 'ls -la' and use sudo only for system directories, not your home directory files."
 ---
 
-Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data — plus optional rootless Docker cleanup. If you plan to reinstall after this, see: [Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2]({{< relref "blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.md" >}}). For HTTPS and reverse proxy, see: [Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt]({{< relref "blog/linux/nginx-certbot-ubuntu-24-04-free-https-with-letsencrypt.md" >}}).
+Need to remove Docker from Ubuntu 24.04 (Noble) cleanly? This guide shows a safe, step‑by‑step removal that gets rid of the Engine, Compose v2 plugin, configs, and data -- plus optional rootless Docker cleanup. If you plan to reinstall after this, see: [Install Docker on Ubuntu 24.04: Post‑Install, Rootless, and Compose v2]({{< relref "blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.md" >}}). For HTTPS and reverse proxy, see: [Nginx + Certbot on Ubuntu 24.04: Free HTTPS with Let’s Encrypt]({{< relref "blog/linux/nginx-certbot-ubuntu-24-04-free-https-with-letsencrypt.md" >}}).
 
 Warning: The steps below can remove containers, images, volumes, and networks. Back up anything important before continuing.
 

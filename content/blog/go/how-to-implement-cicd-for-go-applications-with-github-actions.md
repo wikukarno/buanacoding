@@ -415,7 +415,7 @@ jobs:
           sudo systemctl restart myapp
 ```
 
-Add secrets in repository settings (Settings → Secrets and variables → Actions):
+Add secrets in repository settings (Settings -> Secrets and variables -> Actions):
 - `SERVER_HOST`: Your server IP or domain
 - `SERVER_USER`: SSH username
 - `SSH_PRIVATE_KEY`: Private SSH key for authentication
@@ -664,7 +664,7 @@ This workflow:
 
 GitHub Environments add protection rules and secrets per environment.
 
-Create environments in repository settings (Settings → Environments):
+Create environments in repository settings (Settings -> Environments):
 
 **Staging Environment:**
 - No protection rules

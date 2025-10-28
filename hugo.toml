@@ -5,6 +5,16 @@ defaultContentLanguage = "en"
 # Keep default language (English) at root URL, non-default languages under subfolders (e.g., /id/)
 defaultContentLanguageInSubdir = false
 
+# Suppress raw HTML warnings
+ignoreLogs = ['warning-goldmark-raw-html']
+
+# Minify settings - disable JSON minify to avoid UTF-8 issues
+[minify]
+  disableJSON = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+
 # Theme settings
 [markup]
   [markup.highlight]
@@ -13,6 +23,10 @@ defaultContentLanguageInSubdir = false
     lineNos = false
     lineNumbersInTable = false
     tabWidth = 2
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow raw HTML in markdown
 
 [params.giscus]
   repo = "wikukarno/buanacoding"
@@ -40,7 +54,6 @@ defaultContentLanguageInSubdir = false
   home = ["HTML", "RSS", "JSON", "SITEMAP", "ROBOTS"]
   section = ["HTML", "RSS", "SITEMAP"]
   taxonomy = ["HTML", "SITEMAP"]
-  taxonomyTerm = ["HTML", "SITEMAP"]
 
 # Enable metaData for SEO
 [params]

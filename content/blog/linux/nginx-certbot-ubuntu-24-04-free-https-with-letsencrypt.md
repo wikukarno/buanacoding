@@ -7,31 +7,31 @@ tags:
   - Linux
   - Nginx
   - SSL
-  - Let's Encrypt
-description: "Step-by-step guide to install Nginx and secure it with a free Let's Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP→HTTPS redirect, TLS hardening, and troubleshooting."
-keywords: ["ubuntu 24.04", "nginx", "certbot", "let's encrypt", "https", "ssl", "tls", "ubuntu nginx ssl"]
+  - Lets Encrypt
+description: "Step-by-step guide to install Nginx and secure it with a free Lets Encrypt SSL certificate on Ubuntu 24.04 using Certbot. Includes DNS setup, firewall, automatic renewal, HTTP->HTTPS redirect, TLS hardening, and troubleshooting."
+keywords: ["ubuntu 24.04", "nginx", "certbot", "let is encrypt", "https", "ssl", "tls", "ubuntu nginx ssl"]
 
 faq:
   - question: "How do I get a free SSL certificate for Nginx on Ubuntu 24.04?"
-    answer: "Install Certbot with `sudo snap install --classic certbot`, then run `sudo certbot --nginx -d yourdomain.com`. Certbot will automatically obtain a Let's Encrypt certificate, configure Nginx, and set up auto-renewal. The certificate is valid for 90 days and renews automatically."
+    answer: "Install Certbot with `sudo snap install --classic certbot`, then run `sudo certbot --nginx -d yourdomain.com`. Certbot will automatically obtain a Lets Encrypt certificate, configure Nginx, and set up auto-renewal. The certificate is valid for 90 days and renews automatically."
 
   - question: "Why does Certbot fail with 'DNS/Challenge failed' error?"
-    answer: "Ensure your domain's A record points to your server's public IP, port 80 is open in your firewall, and Nginx is running. Check with `dig +short yourdomain.com` and `curl http://yourdomain.com`. Temporarily disable CDN/proxy during initial certificate issuance."
+    answer: "Ensure your domain is A record points to your server is public IP, port 80 is open in your firewall, and Nginx is running. Check with `dig +short yourdomain.com` and `curl http://yourdomain.com`. Temporarily disable CDN/proxy during initial certificate issuance."
 
   - question: "How do I redirect HTTP to HTTPS in Nginx?"
     answer: "Add a server block that listens on port 80 and redirects: `server { listen 80; server_name yourdomain.com; return 301 https://$host$request_uri; }`. Test with `sudo nginx -t` and reload with `sudo systemctl reload nginx`. Certbot can do this automatically."
 
-  - question: "Do Let's Encrypt certificates renew automatically?"
+  - question: "Do Lets Encrypt certificates renew automatically?"
     answer: "Yes, Certbot installed via snap includes a systemd timer that checks for renewal twice daily. Certificates renew automatically 30 days before expiry. Verify with `systemctl list-timers | grep certbot` and test with `sudo certbot renew --dry-run`."
 
   - question: "How do I add HTTPS to multiple domains on one server?"
     answer: "Create separate server blocks in `/etc/nginx/sites-available/` for each domain. Run Certbot for each domain: `sudo certbot --nginx -d domain1.com -d www.domain1.com`, then repeat for other domains. Each gets its own certificate."
 
-  - question: "What's the difference between fullchain.pem and cert.pem?"
+  - question: "What is the difference between fullchain.pem and cert.pem?"
     answer: "`fullchain.pem` contains your certificate plus the intermediate certificates (chain). Use this for `ssl_certificate` in Nginx. `cert.pem` is just your certificate alone. Always use `fullchain.pem` to avoid SSL errors in browsers."
 ---
 
-Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP→HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: [Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2]({{< relref "blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.md" >}})
+Want a free, trusted HTTPS certificate for your site on Ubuntu 24.04? This guide walks you through installing Nginx, opening the right firewall ports, issuing a free Let’s Encrypt certificate with Certbot, enabling automatic renewal, forcing HTTP->HTTPS redirects, and applying sane TLS settings. You’ll also see common troubleshooting steps and how to test your configuration. If you need to containerize your apps first, set up Docker here: [Install Docker on Ubuntu 24.04: Post-Install, Rootless, and Compose v2]({{< relref "blog/linux/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.md" >}})
 
 What you’ll do
 - Point your domain to your server via DNS (A/AAAA records)
@@ -50,8 +50,8 @@ Prerequisites
 1) Configure DNS
 Make sure your domain points to your server. At your DNS provider, set:
 
-- A record: example.com → YOUR_IPV4
-- AAAA record: example.com → YOUR_IPV6 (optional)
+- A record: example.com -> YOUR_IPV4
+- AAAA record: example.com -> YOUR_IPV6 (optional)
 - Optional: wildcard or subdomain records (e.g., www.example.com)
 
 Propagation can take minutes to hours. You can check resolution with:
@@ -133,7 +133,7 @@ sudo certbot renew --dry-run
 ```
 Dry-run should complete without errors. Certificates renew automatically ~30 days before expiry.
 
-8) Force HTTP→HTTPS and apply TLS best practices
+8) Force HTTP->HTTPS and apply TLS best practices
 If you didn’t choose the redirect option during Certbot run or you used webroot, update your Nginx config. A sane baseline (based on Mozilla’s “intermediate” profile) is:
 ```nginx
 server {
@@ -178,7 +178,7 @@ sudo nginx -t && sudo systemctl reload nginx
 Use SSL Labs (Qualys) to analyze: https://www.ssllabs.com/ssltest/
 
 Canonical redirect (optional)
-If you want to force a single hostname (e.g., redirect www→apex), add a dedicated server block:
+If you want to force a single hostname (e.g., redirect www->apex), add a dedicated server block:
 ```nginx
 server {
     listen 443 ssl http2;
@@ -219,7 +219,7 @@ Note: Brotli offers better compression but may not be compiled by default in Ubu
 
 9) Test your HTTPS setup
 - Browser: go to https://example.com and inspect the lock icon
-- CLI: `curl -I https://example.com` should return `HTTP/2 200` (or 301 → 200 if redirecting from www)
+- CLI: `curl -I https://example.com` should return `HTTP/2 200` (or 301 -> 200 if redirecting from www)
 - Check Nginx logs: `/var/log/nginx/access.log` and `/var/log/nginx/error.log`
 
 Troubleshooting
@@ -229,7 +229,7 @@ Troubleshooting
 - Rate limits: Let’s Encrypt enforces rate limits. Use `--dry-run` for testing or wait before re-issuing.
 - Webroot path mismatch: If using `--webroot`, ensure the `-w` path matches your server root and that Nginx serves `/.well-known/acme-challenge/`.
  - Apt update/upgrade errors when installing snap/certbot
-   - Lihat: How to fix broken update error in Linux (Terminal) → /2023/11/how-to-fix-broken-update-error-in-linux.html
+   - Lihat: How to fix broken update error in Linux (Terminal) -> /2023/11/how-to-fix-broken-update-error-in-linux.html
 
 Multiple sites tip
 - Untuk beberapa domain, buat satu file di `sites-available/` per domain. Hindari overlap `server_name` agar Certbot dan Nginx bisa memilih blok yang tepat.
@@ -254,4 +254,4 @@ sudo snap remove certbot
 sudo apt purge -y nginx* && sudo apt autoremove -y
 ```
 
-That’s it—your site now serves a trusted HTTPS certificate with automatic renewal on Ubuntu 24.04. Enjoy the speed and security of Nginx + Let’s Encrypt!
+That’s it--your site now serves a trusted HTTPS certificate with automatic renewal on Ubuntu 24.04. Enjoy the speed and security of Nginx + Let’s Encrypt!

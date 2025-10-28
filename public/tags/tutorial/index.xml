@@ -1,21 +1,222 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on Buana Coding</title><link>https://www.buanacoding.com/tags/tutorial/</link><description>Recent content in Tutorial on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 20 Oct 2025 06:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Implement Message Queuing with RabbitMQ in Go</title><link>https://www.buanacoding.com/2025/10/how-to-implement-message-queuing-with-rabbitmq-in-go.html</link><pubDate>Mon, 20 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-message-queuing-with-rabbitmq-in-go.html</guid><description>&lt;p&gt;It&amp;rsquo;s 3 AM and your phone won&amp;rsquo;t stop buzzing. Your API just got hammered with 10,000 requests in 30 seconds. Users uploading images, generating PDF reports, sending welcome emails, processing credit cards - all at once. Your server&amp;rsquo;s trying to handle everything synchronously and it&amp;rsquo;s dying. Response times creep from 200ms to 15 seconds. Timeout errors everywhere. Your monitoring dashboard looks like a Christmas tree, but red instead of green.&lt;/p&gt;</description></item><item><title>How to Build AI/LLM Applications in Go - OpenAI and Ollama Integration</title><link>https://www.buanacoding.com/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</link><pubDate>Sat, 18 Oct 2025 12:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</guid><description>&lt;p&gt;AI applications are everywhere now. Chatbots answering customer questions, code assistants writing functions, content generators creating blog posts, search systems understanding natural language. If you&amp;rsquo;re building with Go, you need to know how to tap into these language models without fighting with complicated Python libraries or rewriting your entire stack.&lt;/p&gt;
-&lt;p&gt;The good news: integrating AI into Go applications is straightforward once you understand the patterns. You have two main paths - cloud APIs like OpenAI for maximum quality and scale, or local models with Ollama for privacy and cost control. Sometimes you want both.&lt;/p&gt;</description></item><item><title>How to Build WebSocket Applications in Go - Real-time Chat Example</title><link>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</link><pubDate>Wed, 15 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</guid><description>&lt;p&gt;Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask &amp;ldquo;got any updates?&amp;rdquo;, WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays—just instant, bidirectional communication.&lt;/p&gt;
-&lt;p&gt;In this tutorial, we&amp;rsquo;re building a production-ready chat application from scratch using Go and the &lt;strong&gt;gorilla/websocket&lt;/strong&gt; package. By the end, you&amp;rsquo;ll have a working chat app where multiple users can send messages in real-time.&lt;/p&gt;</description></item><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What is Docker for Go?&lt;/strong&gt; Docker is a containerization platform that packages your Go application and all its dependencies into a portable container image. Instead of installing Go and dependencies on every server, Docker bundles everything your app needs into a container that runs identically everywhere - from your laptop to production servers.&lt;/p&gt;</description></item><item><title>How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration</title><link>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</link><pubDate>Mon, 06 Oct 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your application needs to send emails. Welcome messages after signup, password reset links, order confirmations, notification alerts. Email is still the most reliable way to reach users, but sending emails programmatically is harder than it looks.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What is email sending in Go?&lt;/strong&gt; Email sending in Go refers to programmatically delivering emails from your application using either SMTP protocol directly or third-party email service APIs like SendGrid and Mailgun. Instead of manually composing and sending emails, your Go code automatically sends transactional emails triggered by user actions.&lt;/p&gt;</description></item><item><title>How to Implement Background Jobs in Go with Asynq and Redis</title><link>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link><pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;What are background jobs?&lt;/strong&gt; Background jobs are tasks that run asynchronously outside the main request-response cycle. Instead of making users wait while your server processes heavy workloads, you push these tasks into a queue and handle them separately in worker processes. This keeps your API fast and responsive.&lt;/p&gt;</description></item><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;
-&lt;p&gt;pprof is Go&amp;rsquo;s built-in profiler that shows you exactly what&amp;rsquo;s happening inside your running application. It tells you which functions eat CPU cycles, which code paths allocate tons of memory, where goroutines get stuck, and what&amp;rsquo;s blocking your program. With this data, you stop guessing and start fixing real bottlenecks.&lt;/p&gt;</description></item><item><title>How to Perform Database Migrations in Go using golang-migrate</title><link>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</link><pubDate>Sun, 05 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Managing database schema changes is one of those tasks that seems simple until you&amp;rsquo;re dealing with multiple environments, team members making conflicting changes, or trying to rollback a production deployment at 2 AM. If you&amp;rsquo;ve ever manually run SQL scripts on production hoping you didn&amp;rsquo;t miss anything, you know exactly what I&amp;rsquo;m talking about.&lt;/p&gt;
-&lt;p&gt;golang-migrate solves this problem by giving you version control for your database schema. Just like git tracks code changes, migrations track schema changes. You can move forward, rollback, and know exactly what state your database is in at any time.&lt;/p&gt;</description></item><item><title>How to Build a CLI Tool in Go with Cobra and Viper</title><link>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</link><pubDate>Sat, 04 Oct 2025 14:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</guid><description>&lt;p&gt;I&amp;rsquo;ve built a lot of CLI tools over the years - deployment scripts, database migration tools, log analyzers, you name it. Every time I start a new one, I reach for Cobra and Viper. Not because they&amp;rsquo;re trendy (though they are), but because they solve the boring parts so I can focus on what my tool actually does.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on Buana Coding</title><link>https://www.buanacoding.com/tags/tutorial/</link><description>Recent content in Tutorial on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 27 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Build a Web Scraper in Python with BeautifulSoup and Requests</title><link>https://www.buanacoding.com/2025/10/how-to-build-web-scraper-python-beautifulsoup-requests.html</link><pubDate>Mon, 27 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-web-scraper-python-beautifulsoup-requests.html</guid><description>&lt;p&gt;I spent three weeks last month manually copying product prices from competitor websites into spreadsheets for a client&amp;rsquo;s market analysis. Three. Weeks. Every day, opening dozens of browser tabs, copying prices, checking specifications, pasting into Excel. My eyes hurt, my wrists hurt, and I kept making mistakes because humans aren&amp;rsquo;t meant to do repetitive tasks for hours.&lt;/p&gt;
+&lt;p&gt;Then I learned web scraping. That same job that took three weeks? Now runs automatically in twenty minutes while I grab coffee. The data is cleaner, more accurate, and I can run it daily instead of monthly. Web scraping literally gave me my life back.&lt;/p&gt;</description></item><item><title>How to Implement Message Queuing with RabbitMQ in Go</title><link>https://www.buanacoding.com/2025/10/how-to-implement-message-queuing-with-rabbitmq-in-go.html</link><pubDate>Mon, 20 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-message-queuing-with-rabbitmq-in-go.html</guid><description>&lt;p&gt;It&amp;rsquo;s 3 AM and your phone won&amp;rsquo;t stop buzzing. Your API just got hammered with 10,000 requests in 30 seconds. Users uploading images, generating PDF reports, sending welcome emails, processing credit cards - all at once. Your server&amp;rsquo;s trying to handle everything synchronously and it&amp;rsquo;s dying. Response times creep from 200ms to 15 seconds. Timeout errors everywhere. Your monitoring dashboard looks like a Christmas tree, but red instead of green.&lt;/p&gt;</description></item><item><title>How to Build AI/LLM Applications in Go - OpenAI and Ollama Integration</title><link>https://www.buanacoding.com/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</link><pubDate>Sat, 18 Oct 2025 12:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-ai-llm-applications-in-go-openai-and-ollama-integration.html</guid><description>&lt;p&gt;AI applications are everywhere now. Chatbots answering customer questions, code assistants writing functions, content generators creating blog posts, search systems understanding natural language. If you&amp;rsquo;re building with Go, you need to know how to tap into these language models without fighting with complicated Python libraries or rewriting your entire stack.&lt;/p&gt;
+&lt;p&gt;The good news: integrating AI into Go applications is straightforward once you understand the patterns. You have two main paths - cloud APIs like OpenAI for maximum quality and scale, or local models with Ollama for privacy and cost control. Sometimes you want both.&lt;/p&gt;</description></item><item><title>How to Build WebSocket Applications in Go - Real-time Chat Example</title><link>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</link><pubDate>Wed, 15 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-websocket-applications-in-go-real-time-chat.html</guid><description>&lt;p&gt;Ever wanted to build a real-time chat app, live notification system, or multiplayer game? WebSocket is your answer. Unlike regular HTTP where clients have to constantly ask &amp;ldquo;got any updates?&amp;rdquo;, WebSocket keeps a persistent connection open so the server can push data whenever it wants. No more polling, no more delays&amp;ndash;just instant, bidirectional communication.&lt;/p&gt;
+&lt;p&gt;In this tutorial, we&amp;rsquo;re building a production-ready chat application from scratch using Go and the &lt;strong&gt;gorilla/websocket&lt;/strong&gt; package. By the end, you&amp;rsquo;ll have a working chat app where multiple users can send messages in real-time.&lt;/p&gt;</description></item><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Containerize and Deploy Go Apps with Docker",
+ "description": "Complete guide to containerizing Go applications with Docker. Learn multi-stage builds, optimization techniques, Docker Compose, deployment strategies, and production best practices for Go containers.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-07",
+ "dateModified": "2025-10-07",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["docker go", "containerize go app", "golang docker tutorial", "docker multi-stage build go"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Docker Containerization"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Deployment"
+ },
+ {
+ "@type": "Thing",
+ "name": "DevOps"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;</description></item><item><title>How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration</title><link>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</link><pubDate>Mon, 06 Oct 2025 18:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration",
+ "description": "Complete guide to sending emails in Go using SMTP, SendGrid, and Mailgun. Learn email templates, attachments, HTML emails, error handling, and production best practices for transactional emails.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-06",
+ "dateModified": "2025-10-06",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["go send email", "golang smtp", "sendgrid go tutorial", "mailgun golang", "email golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Email Integration"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Programming"
+ },
+ {
+ "@type": "Thing",
+ "name": "Transactional Emails"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Your application needs to send emails. Welcome messages after signup, password reset links, order confirmations, notification alerts. Email is still the most reliable way to reach users, but sending emails programmatically is harder than it looks.&lt;/p&gt;</description></item><item><title>How to Implement Background Jobs in Go with Asynq and Redis</title><link>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link><pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Implement Background Jobs in Go with Asynq and Redis",
+ "description": "Complete guide to implementing background job processing in Go using Asynq and Redis. Learn task queues, worker pools, retries, scheduled tasks, error handling, and production deployment strategies.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-06",
+ "dateModified": "2025-10-06",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["go background jobs", "asynq tutorial", "golang task queue", "redis job queue go", "background processing golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Background Job Processing"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Programming"
+ },
+ {
+ "@type": "Thing",
+ "name": "Redis Queue System"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;</description></item><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Profile and Optimize Go Applications with pprof",
+ "description": "Complete guide to profiling and optimizing Go applications using pprof. Learn CPU profiling, memory profiling, goroutine analysis, and performance optimization techniques for production Go applications.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-06",
+ "dateModified": "2025-10-06",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["go profiling", "pprof tutorial", "golang performance optimization", "cpu profiling go", "memory profiling golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Go Performance Optimization"
+ },
+ {
+ "@type": "Thing",
+ "name": "Application Profiling"
+ },
+ {
+ "@type": "Thing",
+ "name": "Backend Performance"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;</description></item><item><title>How to Perform Database Migrations in Go using golang-migrate</title><link>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</link><pubDate>Sun, 05 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Perform Database Migrations in Go using golang-migrate",
+ "description": "Complete guide to database migrations in Go using golang-migrate. Learn how to create, run, and manage database schema changes with PostgreSQL, MySQL, and SQLite including rollback strategies and production deployment.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-05",
+ "dateModified": "2025-10-05",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["golang database migration", "golang-migrate tutorial", "go database schema", "postgresql migration go", "mysql migration golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Database Migrations"
+ },
+ {
+ "@type": "Thing",
+ "name": "Go Programming"
+ },
+ {
+ "@type": "Thing",
+ "name": "Backend Development"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Managing database schema changes is one of those tasks that seems simple until you&amp;rsquo;re dealing with multiple environments, team members making conflicting changes, or trying to rollback a production deployment at 2 AM. If you&amp;rsquo;ve ever manually run SQL scripts on production hoping you didn&amp;rsquo;t miss anything, you know exactly what I&amp;rsquo;m talking about.&lt;/p&gt;</description></item><item><title>How to Build a CLI Tool in Go with Cobra and Viper</title><link>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</link><pubDate>Sat, 04 Oct 2025 14:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</guid><description>&lt;p&gt;I&amp;rsquo;ve built a lot of CLI tools over the years - deployment scripts, database migration tools, log analyzers, you name it. Every time I start a new one, I reach for Cobra and Viper. Not because they&amp;rsquo;re trendy (though they are), but because they solve the boring parts so I can focus on what my tool actually does.&lt;/p&gt;
 &lt;p&gt;Think about kubectl, hugo, gh (GitHub CLI) - all built with Cobra. There&amp;rsquo;s a reason for that. Cobra gives you a clean command structure, automatic help generation, flag parsing, and all the stuff you&amp;rsquo;d otherwise spend hours implementing. Viper adds configuration management so users can configure your tool however they want - config files, environment variables, flags, whatever.&lt;/p&gt;</description></item><item><title>How to Implement OAuth2 in Go Google GitHub and Facebook Login</title><link>https://www.buanacoding.com/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</link><pubDate>Sat, 04 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-oauth2-in-go-google-github-facebook-login.html</guid><description>&lt;p&gt;Nobody wants to create yet another account with yet another password. I&amp;rsquo;ve built authentication systems that required users to sign up with email and password, and the drop-off rate was painful. Then I added &amp;ldquo;Login with Google&amp;rdquo; and conversions jumped 40%. Users already have accounts they trust - why make them create new ones?&lt;/p&gt;
 &lt;p&gt;OAuth2 lets users authenticate with providers they already use - Google, GitHub, Facebook, whatever. You get verified emails, users don&amp;rsquo;t manage more passwords, and everyone&amp;rsquo;s happy. The best part? It&amp;rsquo;s not as complicated as it looks once you understand the flow.&lt;/p&gt;</description></item><item><title>How to Upload Files to AWS S3 in Go Complete Guide with SDK v2</title><link>https://www.buanacoding.com/2025/10/how-to-upload-files-to-aws-s3-in-go-with-sdk-v2.html</link><pubDate>Fri, 03 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-upload-files-to-aws-s3-in-go-with-sdk-v2.html</guid><description>&lt;p&gt;If you&amp;rsquo;ve built any real application, you know file storage becomes a problem fast. User avatars, document uploads, video files - they pile up quickly, and you need somewhere reliable to put them. That&amp;rsquo;s where AWS S3 comes in. It&amp;rsquo;s like having unlimited storage that you only pay for what you use, and it integrates beautifully with Go.&lt;/p&gt;
 &lt;p&gt;AWS recently rewrote their entire Go SDK with v2, and honestly, it&amp;rsquo;s a massive improvement. Cleaner APIs, better error handling, proper context support - everything you&amp;rsquo;d want in a modern Go library. If you&amp;rsquo;re starting fresh or thinking about upgrading from v1, this guide has you covered.&lt;/p&gt;</description></item><item><title>Laravel API Authentication with Sanctum Complete Tutorial 2025</title><link>https://www.buanacoding.com/2025/09/laravel-api-authentication-sanctum-2025.html</link><pubDate>Sun, 14 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-api-authentication-sanctum-2025.html</guid><description>&lt;p&gt;Laravel Sanctum offers two simple authentication modes that cover most applications:&lt;/p&gt;

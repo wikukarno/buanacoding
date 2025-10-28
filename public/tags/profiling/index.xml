@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Profiling on Buana Coding</title><link>https://www.buanacoding.com/tags/profiling/</link><description>Recent content in Profiling on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 06 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/profiling/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;
-&lt;p&gt;pprof is Go&amp;rsquo;s built-in profiler that shows you exactly what&amp;rsquo;s happening inside your running application. It tells you which functions eat CPU cycles, which code paths allocate tons of memory, where goroutines get stuck, and what&amp;rsquo;s blocking your program. With this data, you stop guessing and start fixing real bottlenecks.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Profiling on Buana Coding</title><link>https://www.buanacoding.com/tags/profiling/</link><description>Recent content in Profiling on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 06 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/profiling/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;script type="application/ld+json"&gt;
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Profile and Optimize Go Applications with pprof",
+ "description": "Complete guide to profiling and optimizing Go applications using pprof. Learn CPU profiling, memory profiling, goroutine analysis, and performance optimization techniques for production Go applications.",
+ "author": {
+ "@type": "Person",
+ "name": "BuanaCoding",
+ "url": "https://buanacoding.com/about/"
+ },
+ "publisher": {
+ "@type": "Organization",
+ "name": "BuanaCoding",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://buanacoding.com/logo.png"
+ }
+ },
+ "datePublished": "2025-10-06",
+ "dateModified": "2025-10-06",
+ "mainEntityOfPage": {
+ "@type": "WebPage",
+ "@id": "https://buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html"
+ },
+ "articleSection": "Programming",
+ "keywords": ["go profiling", "pprof tutorial", "golang performance optimization", "cpu profiling go", "memory profiling golang"],
+ "about": [
+ {
+ "@type": "Thing",
+ "name": "Go Performance Optimization"
+ },
+ {
+ "@type": "Thing",
+ "name": "Application Profiling"
+ },
+ {
+ "@type": "Thing",
+ "name": "Backend Performance"
+ }
+ ]
+}
+&lt;/script&gt;
+&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;</description></item></channel></rss>

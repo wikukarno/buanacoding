@@ -22,7 +22,7 @@ faq:
     answer: "Protect shared data with Mutex/RWMutex or confine ownership to a single goroutine. Avoid sharing writable pointers across goroutines without synchronization."
 ---
 
-In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward—there’s no pointer arithmetic, and most things can be done without overly complex syntax.
+In Go, understanding pointers is essential if you want to work effectively with functions, methods, and memory-efficient code. Unlike some other languages, Go’s approach to pointers is clean and straightforward--there’s no pointer arithmetic, and most things can be done without overly complex syntax.
 
 This article will help you understand:
 
@@ -51,7 +51,7 @@ Here, `p` is a pointer to `x`. `*p` accesses the value stored at the address.
 Pointers and Functions
 ----------------------
 
-When passing variables to functions, Go uses value semantics—meaning it passes a copy. If you want the function to modify the original variable, pass a pointer.
+When passing variables to functions, Go uses value semantics--meaning it passes a copy. If you want the function to modify the original variable, pass a pointer.
 
 ```go
 func update(val *int) {
@@ -112,7 +112,7 @@ func (p *Person) PointerUpdate(name string) {
 Go is Smart: Automatic Conversion
 ---------------------------------
 
-Go is smart enough to let you call pointer receiver methods on value types and vice versa—it will automatically add or remove the `&` for you:
+Go is smart enough to let you call pointer receiver methods on value types and vice versa--it will automatically add or remove the `&` for you:
 
 ```go
 person := Person{"Bob", 30}
@@ -131,13 +131,13 @@ Best Practices
 
 *   Use pointer receivers when your method modifies the struct or for performance
 *   Keep your struct small when using value receivers
-*   Avoid unnecessary pointer complexity—Go is designed to make things simple
+*   Avoid unnecessary pointer complexity--Go is designed to make things simple
 
 Conclusion
 ----------
 
-Pointers in Go are powerful, but not difficult. They let you control memory usage, update values across scopes, and create efficient, flexible methods. Understanding pointers will make you a better Go developer—especially when working with structs, interfaces, and large systems.
+Pointers in Go are powerful, but not difficult. They let you control memory usage, update values across scopes, and create efficient, flexible methods. Understanding pointers will make you a better Go developer--especially when working with structs, interfaces, and large systems.
 
-Now that you understand pointers, you're ready to dive deeper into Go's concurrency model and start using goroutines and channels. But don’t forget — great power comes with great responsibility, even in Go!
+Now that you understand pointers, you're ready to dive deeper into Go's concurrency model and start using goroutines and channels. But don’t forget -- great power comes with great responsibility, even in Go!
 
 Happy coding!

@@ -13,17 +13,17 @@ keywords: ['laravel migration best practices','laravel zero downtime migration',
 featured: false
 faq:
   - question: "Should I edit existing migrations in production, or always create new ones?"
-    answer: "Never edit migrations that have run in production—treat them as immutable. Editing causes drift between environments and breaks migration history. If you deployed a mistake, create a new migration to fix it: drop the wrong column, add the correct one, or adjust constraints. Only edit migrations that haven't run anywhere yet. Use migrate:status to check which migrations are deployed. This keeps your migration history accurate and rollouts predictable across all environments."
+    answer: "Never edit migrations that have run in production--treat them as immutable. Editing causes drift between environments and breaks migration history. If you deployed a mistake, create a new migration to fix it: drop the wrong column, add the correct one, or adjust constraints. Only edit migrations that haven't run anywhere yet. Use migrate:status to check which migrations are deployed. This keeps your migration history accurate and rollouts predictable across all environments."
   - question: "How do I add a NOT NULL column without downtime on a large table?"
     answer: "Use a three-step migration approach: (1) Add the column as nullable without default, (2) Backfill data in batches using chunkById(10000) to avoid long locks, (3) Add the default and NOT NULL constraint after backfill completes. Running everything in one migration with a default locks the table and rewrites all rows at once, causing downtime. For PostgreSQL, use separate migrations with withinTransaction = false for backfill. Test with production-size data in staging to measure impact."
   - question: "What's the safest way to rename a column in Laravel migrations?"
     answer: "The safest approach is a multi-step process: (1) Add new column with correct name, (2) Deploy code that writes to both old and new columns, (3) Backfill data from old to new column, (4) Deploy code that reads from new column only, (5) Drop old column. This avoids downtime. If you must use direct rename (requires doctrine/dbal), schedule a maintenance window. Renaming locks the table in MySQL and requires a full table rewrite. The dual-write approach is production-safe but requires more deploys."
   - question: "When should I use ON DELETE CASCADE vs RESTRICT for foreign keys?"
-    answer: "Use CASCADE for true child records that have no meaning without the parent (order_items → orders, post_comments → posts). Use RESTRICT (default) when deletion should be explicit and you want to prevent accidental data loss (users → orders—can't delete user with orders). Use SET NULL for optional relationships (posts → featured_image_id). Before adding foreign keys, clean orphaned data with SELECT queries to avoid migration failures. Wrong CASCADE choices cause unintended data deletion; wrong RESTRICT causes UX frustration."
+    answer: "Use CASCADE for true child records that have no meaning without the parent (order_items -> orders, post_comments -> posts). Use RESTRICT (default) when deletion should be explicit and you want to prevent accidental data loss (users -> orders--can't delete user with orders). Use SET NULL for optional relationships (posts -> featured_image_id). Before adding foreign keys, clean orphaned data with SELECT queries to avoid migration failures. Wrong CASCADE choices cause unintended data deletion; wrong RESTRICT causes UX frustration."
   - question: "Why do my migrations work locally but fail in production?"
     answer: "Common causes: different database versions (local MySQL 8 vs production MySQL 5.7 has different ALTER TABLE support), missing doctrine/dbal in production composer install --no-dev, table locks from production traffic that don't happen in empty local DB, timezone/charset differences, or missing database privileges (SUPER, CREATE INDEX). Always test migrations in staging with production-like data volume and same DB version. Run migrate:status before deploy. Check Laravel logs and database error logs for specific errors like lock wait timeout or privilege denied."
   - question: "Should I keep old migrations or use schema:dump to clean them up?"
-    answer: "For long-lived projects (2+ years, 100+ migrations), use php artisan schema:dump --prune to consolidate old migrations into a single SQL schema file. This speeds up fresh installs (new team members, CI) from hours to seconds. Keep recent migrations (created after the dump) for incremental changes. Run schema:dump every 6-12 months. For new projects or small apps, keep all migrations for full audit history. Never prune migrations that haven't been deployed to production yet—only consolidate what's already running everywhere."
+    answer: "For long-lived projects (2+ years, 100+ migrations), use php artisan schema:dump --prune to consolidate old migrations into a single SQL schema file. This speeds up fresh installs (new team members, CI) from hours to seconds. Keep recent migrations (created after the dump) for incremental changes. Run schema:dump every 6-12 months. For new projects or small apps, keep all migrations for full audit history. Never prune migrations that haven't been deployed to production yet--only consolidate what's already running everywhere."
 ---
 
 Migrations let you evolve your schema alongside the code. Done well, they are repeatable and safe. Done poorly, they lock tables, drop data, and take your site down. This guide focuses on practical patterns that reduce risk in production and make rollouts predictable.
@@ -40,7 +40,7 @@ Ground rules
 
 Naming and versioning
 ---------------------
-Use descriptive names that read like a change log: `2025_09_15_100001_add_status_to_orders_table.php`. One concern per migration. If a change requires several steps (add column → backfill → enforce NOT NULL), use separate migrations in the right order.
+Use descriptive names that read like a change log: `2025_09_15_100001_add_status_to_orders_table.php`. One concern per migration. If a change requires several steps (add column -> backfill -> enforce NOT NULL), use separate migrations in the right order.
 
 Zero‑downtime mindset
 ---------------------
@@ -49,7 +49,7 @@ Your new code must work before, during, and after the migration. The safest patt
 2) Run the migration.
 3) Flip the code to use the new column/constraint.
 
-For larger changes, consider feature flags and a staged rollout. For server setup and permissions that avoid 403/500 during deploys, see: [Deploy Laravel to VPS with Nginx — Complete Guide]({{< relref "blog/laravel/deploy-laravel-to-vps-with-nginx-complete-guide.md" >}}) and [Fix Laravel Permission Issues]({{< relref "blog/laravel/fix-laravel-permission-issues-production.md" >}}).
+For larger changes, consider feature flags and a staged rollout. For server setup and permissions that avoid 403/500 during deploys, see: [Deploy Laravel to VPS with Nginx -- Complete Guide]({{< relref "blog/laravel/deploy-laravel-to-vps-with-nginx-complete-guide.md" >}}) and [Fix Laravel Permission Issues]({{< relref "blog/laravel/fix-laravel-permission-issues-production.md" >}}).
 
 Adding columns safely
 ---------------------

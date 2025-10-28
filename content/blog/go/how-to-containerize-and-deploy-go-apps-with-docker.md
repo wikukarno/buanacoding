@@ -915,7 +915,7 @@ services:
   app:
     build: .
     volumes:
-      - ./logs:/app/logs  # Host ./logs → Container /app/logs
+      - ./logs:/app/logs  # Host ./logs -> Container /app/logs
       - ./config:/app/config:ro  # Read-only mount
 ```
 

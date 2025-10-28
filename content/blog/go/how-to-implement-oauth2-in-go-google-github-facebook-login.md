@@ -22,7 +22,7 @@ faq:
     answer: "Access tokens expire (usually 1 hour). Use refresh tokens to get new access tokens automatically without re-authentication. If refresh fails, redirect user to login again. Implement graceful token refresh in your middleware to handle this seamlessly."
 
   - question: "Can I use OAuth2 without a frontend framework?"
-    answer: "Yes! OAuth2 works with plain HTML forms and server-side rendering. You don't need React or Vue. The flow is: user clicks 'Login with Google' → redirects to Google → Google redirects back to your callback URL → you create a session. Works with any tech stack."
+    answer: "Yes! OAuth2 works with plain HTML forms and server-side rendering. You don't need React or Vue. The flow is: user clicks 'Login with Google' -> redirects to Google -> Google redirects back to your callback URL -> you create a session. Works with any tech stack."
 
   - question: "How do I test OAuth2 locally without HTTPS?"
     answer: "Use `localhost` in your OAuth2 redirect URLs - providers allow HTTP for localhost. Set callback URL to `http://localhost:8080/auth/callback`. For production testing, use ngrok to get HTTPS tunnels, or set up local SSL certificates with mkcert."

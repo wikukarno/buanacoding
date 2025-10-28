@@ -227,7 +227,7 @@ Production notes
 - Always serve over HTTPS. Set `SESSION_SECURE_COOKIE=true` and pick a proper `same_site` value. Avoid exposing tokens in URLs.
 - Limit token abilities to the minimum required and rotate when appropriate.
 - Log authentication events and token usage. Use structured logs to identify misuse.
-- Keep your deployment routine predictable and clear caches after environment changes. See: [Deploy Laravel to VPS with Nginx — Complete Guide]({{< relref "blog/laravel/deploy-laravel-to-vps-with-nginx-complete-guide.md" >}}) and [Laravel Security Best Practices for Production]({{< relref "blog/laravel/laravel-security-best-practices-production.md" >}}).
+- Keep your deployment routine predictable and clear caches after environment changes. See: [Deploy Laravel to VPS with Nginx -- Complete Guide]({{< relref "blog/laravel/deploy-laravel-to-vps-with-nginx-complete-guide.md" >}}) and [Laravel Security Best Practices for Production]({{< relref "blog/laravel/laravel-security-best-practices-production.md" >}}).
 - If you need performance tuning (for example, lots of token checks), review cache strategy and DB indexes: [Laravel Performance Optimization: 15 Techniques]({{< relref "blog/laravel/laravel-performance-optimization-15-techniques.md" >}}).
 
 Summary

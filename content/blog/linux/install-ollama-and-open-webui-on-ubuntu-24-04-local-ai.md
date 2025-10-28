@@ -143,7 +143,7 @@ sudo systemctl enable --now open-webui
 
 Step 7 (optional): Reverse proxy (Nginx)
 If you want `https://ai.example.com`, set up an Nginx proxy and a Let’s Encrypt cert. See this guide for TLS issuance and hardening: [Nginx + Certbot on Ubuntu 24.04]({{< relref "blog/linux/nginx-certbot-ubuntu-24-04-free-https-with-letsencrypt.md" >}})
-Then proxy `ai.example.com` → `127.0.0.1:3000`.
+Then proxy `ai.example.com` -> `127.0.0.1:3000`.
 
 Troubleshooting
 - Port 11434 in use: `sudo lsof -i :11434` to find the process. Restart Ollama: `sudo systemctl restart ollama`.
@@ -168,4 +168,4 @@ docker rm -f open-webui || true
 docker volume rm open-webui || true
 ```
 
-That’s it — you now have a local AI stack on Ubuntu 24.04 with Ollama and Open WebUI. Start lightweight models first, then scale up as your hardware allows.
+That’s it -- you now have a local AI stack on Ubuntu 24.04 with Ollama and Open WebUI. Start lightweight models first, then scale up as your hardware allows.

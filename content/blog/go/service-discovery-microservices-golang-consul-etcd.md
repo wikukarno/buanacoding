@@ -22,7 +22,7 @@ faq:
   - question: "How do I secure service discovery traffic?"
     answer: "Enable mTLS between services and the registry, use ACLs (Consul) or RBAC with TLS (etcd), and restrict access at the network layer. Rotate certificates and keep minimal privileges for each service."
   - question: "What happens during network partitions?"
-    answer: "Design for partial failures: set sensible timeouts, retries, and circuit breakers. etcd prioritizes consistency and may reject writes during quorum loss; Consul uses anti-entropy and eventually converges—plan fallback behavior accordingly."
+    answer: "Design for partial failures: set sensible timeouts, retries, and circuit breakers. etcd prioritizes consistency and may reject writes during quorum loss; Consul uses anti-entropy and eventually converges--plan fallback behavior accordingly."
   - question: "Do I still need a service mesh if I use Consul/etcd?"
     answer: "A registry solves discovery; a mesh adds mTLS, retries, timeouts, traffic shaping, and observability without code changes. Use a mesh when you need uniform cross-cutting policies at scale."
 ---
