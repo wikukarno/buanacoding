@@ -1,47 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Buana Coding</title><link>https://www.buanacoding.com/tags/docker/</link><description>Recent content in Docker on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 07 Oct 2025 06:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;script type="application/ld+json"&gt;
-{
- "@context": "https://schema.org",
- "@type": "Article",
- "headline": "How to Containerize and Deploy Go Apps with Docker",
- "description": "Complete guide to containerizing Go applications with Docker. Learn multi-stage builds, optimization techniques, Docker Compose, deployment strategies, and production best practices for Go containers.",
- "author": {
- "@type": "Person",
- "name": "BuanaCoding",
- "url": "https://buanacoding.com/about/"
- },
- "publisher": {
- "@type": "Organization",
- "name": "BuanaCoding",
- "logo": {
- "@type": "ImageObject",
- "url": "https://buanacoding.com/logo.png"
- }
- },
- "datePublished": "2025-10-07",
- "dateModified": "2025-10-07",
- "mainEntityOfPage": {
- "@type": "WebPage",
- "@id": "https://buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html"
- },
- "articleSection": "Programming",
- "keywords": ["docker go", "containerize go app", "golang docker tutorial", "docker multi-stage build go"],
- "about": [
- {
- "@type": "Thing",
- "name": "Docker Containerization"
- },
- {
- "@type": "Thing",
- "name": "Go Deployment"
- },
- {
- "@type": "Thing",
- "name": "DevOps"
- }
- ]
-}
-&lt;/script&gt;
-&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;</description></item><item><title>Microservices with Golang - Architecture and Implementation Guide</title><link>https://www.buanacoding.com/2025/09/microservices-golang-architecture-implementation-guide.html</link><pubDate>Sat, 27 Sep 2025 00:01:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/microservices-golang-architecture-implementation-guide.html</guid><description>&lt;p&gt;Moving from monolithic to microservices architecture has become one of the biggest changes in how we build software today. While monolithic applications bundle all functionality into a single deployable unit, microservices break down applications into smaller, independent services that communicate over well-defined APIs. When combined with Go&amp;rsquo;s performance characteristics and deployment simplicity, microservices become a powerful approach for building scalable, maintainable systems.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Buana Coding</title><link>https://www.buanacoding.com/tags/docker/</link><description>Recent content in Docker on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 07 Oct 2025 06:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What is Docker for Go?&lt;/strong&gt; Docker is a containerization platform that packages your Go application and all its dependencies into a portable container image. Instead of installing Go and dependencies on every server, Docker bundles everything your app needs into a container that runs identically everywhere - from your laptop to production servers.&lt;/p&gt;</description></item><item><title>Microservices with Golang - Architecture and Implementation Guide</title><link>https://www.buanacoding.com/2025/09/microservices-golang-architecture-implementation-guide.html</link><pubDate>Sat, 27 Sep 2025 00:01:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/microservices-golang-architecture-implementation-guide.html</guid><description>&lt;p&gt;Moving from monolithic to microservices architecture has become one of the biggest changes in how we build software today. While monolithic applications bundle all functionality into a single deployable unit, microservices break down applications into smaller, independent services that communicate over well-defined APIs. When combined with Go&amp;rsquo;s performance characteristics and deployment simplicity, microservices become a powerful approach for building scalable, maintainable systems.&lt;/p&gt;
 &lt;p&gt;In this guide, you&amp;rsquo;ll learn how to design, build, and deploy microservices using Go. We&amp;rsquo;ll cover architectural patterns, service communication strategies, containerization, and production deployment techniques that will help you build robust distributed systems.&lt;/p&gt;</description></item><item><title>Development and Production Environment Setup</title><link>https://www.buanacoding.com/2025/09/laravel-docker-setup-development-production.html</link><pubDate>Tue, 16 Sep 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-docker-setup-development-production.html</guid><description>&lt;p&gt;Docker makes Laravel environments consistent across machines and stages. The steps below outline a clean setup for local development and a hardened build for production. Run PHP‑FPM behind Nginx, connect to MySQL/Postgres and Redis, toggle Xdebug when needed, and ship a small, cache‑friendly image.&lt;/p&gt;
 &lt;!--readmore--&gt;
 &lt;h2 id="components"&gt;Components&lt;/h2&gt;

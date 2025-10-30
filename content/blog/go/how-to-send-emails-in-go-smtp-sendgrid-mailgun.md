@@ -42,49 +42,6 @@ faq:
 
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to Send Emails in Go - SMTP, SendGrid, and Mailgun Integration",
-  "description": "Complete guide to sending emails in Go using SMTP, SendGrid, and Mailgun. Learn email templates, attachments, HTML emails, error handling, and production best practices for transactional emails.",
-  "author": {
-    "@type": "Person",
-    "name": "BuanaCoding",
-    "url": "https://buanacoding.com/about/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BuanaCoding",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://buanacoding.com/logo.png"
-    }
-  },
-  "datePublished": "2025-10-06",
-  "dateModified": "2025-10-06",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://buanacoding.com/2025/10/how-to-send-emails-in-go-smtp-sendgrid-mailgun.html"
-  },
-  "articleSection": "Programming",
-  "keywords": ["go send email", "golang smtp", "sendgrid go tutorial", "mailgun golang", "email golang"],
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Email Integration"
-    },
-    {
-      "@type": "Thing",
-      "name": "Go Programming"
-    },
-    {
-      "@type": "Thing",
-      "name": "Transactional Emails"
-    }
-  ]
-}
-</script>
 
 Your application needs to send emails. Welcome messages after signup, password reset links, order confirmations, notification alerts. Email is still the most reliable way to reach users, but sending emails programmatically is harder than it looks.
 

@@ -41,49 +41,6 @@ faq:
     answer: "Flame graphs visualize where your program spends time. Width represents the proportion of time spent in that function and its children. The bottom shows the call stack, top shows leaf functions. Look for wide bars at the top - these are hot spots consuming significant CPU. Follow the stack down to understand the call path. Compare flame graphs before and after optimization to verify improvements. Red/warm colors often indicate hot paths, though this depends on the visualization tool."
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to Profile and Optimize Go Applications with pprof",
-  "description": "Complete guide to profiling and optimizing Go applications using pprof. Learn CPU profiling, memory profiling, goroutine analysis, and performance optimization techniques for production Go applications.",
-  "author": {
-    "@type": "Person",
-    "name": "BuanaCoding",
-    "url": "https://buanacoding.com/about/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BuanaCoding",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://buanacoding.com/logo.png"
-    }
-  },
-  "datePublished": "2025-10-06",
-  "dateModified": "2025-10-06",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html"
-  },
-  "articleSection": "Programming",
-  "keywords": ["go profiling", "pprof tutorial", "golang performance optimization", "cpu profiling go", "memory profiling golang"],
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Go Performance Optimization"
-    },
-    {
-      "@type": "Thing",
-      "name": "Application Profiling"
-    },
-    {
-      "@type": "Thing",
-      "name": "Backend Performance"
-    }
-  ]
-}
-</script>
 
 Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That's where pprof comes in.
 

@@ -1,47 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Production on Buana Coding</title><link>https://www.buanacoding.com/tags/production/</link><description>Recent content in Production on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 07 Oct 2025 06:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/production/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;script type="application/ld+json"&gt;
-{
- "@context": "https://schema.org",
- "@type": "Article",
- "headline": "How to Containerize and Deploy Go Apps with Docker",
- "description": "Complete guide to containerizing Go applications with Docker. Learn multi-stage builds, optimization techniques, Docker Compose, deployment strategies, and production best practices for Go containers.",
- "author": {
- "@type": "Person",
- "name": "BuanaCoding",
- "url": "https://buanacoding.com/about/"
- },
- "publisher": {
- "@type": "Organization",
- "name": "BuanaCoding",
- "logo": {
- "@type": "ImageObject",
- "url": "https://buanacoding.com/logo.png"
- }
- },
- "datePublished": "2025-10-07",
- "dateModified": "2025-10-07",
- "mainEntityOfPage": {
- "@type": "WebPage",
- "@id": "https://buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html"
- },
- "articleSection": "Programming",
- "keywords": ["docker go", "containerize go app", "golang docker tutorial", "docker multi-stage build go"],
- "about": [
- {
- "@type": "Thing",
- "name": "Docker Containerization"
- },
- {
- "@type": "Thing",
- "name": "Go Deployment"
- },
- {
- "@type": "Thing",
- "name": "DevOps"
- }
- ]
-}
-&lt;/script&gt;
-&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;</description></item><item><title>Building REST API with Gin Framework Golang - Production Ready</title><link>https://www.buanacoding.com/2025/09/building-rest-api-gin-framework-golang-production-ready.html</link><pubDate>Thu, 25 Sep 2025 02:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/building-rest-api-gin-framework-golang-production-ready.html</guid><description>&lt;p&gt;Building a REST API might seem straightforward at first glance, but creating one that&amp;rsquo;s actually ready for production is a different beast entirely. After spending years working with various Go frameworks, I can tell you that the Gin framework hits that sweet spot between developer productivity and performance that makes it perfect for building robust APIs.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Production on Buana Coding</title><link>https://www.buanacoding.com/tags/production/</link><description>Recent content in Production on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 07 Oct 2025 06:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/production/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What is Docker for Go?&lt;/strong&gt; Docker is a containerization platform that packages your Go application and all its dependencies into a portable container image. Instead of installing Go and dependencies on every server, Docker bundles everything your app needs into a container that runs identically everywhere - from your laptop to production servers.&lt;/p&gt;</description></item><item><title>Building REST API with Gin Framework Golang - Production Ready</title><link>https://www.buanacoding.com/2025/09/building-rest-api-gin-framework-golang-production-ready.html</link><pubDate>Thu, 25 Sep 2025 02:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/building-rest-api-gin-framework-golang-production-ready.html</guid><description>&lt;p&gt;Building a REST API might seem straightforward at first glance, but creating one that&amp;rsquo;s actually ready for production is a different beast entirely. After spending years working with various Go frameworks, I can tell you that the Gin framework hits that sweet spot between developer productivity and performance that makes it perfect for building robust APIs.&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;ve been building &lt;a href="https://www.buanacoding.com/2025/05/how-to-build-a-rest-api-in-go-using-net-http.html"&gt;
  basic REST APIs with Go&amp;rsquo;s net/http package
 &lt;/a&gt;

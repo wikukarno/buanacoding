@@ -42,49 +42,6 @@ faq:
 
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to Containerize and Deploy Go Apps with Docker",
-  "description": "Complete guide to containerizing Go applications with Docker. Learn multi-stage builds, optimization techniques, Docker Compose, deployment strategies, and production best practices for Go containers.",
-  "author": {
-    "@type": "Person",
-    "name": "BuanaCoding",
-    "url": "https://buanacoding.com/about/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BuanaCoding",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://buanacoding.com/logo.png"
-    }
-  },
-  "datePublished": "2025-10-07",
-  "dateModified": "2025-10-07",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html"
-  },
-  "articleSection": "Programming",
-  "keywords": ["docker go", "containerize go app", "golang docker tutorial", "docker multi-stage build go"],
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Docker Containerization"
-    },
-    {
-      "@type": "Thing",
-      "name": "Go Deployment"
-    },
-    {
-      "@type": "Thing",
-      "name": "DevOps"
-    }
-  ]
-}
-</script>
 
 Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.
 

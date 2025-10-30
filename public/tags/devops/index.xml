@@ -3,48 +3,6 @@
 &lt;p&gt;This guide covers cron syntax, writing production-ready shell scripts, automated backups, monitoring, error handling, and notifications for reliable automation.&lt;/p&gt;</description></item><item><title>How to Manage Linux Services with Systemd - Complete SystemCTL Guide</title><link>https://www.buanacoding.com/2025/10/how-to-manage-linux-services-systemd-systemctl-guide.html</link><pubDate>Sun, 26 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-manage-linux-services-systemd-systemctl-guide.html</guid><description>&lt;p&gt;Managing services is fundamental to Linux server administration. Every web server, database, application, or background process runs as a service that needs to start, stop, restart, and recover from failures.&lt;/p&gt;
 &lt;p&gt;Systemd replaced older init systems and is now the standard on virtually all major Linux distributions. If you work with Linux servers, you need to know systemd and systemctl inside out.&lt;/p&gt;
 &lt;p&gt;This guide covers everything from basic service management to creating custom services, using timer units instead of cron, troubleshooting failures, and analyzing logs with journalctl.&lt;/p&gt;</description></item><item><title>How to Implement CI/CD for Go Applications with GitHub Actions</title><link>https://www.buanacoding.com/2025/10/how-to-implement-cicd-for-go-applications-with-github-actions.html</link><pubDate>Fri, 17 Oct 2025 11:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-cicd-for-go-applications-with-github-actions.html</guid><description>&lt;p&gt;Manual deployments are error-prone and time-consuming. You make a change, run tests locally, build the binary, SSH into servers, copy files, restart services, and hope nothing breaks. Multiply this by ten deployments per day and you&amp;rsquo;ve wasted hours on repetitive tasks that should be automated.&lt;/p&gt;
-&lt;p&gt;This guide demonstrates how to implement CI/CD (Continuous Integration/Continuous Deployment) for Go applications using GitHub Actions. You&amp;rsquo;ll learn to create automated workflows that test code on every push, build optimized binaries for multiple platforms, deploy Docker containers automatically, cache dependencies for faster builds, and apply production-ready practices that catch bugs before users do.&lt;/p&gt;</description></item><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;script type="application/ld+json"&gt;
-{
- "@context": "https://schema.org",
- "@type": "Article",
- "headline": "How to Containerize and Deploy Go Apps with Docker",
- "description": "Complete guide to containerizing Go applications with Docker. Learn multi-stage builds, optimization techniques, Docker Compose, deployment strategies, and production best practices for Go containers.",
- "author": {
- "@type": "Person",
- "name": "BuanaCoding",
- "url": "https://buanacoding.com/about/"
- },
- "publisher": {
- "@type": "Organization",
- "name": "BuanaCoding",
- "logo": {
- "@type": "ImageObject",
- "url": "https://buanacoding.com/logo.png"
- }
- },
- "datePublished": "2025-10-07",
- "dateModified": "2025-10-07",
- "mainEntityOfPage": {
- "@type": "WebPage",
- "@id": "https://buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html"
- },
- "articleSection": "Programming",
- "keywords": ["docker go", "containerize go app", "golang docker tutorial", "docker multi-stage build go"],
- "about": [
- {
- "@type": "Thing",
- "name": "Docker Containerization"
- },
- {
- "@type": "Thing",
- "name": "Go Deployment"
- },
- {
- "@type": "Thing",
- "name": "DevOps"
- }
- ]
-}
-&lt;/script&gt;
-&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;</description></item><item><title>How to Build a CLI Tool in Go with Cobra and Viper</title><link>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</link><pubDate>Sat, 04 Oct 2025 14:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</guid><description>&lt;p&gt;I&amp;rsquo;ve built a lot of CLI tools over the years - deployment scripts, database migration tools, log analyzers, you name it. Every time I start a new one, I reach for Cobra and Viper. Not because they&amp;rsquo;re trendy (though they are), but because they solve the boring parts so I can focus on what my tool actually does.&lt;/p&gt;
+&lt;p&gt;This guide demonstrates how to implement CI/CD (Continuous Integration/Continuous Deployment) for Go applications using GitHub Actions. You&amp;rsquo;ll learn to create automated workflows that test code on every push, build optimized binaries for multiple platforms, deploy Docker containers automatically, cache dependencies for faster builds, and apply production-ready practices that catch bugs before users do.&lt;/p&gt;</description></item><item><title>How to Containerize and Deploy Go Apps with Docker</title><link>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</link><pubDate>Tue, 07 Oct 2025 06:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-containerize-and-deploy-go-apps-with-docker.html</guid><description>&lt;p&gt;Deploying Go applications used to mean SSH into servers, copying binaries, managing dependencies, and praying everything works. Different machines had different library versions. Production behaved differently than development. Debugging deployment issues wasted hours.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What is Docker for Go?&lt;/strong&gt; Docker is a containerization platform that packages your Go application and all its dependencies into a portable container image. Instead of installing Go and dependencies on every server, Docker bundles everything your app needs into a container that runs identically everywhere - from your laptop to production servers.&lt;/p&gt;</description></item><item><title>How to Build a CLI Tool in Go with Cobra and Viper</title><link>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</link><pubDate>Sat, 04 Oct 2025 14:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-build-a-cli-tool-in-go-with-cobra-and-viper.html</guid><description>&lt;p&gt;I&amp;rsquo;ve built a lot of CLI tools over the years - deployment scripts, database migration tools, log analyzers, you name it. Every time I start a new one, I reach for Cobra and Viper. Not because they&amp;rsquo;re trendy (though they are), but because they solve the boring parts so I can focus on what my tool actually does.&lt;/p&gt;
 &lt;p&gt;Think about kubectl, hugo, gh (GitHub CLI) - all built with Cobra. There&amp;rsquo;s a reason for that. Cobra gives you a clean command structure, automatic help generation, flag parsing, and all the stuff you&amp;rsquo;d otherwise spend hours implementing. Viper adds configuration management so users can configure your tool however they want - config files, environment variables, flags, whatever.&lt;/p&gt;</description></item></channel></rss>

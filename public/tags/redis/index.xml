@@ -1,46 +1,4 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Redis on Buana Coding</title><link>https://www.buanacoding.com/tags/redis/</link><description>Recent content in Redis on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 16 Oct 2025 09:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/redis/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Implement Session Management in Go - Cookies and Redis Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-implement-session-management-in-go-cookies-and-redis.html</link><pubDate>Thu, 16 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-session-management-in-go-cookies-and-redis.html</guid><description>&lt;p&gt;Web applications need to remember users across multiple requests. When a user logs in, adds items to a shopping cart, or sets preferences, the application must maintain this state throughout their session. HTTP&amp;rsquo;s stateless nature makes this challenging, but proper session management solves this problem by storing user state securely on the server while using cookies to track users across requests.&lt;/p&gt;
-&lt;p&gt;This complete guide demonstrates how to implement production-ready session management in Go using cookies and Redis. You&amp;rsquo;ll learn to create secure sessions, store data efficiently in Redis, implement session middleware, handle authentication flows, prevent common security vulnerabilities, and build scalable session systems that work across multiple server instances.&lt;/p&gt;</description></item><item><title>How to Implement Background Jobs in Go with Asynq and Redis</title><link>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link><pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid><description>&lt;script type="application/ld+json"&gt;
-{
- "@context": "https://schema.org",
- "@type": "Article",
- "headline": "How to Implement Background Jobs in Go with Asynq and Redis",
- "description": "Complete guide to implementing background job processing in Go using Asynq and Redis. Learn task queues, worker pools, retries, scheduled tasks, error handling, and production deployment strategies.",
- "author": {
- "@type": "Person",
- "name": "BuanaCoding",
- "url": "https://buanacoding.com/about/"
- },
- "publisher": {
- "@type": "Organization",
- "name": "BuanaCoding",
- "logo": {
- "@type": "ImageObject",
- "url": "https://buanacoding.com/logo.png"
- }
- },
- "datePublished": "2025-10-06",
- "dateModified": "2025-10-06",
- "mainEntityOfPage": {
- "@type": "WebPage",
- "@id": "https://buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html"
- },
- "articleSection": "Programming",
- "keywords": ["go background jobs", "asynq tutorial", "golang task queue", "redis job queue go", "background processing golang"],
- "about": [
- {
- "@type": "Thing",
- "name": "Background Job Processing"
- },
- {
- "@type": "Thing",
- "name": "Go Programming"
- },
- {
- "@type": "Thing",
- "name": "Redis Queue System"
- }
- ]
-}
-&lt;/script&gt;
-&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;</description></item><item><title>How to Use Redis with Go - Caching and Session Management Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</link><pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</guid><description>&lt;p&gt;Modern applications demand speed and scalability that traditional databases struggle to provide alone. Users expect instant responses, APIs must handle thousands of concurrent requests, and systems need to scale horizontally without performance degradation. Redis addresses these challenges by providing blazing-fast in-memory data storage that complements your existing database infrastructure.&lt;/p&gt;
+&lt;p&gt;This complete guide demonstrates how to implement production-ready session management in Go using cookies and Redis. You&amp;rsquo;ll learn to create secure sessions, store data efficiently in Redis, implement session middleware, handle authentication flows, prevent common security vulnerabilities, and build scalable session systems that work across multiple server instances.&lt;/p&gt;</description></item><item><title>How to Implement Background Jobs in Go with Asynq and Redis</title><link>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</link><pubDate>Mon, 06 Oct 2025 16:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html</guid><description>&lt;p&gt;Your API is slow. Not because the code is inefficient, but because you&amp;rsquo;re doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That&amp;rsquo;s not how you scale.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What are background jobs?&lt;/strong&gt; Background jobs are tasks that run asynchronously outside the main request-response cycle. Instead of making users wait while your server processes heavy workloads, you push these tasks into a queue and handle them separately in worker processes. This keeps your API fast and responsive.&lt;/p&gt;</description></item><item><title>How to Use Redis with Go - Caching and Session Management Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</link><pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</guid><description>&lt;p&gt;Modern applications demand speed and scalability that traditional databases struggle to provide alone. Users expect instant responses, APIs must handle thousands of concurrent requests, and systems need to scale horizontally without performance degradation. Redis addresses these challenges by providing blazing-fast in-memory data storage that complements your existing database infrastructure.&lt;/p&gt;
 &lt;p&gt;This comprehensive guide demonstrates how to integrate Redis with Go applications for caching and session management. You&amp;rsquo;ll learn to set up the go-redis client, implement various caching patterns, manage user sessions across distributed servers, optimize connection pooling, handle cache invalidation, and follow production best practices that ensure reliability and performance at scale.&lt;/p&gt;</description></item></channel></rss>

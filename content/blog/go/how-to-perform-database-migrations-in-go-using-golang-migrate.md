@@ -42,49 +42,6 @@ faq:
     answer: "Create a test database and run migrations in your CI/CD pipeline. Write tests that apply migrations and verify the schema is correct. Test rollbacks by running down migrations. Use docker containers to create isolated test databases. Test with realistic data volumes to catch performance issues. Verify foreign key constraints, indexes, and default values are created correctly. Always test migrations in a staging environment before production."
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to Perform Database Migrations in Go using golang-migrate",
-  "description": "Complete guide to database migrations in Go using golang-migrate. Learn how to create, run, and manage database schema changes with PostgreSQL, MySQL, and SQLite including rollback strategies and production deployment.",
-  "author": {
-    "@type": "Person",
-    "name": "BuanaCoding",
-    "url": "https://buanacoding.com/about/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BuanaCoding",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://buanacoding.com/logo.png"
-    }
-  },
-  "datePublished": "2025-10-05",
-  "dateModified": "2025-10-05",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://buanacoding.com/2025/10/how-to-perform-database-migrations-in-go-using-golang-migrate.html"
-  },
-  "articleSection": "Programming",
-  "keywords": ["golang database migration", "golang-migrate tutorial", "go database schema", "postgresql migration go", "mysql migration golang"],
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Database Migrations"
-    },
-    {
-      "@type": "Thing",
-      "name": "Go Programming"
-    },
-    {
-      "@type": "Thing",
-      "name": "Backend Development"
-    }
-  ]
-}
-</script>
 
 Managing database schema changes is one of those tasks that seems simple until you're dealing with multiple environments, team members making conflicting changes, or trying to rollback a production deployment at 2 AM. If you've ever manually run SQL scripts on production hoping you didn't miss anything, you know exactly what I'm talking about.
 

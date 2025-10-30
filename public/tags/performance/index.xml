@@ -1,47 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Performance on Buana Coding</title><link>https://www.buanacoding.com/tags/performance/</link><description>Recent content in Performance on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 06 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/performance/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;script type="application/ld+json"&gt;
-{
- "@context": "https://schema.org",
- "@type": "Article",
- "headline": "How to Profile and Optimize Go Applications with pprof",
- "description": "Complete guide to profiling and optimizing Go applications using pprof. Learn CPU profiling, memory profiling, goroutine analysis, and performance optimization techniques for production Go applications.",
- "author": {
- "@type": "Person",
- "name": "BuanaCoding",
- "url": "https://buanacoding.com/about/"
- },
- "publisher": {
- "@type": "Organization",
- "name": "BuanaCoding",
- "logo": {
- "@type": "ImageObject",
- "url": "https://buanacoding.com/logo.png"
- }
- },
- "datePublished": "2025-10-06",
- "dateModified": "2025-10-06",
- "mainEntityOfPage": {
- "@type": "WebPage",
- "@id": "https://buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html"
- },
- "articleSection": "Programming",
- "keywords": ["go profiling", "pprof tutorial", "golang performance optimization", "cpu profiling go", "memory profiling golang"],
- "about": [
- {
- "@type": "Thing",
- "name": "Go Performance Optimization"
- },
- {
- "@type": "Thing",
- "name": "Application Profiling"
- },
- {
- "@type": "Thing",
- "name": "Backend Performance"
- }
- ]
-}
-&lt;/script&gt;
-&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;</description></item><item><title>How to Use Redis with Go - Caching and Session Management Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</link><pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</guid><description>&lt;p&gt;Modern applications demand speed and scalability that traditional databases struggle to provide alone. Users expect instant responses, APIs must handle thousands of concurrent requests, and systems need to scale horizontally without performance degradation. Redis addresses these challenges by providing blazing-fast in-memory data storage that complements your existing database infrastructure.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Performance on Buana Coding</title><link>https://www.buanacoding.com/tags/performance/</link><description>Recent content in Performance on Buana Coding</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 06 Oct 2025 10:00:00 +0700</lastBuildDate><atom:link href="https://www.buanacoding.com/tags/performance/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Profile and Optimize Go Applications with pprof</title><link>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</link><pubDate>Mon, 06 Oct 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-profile-and-optimize-go-applications-with-pprof.html</guid><description>&lt;p&gt;Your Go application is slow. Requests take too long, memory usage keeps climbing, or CPU maxes out under load. You need answers, not guesses. That&amp;rsquo;s where pprof comes in.&lt;/p&gt;
+&lt;p&gt;pprof is Go&amp;rsquo;s built-in profiler that shows you exactly what&amp;rsquo;s happening inside your running application. It tells you which functions eat CPU cycles, which code paths allocate tons of memory, where goroutines get stuck, and what&amp;rsquo;s blocking your program. With this data, you stop guessing and start fixing real bottlenecks.&lt;/p&gt;</description></item><item><title>How to Use Redis with Go - Caching and Session Management Tutorial</title><link>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</link><pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/10/how-to-use-redis-with-go-caching-session-management.html</guid><description>&lt;p&gt;Modern applications demand speed and scalability that traditional databases struggle to provide alone. Users expect instant responses, APIs must handle thousands of concurrent requests, and systems need to scale horizontally without performance degradation. Redis addresses these challenges by providing blazing-fast in-memory data storage that complements your existing database infrastructure.&lt;/p&gt;
 &lt;p&gt;This comprehensive guide demonstrates how to integrate Redis with Go applications for caching and session management. You&amp;rsquo;ll learn to set up the go-redis client, implement various caching patterns, manage user sessions across distributed servers, optimize connection pooling, handle cache invalidation, and follow production best practices that ensure reliability and performance at scale.&lt;/p&gt;</description></item><item><title>API Gateway with Golang - Load Balancing and Rate Limiting Implementation</title><link>https://www.buanacoding.com/2025/09/api-gateway-golang-load-balancing-rate-limiting.html</link><pubDate>Mon, 29 Sep 2025 07:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/api-gateway-golang-load-balancing-rate-limiting.html</guid><description>&lt;p&gt;When you&amp;rsquo;re building distributed systems, one component stands between chaos and order: the API Gateway. Think of it as the bouncer at an exclusive club - it decides who gets in, where they go, and how fast they can enter. After working with various microservice architectures, I can tell you that a well-implemented API Gateway is often the difference between a system that scales gracefully and one that crumbles under pressure.&lt;/p&gt;</description></item><item><title>Easy Background Processing Tutorial</title><link>https://www.buanacoding.com/2025/09/laravel-queue-jobs-background-processing-tutorial.html</link><pubDate>Wed, 24 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-queue-jobs-background-processing-tutorial.html</guid><description>&lt;p&gt;Ever had a user complain that your app takes forever to send an email or process an image upload? Or maybe you&amp;rsquo;ve watched your response times crawl to a halt because you&amp;rsquo;re trying to do too much work during a single request? Laravel queues are the solution you&amp;rsquo;ve been looking for, and they&amp;rsquo;re easier to set up than you might think.&lt;/p&gt;
 &lt;p&gt;Think of Laravel queues as your app&amp;rsquo;s personal assistant. Instead of making users wait while you send emails, resize images, or generate reports, you hand these tasks off to the background and let users continue with their day. The work still gets done, but it doesn&amp;rsquo;t block the user experience.&lt;/p&gt;</description></item><item><title>Boost Performance with High-Speed Application Server</title><link>https://www.buanacoding.com/2025/09/laravel-octane-boost-performance-tutorial.html</link><pubDate>Mon, 22 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-octane-boost-performance-tutorial.html</guid><description>&lt;p&gt;If you&amp;rsquo;re tired of waiting for your Laravel app to respond and want to see some serious speed improvements, Laravel Octane might be exactly what you&amp;rsquo;re looking for. Think of it as giving your application a turbo boost - we&amp;rsquo;re talking about performance gains that can make your app 3x to 10x faster in many scenarios.&lt;/p&gt;
 &lt;p&gt;Laravel Octane takes your regular Laravel application and runs it on high-performance application servers like Swoole or RoadRunner. Instead of booting up your entire application for every single request (which is what traditional PHP does), Octane keeps your app loaded in memory and reuses it for multiple requests. The result? Lightning-fast response times that will make your users happy.&lt;/p&gt;</description></item><item><title>Laravel N+1 Query Problem Solution Essential Database Optimization Guide</title><link>https://www.buanacoding.com/2025/09/laravel-n-plus-one-query-problem-solution.html</link><pubDate>Mon, 22 Sep 2025 10:00:00 +0700</pubDate><guid>https://www.buanacoding.com/2025/09/laravel-n-plus-one-query-problem-solution.html</guid><description>&lt;p&gt;If you&amp;rsquo;ve ever wondered why your Laravel app suddenly becomes sluggish when displaying lists of data, you might be dealing with the dreaded N+1 query problem. It&amp;rsquo;s one of those sneaky performance killers that can turn a fast application into a slow, resource-hungry monster. Don&amp;rsquo;t worry though - once you understand what&amp;rsquo;s happening and how to fix it, you&amp;rsquo;ll never fall into this trap again.&lt;/p&gt;

@@ -42,49 +42,6 @@ faq:
 
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How to Implement Background Jobs in Go with Asynq and Redis",
-  "description": "Complete guide to implementing background job processing in Go using Asynq and Redis. Learn task queues, worker pools, retries, scheduled tasks, error handling, and production deployment strategies.",
-  "author": {
-    "@type": "Person",
-    "name": "BuanaCoding",
-    "url": "https://buanacoding.com/about/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BuanaCoding",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://buanacoding.com/logo.png"
-    }
-  },
-  "datePublished": "2025-10-06",
-  "dateModified": "2025-10-06",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://buanacoding.com/2025/10/how-to-implement-background-jobs-in-go-with-asynq-and-redis.html"
-  },
-  "articleSection": "Programming",
-  "keywords": ["go background jobs", "asynq tutorial", "golang task queue", "redis job queue go", "background processing golang"],
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Background Job Processing"
-    },
-    {
-      "@type": "Thing",
-      "name": "Go Programming"
-    },
-    {
-      "@type": "Thing",
-      "name": "Redis Queue System"
-    }
-  ]
-}
-</script>
 
 Your API is slow. Not because the code is inefficient, but because you're doing too much in the HTTP request cycle. Sending emails, processing images, generating reports - all blocking the response while the user waits. That's not how you scale.
 

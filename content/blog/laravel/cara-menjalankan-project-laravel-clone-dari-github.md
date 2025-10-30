@@ -37,50 +37,6 @@ faq:
     answer: "Cek step by step: pastikan composer install sukses tanpa error, file .env sudah ada dan dikonfigurasi benar, APP_KEY sudah di-generate, database connection di .env sudah benar, migration sudah dijalankan, folder storage dan bootstrap/cache punya permission yang tepat, dan versi PHP sesuai requirement Laravel. Lihat juga file storage/logs/laravel.log untuk error detail."
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Cara Menjalankan Project Laravel Clone dari GitHub",
-  "description": "Panduan lengkap cara menjalankan project Laravel yang di-clone dari GitHub. Cocok untuk pemula yang ingin belajar Laravel dari setup awal hingga troubleshooting.",
-  "author": {
-    "@type": "Person",
-    "name": "BuanaCoding",
-    "url": "https://buanacoding.com/about/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BuanaCoding",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://buanacoding.com/logo.png"
-    }
-  },
-  "datePublished": "2023-04-09",
-  "dateModified": "2023-04-09",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://buanacoding.com/2023/04/cara-menjalankan-project-laravel-clone.html"
-  },
-  "articleSection": "Programming",
-  "keywords": ["laravel", "clone laravel", "laravel github", "composer install", "laravel migration"],
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Laravel Framework"
-    },
-    {
-      "@type": "Thing",
-      "name": "PHP Development"
-    },
-    {
-      "@type": "Thing",
-      "name": "Version Control"
-    }
-  ]
-}
-</script>
-
 Dapat project Laravel dari GitHub tapi bingung cara jalankannya? Atau malah error melulu saat setup? Tenang, kamu tidak sendirian. Banyak developer pemula (bahkan yang udah agak senior) sering stuck di tahap ini.
 
 Clone project Laravel dari GitHub itu gampang kalau tau step-by-step yang benar. Tapi kalau asal comot dan langsung jalankan, siap-siap ketemu segudang error dari missing dependencies, database connection failed, sampai permission issues.
