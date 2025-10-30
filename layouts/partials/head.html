@@ -70,10 +70,21 @@
       "@type": "WebPage",
       "@id": "{{ .Permalink }}"
     },
-    "image": "{{ $image }}",
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ $image }}",
+      "width": 1200,
+      "height": 630
+    },
     "publisher": {
       "@type": "Organization",
-      "name": "{{ .Site.Title }}"
+      "name": "{{ .Site.Title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.Params.defaultImage }}",
+        "width": 600,
+        "height": 60
+      }
     }
   }
   </script>
