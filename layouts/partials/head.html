@@ -88,6 +88,50 @@
     }
   }
   </script>
+  {{ else if .IsHome }}
+  {{/* Structured Data: JSON-LD for Homepage */}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ .Site.Title }}",
+    "description": "{{ .Site.Params.description }}",
+    "url": "{{ .Permalink }}",
+    "inLanguage": "{{ .Lang }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.Params.defaultImage }}",
+        "width": 600,
+        "height": 60
+      }
+    }
+  }
+  </script>
+  {{ else if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+  {{/* Structured Data: JSON-LD for Taxonomy/Tag pages */}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ $title | plainify }}",
+    "description": "{{ $desc | plainify }}",
+    "url": "{{ .Permalink }}",
+    "inLanguage": "{{ .Lang }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.Params.defaultImage }}",
+        "width": 600,
+        "height": 60
+      }
+    }
+  }
+  </script>
   {{ end }}
 
   <!-- Favicon -->
