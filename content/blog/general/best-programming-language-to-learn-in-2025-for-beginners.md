@@ -1,6 +1,6 @@
 ---
 title: "Best Programming Language to Learn in 2025 for Beginners"
-date: 2025-11-29T10:00:00+07:00
+date: 2025-11-29T07:00:00+07:00
 draft: false
 url: /2025/11/best-programming-language-to-learn-in-2025-for-beginners.html
 description: "Confused about which programming language to learn first? This guide breaks down the best programming languages for beginners in 2025 based on job demand, salary, and ease of learning."
