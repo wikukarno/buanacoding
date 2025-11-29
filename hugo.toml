@@ -1,6 +1,6 @@
 baseURL = "https://www.buanacoding.com/"
 languageCode = "en"
-title = "Buana Coding"
+title = "Level Up Your Code | Web & App Development Tutorials"
 defaultContentLanguage = "en"
 # Keep default language (English) at root URL, non-default languages under subfolders (e.g., /id/)
 defaultContentLanguageInSubdir = false
@@ -58,9 +58,9 @@ ignoreLogs = ['warning-goldmark-raw-html']
 # Enable metaData for SEO
 [params]
   author = "Wiku Karno"
-  description = "Buana Coding is your go-to resource for practical programming tutorials, tips, and tools. Learn web and app development, improve your coding skills, and boost your productivity as a developer."
+  description = "Want to code better? Buana Coding provides high-quality tutorials, tips, and developer tools. From fixing bugs to building full apps, start learning today."
   keywords = ["coding", "programming", "web development", "app development", "tutorial", "developer tips"]
-  defaultImage = "https://www.buanacoding.com/images/og-image.jpg"
+  defaultImage = "https://www.buanacoding.com/og-image.jpg"
   # Tags to show in navbar (allowlist). Fallback shows up to 6 popular tags.
   navTags = ["General", "Go", "Laravel", "Linux", "Python", "Security"]
 
@@ -89,8 +89,8 @@ ignoreLogs = ['warning-goldmark-raw-html']
   [languages.en]
     languageName = "English"
     weight = 1
-    title = "Buana Coding"
+    title = "Level Up Your Code | Web & App Development Tutorials"
   [languages.id]
     languageName = "Indonesia"
     weight = 2
-    title = "Buana Coding"
+    title = "Level Up Your Code | Tutorial Web & App Development"
