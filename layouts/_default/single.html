@@ -43,7 +43,7 @@
     {{ $hero := or .Params.hero .Params.og_image }}
     {{ with $hero }}
     <figure class="mb-6 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">
-      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-auto block" loading="eager" />
+      <img src="{{ . }}" alt="{{ $.Title }}" width="1200" height="630" class="w-full h-auto block" loading="eager" fetchpriority="high" />
     </figure>
     {{ end }}
 

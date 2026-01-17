@@ -37,9 +37,19 @@
   <!-- Open Graph / Facebook -->
   {{ if and .IsPage (eq .Section "blog") }}
   <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
+  <meta property="article:author" content="{{ .Site.Params.author }}" />
+  {{ with index .Params.tags 0 }}
+  <meta property="article:section" content="{{ . }}" />
+  {{ end }}
+  {{ range .Params.tags }}
+  <meta property="article:tag" content="{{ . }}" />
+  {{ end }}
   {{ else }}
   <meta property="og:type" content="website" />
   {{ end }}
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
   <meta property="og:title" content="{{ $title }}" />
   <meta property="og:description" content="{{ $desc | plainify }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
@@ -86,6 +96,38 @@
         "height": 60
       }
     }
+  }
+  </script>
+  {{/* Structured Data: BreadcrumbList for blog posts */}}
+  {{ $firstTag := index .Params.tags 0 }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ .Site.BaseURL }}"
+      }{{ if $firstTag }},
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ $firstTag }}",
+        "item": "{{ .Site.BaseURL }}tags/{{ $firstTag | urlize }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ .Title | plainify }}"
+      }{{ else }},
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ .Title | plainify }}"
+      }{{ end }}
+    ]
   }
   </script>
   {{ else if .IsHome }}
