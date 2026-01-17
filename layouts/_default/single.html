@@ -8,7 +8,7 @@
       {{ if eq .Section "blog" }}
         {{ $tag := index .Params.tags 0 }}
         {{ if $tag }}
-          <a href="/tags/{{ $tag | urlize }}" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">#{{ $tag }} tutorials</a>
+          <a href="/tags/{{ $tag | urlize }}" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">#{{ if eq (lower $tag) "go" }}golang{{ else }}{{ $tag }}{{ end }}</a>
         {{ else }}
           <a href="/blog" class="text-gray-600 dark:text-gray-300 hover:text-[#0f7ea9] no-underline">#{{ i18n "blog" | lower }}</a>
         {{ end }}
