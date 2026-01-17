@@ -17,13 +17,12 @@
   {{ $adSlot := or .Params.ad_slot_sidebar "3879195288" }}
   {{ $adChannel := .Params.ad_channel }}
   <div class="mx-auto w-[300px] min-h-[250px] overflow-hidden">
-    <ins class="adsbygoogle"
+    <ins class="adsbygoogle lazy-ad"
          style="display:block; background-color:inherit; min-height:250px;"
          data-ad-client="{{ $adClient }}"
          data-ad-slot="{{ $adSlot }}"
          data-ad-format="auto"
          data-full-width-responsive="true"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
   {{ end }}
 </div>

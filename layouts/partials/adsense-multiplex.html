@@ -16,13 +16,12 @@
     {{ $adSlot := or .Params.ad_slot_multiplex "7106179106" }}
     {{ $adChannel := .Params.ad_channel }}
     <div class="flex justify-center">
-      <ins class="adsbygoogle"
+      <ins class="adsbygoogle lazy-ad"
            style="display:block"
            data-ad-format="autorelaxed"
            data-ad-client="{{ $adClient }}"
            data-ad-slot="{{ $adSlot }}"{{ with $adChannel }}
            data-ad-channel="{{ . }}"{{ end }}></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
     {{ end }}
   </div>
