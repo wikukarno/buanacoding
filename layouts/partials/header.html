@@ -16,6 +16,7 @@
           <a
             href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
             class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+            aria-label="Browse {{ $tag }} tutorials and articles"
           >
             {{ $tag }}
           </a>
@@ -28,6 +29,7 @@
             <a
               href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
               class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+              aria-label="Browse {{ $name }} tutorials and articles"
             >
               {{ $name }}
             </a>
@@ -106,6 +108,7 @@
         <a
           href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+          aria-label="Browse {{ $tag }} tutorials and articles"
         >
           {{ $tag }}
         </a>
@@ -117,6 +120,7 @@
         <a
           href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
+          aria-label="Browse {{ $name }} tutorials and articles"
         >
           {{ $name }}
         </a>
