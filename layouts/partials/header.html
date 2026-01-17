@@ -16,9 +16,8 @@
           <a
             href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
             class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-            aria-label="Browse {{ $tag }} tutorials and articles"
           >
-            {{ $tag }}
+{{ if eq (lower $tag) "go" }}Golang{{ else }}{{ $tag }}{{ end }}
           </a>
         {{ end }}
       {{ else }}
@@ -29,9 +28,8 @@
             <a
               href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
               class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-              aria-label="Browse {{ $name }} tutorials and articles"
             >
-              {{ $name }}
+{{ if eq (lower $name) "go" }}Golang{{ else }}{{ $name }}{{ end }}
             </a>
             {{ $.Scratch.Add "shown" 1 }}
           {{ end }}
@@ -108,9 +106,8 @@
         <a
           href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-          aria-label="Browse {{ $tag }} tutorials and articles"
         >
-          {{ $tag }}
+{{ if eq (lower $tag) "go" }}Golang{{ else }}{{ $tag }}{{ end }}
         </a>
       {{ end }}
     {{ else }}
@@ -120,9 +117,8 @@
         <a
           href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
-          aria-label="Browse {{ $name }} tutorials and articles"
         >
-          {{ $name }}
+{{ if eq (lower $name) "go" }}Golang{{ else }}{{ $name }}{{ end }}
         </a>
         {{ $.Scratch.Add "shown" 1 }}
         {{ end }}
