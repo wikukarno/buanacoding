@@ -12,7 +12,7 @@
           <a href="{{ .RelPermalink }}" class="block bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
             <h2 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ .Title }}</h2>
             <p class="text-sm text-gray-600 dark:text-gray-300">{{ .Summary | truncate 100 }}</p>
-            <span class="text-xs text-gray-400 block mt-2">📅 {{ .Date.Format "02 Jan 2006" }}</span>
+            <span class="text-xs text-gray-500 block mt-2">📅 {{ .Date.Format "02 Jan 2006" }}</span>
           </a>
         {{ end }}
       </div>
