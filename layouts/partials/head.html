@@ -21,6 +21,11 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ .Permalink }}" />
 
+  <!-- Preconnect to external origins for faster loading -->
+  <link rel="preconnect" href="https://cdn.buanacoding.com" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
   <!-- Hreflang Alternates for Multilingual -->
   {{ $self := . }}
   {{ $alts := slice $self }}
