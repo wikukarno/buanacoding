@@ -5,7 +5,7 @@ draft: false
 url: /2024/04/easiest-way-to-install-golang-on-linux.html
 tags:
   - Go
-image: /images/golang-linux.jpg
+image: https://cdn.buanacoding.com/cdn-cgi/image/width=800,quality=80,format=auto/golang-linux.jpg
 description: "Learn how to install Golang on Linux using either Snap or manual source installation. Ideal for beginners and developers setting up their Go environment."
 keywords: ["golang", "install go", "linux go installation", "snap install go", "manual install go"]
 faq:
