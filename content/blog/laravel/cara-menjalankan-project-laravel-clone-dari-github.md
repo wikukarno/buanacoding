@@ -4,7 +4,7 @@ date: 2023-04-09T23:08:00.002+07:00
 draft: false
 featured: true
 url: /2023/04/cara-menjalankan-project-laravel-clone.html
-image: https://cdn.buanacoding.com/cdn-cgi/image/width=800,quality=80,format=auto/code.jpg
+image: https://cdn.buanacoding.com/cdn-cgi/image/width=800,quality=80,format=auto/code.webp
 tags:
 - Laravel
 description: "Panduan lengkap cara menjalankan project Laravel yang di-clone dari GitHub. Cocok untuk pemula yang ingin belajar Laravel dari setup awal hingga troubleshooting."
