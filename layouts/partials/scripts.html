@@ -3,44 +3,59 @@
 
 <script>
 
-  // Lazy load AdSense - only push when element is visible and has width
+  // Lazy load AdSense - wait for adsbygoogle to be ready before pushing
   (function() {
-    var lazyAds = document.querySelectorAll('.lazy-ad');
-    if (!lazyAds.length) return;
+    function pushAd(ad, observer) {
+      // Ensure adsbygoogle is ready before pushing
+      if (typeof window.adsbygoogle === 'undefined' || !window.adsbygoogle.loaded) {
+        // Retry after 100ms if adsbygoogle not ready
+        setTimeout(function() { pushAd(ad, observer); }, 100);
+        return;
+      }
 
-    if ('IntersectionObserver' in window) {
-      var adObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var ad = entry.target;
-            // Check if element has width (not hidden)
-            if (ad.offsetWidth > 0) {
-              try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-              } catch (e) {
-                console.log('AdSense push error:', e);
-              }
-              adObserver.unobserve(ad);
-            }
-          }
-        });
-      }, {
-        rootMargin: '200px 0px', // Load 200px before entering viewport
-        threshold: 0
-      });
-
-      lazyAds.forEach(function(ad) {
-        adObserver.observe(ad);
-      });
-    } else {
-      // Fallback for browsers without IntersectionObserver
-      lazyAds.forEach(function(ad) {
-        if (ad.offsetWidth > 0) {
-          try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (e) {}
+      if (ad.offsetWidth > 0 && !ad.dataset.adPushed) {
+        try {
+          ad.dataset.adPushed = 'true';
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.log('AdSense push error:', e);
         }
-      });
+        if (observer) observer.unobserve(ad);
+      }
+    }
+
+    function initLazyAds() {
+      var lazyAds = document.querySelectorAll('.lazy-ad:not([data-ad-pushed])');
+      if (!lazyAds.length) return;
+
+      if ('IntersectionObserver' in window) {
+        var adObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              pushAd(entry.target, adObserver);
+            }
+          });
+        }, {
+          rootMargin: '200px 0px',
+          threshold: 0
+        });
+
+        lazyAds.forEach(function(ad) {
+          adObserver.observe(ad);
+        });
+      } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyAds.forEach(function(ad) {
+          pushAd(ad, null);
+        });
+      }
+    }
+
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLazyAds);
+    } else {
+      initLazyAds();
     }
   })();
   const btn = document.getElementById("scrollToTop");
