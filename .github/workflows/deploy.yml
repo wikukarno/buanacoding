@@ -71,26 +71,18 @@ jobs:
             ls -la ${{ secrets.SSH_TARGET }}
 
       - name: Post-deployment cleanup
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            echo "🔧 Setting proper permissions..."
-
-            # Set ownership to www-data for Nginx
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/ssh_key
+          chmod 600 /tmp/ssh_key
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} -i /tmp/ssh_key ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'ENDSSH'
+            echo "Setting proper permissions..."
             sudo chown -R www-data:www-data ${{ secrets.SSH_TARGET }}
-
-            # Set permissions: 755 for directories, 644 for files
             sudo find ${{ secrets.SSH_TARGET }} -type d -exec chmod 755 {} \;
             sudo find ${{ secrets.SSH_TARGET }} -type f -exec chmod 644 {} \;
-
-            echo "🔄 Reloading Nginx..."
+            echo "Reloading Nginx..."
             sudo systemctl reload nginx
-
-            echo "✅ Deployment completed successfully!"
-            echo "📊 Website info:"
-            echo "   - Total files: $(find ${{ secrets.SSH_TARGET }} -type f | wc -l)"
-            echo "   - Total size: $(du -sh ${{ secrets.SSH_TARGET }} | cut -f1)"
+            echo "Deployment completed!"
+            echo "Total files: $(find ${{ secrets.SSH_TARGET }} -type f | wc -l)"
+            echo "Total size: $(du -sh ${{ secrets.SSH_TARGET }} | cut -f1)"
+          ENDSSH
+          rm -f /tmp/ssh_key
