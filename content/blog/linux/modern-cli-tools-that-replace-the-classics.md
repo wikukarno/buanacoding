@@ -4,7 +4,7 @@ description: >-
   Still using grep, cat, and ls from the 1970s? These modern CLI replacements
   are faster, prettier, and way more useful. Here's what to install and why you
   won't go back.
-date: '2026-02-25T10:00:00+07:00'
+date: '2026-02-24T10:00:00+07:00'
 tags:
   - Linux
   - Developer Tools
