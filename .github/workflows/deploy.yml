@@ -71,18 +71,17 @@ jobs:
             ls -la ${{ secrets.SSH_TARGET }}
 
       - name: Post-deployment cleanup
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/ssh_key
-          chmod 600 /tmp/ssh_key
-          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} -i /tmp/ssh_key ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'ENDSSH'
-            echo "Setting proper permissions..."
-            sudo chown -R www-data:www-data ${{ secrets.SSH_TARGET }}
-            sudo find ${{ secrets.SSH_TARGET }} -type d -exec chmod 755 {} \;
-            sudo find ${{ secrets.SSH_TARGET }} -type f -exec chmod 644 {} \;
-            echo "Reloading Nginx..."
-            sudo systemctl reload nginx
-            echo "Deployment completed!"
-            echo "Total files: $(find ${{ secrets.SSH_TARGET }} -type f | wc -l)"
-            echo "Total size: $(du -sh ${{ secrets.SSH_TARGET }} | cut -f1)"
-          ENDSSH
+          install -m 600 /dev/null /tmp/ssh_key
+          printenv SSH_KEY > /tmp/ssh_key
+          ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} -i /tmp/ssh_key ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "\
+            echo 'Setting proper permissions...' && \
+            sudo chown -R www-data:www-data ${{ secrets.SSH_TARGET }} && \
+            sudo find ${{ secrets.SSH_TARGET }} -type d -exec chmod 755 {} \; && \
+            sudo find ${{ secrets.SSH_TARGET }} -type f -exec chmod 644 {} \; && \
+            echo 'Reloading Nginx...' && \
+            sudo systemctl reload nginx && \
+            echo 'Deployment completed!'"
           rm -f /tmp/ssh_key
