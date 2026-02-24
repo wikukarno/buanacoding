@@ -65,6 +65,7 @@ jobs:
           EXCLUDE: "/dist/, /node_modules/"
           SCRIPT_BEFORE: |
             whoami
+            sudo chown -R ${{ secrets.SSH_USERNAME }}:${{ secrets.SSH_USERNAME }} ${{ secrets.SSH_TARGET }}
             ls -la ${{ secrets.SSH_TARGET }}
           SCRIPT_AFTER: |
             echo "✅ Files deployed successfully"
