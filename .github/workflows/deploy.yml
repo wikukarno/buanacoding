@@ -79,7 +79,7 @@ jobs:
 
       - name: Post-deployment cleanup
         run: |
-          ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} santri@${{ secrets.SSH_HOST }} "\
+          ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "\
             echo 'Setting proper permissions...' && \
             sudo chown -R www-data:www-data ${{ secrets.SSH_TARGET }} && \
             sudo find ${{ secrets.SSH_TARGET }} -type d -exec chmod 755 {} \; && \
