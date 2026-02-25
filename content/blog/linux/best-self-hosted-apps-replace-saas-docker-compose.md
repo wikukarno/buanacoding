@@ -2,9 +2,9 @@
 title: Best Self-Hosted Apps to Replace SaaS You're Paying For (with Docker Compose)
 description: >-
   Tired of paying monthly SaaS subscriptions? Here are the best self-hosted open
-  source apps you can run on your own server with Docker Compose — from
-  analytics and monitoring to password managers and file storage.
-date: '2026-02-24T12:00:00+07:00'
+  source apps you can run on your own server with Docker Compose, from analytics
+  and monitoring to password managers and file storage.
+date: '2026-02-25T07:00:00+07:00'
 tags:
   - Linux
   - Docker
@@ -84,7 +84,7 @@ Here are the apps I've moved off SaaS and onto my own server. They all run in Do
 
 ## What You Need Before Starting
 
-You don't need a server rack in your closet. A basic VPS works fine for most of this. Here's the minimum:
+You don't need a server rack in your closet. A basic VPS works fine for most of this. You'll want:
 
 - **A VPS or home server** — 2GB RAM handles lightweight apps, 4GB+ if you're running several things at once
 - **Docker and Docker Compose** — if you haven't set this up yet, here's a guide to [install Docker on Ubuntu 24.04](/2025/08/install-docker-on-ubuntu-24-04-with-compose-v2-and-rootless.html)
@@ -194,7 +194,7 @@ Plausible needs more resources than the lightweight apps — ClickHouse for even
 
 **Replaces:** GitHub (for private repos), GitLab, Bitbucket
 
-For personal projects and private repos, Gitea is perfect. It's a lightweight Git hosting platform with a UI that clearly took inspiration from GitHub. Issues, pull requests, code review, CI/CD with Gitea Actions, organizations, webhooks — it's all there.
+For personal projects and private repos, Gitea is perfect. It's a lightweight Git hosting platform with a UI that clearly took inspiration from GitHub. Issues, pull requests, code review, CI/CD with Gitea Actions, organizations, webhooks — you get the full package.
 
 Written in Go, it starts up in seconds and barely uses any memory compared to GitLab (which wants 4GB+ just to breathe).
 
@@ -262,7 +262,7 @@ My honest take: I use Nextcloud mainly for file sync and calendar. The collabora
 
 **Replaces:** Zapier ($20-50/month), Make (Integromat), IFTTT
 
-This one surprised me. n8n is a workflow automation tool with a visual editor — drag nodes, connect them, build automations. Webhook triggers, database queries, API calls, email sending, file processing, conditional logic. The node library covers hundreds of services.
+I didn't expect to like this one as much as I do. n8n is a workflow automation tool with a visual editor — drag nodes, connect them, build automations. Webhook triggers, database queries, API calls, email sending, file processing, conditional logic. The node library covers hundreds of services.
 
 I use it for stuff like: new GitHub star → Telegram notification, daily database backup → upload to S3, form submission → create row in spreadsheet → send confirmation email. Things that would cost real money on Zapier's higher tiers.
 
@@ -357,7 +357,7 @@ services:
       - ./memos-data:/var/opt/memos
 ```
 
-Under 50MB of RAM. Starts in a second. No database to configure. This is what self-hosting should feel like.
+Under 50MB of RAM. Starts in a second. No database to configure. More apps should be this simple.
 
 ## 9. Portainer — Manage All Your Containers Visually
 
@@ -439,7 +439,7 @@ A few things you can't skip:
 - **Automated backups** — Back up Docker volumes to an external location. Test your restores
 - **Updates** — Pull new images regularly. Subscribe to security advisories for apps you run
 
-If any of that sounds like too much, start with one or two apps that aren't holding sensitive data. Uptime Kuma and Memos are great first picks — low risk, high reward, and they teach you the workflow.
+If any of that sounds like too much, start with one or two apps that aren't holding sensitive data. Uptime Kuma and Memos are good starting points — nothing critical breaks if you mess up, and you'll learn the workflow as you go.
 
 ## My Honest Take After a Year of Self-Hosting
 
@@ -449,4 +449,4 @@ But for the apps I listed above? Totally worth it. My VPS costs me about $20/mon
 
 Start small. Pick one app from this list that replaces something you're currently paying for. Get it running, use it for a month, see how it feels. If you like it, add another one. Before you know it, you'll have a little stack of services that are entirely yours.
 
-And when you inevitably break something at 2am and have to fix it yourself — well, that's part of the charm.
+And when you inevitably break something at 2am and have to SSH in to fix it half-asleep — yeah, that happens too. But you'll learn a lot doing it.
