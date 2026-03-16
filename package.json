@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "hugo --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npx hugo && wrangler deploy",
+    "preview": "npx hugo && wrangler dev"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +18,8 @@
     "autoprefixer": "^10.4.21",
     "hugo-extended": "^0.154.4",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.4",
+    "wrangler": "^4.73.0"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.4"
