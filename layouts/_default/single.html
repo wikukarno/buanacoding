@@ -20,6 +20,15 @@
 
     <h1>{{ .Title }}</h1>
 
+    {{/* Article meta: date & reading time */}}
+    {{ if eq .Section "blog" }}
+    <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 not-prose mb-4">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+      <span class="text-gray-300 dark:text-gray-600">|</span>
+      <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
+    </div>
+    {{ end }}
+
     {{/* Language switcher for translated pages */}}
     {{ if .IsTranslated }}
     <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -43,7 +52,7 @@
     {{ $hero := or .Params.hero .Params.og_image }}
     {{ with $hero }}
     <figure class="mb-6 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800">
-      <img src="{{ . }}" alt="{{ $.Title }}" width="1200" height="630" class="w-full h-auto block" loading="eager" fetchpriority="high" />
+      <img src="{{ . }}" alt="{{ $.Title }}" width="1200" height="630" class="w-full h-auto block" loading="eager" decoding="async" fetchpriority="high" />
     </figure>
     {{ end }}
 

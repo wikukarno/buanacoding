@@ -30,3 +30,5 @@
    translation: "Pertanyaan yang Sering Diajukan"
  - id: faq_description
    translation: "Temukan jawaban cepat untuk pertanyaan umum"
+ - id: min_read
+   translation: "menit baca"

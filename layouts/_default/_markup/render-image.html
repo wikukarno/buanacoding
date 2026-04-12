@@ -1,0 +1,20 @@
+{{/*
+  Render hook for Markdown images.
+  - Adds lazy loading for all inline images (below-fold by nature)
+  - Adds width/height to prevent layout shift (CLS)
+  - Uses descriptive alt text from markdown
+  - Adds decoding="async" for non-blocking decode
+*/}}
+{{- $src := .Destination | safeURL -}}
+{{- $alt := .Text -}}
+{{- $title := .Title -}}
+<img
+  src="{{ $src }}"
+  alt="{{ $alt }}"
+  {{- with $title }} title="{{ . }}"{{ end }}
+  loading="lazy"
+  decoding="async"
+  width="800"
+  height="450"
+  class="w-full h-auto"
+/>

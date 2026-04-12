@@ -30,3 +30,5 @@
    translation: "Frequently Asked Questions"
  - id: faq_description
    translation: "Find quick answers to common questions"
+ - id: min_read
+   translation: "min read"

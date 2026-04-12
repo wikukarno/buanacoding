@@ -11,7 +11,7 @@
       {{ $featured := first 1 (where .Site.RegularPages "Params.featured" true) }}
       {{ with index $featured 0 }}
         <a href="{{ .RelPermalink }}" class="block bg-white dark:bg-gray-800 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition mb-8 overflow-hidden">
-          <img src="{{ .Params.image }}" alt="{{ .Title }}" width="800" height="256" class="w-full h-64 object-cover block" loading="eager" fetchpriority="high" />
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" width="800" height="256" class="w-full h-64 object-cover block" loading="eager" decoding="async" fetchpriority="high" />
           <div class="p-6">
             <h3 class="text-2xl font-bold text-[#0f7ea9] mb-2">{{ .Title }}</h3>
             <p class="text-gray-600 dark:text-gray-300 text-base mb-3">
@@ -70,7 +70,7 @@
             class="bg-white dark:bg-gray-800 p-4 rounded shadow hover:bg-gray-100 dark:hover:bg-gray-700 transition">
             <h3 class="text-lg font-semibold text-[#0f7ea9] mb-1">{{ $page.Title }}</h3>
             <p class="text-sm text-gray-600 dark:text-gray-300">{{ $page.Summary | truncate 100 }}</p>
-            <span class="text-xs text-gray-500 block mt-2">{{ $page.Date.Format "02 Jan 2006" }}</span>
+            <span class="text-xs text-gray-500 block mt-2">{{ $page.Date.Format "02 Jan 2006" }} &middot; {{ $page.ReadingTime }} {{ i18n "min_read" }}</span>
           </a>
         {{ end }}
       </div>

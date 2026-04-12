@@ -21,6 +21,11 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ .Permalink }}" />
 
+  <!-- Noindex non-default language pages without original content -->
+  {{ if and (ne .Lang .Site.Language.Lang) (not .IsTranslated) }}
+  <meta name="robots" content="noindex, follow" />
+  {{ end }}
+
   <!-- Preconnect to external origins for faster loading -->
   <link rel="preconnect" href="https://cdn.buanacoding.com" crossorigin />
   <link rel="preconnect" href="https://unpkg.com" crossorigin />
