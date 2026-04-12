@@ -4,3 +4,10 @@ article.md
 mcp/
 .mcp.json
 public/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
