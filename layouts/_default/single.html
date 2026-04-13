@@ -125,22 +125,43 @@
 
 
   <!-- ==== RIGHT: SIDEBAR (Desktop Only) ==== -->
-  <aside class="space-y-10 hidden lg:block">
-    <!-- POPULAR POST -->
-    <div>
-      <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">{{ i18n "popular_post" }}</h3>
-      <ul
-        class="space-y-3 list-disc list-outside pl-5 text-sm text-gray-800 dark:text-gray-200"
-      >
-        {{ range first 5 (where .Site.RegularPages "Type" "blog") }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="hover:text-[#0f7ea9] transition">{{ .Title }}</a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
+  <aside class="hidden lg:block">
+    <div class="sticky top-20 space-y-10">
+      {{/* Table of Contents — only show if article has 3+ headings */}}
+      {{ if and (eq .Section "blog") (gt (len .TableOfContents) 100) }}
+      <nav id="toc-sidebar" class="not-prose">
+        <h3 class="text-sm font-bold mb-3 text-gray-900 dark:text-white uppercase tracking-wide">Table of Contents</h3>
+        <div id="toc-list" class="text-sm max-h-[60vh] overflow-y-auto pr-2">
+          {{ .TableOfContents }}
+        </div>
+        <style>
+          #toc-list ul{list-style:none;margin:0;padding:0}
+          #toc-list li{margin:0;padding:0}
+          #toc-list li li{padding-left:0.75rem}
+          #toc-list a{display:block;padding:4px 8px;border-left:2px solid transparent;color:#6b7280;text-decoration:none;transition:all 0.2s;border-radius:0 4px 4px 0;font-size:0.8125rem;line-height:1.5}
+          #toc-list a:hover{color:#0f7ea9;background:rgba(15,126,169,0.05)}
+          #toc-list a.active{color:#0f7ea9;border-left-color:#0f7ea9;font-weight:600;background:rgba(15,126,169,0.08)}
+          [data-theme="dark"] #toc-list a{color:#9ca3af}
+          [data-theme="dark"] #toc-list a:hover{color:#38bdf8;background:rgba(56,189,248,0.08)}
+          [data-theme="dark"] #toc-list a.active{color:#38bdf8;border-left-color:#38bdf8;background:rgba(56,189,248,0.1)}
+        </style>
+      </nav>
+      {{ end }}
 
-    <!-- Sticky sidebar ad removed for better UX -->
+      <!-- POPULAR POST -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">{{ i18n "popular_post" }}</h3>
+        <ul
+          class="space-y-3 list-disc list-outside pl-5 text-sm text-gray-800 dark:text-gray-200"
+        >
+          {{ range first 5 (where .Site.RegularPages "Type" "blog") }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="hover:text-[#0f7ea9] transition">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
   </aside>
 </div>
 {{/* Comments disabled - Giscus removed
