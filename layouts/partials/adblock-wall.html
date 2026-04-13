@@ -1,23 +1,24 @@
-{{/* Anti-Adblock Hard Wall — all CSS/JS inline to prevent blocking */}}
+{{/* Anti-Adblock Hard Wall — bait-only detection, no network check (avoids false positives) */}}
 {{ if or (not hugo.IsServer) (.Site.Params.ads.forceLive) }}
-<div id="_cf_chl_opt" style="position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;pointer-events:none;">
-  <div class="ad-banner ads adsbox ad-placement textad sponsor" style="width:300px;height:250px;background:transparent;"></div>
+<div style="position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;pointer-events:none;opacity:0;">
+  <div id="_abd1" class="ad-banner adsbox" style="width:300px;height:250px;"></div>
+  <div id="_abd2" class="textad ad-placement" style="width:728px;height:90px;"></div>
 </div>
 <script>
 (function(){
   var w=window,d=document;
-  function checkBait(){
-    var b=d.querySelector('#_cf_chl_opt .ad-banner');
-    if(!b)return true;
-    var s=w.getComputedStyle(b);
+  function isHidden(el){
+    if(!el)return true;
+    if(el.offsetParent===null&&el.offsetHeight===0)return true;
+    var s=w.getComputedStyle(el);
     if(!s)return true;
-    return b.offsetHeight===0||s.display==='none'||s.visibility==='hidden';
+    if(s.display==='none'||s.visibility==='hidden')return true;
+    return false;
   }
-  function checkNetwork(cb){
-    if(!w.fetch){cb(false);return;}
-    fetch(new Request('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',{mode:'no-cors'}))
-      .then(function(){cb(false);})
-      .catch(function(){cb(true);});
+  function checkBaits(){
+    var a=d.getElementById('_abd1');
+    var b=d.getElementById('_abd2');
+    return isHidden(a)||isHidden(b);
   }
   function showWall(){
     if(d.getElementById('_x9k2'))return;
@@ -49,14 +50,10 @@
     if(f)f.style.filter='blur(8px)';
   }
   function detect(){
-    if(checkBait()){showWall();return;}
-    checkNetwork(function(blocked){
-      if(blocked){showWall();return;}
-      setTimeout(function(){if(checkBait())showWall();},2000);
-    });
+    if(checkBaits())showWall();
   }
-  if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',function(){setTimeout(detect,500);});}
-  else{setTimeout(detect,500);}
+  if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',function(){setTimeout(detect,1000);});}
+  else{setTimeout(detect,1000);}
 })();
 </script>
 {{ end }}
