@@ -1,21 +1,31 @@
 {{/* Anti-Adblock Hard Wall — all CSS/JS inline to prevent blocking */}}
 {{ if or (not hugo.IsServer) (.Site.Params.ads.forceLive) }}
-<div id="_cf_chl_opt" style="height:1px;width:1px;position:absolute;left:-9999px;top:-9999px;" class="ad-banner ads-container adsbygoogle"></div>
+<div id="_cf_chl_opt" style="position:absolute;left:-9999px;top:-9999px;width:300px;height:250px;" class="ad-banner ads-container textad sponsor"></div>
 <script>
 (function(){
   var w=window,d=document;
   function checkBait(){
     var b=d.getElementById('_cf_chl_opt');
     if(!b)return true;
+    if(b.offsetParent===null)return true;
     var s=w.getComputedStyle?w.getComputedStyle(b):b.currentStyle;
     if(!s)return true;
-    return b.offsetHeight===0||s.display==='none'||s.visibility==='hidden';
+    return b.offsetHeight===0||b.clientHeight===0||s.display==='none'||s.visibility==='hidden'||s.opacity==='0';
+  }
+  function checkScript(){
+    var scripts=d.querySelectorAll('script[src*="adsbygoogle"]');
+    if(scripts.length===0)return true;
+    if(!w.adsbygoogle||!w.adsbygoogle.loaded)return true;
+    return false;
   }
   function checkAds(){
-    if(typeof w.adsbygoogle==='undefined')return true;
-    var ins=d.querySelector('ins.adsbygoogle');
-    if(ins&&ins.offsetHeight===0&&ins.dataset.adPushed==='true')return true;
-    return false;
+    var ads=d.querySelectorAll('ins.adsbygoogle');
+    if(ads.length===0)return false;
+    var allEmpty=true;
+    for(var i=0;i<ads.length;i++){
+      if(ads[i].offsetHeight>0&&ads[i].innerHTML.trim().length>0){allEmpty=false;break;}
+    }
+    return allEmpty;
   }
   function showWall(){
     if(d.getElementById('_x9k2'))return;
@@ -48,12 +58,13 @@
   }
   function detect(){
     if(checkBait()){showWall();return;}
+    if(checkScript()){showWall();return;}
     setTimeout(function(){
-      if(checkBait()||checkAds())showWall();
-    },2500);
+      if(checkBait()||checkScript()||checkAds())showWall();
+    },3000);
   }
-  if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',function(){setTimeout(detect,300);});}
-  else{setTimeout(detect,300);}
+  if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',function(){setTimeout(detect,500);});}
+  else{setTimeout(detect,500);}
 })();
 </script>
 {{ end }}
