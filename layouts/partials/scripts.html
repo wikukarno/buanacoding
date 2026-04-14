@@ -5,11 +5,12 @@
 
   // Lazy load AdSense - wait for adsbygoogle to be ready before pushing
   (function() {
-    function pushAd(ad, observer) {
-      // Ensure adsbygoogle is ready before pushing
-      if (typeof window.adsbygoogle === 'undefined' || !window.adsbygoogle.loaded) {
-        // Retry after 100ms if adsbygoogle not ready
-        setTimeout(function() { pushAd(ad, observer); }, 100);
+    function pushAd(ad, observer, retries) {
+      retries = retries || 0;
+      if (typeof window.adsbygoogle === 'undefined') {
+        if (retries < 50) {
+          setTimeout(function() { pushAd(ad, observer, retries + 1); }, 200);
+        }
         return;
       }
 
@@ -17,9 +18,7 @@
         try {
           ad.dataset.adPushed = 'true';
           (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-          console.log('AdSense push error:', e);
-        }
+        } catch (e) {}
         if (observer) observer.unobserve(ad);
       }
     }

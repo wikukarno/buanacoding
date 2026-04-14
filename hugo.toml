@@ -2,6 +2,7 @@ baseURL = "https://www.buanacoding.com/"
 languageCode = "en"
 title = "Level Up Your Code | Web & App Development Tutorials"
 defaultContentLanguage = "en"
+enableGitInfo = true
 # Keep default language (English) at root URL, non-default languages under subfolders (e.g., /id/)
 defaultContentLanguageInSubdir = false
 

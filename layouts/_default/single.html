@@ -22,8 +22,12 @@
 
     {{/* Article meta: date & reading time */}}
     {{ if eq .Section "blog" }}
-    <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 not-prose mb-4">
+    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400 not-prose mb-4">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+      {{ if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
+      <span class="text-gray-300 dark:text-gray-600">|</span>
+      <span>Updated: {{ .Lastmod.Format "02 Jan 2006" }}</span>
+      {{ end }}
       <span class="text-gray-300 dark:text-gray-600">|</span>
       <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
     </div>
