@@ -12,6 +12,8 @@
   </div>
   <!-- Search Banner Ad Unit -->
   {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
+  {{/* TODO(adsense): create a dedicated search-banner slot in AdSense UI.
+       Currently shares slot 3879195288 with unit/sidebar/footer/mobile → duplicate push is dropped. */}}
   {{ $adSlot := or .Params.ad_slot_search "3879195288" }}
   {{ $adChannel := .Params.ad_channel }}
   <ins class="adsbygoogle lazy-ad search-results-ad"

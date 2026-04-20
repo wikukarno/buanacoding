@@ -98,6 +98,8 @@
       </ul>
     </div>
 
+    {{/* AdSense: gate extra units on article length to keep ad:content ratio healthy */}}
+    {{ if gt .WordCount 600 }}
     {{/* AdSense: Responsive unit after related block (desktop only) */}}
     <div class="hidden lg:block">
       {{ partial "adsense-unit.html" . }}
@@ -105,6 +107,7 @@
 
     {{/* AdSense: Mobile-only banner under article */}}
     {{ partial "adsense-mobile-banner.html" . }}
+    {{ end }}
     
     <!-- POPULAR POST (Mobile Only) -->
     <div class="lg:hidden mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
@@ -119,8 +122,10 @@
       </div>
     </div>
 
-    {{/* AdSense: Multiplex after article content */}}
+    {{/* AdSense: Multiplex only on longer articles (avoid ad-heavy short posts) */}}
+    {{ if gt .WordCount 800 }}
     {{ partial "adsense-multiplex.html" . }}
+    {{ end }}
 
     {{/* FAQ Section */}}
     {{ partial "faq.html" . }}

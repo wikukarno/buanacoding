@@ -80,11 +80,13 @@ ignoreLogs = ['warning-goldmark-raw-html']
     forceLive = false
 
   [params.consent]
-    # Default Consent Mode values. Set to "granted" to allow ads to load.
-    ad_storage = "granted"
-    ad_user_data = "granted"
-    ad_personalization = "granted"
-    analytics_storage = "granted"
+    # Default Consent Mode values. Keep "denied" — Funding Choices CMP will
+    # upgrade to "granted" after the user accepts. Default-granted makes the
+    # CMP useless for EU/UK/CH visitors (GDPR non-compliant).
+    ad_storage = "denied"
+    ad_user_data = "denied"
+    ad_personalization = "denied"
+    analytics_storage = "denied"
 
 [languages]
   [languages.en]

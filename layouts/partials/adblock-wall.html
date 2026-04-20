@@ -1,4 +1,4 @@
-{{/* Anti-Adblock Hard Wall — bait-only detection, no network check (avoids false positives) */}}
+{{/* Adblock notice — dismissable banner (bait-only detection). Non-blocking, no content blur. */}}
 {{ if or (not hugo.IsServer) (.Site.Params.ads.forceLive) }}
 <div style="position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;pointer-events:none;opacity:0;">
   <div id="_abd1" class="ad-banner adsbox" style="width:300px;height:250px;"></div>
@@ -7,6 +7,9 @@
 <script>
 (function(){
   var w=window,d=document;
+  var DISMISS_KEY='_abDismissedUntil';
+  var DISMISS_DAYS=7;
+
   function isHidden(el){
     if(!el)return true;
     if(el.offsetParent===null&&el.offsetHeight===0)return true;
@@ -20,37 +23,37 @@
     var b=d.getElementById('_abd2');
     return isHidden(a)||isHidden(b);
   }
-  function showWall(){
-    if(d.getElementById('_x9k2'))return;
-    var o=d.createElement('div');
-    o.id='_x9k2';
-    o.innerHTML='<div style="position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:20px;">'
-      +'<div style="background:#fff;border-radius:16px;padding:40px 32px;max-width:480px;width:100%;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.3);">'
-      +'<div style="width:64px;height:64px;margin:0 auto 20px;background:#fee2e2;border-radius:50%;display:flex;align-items:center;justify-content:center;">'
-      +'<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'
-      +'</div>'
-      +'<h2 style="margin:0 0 12px;font-size:22px;font-weight:700;color:#111827;">Ad Blocker Detected</h2>'
-      +'<p style="margin:0 0 20px;font-size:15px;color:#6b7280;line-height:1.6;">We rely on ads to keep this content free. Please disable your ad blocker to continue reading.</p>'
-      +'<div style="background:#f9fafb;border-radius:12px;padding:16px;margin:0 0 24px;text-align:left;">'
-      +'<p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#374151;">How to disable:</p>'
-      +'<ol style="margin:0;padding:0 0 0 20px;font-size:13px;color:#6b7280;line-height:1.8;">'
-      +'<li>Click the ad blocker icon in your browser toolbar</li>'
-      +'<li>Select &quot;Disable on this site&quot; or &quot;Pause&quot;</li>'
-      +'<li>Click the button below to reload</li>'
-      +'</ol></div>'
-      +'<button onclick="location.reload()" style="background:#0f7ea9;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;width:100%;transition:background 0.2s;" onmouseover="this.style.background=\'#0c6a8f\'" onmouseout="this.style.background=\'#0f7ea9\'">I\'ve Disabled My Ad Blocker</button>'
+  function isDismissed(){
+    try{
+      var until=parseInt(localStorage.getItem(DISMISS_KEY)||'0',10);
+      return until>Date.now();
+    }catch(e){return false;}
+  }
+  function dismiss(){
+    try{
+      localStorage.setItem(DISMISS_KEY,String(Date.now()+DISMISS_DAYS*86400000));
+    }catch(e){}
+  }
+  function showBanner(){
+    if(d.getElementById('_abBanner'))return;
+    var bar=d.createElement('div');
+    bar.id='_abBanner';
+    bar.innerHTML='<div style="position:fixed;top:0;left:0;right:0;z-index:9998;background:#1f2937;color:#fff;padding:10px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-family:Inter,system-ui,sans-serif;font-size:14px;">'
+      +'<div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">'
+      +'<span style="flex:1;min-width:220px;line-height:1.5;">'
+      +'<strong style="color:#fbbf24;">Ad blocker detected.</strong> '
+      +'Konten ini gratis berkat iklan. Pertimbangkan disable adblock untuk dukung kami.'
+      +'</span>'
+      +'<button id="_abReload" style="background:#0f7ea9;color:#fff;border:none;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">Sudah Disable, Reload</button>'
+      +'<button id="_abDismiss" style="background:transparent;color:#d1d5db;border:1px solid #4b5563;padding:8px 14px;border-radius:6px;font-size:13px;cursor:pointer;">Tutup</button>'
       +'</div></div>';
-    d.body.appendChild(o);
-    d.body.style.overflow='hidden';
-    var m=d.querySelector('main');
-    if(m)m.style.filter='blur(8px)';
-    var h=d.querySelector('header');
-    if(h)h.style.filter='blur(8px)';
-    var f=d.querySelector('footer');
-    if(f)f.style.filter='blur(8px)';
+    d.body.appendChild(bar);
+    d.getElementById('_abReload').onclick=function(){location.reload();};
+    d.getElementById('_abDismiss').onclick=function(){dismiss();bar.remove();};
   }
   function detect(){
-    if(checkBaits())showWall();
+    if(isDismissed())return;
+    if(checkBaits())showBanner();
   }
   if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',function(){setTimeout(detect,1000);});}
   else{setTimeout(detect,1000);}
