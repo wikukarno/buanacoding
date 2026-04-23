@@ -79,6 +79,28 @@ ignoreLogs = ['warning-goldmark-raw-html']
     # If true, render real AdSense units even when using `hugo server`
     forceLive = false
 
+  [params.adsense]
+    # AdSense publisher + slot IDs per placement.
+    # Each placement MUST have its own slot. Google drops duplicate push()
+    # calls silently — sharing one slot across placements means only the
+    # first one renders and the rest stay blank.
+    publisher = "ca-pub-3149036684216973"
+    slot_in_article = "2492895769"
+    slot_multiplex = "7106179106"
+    slot_header = "9616560861"
+    slot_in_feed = "1061460250"
+    slot_sidebar = "5070862457"
+    slot_footer = "3757780786"
+    slot_mobile = "7337933147"
+    slot_search = "5101510409"
+    slot_bottom_article = "2452752606"
+
+  [params.verification]
+    # Webmaster verification codes. Leave empty to omit the meta tag.
+    google = ""   # Google Search Console: Settings → Ownership verification → HTML tag
+    bing = ""     # Bing Webmaster Tools → Meta tag method
+    yandex = ""   # optional
+
   [params.consent]
     # Default Consent Mode values. Keep "denied" — Funding Choices CMP will
     # upgrade to "granted" after the user accepts. Default-granted makes the

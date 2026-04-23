@@ -13,10 +13,8 @@
     <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
   </div>
   <!-- Sidebar Ad Unit (responsive as provided) -->
-  {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
-  {{/* TODO(adsense): create a dedicated 300x250 sidebar slot in AdSense UI.
-       Currently shares slot 3879195288 with unit/footer/mobile/search → duplicate push is dropped. */}}
-  {{ $adSlot := or .Params.ad_slot_sidebar "3879195288" }}
+  {{ $adClient := or .Params.ad_client .Site.Params.adsense.publisher }}
+  {{ $adSlot := or .Params.ad_slot_sidebar .Site.Params.adsense.slot_sidebar }}
   {{ $adChannel := .Params.ad_channel }}
   <div class="mx-auto w-[300px] min-h-[250px] overflow-hidden">
     <ins class="adsbygoogle lazy-ad"

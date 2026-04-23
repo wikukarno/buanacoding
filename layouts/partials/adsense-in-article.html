@@ -12,8 +12,8 @@
       <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
     </div>
     <!-- Ad Unit: In-Article (uses global AdSense script from head.html) -->
-    {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
-    {{ $adSlot := or .Params.ad_slot_in_article "2492895769" }}
+    {{ $adClient := or .Params.ad_client .Site.Params.adsense.publisher }}
+    {{ $adSlot := or .Params.ad_slot_in_article .Site.Params.adsense.slot_in_article }}
     {{ $adChannel := .Params.ad_channel }}
     <ins class="adsbygoogle lazy-ad"
          style="display:block; text-align:center;"

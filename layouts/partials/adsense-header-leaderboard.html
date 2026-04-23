@@ -12,8 +12,8 @@
       <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
     </div>
     <!-- Header Leaderboard Ad Unit -->
-    {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
-    {{ $adSlot := or .Params.ad_slot_header "9616560861" }}
+    {{ $adClient := or .Params.ad_client .Site.Params.adsense.publisher }}
+    {{ $adSlot := or .Params.ad_slot_header .Site.Params.adsense.slot_header }}
     {{ $adChannel := .Params.ad_channel }}
     <div class="flex justify-center min-h-[90px] md:min-h-[90px]">
       <ins class="adsbygoogle lazy-ad"

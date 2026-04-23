@@ -12,8 +12,8 @@
       <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
     </div>
     <!-- Multiplex Ad Unit -->
-    {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
-    {{ $adSlot := or .Params.ad_slot_multiplex "7106179106" }}
+    {{ $adClient := or .Params.ad_client .Site.Params.adsense.publisher }}
+    {{ $adSlot := or .Params.ad_slot_multiplex .Site.Params.adsense.slot_multiplex }}
     {{ $adChannel := .Params.ad_channel }}
     <div class="flex justify-center">
       <ins class="adsbygoogle lazy-ad"

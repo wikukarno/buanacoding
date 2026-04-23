@@ -26,6 +26,11 @@
   <meta name="robots" content="noindex, follow" />
   {{ end }}
 
+  <!-- Search Engine Verification -->
+  {{ with .Site.Params.verification.google }}<meta name="google-site-verification" content="{{ . }}" />{{ end }}
+  {{ with .Site.Params.verification.bing }}<meta name="msvalidate.01" content="{{ . }}" />{{ end }}
+  {{ with .Site.Params.verification.yandex }}<meta name="yandex-verification" content="{{ . }}" />{{ end }}
+
   <!-- Preconnect to external origins for faster loading -->
   <link rel="preconnect" href="https://cdn.buanacoding.com" crossorigin />
   <link rel="preconnect" href="https://unpkg.com" crossorigin />
@@ -198,14 +203,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  {{/* Content-hashed cache-bust. Only regenerates when the CSS source changes,
+       so the browser can cache between deploys. Guard with fileExists so the
+       build doesn't crash if a stylesheet is missing. */}}
+  {{ $mainCssHash := "1" }}
+  {{ if fileExists "static/style.css" }}{{ $mainCssHash = readFile "static/style.css" | hash.FNV32a }}{{ end }}
+  {{ $overridesHash := "1" }}
+  {{ if fileExists "static/css/overrides.css" }}{{ $overridesHash = readFile "static/css/overrides.css" | hash.FNV32a }}{{ end }}
+  {{ $syntaxHash := "1" }}
+  {{ if fileExists "static/css/syntax.css" }}{{ $syntaxHash = readFile "static/css/syntax.css" | hash.FNV32a }}{{ end }}
   <!-- Critical CSS -->
-  <link rel="stylesheet" href="/style.css?v={{ now.Unix }}" />
+  <link rel="stylesheet" href="/style.css?v={{ $mainCssHash }}" />
   <!-- Non-critical CSS - defer loading -->
-  <link rel="stylesheet" href="/css/overrides.css?v={{ now.Unix }}" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="/css/syntax.css?v={{ now.Unix }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="/css/overrides.css?v={{ $overridesHash }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="/css/syntax.css?v={{ $syntaxHash }}" media="print" onload="this.media='all'" />
   <noscript>
-    <link rel="stylesheet" href="/css/overrides.css?v={{ now.Unix }}" />
-    <link rel="stylesheet" href="/css/syntax.css?v={{ now.Unix }}" />
+    <link rel="stylesheet" href="/css/overrides.css?v={{ $overridesHash }}" />
+    <link rel="stylesheet" href="/css/syntax.css?v={{ $syntaxHash }}" />
   </noscript>
 
   <!-- Google Consent Mode v2 (configurable via params.consent) -->

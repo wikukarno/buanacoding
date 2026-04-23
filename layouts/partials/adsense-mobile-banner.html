@@ -11,10 +11,8 @@
     <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
   </div>
   <!-- Mobile Banner Ad (responsive) -->
-  {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
-  {{/* TODO(adsense): create a dedicated mobile-banner slot in AdSense UI.
-       Currently shares slot 3879195288 with unit/sidebar/footer/search → duplicate push is dropped. */}}
-  {{ $adSlot := or .Params.ad_slot_mobile "3879195288" }}
+  {{ $adClient := or .Params.ad_client .Site.Params.adsense.publisher }}
+  {{ $adSlot := or .Params.ad_slot_mobile .Site.Params.adsense.slot_mobile }}
   {{ $adChannel := .Params.ad_channel }}
   <div class="flex justify-center">
     <ins class="adsbygoogle lazy-ad"

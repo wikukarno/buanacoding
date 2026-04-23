@@ -12,10 +12,8 @@
       <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
     </div>
     <!-- Responsive Ad Unit (reserve height for leaderboard) -->
-    {{ $adClient := or .Params.ad_client "ca-pub-3149036684216973" }}
-    {{/* TODO(adsense): create a dedicated slot for the bottom-article banner in AdSense UI.
-         Currently shares slot 3879195288 with sidebar/footer/mobile/search → only the first push renders. */}}
-    {{ $adSlot := or .Params.ad_slot_banner "3879195288" }}
+    {{ $adClient := or .Params.ad_client .Site.Params.adsense.publisher }}
+    {{ $adSlot := or .Params.ad_slot_banner .Site.Params.adsense.slot_bottom_article }}
     {{ $adChannel := .Params.ad_channel }}
     <div class="flex justify-center">
       <ins class="adsbygoogle lazy-ad"
