@@ -4,3 +4,5 @@ article.md
 mcp/
 .mcp.json
 public/
+.DS_Store
+*.backup
