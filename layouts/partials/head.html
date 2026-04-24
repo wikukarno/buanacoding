@@ -4,7 +4,6 @@
 
   {{ $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) }}
   {{ $desc := cond .IsHome .Site.Params.description (or .Params.description .Summary .Site.Params.description) }}
-  {{ $keywords := or .Params.keywords .Site.Params.keywords }}
   {{ $image := or .Params.og_image .Site.Params.defaultImage }}
 
   <!-- Dynamic Page Title -->
@@ -13,13 +12,19 @@
   <!-- Meta Description -->
   <meta name="description" content="{{ $desc | plainify }}" />
 
-  <!-- Meta Keywords -->
-  {{ with $keywords }}
-    <meta name="keywords" content="{{ delimit . ", " }}" />
+  {{/* Canonical URL: self-referential on paginated list pages (page 2+),
+       otherwise the page's own permalink. Cross-page canonicals would tell
+       Google to consolidate all paginated URLs onto page 1, which hurts
+       discovery of items only reachable on deeper pages. */}}
+  {{ $canonical := .Permalink }}
+  {{ if or .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
+    {{ with .Paginator }}
+      {{ if gt .PageNumber 1 }}
+        {{ $canonical = .URL | absURL }}
+      {{ end }}
+    {{ end }}
   {{ end }}
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ .Permalink }}" />
+  <link rel="canonical" href="{{ $canonical }}" />
 
   <!-- Noindex non-default language pages without original content -->
   {{ if and (ne .Lang .Site.Language.Lang) (not .IsTranslated) }}

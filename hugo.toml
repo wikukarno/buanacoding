@@ -60,7 +60,6 @@ ignoreLogs = ['warning-goldmark-raw-html']
 [params]
   author = "Wiku Karno"
   description = "Want to code better? Buana Coding provides high-quality tutorials, tips, and developer tools. From fixing bugs to building full apps, start learning today."
-  keywords = ["coding", "programming", "web development", "app development", "tutorial", "developer tips"]
   defaultImage = "https://www.buanacoding.com/og-image.jpg"
   # Tags to show in navbar (allowlist). Fallback shows up to 6 popular tags.
   navTags = ["General", "Go", "Laravel", "Linux", "Python", "Security"]
@@ -86,6 +85,9 @@ ignoreLogs = ['warning-goldmark-raw-html']
     # first one renders and the rest stay blank.
     publisher = "ca-pub-3149036684216973"
     slot_in_article = "2492895769"
+    # 2nd in-article slot — only renders on posts >1500 words. Leave empty
+    # to disable; fill with a fresh AdSense unit ID once created.
+    slot_in_article_2 = ""
     slot_multiplex = "7106179106"
     slot_header = "9616560861"
     slot_in_feed = "1061460250"

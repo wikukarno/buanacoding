@@ -1,0 +1,26 @@
+<!-- Ad: In-Article #2 (only renders on long posts when slot is set) -->
+<div class="my-8 flex justify-center">
+  <div class="w-full max-w-2xl">
+    {{ $forceLive := or .Site.Params.ads.forceLive false }}
+    {{ if and hugo.IsServer (not $forceLive) }}
+    <div class="border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-center text-xs py-4 px-6 rounded-lg text-gray-500 dark:text-gray-400">
+      📢 Ad placeholder: In‑Article #2 (long posts only)
+    </div>
+    {{ else }}
+    <!-- Ad Label -->
+    <div class="text-center mb-2">
+      <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">{{ i18n "advertisement" }}</span>
+    </div>
+    <!-- Ad Unit: In-Article #2 (uses global AdSense script from head.html) -->
+    {{ $adClient := or .Params.ad_client .Site.Params.adsense.publisher }}
+    {{ $adSlot := or .Params.ad_slot_in_article_2 .Site.Params.adsense.slot_in_article_2 }}
+    {{ $adChannel := .Params.ad_channel }}
+    <ins class="adsbygoogle lazy-ad"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="{{ $adClient }}"
+         data-ad-slot="{{ $adSlot }}"{{ with $adChannel }} data-ad-channel="{{ . }}"{{ end }}></ins>
+    {{ end }}
+  </div>
+</div>

@@ -70,10 +70,24 @@
       {{ partial "adsense-in-article.html" . }}
     {{ end }}
     
-    {{/* Tampilkan sisa paragraf */}}
+    {{/* Tampilkan sisa paragraf — untuk artikel >1500 kata, sisipkan 2nd
+         in-article ad di tengah ketika slot_in_article_2 sudah di-set. */}}
     {{ if gt (len $paragraphs) 3 }}
-      {{ range after 3 $paragraphs }}
-        {{ . | safeHTML }}{{ if not (strings.HasSuffix . "</p>") }}</p>{{ end }}
+      {{ $rest := after 3 $paragraphs }}
+      {{ $inject2nd := and (gt .WordCount 1500) (ne .Site.Params.adsense.slot_in_article_2 "") }}
+      {{ if $inject2nd }}
+        {{ $mid := div (len $rest) 2 }}
+        {{ range first $mid $rest }}
+          {{ . | safeHTML }}{{ if not (strings.HasSuffix . "</p>") }}</p>{{ end }}
+        {{ end }}
+        {{ partial "adsense-in-article-2.html" . }}
+        {{ range after $mid $rest }}
+          {{ . | safeHTML }}{{ if not (strings.HasSuffix . "</p>") }}</p>{{ end }}
+        {{ end }}
+      {{ else }}
+        {{ range $rest }}
+          {{ . | safeHTML }}{{ if not (strings.HasSuffix . "</p>") }}</p>{{ end }}
+        {{ end }}
       {{ end }}
     {{ end }}
 
