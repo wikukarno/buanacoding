@@ -87,7 +87,7 @@ ignoreLogs = ['warning-goldmark-raw-html']
     slot_in_article = "2492895769"
     # 2nd in-article slot — only renders on posts >1500 words. Leave empty
     # to disable; fill with a fresh AdSense unit ID once created.
-    slot_in_article_2 = ""
+    slot_in_article_2 = "3558162740"
     slot_multiplex = "7106179106"
     slot_header = "9616560861"
     slot_in_feed = "1061460250"
