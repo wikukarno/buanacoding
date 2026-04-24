@@ -91,6 +91,19 @@
       {{ end }}
     {{ end }}
 
+    {{/* Pillar callout: when the post's first tag is Go, nudge readers to the
+         Go index page. Builds strong inbound link equity into /go/ and gives
+         readers a natural next step to deeper related content. */}}
+    {{ $firstTagLower := "" }}
+    {{ with index .Params.tags 0 }}{{ $firstTagLower = lower . }}{{ end }}
+    {{ if eq $firstTagLower "go" }}
+    <div class="bg-cyan-50 dark:bg-cyan-900/20 border-l-4 border-cyan-500 p-4 my-8 rounded not-prose">
+      <p class="m-0 text-sm text-gray-800 dark:text-gray-200">
+        📚 Want more? Browse the full <a href="/go/" class="font-semibold text-[#0f7ea9] hover:underline">Go tutorial index</a> — 55+ guides organized by topic from fundamentals to microservices.
+      </p>
+    </div>
+    {{ end }}
+
     <!-- Related/Read Also (prefer related by tag) -->
     <div class="bg-gray-100 dark:bg-gray-800 p-4 my-8 rounded">
       <h2 class="text-lg font-semibold mb-2">📌 {{ i18n "read_also" }}</h2>

@@ -14,7 +14,7 @@
         {{ range $tag := $navTags }}
           {{ $key := lower $tag }}
           <a
-            href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
+            href="{{ if eq $key "go" }}{{ "/go/" | relLangURL }}{{ else }}{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}{{ end }}"
             class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
           >
 {{ if eq (lower $tag) "go" }}Golang{{ else }}{{ $tag }}{{ end }}
@@ -26,7 +26,7 @@
         {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
           {{ if and (ge (len $taxonomy) 2) (lt ($.Scratch.Get "shown") 6) }}
             <a
-              href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
+              href="{{ if eq (lower $name) "go" }}{{ "/go/" | relLangURL }}{{ else }}{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}{{ end }}"
               class="no-underline hover:text-cyan-300 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
             >
 {{ if eq (lower $name) "go" }}Golang{{ else }}{{ $name }}{{ end }}
@@ -104,7 +104,7 @@
       {{ range $tag := $navTags }}
         {{ $key := lower $tag }}
         <a
-          href="{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}"
+          href="{{ if eq $key "go" }}{{ "/go/" | relLangURL }}{{ else }}{{ (printf "/tags/%s" ($key | urlize)) | relLangURL }}{{ end }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
         >
 {{ if eq (lower $tag) "go" }}Golang{{ else }}{{ $tag }}{{ end }}
@@ -115,7 +115,7 @@
       {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
         {{ if and (ge (len $taxonomy) 2) (lt ($.Scratch.Get "shown") 6) }}
         <a
-          href="{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}"
+          href="{{ if eq (lower $name) "go" }}{{ "/go/" | relLangURL }}{{ else }}{{ (printf "/tags/%s" ($name | urlize)) | relLangURL }}{{ end }}"
           class="block no-underline hover:text-cyan-500 dark:hover:text-[#0f7ea9] transition font-medium text-sm capitalize"
         >
 {{ if eq (lower $name) "go" }}Golang{{ else }}{{ $name }}{{ end }}
